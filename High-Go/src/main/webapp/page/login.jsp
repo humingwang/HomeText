@@ -4,9 +4,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>注册</title>
+		<title>登录</title>
 		<link rel="stylesheet" href="../css/reset.css" />
 		<link rel="stylesheet" href="../css/common.css" />
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/common.js" ></script>
 	</head>
 	<body>
 		<div class="wrap login_wrap">
@@ -18,7 +20,7 @@
 					
 					<div class="login_form">
 						<div class="login_title">
-							注册
+							登录
 						</div>
 						<form action="" method="post">
 							
@@ -30,22 +32,19 @@
 								<input name="password" type="password" placeholder="密码">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
-							<div class="form_text_ipt">
-								<input name="repassword" type="password" placeholder="重复密码">
-							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
-							<div class="form_text_ipt1">
-								<input name="code" type="text" placeholder="验证码">
-                        	</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
-							<div class="form_a">
-                            	 <a href="#">点击发送验证码</a>
+							<div class="form_check_ipt">
+								<div class="left check_left">
+									<label><input name="" type="checkbox"> 下次自动登录</label>
+								</div>
+								<div class="right check_right">
+									<a href="#">忘记密码</a>
+								</div>
 							</div>
 							<div class="form_btn">
-								<button type="button">注册</button>
+								<button type="button">登录</button>
 							</div>
 							<div class="form_reg_btn">
-								<span>已有帐号？</span><a href="login.jsp">马上登录</a>
+								<span>还没有帐号？</span><a href="register.jsp">马上注册</a>
 							</div>
 						</form>
 						<div class="other_login">
@@ -62,7 +61,7 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="js/jquery.min.js" ></script>
-		<script type="text/javascript" src="js/common.js" ></script>
+	
 	</body>
 </html>
+>

@@ -8,7 +8,7 @@
 		<link rel="short icon" href="../images/icon.png"/>
 		<link rel="stylesheet" href="../css/newArrival.css" />
         <link rel="stylesheet" href="../css/index.css" />
-        <script src="../js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
 		<script src="../js/slider.js"></script>
 		<script src="../js/index.js"></script>
 	</head>
@@ -18,9 +18,9 @@
 			<div class="login">
 				<div class="login_left">
 					<div class="welcome">
-						<a href="" id="login">登录</a>
+						<a href="login.jsp" id="login">登录</a>
 						|
-						<a href="" id="register">注册</a>
+						<a href="register.jsp" id="register">注册</a>
 						|
 					</div>
 					<div class="shop_car">

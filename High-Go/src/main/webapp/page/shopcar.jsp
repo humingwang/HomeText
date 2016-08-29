@@ -8,7 +8,7 @@
 		<link rel="short icon" href="../images/icon.png"/>
 		<link rel="stylesheet" href="../css/shopcar.css" />
 		<link rel="stylesheet" type="text/css" href="../css/css.css" />
-		<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="../js/shopping.js"></script>
 	</head>
 	<body>
