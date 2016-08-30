@@ -27,7 +27,7 @@
 			</div>
 			<div class="login_right">
 				<div class="welcome right_1">
-					<a href="">我的嗨购</a> | <a href="">会员俱乐部</a>
+					<a href="shopcar.jsp">我的嗨购</a> | <a href="">会员俱乐部</a>
 				</div>
 			</div>
 		</div>
