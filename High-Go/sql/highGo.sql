@@ -5,6 +5,8 @@ drop table assess;
 drop table customer;
 drop table product;
 drop table productType;
+drop table address;
+drop table stock;
 
 drop sequence admin_aid;
 drop sequence customer_cid;
@@ -39,7 +41,7 @@ create sequence orderdetails_odid start with 1 increment by 1;
 		cage int,---年龄
 		cemail varchar2(20) not null unique --邮箱
 	);
-	insert into customer values(customer_cid,'sa','a',1000,'女','123@qq.com');
+	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'123@qq.com');
 	
 --商品类型：
 	create table productType(
@@ -69,7 +71,6 @@ create sequence orderdetails_odid start with 1 increment by 1;
 		pview int,--浏览次数
 		ptid int references productType(ptid)--类型编号
 	);
-	insert into product values(product_pid.nextval,'四件套','gjh放假呀就','','27','888','2016-6-12',34,1);
 	
 	
 --库存表
@@ -104,10 +105,10 @@ create sequence orderdetails_odid start with 1 increment by 1;
 	);
 --地址表
 	create table address(
-		aid int primary kay,--地址编号
+		aid int primary key,--地址编号
 		aarea varchar2(40),--地区
 		adetail varchar2(100),--详细地址
 		amail int,--邮政编号
 		aname varchar2(20),--姓名
-		atel number10     --手机号码
-	)
+		atel varchar2(15)     --手机号码
+	);
