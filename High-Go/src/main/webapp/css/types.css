@@ -1,0 +1,193 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0;
+  padding:0;}
+  body{
+	  margin-left:10px;
+	  width:98%;
+	  }
+  .header{
+	  width:100%;
+	  height:100px;
+	  border:1px solid red;
+	  float:left;
+  }
+  a{
+	  text-decoration:none;}
+  ul li{
+	  list-style:none;}
+  .logo1{
+	  width:100%;
+	  height:30px;
+	  background-color:#EBF4FC;}
+	.font{
+		float:right;
+		}
+	.font ul li{
+		width:100px;
+		line-height:30px;
+		text-align:center;
+		font-size:14px;
+		float:left;}  
+	  .tel{
+		  width:400px;
+		  height:30px;
+		  float:right;
+		  margin-top:20px;
+		  background-image:url(../images/tel.gif);}
+		.logoo{
+			width:200px;
+			height:70px;
+			float:left;
+			margin-left:60px;
+		}
+	 	.types{
+			width:100%;
+			height:50px;
+			margin-top:20px;
+			float:left;
+			background-color:#FF4400;
+		}
+		.types ul li{
+			list-style:none;
+			float:left;
+			width:210px;
+			text-align:center;
+			font-size:20px;
+			font-weight:bold;
+			line-height:50px;
+			height:50px;
+		}
+		.types ul li a:link{
+			color:#fff;
+			}
+		.types ul li:hover{
+			color:#fff;
+			background-color:#F90;}
+		.pic{
+			width:100%;
+			height:280px;
+			float:left;
+			background-image:url(../images/bigpic.jpg);
+			background-size:cover;
+			border:1px solid red;
+		}
+		.shou{
+			margin-left:170px;}
+		.type2{
+			width:100%;
+			height:330px;
+			float:left;
+			border:1px solid #ccc;
+		}
+		.shang,.xinpin{
+			height:50px;
+			background-color:#EEEEFF;
+			border:1px solid #CCC;}
+		.pin,.cuxiao{
+			height:50px;
+			font-size:18px;
+			color:red;
+			white-space:50px;
+			line-height:50px;
+			float:left;
+			margin-left:10px;
+			font-weight:bolder;
+			}
+		.fen{
+			width:15%;
+			height:278px;
+			float:left;
+			border:1px solid #CCC;
+		}
+		.fen ul li{
+			width:100px;
+			height:40px;
+			line-height:40px;
+			float:left;
+			text-align:center;
+			font-weight:bold;
+			margin-top:20px;
+			margin-left:20px;
+			background-color:#EEEEEE;
+		}
+		.detail{
+			width:830px;
+			height:278px;
+			float:left;
+			border-right:1px solid red;
+			}
+		.detail ul{
+			width:650px;
+			height:35p;
+			}
+		.detail ul li{
+			float:left;
+			margin-top:28px;
+			width:90px;
+			height:30px;
+			line-height:30px;
+			margin-left:30px;
+			border:1px solid #CCC;
+			}
+		#news{
+			width:275px;
+			height:278px;
+			float:left;
+			border:1px solid red;}
+		.loo{
+			wdith:100%;
+			height:35px;
+			font-size:14px;
+			color:red;
+			line-height:35px;
+			text-align:center;
+			border-bottom:1px solid #ccc;
+			}
+		#newes{
+			width:98%;
+			height:245px;
+			border:1px solid #ccc;}
+		.goods{
+			width:100%;
+			height:500px;
+			float:left;
+			border:1px solid #ccc;}
+		
+		.details ul li{
+			width:180px;
+			height:200px;
+			float:left;
+			border:1px solid #ccc;
+			margin-left:33px;
+			margin-top:20px;}
+		.first{
+			margin-left:100px;}
+			
+		#bott{
+			margin-top:30px;
+			width:1250px;
+			height:89px;
+			float:left;
+			margin-left:40px;
+			background-size:cover;}
+	.bott2{
+		width:1250px;
+		height:50px;
+		float:left;
+		margin-top:40px;
+		margin-left:200px;
+		}
+	.bott2 ul li{
+		float:left;
+		margin-left:30px;
+		list-style:none;
+		}
+	.ziti{
+		width:1250px;
+		height:100px;
+		float:left;
+		margin-left:20px;
+		}
+
