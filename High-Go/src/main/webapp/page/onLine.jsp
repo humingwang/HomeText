@@ -42,10 +42,10 @@
 	<div class="types">
 		<ul>
 			<li class="shou"><a href="javascript:type()">首页</a></li>
-			<li><a href="javascript:type()">床上用品</a></li>
+			<li><a href="types.jsp">床上用品</a></li>
 			<li><a href="javascript:type()">装饰设计</a></li>
 			<li><a href="javascript:type()">家具用品</a></li>
-			<li><a href="javascript:type()">关于我们</a></li>
+			<li><a href="about.jsp">关于我们</a></li>
 		</ul>
 	</div>
 
