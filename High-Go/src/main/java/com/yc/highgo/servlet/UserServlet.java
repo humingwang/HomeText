@@ -1,5 +1,5 @@
 package com.yc.highgo.servlet;
 
-public class UserServletImpl {
+public class UserServlet {
 
 }

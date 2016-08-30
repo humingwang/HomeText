@@ -1,5 +1,5 @@
 package com.yc.highgo.handler;
 
-public class User {
+public class UserHandler {
 
 }
