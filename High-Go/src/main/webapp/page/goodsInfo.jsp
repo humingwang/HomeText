@@ -110,15 +110,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
 	<div class="showall">
 		<!--left -->
 		<div class="showbot">
@@ -178,7 +169,7 @@
 						if (parseInt(t.val()) == 1) {
 							$('#min').attr('disabled', true);
 						}
-
+   
 					})
 				});
 			</script>

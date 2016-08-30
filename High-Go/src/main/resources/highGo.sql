@@ -27,6 +27,8 @@ create sequence orderdetails_odid start with 1 increment by 1;
 		aname varchar2(20) not null,--管理员名
 		apwd varchar2(20) not null --管理员密码
 	);
+	
+	
 --客户表：
 	create table customer(
 		cid int primary key,--客户编号
