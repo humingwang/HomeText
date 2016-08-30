@@ -32,6 +32,7 @@
 	</div>
 	<div class="haigou">
 		<img src="../images/logo.png">
+		<img src="../images/high-go.png">
 	</div>
 	<div class="search">
 		<div class="input_text">

@@ -37,7 +37,7 @@
 				<li class="li_1"></li>
 				<!--logo放置-->
 				<li><a href="">首页</a></li>
-				<li class="li_3"><a href="">在线商城<i></i></a>
+				<li class="li_3"><a href="onLine.jsp">在线商城<i></i></a>
 					<ul class="on_ul">
 						<li class="one">床上用品
 							<ul class="two">
@@ -67,7 +67,7 @@
 							</ul>
 						</li>
 					</ul></li>
-				<li class="li_4"><a href="">新品上架<i></i></a>
+				<li class="li_4"><a href="NewProduct.jsp">新品上架<i></i></a>
 					<div class="new_div">
 						<ul class="new_ul">
 							<li><a href=""><img src="../images/cl7.jpg" class="gray" /><span>窗帘</span></a></li>
@@ -80,8 +80,8 @@
 							<li><a href=""><img src="../images/yj2.jpg" class="gray" /><span>浴巾</span></a></li>
 						</ul>
 					</div></li>
-				<li><a href="">客户留言</a></li>
-				<li><a href="">关于我们</a></li>
+				<li><a href="suggest.jsp">客户留言</a></li>
+				<li><a href="about.jsp">关于我们</a></li>
 			</ul>
 			<!--搜索框-->
 			<div class="search_box">
