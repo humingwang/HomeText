@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>首页</title>
+<title>商品详情</title>
 <meta name="keywords" content="首页" />
 <meta name="description" content="首页" />
 <link rel="stylesheet" type="text/css" href="../css/normalize.css" />

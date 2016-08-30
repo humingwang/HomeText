@@ -1,6 +1,7 @@
 /*重置样式*/
-body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
-li, dl, dt, dd, a, fieldset, input,   {
+body, html, div, blockquote,label, p, h1, h2, h3, h4, h5, h6, pre,
+	ul, dl, dt, dd, fieldset, input{
+
 	margin: 0 auto;
 	padding: 0;
 	border: 0;
