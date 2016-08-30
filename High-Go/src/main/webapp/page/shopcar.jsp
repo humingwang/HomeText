@@ -7,6 +7,7 @@
 		<title>购物车</title>
 		<link rel="short icon" href="../images/icon.png"/>
 		<link rel="stylesheet" href="../css/shopcar.css" />
+		<link rel="stylesheet" href="../css/newArrival.css" />
 		<link rel="stylesheet" type="text/css" href="../css/css.css" />
 		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="../js/shopping.js"></script>
@@ -323,12 +324,27 @@
 </div>
 
 	<!---------------------------------------------尾部------------------------------------------->
-		<div class="foot">
-        	 <div style="border-top:solid #cac9c8 1px; width:50%; margin:auto;"></div>
+		<footer style="height:110px;">
+	<div class="bottom">
+    	<img id="bott" src="../images/bottomlogo.png">
+        <div class="bott2">
+            <ul>
+                <li><img src="../images/b1.png"></li>
+                <li><img src="../images/b2.png"></li>
+                <li><img src="../images/b3.png"></li>
+                <li><img src="../images/b4.png"></li>
+                <li><img src="../images/b5.png"></li>
+                <li><img src="../images/b6.png"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="ziti">
+    <div style="border-top:solid #cac9c8 1px; width:50%; margin:auto;"></div>
     <div style="font-size:12px; margin:auto; text-align:center; margin-top:15px; color:#969492;">
     温馨提示：嗨购公司欢成立以来一直征求广大消费者的各种建议，嗨购将一步步完善，为广大消费者提供更优质的服务，更优越的产品。嗨购在以后的道路上会按照本公司的需求与调整满足消费者的合理条件。<br></div>
-    	<div style="font-size:12px; margin:auto; text-align:center; margin-top:15px; color:#969492;">
+    	<div style="font-size:12px; margin:auto; text-align:center; margin-top:15px;color:#969492;">
             <p>湖南省衡阳市湖南工学院嗨购  &copy;&nbsp; 建立于2016 	嗨购公司版权所有</p></div>
-        </div>
+ 	 </div>
+    </footer>
 	</body>
 </html>
