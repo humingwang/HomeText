@@ -1,247 +1,299 @@
 /*重置样式*/
-body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
-li, dl, dt, dd, form, a, fieldset, input, th, td
-{margin: 0 auto; padding: 0; border: 0; outline: none;}
-body{line-height: 1;font-size: 88% /* Decide for yourself if you want to include this. */;}
-h1, h2, h3, h4, h5, h6{font-size: 100%;padding: .6em 0;margin: 0 15px;}
-
-a{color: black;text-decoration: none;}
-a:hover
-{text-decoration: none;}
-.floatLeft{float: left;padding: .5em .5em .5em 0;}
-.floatRight{float: right;padding: .5em 0 .5em .5em;}
- 
- body{
- 	width: 100%;
- 	height: 700px;
- 	overflow: scroll;/*溢出部分，用滚动条*/
- }
- /*头部*/
- .head{
- 	width: 100%;
- 	height: 15%;
- }
- /*头部之登录栏*/
- .login{
- 	width: 100%;
- 	height: 40%;
- 	background-color: #fff;
- 	position: relative;
- }
- .head ul, ol{list-style: none;}
-/* 登录栏左侧*/
- .login .login_left{
- 	width: 25%;
- 	height: 100%;
- 	float: left;
- 	margin-left:25px ;
- 	position: relative;
- 	background: url(../images/00.png) no-repeat;
- 	background-position: 1px -47px;
- }
- .login_left .welcome{
- 	width:120px;
- 	height: 20px;
- 	padding:5px 10px 7px 50px;
- }
- .welcome a{
- 	margin: auto 5px;
- 	font: 16px/20px "微软雅黑";
- }
- .welcome a:hover{
- 	color: #FF4400;
- 	font-weight: bold;
- }
- .login_left .shop_car a{
- 	width: 25px;
- 	height: 25px;
- 	background: url(../images/00.png) no-repeat;
- 	background-position:1px -23px;
- 	position: absolute;
- 	top:3px;
- 	right: 56px;
- }
-/* 登录栏右侧*/
- .login .login_right{
- 	width: 20%;
- 	height: 100%;
- 	position: absolute;
- 	right: 0px;
- }
- .login_right .right_1{
- 	margin: 5px 30px;
- 	float: right;
- }
-/* 菜单栏*/
-.head .menu{
-	width: 100%;
- 	height: 60%;
- 	background-color:  #FF4400;
- 	position: relative;
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre,
+	ul, ol, li, dl, dt, dd, form, a, fieldset, input, th, td {
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	outline: none;
 }
-.menu ul{
+
+body {
+	line-height: 1;
+	font-size: 88% /* Decide for yourself if you want to include this. */;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	padding: .6em 0;
+	margin: 0 15px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.floatLeft {
+	float: left;
+	padding: .5em .5em .5em 0;
+}
+
+.floatRight {
+	float: right;
+	padding: .5em 0 .5em .5em;
+}
+
+body {
+	width: 100%;
+	height: 700px;
+	overflow: auto; /*溢出部分，自动用滚动条*/
+}
+/*头部*/
+.head {
+	width: 100%;
+	height: 12%;
+}
+/*头部之登录栏*/
+.login {
+	width: 100%;
+	height: 40%;
+	background-color: #fff;
+	position: relative;
+}
+
+.head ul, ol {
+	list-style: none;
+}
+/* 登录栏左侧*/
+.login .login_left {
+	width: 25%;
+	height: 100%;
+	float: left;
+	margin-left: 25px;
+	position: relative;
+	background: url(../images/00.png) no-repeat;
+	background-position: 1px -47px;
+}
+
+.login_left .welcome {
+	width: 120px;
+	height: 20px;
+	padding: 5px 10px 7px 50px;
+}
+
+.welcome a {
+	margin: auto 5px;
+	font: 16px/20px "微软雅黑";
+}
+
+.welcome a:hover {
+	color: #FF4400;
+	font-weight: bold;
+}
+
+.login_left .shop_car a {
+	width: 25px;
+	height: 25px;
+	background: url(../images/00.png) no-repeat;
+	background-position: 1px -23px;
+	position: absolute;
+	top: 3px;
+	right: 56px;
+}
+/* 登录栏右侧*/
+.login .login_right {
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	right: 0px;
+}
+
+.login_right .right_1 {
+	margin: 5px 30px;
+	float: right;
+}
+/* 菜单栏*/
+.head .menu {
+	width: 100%;
+	height: 60%;
+	background-color: #FF4400;
+	position: relative;
+}
+
+.menu ul {
 	width: 80%;
 	height: 100%;
 	float: left;
-} 
-.menu ul li{
+}
+
+.menu ul li {
 	width: 15%;
 	height: 100%;
 	float: left;
 	font: 18px "微软雅黑";
 	text-align: center;
 	line-height: 2.5em;
-} 
-.menu ul li a{
+}
+
+.menu ul li a {
 	display: inline-block;
 	width: 90%;
 	height: 100%;
 	color: #fff;
 	position: relative;
 }
-.menu ul li a i{
+
+.menu ul li a i {
 	display: inline-block;
 	width: 13%;
 	height: 42%;
 	background: url(../images/00.png) no-repeat;
- 	background-position:1px -1px;
- 	position: absolute;
- 	right:15px;
- 	top:15px;
-} 
-.menu ul li a:hover{
-	background-color:#FF9913 ;
+	background-position: 1px -1px;
+	position: absolute;
+	right: 15px;
+	top: 15px;
 }
-.menu ul .li_1{
+
+.menu ul li a:hover {
+	background-color: #FF9913;
+}
+
+.menu ul .li_1 {
 	width: 17%;
 	background: url(../images/00.png) no-repeat;
- 	background-position:1px -82px;
-} 
+	background-position: 1px -80px;
+}
 /*菜单下拉列表*/
 /*在线商城*/
 /*三大下拉模块ul*/
-.menu .li_3 .on_ul{
+.menu .li_3 .on_ul {
 	position: absolute;
 	left: 0px;
 	width: 100%;
 	height: 800%;
-	background-color: rgba(255,153,19,0.4);
+	background-color: #fff;
 	display: none;
 	z-index: 1;
 }
-.menu .li_3:hover .on_ul{
+
+.menu .li_3:hover .on_ul {
 	display: block;
 }
 /*单独大模块li*/
-.menu .li_3 .on_ul .one{   
+.menu .li_3 .on_ul .one {
 	width: 33.1%;
-	height:100%;
+	height: 100%;
 	color: #FF4400;
 	font-size: 32px;
 	position: relative;
-	border-left:1px solid #FF9913;
+	border-left: 1px solid #FF9913;
 }
 /*单独大模块li下的ul*/
-.menu .li_3 .on_ul .one .two{
+.menu .li_3 .on_ul .one .two {
 	width: 50%;
-	margin:10px 100px;
+	margin: 10px 100px;
 }
 /*单独大模块li下的ul的单个li*/
-.menu .li_3 .on_ul .one .two_{
+.menu .li_3 .on_ul .one .two_ {
 	width: 100%;
-  	height: 14%;
+	height: 14%;
 }
-.menu .li_3 .on_ul .one .two_ a{
-	color:#fff;
+
+.menu .li_3 .on_ul .one .two_ a {
+	color: #FF4400;
 	font-size: 15px;
 }
-.menu .li_3 .on_ul .one .two_ a:hover{
+
+.menu .li_3 .on_ul .one .two_ a:hover {
 	background: none;
 }
 /* 新品上架*/
-.menu .li_4 .new_div{
+.menu .li_4 .new_div {
 	position: absolute;
 	left: 0px;
 	width: 100%;
 	height: 800%;
-	background-color: rgba(255,153,19,0.4);
+	background-color: #fff;
 	display: none;
 	z-index: 1;
 }
-.menu .li_4:hover .new_div{
+
+.menu .li_4:hover .new_div {
 	display: block;
 }
-.menu .li_4 .new_ul{
+
+.menu .li_4 .new_ul {
 	position: absolute;
 	width: 90%;
 	height: 90%;
 	left: 0;
-  	right: 0;
-  	top:10px;
+	right: 0;
+	top: 10px;
 }
-.menu .li_4 .new_ul li{
+
+.menu .li_4 .new_ul li {
 	width: 18%;
 	height: 100%;
 	margin: 15px 10px;
 }
+
 .menu .li_4 .new_ul li a:hover {
 	background: none;
 }
-.menu .li_4 .new_ul .gray{
+
+.menu .li_4 .new_ul .gray {
 	-webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: gray;
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
 	border-radius: 10px;
 }
-.menu .li_4 .new_ul .gray:hover{
+
+.menu .li_4 .new_ul .gray:hover {
 	-webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
-    -ms-filter: grayscale(0%);
-    -o-filter: grayscale(0%);
-    filter: grayscale(0%);
-    filter: gray;
+	-moz-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	filter: grayscale(0%);
+	filter: gray;
 }
-.menu .li_4 .new_ul li a span{
+
+.menu .li_4 .new_ul li a span {
 	font-size: 20px;
+	color:#FF4400;
 }
-
-
-
 
 /*搜索框 */
-.menu .search_box{
+.menu .search_box {
 	display: inline-block;
 	width: 20%;
 	height: 80%;
 	position: absolute;
-	top:5px;
+	top: 5px;
 	right: 60px;
 }
-.menu .search_box form{
+
+.menu .search_box form {
 	width: 90%;
 	height: 90%;
 	margin-top: 5px;
 }
-.menu .search_box form p{
-	width:70%;
+
+.menu .search_box form p {
+	width: 70%;
 	height: 70%;
 	float: left;
 	background-color: #fff;
 	border-radius: 4px 0px 0px 4px;
 }
-#search{
+
+#search {
 	display: inline-block;
-	width:90%;
+	width: 90%;
 	height: 100%;
 	font-size: 15px;
-	margin-left:10px;
+	margin-left: 10px;
 }
- #go_search{
- 	display: inline-block;
- 	width:18%;
+
+#go_search {
+	display: inline-block;
+	width: 18%;
 	height: 70%;
 	font: bold 15px "微软雅黑";
 	text-align: center;
@@ -250,39 +302,32 @@ a:hover
 	border-radius: 0px 4px 4px 0px;
 	color: #fff;
 	cursor: pointer;
- }
- 
+}
 
- 
- 
- 
- 
- 
 /* 内容  */
-.content{
+.content {
 	width: 100%;
-	height: 73%;
-	
+	height: 78%;
+}
+
+.news{
+	font-family: serif;
+	font-size: 12px;
+	float: left;
+	margin-top:30px;
+	margin-left:100px ;
 }
 
 /*尾部*/
-.foot{
+.foot {
 	width: 100%;
-	height: 15%;
+	height: 10%;
+	background:#FF4400;
+	float: left;
+	margin-top: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.foot p{
+	color:#fff;
+	text-align:center;
+	padding-top:10px ;
+}
