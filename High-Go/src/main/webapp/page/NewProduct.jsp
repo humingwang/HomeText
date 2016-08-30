@@ -98,7 +98,7 @@
 			<div class="newMenu">
 				<ul>
 					<li><a href="#">床品测试</a></li>
-					<li><a href="#">地毯测试</a></li>
+					<li><a href="#">测试</a></li>
 				</ul>
 			</div>
 				<div class="news">
@@ -164,9 +164,27 @@
 				
 		</div>
 	<!---------------------------------------------尾部------------------------------------------->
-		<div class="foot">
-			<p >温馨提示：嗨购公司欢成立以来一直征求广大消费者的各种建议，嗨购将一步步完善，为广大消费者提供更优质的服务，更优越的产品。嗨购在以后的道路上会按照本公司的需求与调整满足消费者的合理条件。</p>
-			<p >湖南省衡阳市湖南工学院嗨购  &copy;&nbsp; 建立于2016 	嗨购公司版权所有</p>			 
+		<footer >
+		<div class="bottom">
+			<img id="bott" src="../images/bottomlogo.png">
+			<div class="bott2">
+				<ul>
+					<li><img src="../images/b1.png"></li>
+					<li><img src="../images/b2.png"></li>
+					<li><img src="../images/b3.png"></li>
+					<li><img src="../images/b4.png"></li>
+					<li><img src="../images/b5.png"></li>
+					<li><img src="../images/b6.png"></li>
+				</ul>
+			</div>
 		</div>
+		<div class="foot">
+			<div>
+				<p >温馨提示：嗨购公司欢成立以来一直征求广大消费者的各种建议，嗨购将一步步完善，为广大消费者提供更优质的服务，更优越的产品。嗨购在以后的道路上会按照本公司的需求与调整满足消费者的合理条件。</p>
+				<p >湖南省衡阳市湖南工学院嗨购  &copy;&nbsp; 建立于2016 	嗨购公司版权所有</p>	
+			</div>
+		</div>
+	</footer>
+		
 	</body>
 </html>

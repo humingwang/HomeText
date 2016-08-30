@@ -256,7 +256,7 @@ body {
 
 .menu .li_4 .new_ul li a span {
 	font-size: 20px;
-	color:#FF4400;
+	color: #FF4400;
 }
 
 /*搜索框 */
@@ -310,26 +310,29 @@ body {
 	height: 78%;
 }
 
-.newMenu{
+.newMenu {
 	float: left;
 	width: 5%;
-	height:100%;
+	height: 100%;
 	display: inline-block;
 	position: relative;
 	top: 150px;
 	left: 20px;
 }
-.newMenu ul li{
+
+.newMenu ul li {
 	list-style: none;
 }
-.news{
+
+.news {
 	font-family: serif;
 	font-size: 12px;
 	float: left;
-	margin-top:30px;
-	margin-left:80px ;
+	margin-top: 30px;
+	margin-left: 80px;
 }
-.cont{
+
+.cont {
 	padding-left: 95px;
 }
 
@@ -337,12 +340,46 @@ body {
 .foot {
 	width: 100%;
 	height: 10%;
-	background:#FF4400;
 	float: left;
-	margin-top: 30px;
 }
-.foot p{
-	color:#fff;
-	text-align:center;
-	padding-top:10px ;
+
+.foot p {
+	color: #fff;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 12px;
+	margin: auto;
+	text-align: center;
+	margin-top: 15px;
+	color: #969492;
+}
+
+#bott {
+	margin-top: 30px;
+	width: 1250px;
+	height: 89px;
+	float: left;
+	margin-left: 40px;
+	background-size: cover;
+}
+
+.bott2 {
+	width: 1250px;
+	height: 50px;
+	float: left;
+	margin-top: 40px;
+	margin-left: 200px;
+}
+
+.bott2 ul li {
+	float: left;
+	margin-left: 30px;
+	list-style: none;
+}
+
+.ziti {
+	width: 1250px;
+	height: 100px;
+	float: left;
+	margin-left: 20px;
 }
