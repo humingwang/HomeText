@@ -73,11 +73,11 @@
 					<li class="li_4"><a href="">新品上架<i></i></a>
 						<div class="new_div">
 							<ul class="new_ul">
-								<li><a href=""><img src="../images/cl7.jpg" class="gray"/><span>窗帘</span></a></li>
-								<li><a href=""><img src="../images/cp41.jpg" class="gray"/><span>床品</span></a></li>
-								<li><a href=""><img src="../images/dt20.jpg" class="gray"/><span>地毯</span></a></li>
-								<li><a href=""><img src="../images/kd58.jpg" class="gray"/><span>靠垫</span></a></li>
-								<li><a href=""><img src="../images/yj2.jpg" class="gray"/><span>浴巾</span></a></li>
+								<li><a href=""><img src="../images/cl7.jpg" class="gray"/><span class="cont">窗帘</span></a></li>
+								<li><a href=""><img src="../images/cp41.jpg" class="gray"/><span class="cont">床品</span></a></li>
+								<li><a href=""><img src="../images/dt20.jpg" class="gray"/><span class="cont">地毯</span></a></li>
+								<li><a href=""><img src="../images/kd58.jpg" class="gray"/><span class="cont">靠垫</span></a></li>
+								<li><a href=""><img src="../images/yj2.jpg" class="gray"/><span class="cont">浴巾</span></a></li>
 							</ul>
 						</div>
 					</li>
@@ -95,64 +95,70 @@
 		</div>
 	<!---------------------------------------------内容------------------------------------------->
 		<div class="content">
+			<div class="newMenu">
+				<ul>
+					<li><a href="#">床品测试</a></li>
+					<li><a href="#">地毯测试</a></li>
+				</ul>
+			</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont" class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
 						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
-						<dd><span>测试</span></dd>
+						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				

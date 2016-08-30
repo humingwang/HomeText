@@ -310,12 +310,27 @@ body {
 	height: 78%;
 }
 
+.newMenu{
+	float: left;
+	width: 5%;
+	height:100%;
+	display: inline-block;
+	position: relative;
+	top: 150px;
+	left: 20px;
+}
+.newMenu ul li{
+	list-style: none;
+}
 .news{
 	font-family: serif;
 	font-size: 12px;
 	float: left;
 	margin-top:30px;
-	margin-left:100px ;
+	margin-left:80px ;
+}
+.cont{
+	padding-left: 95px;
 }
 
 /*尾部*/
