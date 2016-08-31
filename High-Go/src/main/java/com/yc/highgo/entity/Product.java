@@ -1,4 +1,4 @@
-package com.yc.highgo.enitey;
+package com.yc.highgo.entity;
 
 import java.util.Date;
 
