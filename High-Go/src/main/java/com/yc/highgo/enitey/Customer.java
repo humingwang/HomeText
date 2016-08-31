@@ -1,6 +1,6 @@
 package com.yc.highgo.enitey;
 
-public class User {
+public class Customer {
 	private int cid;
 	private String cname;
 	private String cpwd;
@@ -50,9 +50,9 @@ public class User {
 	public void setCemail(String cemail) {
 		this.cemail = cemail;
 	}
-	public User() {
+	public Customer() {
 	}
-	public User(int cid, String cname, String cpwd, double cmoney, String csex, int cage, String cemail) {
+	public Customer(int cid, String cname, String cpwd, double cmoney, String csex, int cage, String cemail) {
 		this.cid = cid;
 		this.cname = cname;
 		this.cpwd = cpwd;

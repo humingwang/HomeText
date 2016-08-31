@@ -92,9 +92,8 @@ create sequence orderdetails_odid start with 1 increment by 1;
 		oid varchar2(20) primary key,--订单号
 		omoney number(12,2),--订单价
 		onum int,---数量
-		otel varchar2(15) not null,--电话
-		oaddr varchar2(50) not null,--地址
-		ostutas int --订单状态
+		ostutas int, --订单状态
+		aid int references address(aid)--地址
 	);
 --订单详细表
 	create table orderdetails(

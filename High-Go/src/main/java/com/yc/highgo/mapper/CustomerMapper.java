@@ -1,5 +1,5 @@
 package com.yc.highgo.mapper;
 
-public interface UserMapper {
+public interface CustomerMapper {
 
 }
