@@ -1,5 +1,8 @@
 package com.yc.highgo.mapper;
 
-public interface CustomerMapper {
 
+import com.yc.highgo.entity.Customer;
+
+public interface CustomerMapper {
+	Customer findAllByNp(Customer customer);
 }
