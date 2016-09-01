@@ -23,11 +23,15 @@
 						<form action="" method="post">
 							
 							<div class="form_text_ipt">
-								<input name="username" type="text" placeholder="手机号/邮箱">
+								<input name="cemail" type="email" placeholder="手机号/邮箱">
+							</div>
+							<div class="ececk_warning"><span>邮箱格式不正确</span></div>
+							<div class="form_text_ipt">
+								<input name="cname" type="text" placeholder="用户名">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
-								<input name="password" type="password" placeholder="密码">
+								<input name="cpwd" type="password" placeholder="密码">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
