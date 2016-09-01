@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.yc.highgo.entity.Customer;
 import com.yc.highgo.mapper.CustomerMapper;
 import com.yc.highgo.service.CustomerService;
-import com.yc.highgo.util.Encrypt;
 
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {

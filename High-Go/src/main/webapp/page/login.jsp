@@ -20,13 +20,17 @@
 						<div class="login_title">
 							登录
 						</div>
+
 						<form action="customer/login" method="Post">
+							
 							<div class="form_text_ipt">
 								<input name="cname" class="input-text" type="text" placeholder="用户名">
+								<input name="cname" type="text" placeholder="手机号/邮箱">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
 								<input name="cpwd"  class="input-text" type="password" placeholder="密码">
+								<input name="cpwd" type="password" placeholder="密码">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_check_ipt">
