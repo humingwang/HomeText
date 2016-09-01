@@ -50,6 +50,9 @@ create sequence orderdetails_odid start with 1 increment by 1;
 	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'123@qq.com');
 	insert into customer values(customer_cid.nextval,'w','a',default,default,default,'122@qq.com');
 	
+	
+	select * from customer
+	
 --商品类型：
 	create table productType(
 		ptid int primary key,--类型编号

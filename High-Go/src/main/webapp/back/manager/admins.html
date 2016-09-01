@@ -1,0 +1,104 @@
+<table id="admins_data"></table>
+
+<div id="add_admins" class="easyui-dialog" title="添加新闻" data-options="iconCls:'icon-add',resizable:true,modal:true,closed:true,fit:true">
+	<form action="" style="float:left;padding-left: 20px;">
+		<label>管理员姓名:</label><input type="text" id="admin_name" name="username" /><br /><br />
+		<label>密码:</label><input type="password" id="admin_pwd" name="userpwd" required="required" value="a" /><br /><br />
+		<a href="javascript:addAdminsInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+	</form>
+</div>
+<script>
+var obj;
+var editRow=undefined;//记录当前正在被编辑的行'
+
+obj=$('#admins_data').datagrid({
+	url:'../../adminServlet',
+	queryParams:{op:'findAdmins'},
+	fitColumns:true,
+	striped:true,
+	loadMsg:"数据加载中...",
+	pagination:true,
+	fit:true,
+	pageNumber:1,
+	pageSize:8,
+	pageList:[8,10,15,20],
+	sortName:'aid',
+	remoteSort:false,
+	columns:[[
+		{field:'aids',title:'',width:100,algin:'center',checkbox:true},
+		{field:'aid',title:'管理员编号',width:100,algin:'center',sortable:true},
+		{field:'aname',title:'管理员姓名',width:100,algin:'center',editor:{type:"text",options:{require:true}}},
+	]],
+
+	toolbar:[{
+		text:"添加",
+		iconCls:"icon-add",
+		handler:function(){
+			$('#add_admins').dialog('open');
+		}
+	},{
+		text:"删除",
+		iconCls:"icon-remove",
+		handler:function(){
+			//获取选中的行
+			var rows=obj.datagrid("getChecked");
+			if(rows!=undefined){
+				$.messager.confirm('确认信息','你确定要删除选定的数据吗？',function(rs){
+					if(rs){
+						var aids="";
+						for(var i=0;i<rows.length-1;i++){
+							aids+=rows[i].aid+",";
+						}
+						aids+=rows[i].aid;
+			
+
+						
+						//发送请求到数据库删除
+						$.post("../../adminServlet",{op:"delAdminType",aid:aids},function(data){
+							if(data>0){
+								$.messager.show({
+									title:'成功提示',
+									msg:'管理员删除成功....',
+									timeout:2000,
+									showType:'slide'
+								});
+								rows=null;
+								obj.datagrid("reload");//刷新表格
+								editRow=undefined;
+							}else{
+								$.messager.alert('失败提示','新闻类型删除失败...','error');
+							}	
+						});
+					}else{
+						return;
+					}
+				});
+			}else{
+				$.messager.show({
+					title:'温馨提示',
+					msg:'请选择你要删除的数据....',
+					timeout:2000,
+					showType:'slide'
+				});
+			}
+		}
+	}]
+});
+	function addAdminsInfo(){
+		var aname=$.trim($("#admin_name").val());
+		var pwd=$.trim($("#admin_pwd").val());
+		
+		$.post("../../adminServlet",{op:"addAdminsInfo",aname:aname,pwd:pwd},function(data){
+			if(data>0){
+				$.messager.show({title:'成功提示',msg:"新闻信息添加成功",timeout:2000,showType:'slide'});
+				$("#admin_name").val("");
+				$("#admin_pwd").val("");
+				$("#admins_data").datagrid("reload");
+				$("#add_admins").dialog('close');
+			}else{
+				$.messager.alert("错误提示","新闻信息添加失败\n","error");
+			}
+		},"json");
+	}
+
+</script>
