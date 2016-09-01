@@ -22,5 +22,11 @@ public class CustomerServiceImplTest {
 		assertNotNull(customerService.Login(new Customer("sa","a")));
 
 	}
-
+	@Test
+	public void testadd() {
+		//System.out.println(customerMapper.insertCustomer(new Customer("hmw","a","男","543919061@qq.com")));
+		Customer suc =new Customer("hmw","a","男","543919061@qq.com");
+		boolean reslut = customerService.register(suc);
+		assertEquals(true, reslut);
+	}
 }

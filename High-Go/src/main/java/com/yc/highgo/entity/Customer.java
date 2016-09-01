@@ -8,6 +8,20 @@ public class Customer {
 	private String csex;
 	private int cage;
 	private String cemail;
+	private String code;//验证码
+	private String recpwd;
+	public String getRecpwd() {
+		return recpwd;
+	}
+	public void setRecpwd(String recpwd) {
+		this.recpwd = recpwd;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	public int getCid() {
 		return cid;
 	}
@@ -57,6 +71,12 @@ public class Customer {
 		this.cmoney = cmoney;
 		this.csex = csex;
 		this.cage = cage;
+		this.cemail = cemail;
+	}
+	public Customer( String cname, String cpwd, String csex, String cemail) {
+		this.cname = cname;
+		this.cpwd = cpwd;
+		this.csex = csex;
 		this.cemail = cemail;
 	}
 	public Customer(String cname, String cpwd) {

@@ -3,19 +3,20 @@
 <!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/onLine.css">
+<link rel="stylesheet" href="css/onLine.css">
+ <base href="/High-Go/"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<link type="text/css" rel="stylesheet" href="../css/reset.css" />
-<link type="text/css" rel="stylesheet" href="../css/style.css" />
-<link rel="stylesheet" href="../css/jquery.skidder.css">
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/jquery.skidder.css">
 
-<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="../js/jquery_slide.js"></script>
-<script type="text/javascript" src="../js/jquery-1.3.2.min.js"></script>
-<script  type="text/javascript"  src="../js/jquery.kxbdmarquee.js"></script>
-<script  type="text/javascript"  src="../js/jquery.skidder.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery_slide.js"></script>
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script  type="text/javascript"  src="js/jquery.kxbdmarquee.js"></script>
+<script  type="text/javascript"  src="js/jquery.skidder.js"></script>
 
 <meta charset="utf-8">
 <title>在线商城</title>
@@ -31,8 +32,8 @@
 		</ul>
 	</div>
 	<div class="haigou">
-		<img src="../images/logo.png">
-		<img src="../images/high-go.png">
+		<img src="images/logo.png">
+		<img src="images/high-go.png">
 	</div>
 	<div class="search">
 		<div class="input_text">
@@ -55,7 +56,7 @@
 			href="javascript:void(0)" tip="1" class="i_btn next_R"></a>
 		<ul class="slide_img">
 
-			<li><a href="javascript:void(0)"><img src="../images/pic1.jpg" /></a>
+			<li><a href="javascript:void(0)"><img src="images/pic1.jpg" /></a>
 				<div class="icon"></div>
 				<div class="bg"></div>
 				<div class="info">
@@ -64,7 +65,7 @@
 						以前的线线主要成份是腈纶,受传统影响我们都以为腈纶不好,其实正宗的腈纶具有色泽亮丽,手感柔和,纹路清晰等优点,加上现代工艺添加了羊绒和澳
 						毛成份后,更增加了保暖效果,也更柔软,这样的线线对孩子来说很适合</p>
 				</div></li>
-			<li><a href="javascript:void(0)"><img src="../images/pic2.jpg" /></a>
+			<li><a href="javascript:void(0)"><img src="images/pic2.jpg" /></a>
 				<div class="icon"></div>
 				<div class="bg"></div>
 				<div class="info">
@@ -73,14 +74,14 @@
 						桑蚕丝比柞蚕丝色泽更白，纤维更长，手感更柔软、细腻、光滑，弹性更好。蚕花佳人牌使用100%天然双宫蚕丝，比一般蚕丝被的蚕丝更绵长，细腻，
 						光滑，弹性好，所以能承诺长久免拆翻</p>
 				</div></li>
-			<li><a href="javascript:void(0)"><img src="../images/pic3.jpg" /></a>
+			<li><a href="javascript:void(0)"><img src="images/pic3.jpg" /></a>
 				<div class="icon"></div>
 				<div class="bg"></div>
 				<div class="info">
 					<i></i> <span>加绒四件套</span>
 					<p>冬天皮肤干，容易起静电，珊瑚绒的铺着很暖和，但是会起静电，家里温度合适，建议选择纯棉布料的四件套比较好，不会起静电，而且纯棉的对身体也好，祝您身体健康。</p>
 				</div></li>
-			<li><a href="javascript:void(0)"><img src="../images/pic4.jpg" /></a>
+			<li><a href="javascript:void(0)"><img src="images/pic4.jpg" /></a>
 				<div class="icon"></div>
 				<div class="bg"></div>
 				<div class="info">
@@ -88,7 +89,7 @@
 					<p>恩和家纺主要经营贡缎面料又成为缎纹面料，是较为复杂的一种。在纺织过程中经纱和纬纱交错搭致所形成的纹路。经纱和纬纱交织次数比斜纹还少，独立且互不连续，
 						基本上看不到交叉点，有较长的经纱/纬纱覆盖在织物的表面，一个完全组织中最少有五根经纬线。</p>
 				</div></li>
-			<li><a href="javascript:void(0)"><img src="../images/pic5.jpg" /></a>
+			<li><a href="javascript:void(0)"><img src="images/pic5.jpg" /></a>
 				<div class="icon"></div>
 				<div class="bg"></div>
 				<div class="info">
@@ -100,7 +101,7 @@
 						磨毛的种类有很多，譬如普通的磨毛、水磨毛、碳水刷毛等等，磨毛有砂皮磨毛，如市场上常见的全涤纶几皮绒，桃皮绒，全棉的意大利绒等，钢刺磨毛如莱卡拉架绒，经纬编各种磨毛布。质地柔软细腻，表面光滑匀整，富有光泽，看上去就像绸缎，更舒适，手感最软，比平纹和斜纹织物都厚重，耐磨性强。高档的提花、
 						绣花类套件常采用此类面料，色彩素雅高贵，配合精美的花型与精致的绣花，体现高档床品的完美品质。</p>
 				</div></li>
-			<li><a href="javascript:void(0)"><img src="../images/pic6.jpg" /></a>
+			<li><a href="javascript:void(0)"><img src="images/pic6.jpg" /></a>
 				<div class="icon"></div>
 				<div class="bg"></div>
 				<div class="info">
@@ -109,7 +110,7 @@
 						桑蚕丝比柞蚕丝色泽更白，纤维更长，手感更柔软、细腻、光滑，弹性更好。蚕花佳人牌使用100%天然双宫蚕丝，比一般蚕丝被的蚕丝更绵长，细腻，
 						光滑，弹性好，所以能承诺长久免拆翻</p>
 				</div></li>
-			<li><a href="javascript:void(0)"><img src="../images/pic7.jpg" /></a>
+			<li><a href="javascript:void(0)"><img src="images/pic7.jpg" /></a>
 				<div class="icon"></div>
 				<div class="bg"></div>
 				<div class="info">
@@ -137,7 +138,7 @@
 
 
 	<div class="ji">
-		<img class="jiyou" src="../images/LT))H8P054M[1WQGB99H9RD.png">
+		<img class="jiyou" src="images/LT))H8P054M[1WQGB99H9RD.png">
 	</div>
 	<div class="body1">
 		<div class="leftbody1">
@@ -206,17 +207,17 @@
 			<div id="xiaoliang">商品销量排行</div>
 			<div id="marquee4">
 				<ul>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
-					<li><a href="#"><img src="../images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
+					<li><a href="#"><img src="images/pinpai.png"></a></li>
 
 				</ul>
 			</div>
@@ -229,32 +230,32 @@
 	<!--家纺馆-->
 	<div class="body2">
 		<div class="guan">
-			<img class="guan2" src="../images/guan.png">
+			<img class="guan2" src="images/guan.png">
 		</div>
 		<ul>
 			<li><div class="aa">
-					<img src="../images/jfcg_list.png">
+					<img src="images/jfcg_list.png">
 				</div>
 				<div class="bb">
-					<img src="../images/1468028152stnjs.png">
+					<img src="images/1468028152stnjs.png">
 				</div>
 				<div class="cc">
-					<img src="../images/1463118031fam5o.png">
+					<img src="images/1463118031fam5o.png">
 				</div>
 				<div class="dd">
-					<img src="../images/1463117028tqhnu.png">
+					<img src="images/1463117028tqhnu.png">
 				</div></li>
 			<li><div class="aa">
-					<img src="../images/1463118098ib8jp.png">
+					<img src="images/1463118098ib8jp.png">
 				</div>
 				<div class="bb">
-					<img src="../images/1463109944akaf6.png">
+					<img src="images/1463109944akaf6.png">
 				</div>
 				<div class="cc">
-					<img src="../images/1463118524hpsnx.png">
+					<img src="images/1463118524hpsnx.png">
 				</div>
 				<div class="dd">
-					<img src="../images/14632026566rnij.jpg">
+					<img src="images/14632026566rnij.jpg">
 				</div></li>
 		</ul>
 	</div>
@@ -264,16 +265,16 @@
 	<!--金齐达家纺-->
 	<div class="body3">
 		<div class="fang">
-			<img class="fang2" src="../images/jin.png">
+			<img class="fang2" src="images/jin.png">
 		</div>
 		<div class="bigpic"></div>
 		<div id="smallpic1">
 			<div id="marquee5">
 				<ul>
-					<li><a href="#"><img src="../images/zxz.png"></a><a
-						href="#"><img src="../images/zxz.png"></a></li>
-					<li><a href="#"><img src="../images/zxz.png"></a><a
-						href="#"><img src="../images/zxz.png"></a></li>
+					<li><a href="#"><img src="images/zxz.png"></a><a
+						href="#"><img src="images/zxz.png"></a></li>
+					<li><a href="#"><img src="images/zxz.png"></a><a
+						href="#"><img src="images/zxz.png"></a></li>
 				</ul>
 			</div>
 		</div>
@@ -285,16 +286,16 @@
 	<!--慕尚家纺-->
 	<div class="body4">
 		<div class="fang">
-			<img class="fang4" src="../images/mu.png">
+			<img class="fang4" src="images/mu.png">
 		</div>
 		<div class="bigpic"></div>
 		<div id="smallpic2">
 			<div id="marquee3">
 				<ul>
-					<li><a href="#"><img src="../images/zxz.png"></a><a
-						href="#"><img src="../images/zxz.png"></a></li>
-					<li><a href="#"><img src="../images/zxz.png"></a><a
-						href="#"><img src="../images/zxz.png"></a></li>
+					<li><a href="#"><img src="images/zxz.png"></a><a
+						href="#"><img src="images/zxz.png"></a></li>
+					<li><a href="#"><img src="images/zxz.png"></a><a
+						href="#"><img src="images/zxz.png"></a></li>
 				</ul>
 			</div>
 		</div>
@@ -303,16 +304,16 @@
 	<!--瑞丽安家纺-->
 	<div class="body5">
 		<div class="fang">
-			<img class="fang5" src="../images/ruilian.png">
+			<img class="fang5" src="images/ruilian.png">
 		</div>
 		<div class="bigpic"></div>
 		<div id="smallpic3">
 			<div id="marquee2">
 				<ul>
-					<li><a href="#"><img src="../images/zxz.png"></a> <a
-						href="#"><img src="../images/zxz.png"></a></li>
-					<li><a href="#"><img src="../images/zxz.png"></a> <a
-						href="#"><img src="../images/zxz.png"></a></li>
+					<li><a href="#"><img src="images/zxz.png"></a> <a
+						href="#"><img src="images/zxz.png"></a></li>
+					<li><a href="#"><img src="images/zxz.png"></a> <a
+						href="#"><img src="images/zxz.png"></a></li>
 				</ul>
 			</div>
 		</div>
@@ -322,21 +323,21 @@
 	<!--掌柜热卖-->
 	<div class="body6">
 		<div class="fang">
-			<img class="fang6" src="../images/zhnag.png">
+			<img class="fang6" src="images/zhnag.png">
 		</div>
 		<div id="marquee1">
 			<ul>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
-				<li><img src="../images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
+				<li><img src="images/zxz.png"></li>
 			</ul>
 		</div>
 	</div>
@@ -344,15 +345,15 @@
 	<!--底部-->
 	<footer style="height: 110px;">
 		<div class="bottom">
-			<img id="bott" src="../images/bottomlogo.png">
+			<img id="bott" src="images/bottomlogo.png">
 			<div class="bott2">
 				<ul>
-					<li><img src="../images/b1.png"></li>
-					<li><img src="../images/b2.png"></li>
-					<li><img src="../images/b3.png"></li>
-					<li><img src="../images/b4.png"></li>
-					<li><img src="../images/b5.png"></li>
-					<li><img src="../images/b6.png"></li>
+					<li><img src="images/b1.png"></li>
+					<li><img src="images/b2.png"></li>
+					<li><img src="images/b3.png"></li>
+					<li><img src="images/b4.png"></li>
+					<li><img src="images/b5.png"></li>
+					<li><img src="images/b6.png"></li>
 				</ul>
 			</div>
 		</div>

@@ -4,12 +4,13 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		 <base href="/High-Go/"/>
 		<title>新品上市</title>
-		<link rel="short icon" href="../images/icon.png"/>
-		<link rel="stylesheet" href="../css/newArrival.css" />
-        <script src="../js/jquery-1.10.2.min.js"></script>
-		<script src="../js/slider.js"></script>
-		<script src="../js/index.js"></script>
+		<link rel="short icon" href="images/icon.png"/>
+		<link rel="stylesheet" href="css/newArrival.css" />
+        <script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/slider.js"></script>
+		<script src="js/index.js"></script>
 	</head>
 	<body>
 		<div class="head">
@@ -73,11 +74,11 @@
 					<li class="li_4"><a href="">新品上架<i></i></a>
 						<div class="new_div">
 							<ul class="new_ul">
-								<li><a href=""><img src="../images/cl7.jpg" class="gray"/><span class="cont">窗帘</span></a></li>
-								<li><a href=""><img src="../images/cp41.jpg" class="gray"/><span class="cont">床品</span></a></li>
-								<li><a href=""><img src="../images/dt20.jpg" class="gray"/><span class="cont">地毯</span></a></li>
-								<li><a href=""><img src="../images/kd58.jpg" class="gray"/><span class="cont">靠垫</span></a></li>
-								<li><a href=""><img src="../images/yj2.jpg" class="gray"/><span class="cont">浴巾</span></a></li>
+								<li><a href=""><img src="images/cl7.jpg" class="gray"/><span class="cont">窗帘</span></a></li>
+								<li><a href=""><img src="images/cp41.jpg" class="gray"/><span class="cont">床品</span></a></li>
+								<li><a href=""><img src="images/dt20.jpg" class="gray"/><span class="cont">地毯</span></a></li>
+								<li><a href=""><img src="images/kd58.jpg" class="gray"/><span class="cont">靠垫</span></a></li>
+								<li><a href=""><img src="images/yj2.jpg" class="gray"/><span class="cont">浴巾</span></a></li>
 							</ul>
 						</div>
 					</li>
@@ -103,61 +104,61 @@
 			</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont" class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
 				<div class="news">
 					<dl>
-						<dt><img alt="测试图" src="../images/cp1.jpg"/></dt>
+						<dt><img alt="测试图" src="images/cp1.jpg"/></dt>
 						<dd><span class="cont">测试</span></dd>
 					</dl>
 				</div>
@@ -166,15 +167,15 @@
 	<!---------------------------------------------尾部------------------------------------------->
 		<footer >
 		<div class="bottom">
-			<img id="bott" src="../images/bottomlogo.png">
+			<img id="bott" src="images/bottomlogo.png">
 			<div class="bott2">
 				<ul>
-					<li><img src="../images/b1.png"></li>
-					<li><img src="../images/b2.png"></li>
-					<li><img src="../images/b3.png"></li>
-					<li><img src="../images/b4.png"></li>
-					<li><img src="../images/b5.png"></li>
-					<li><img src="../images/b6.png"></li>
+					<li><img src="images/b1.png"></li>
+					<li><img src="images/b2.png"></li>
+					<li><img src="images/b3.png"></li>
+					<li><img src="images/b4.png"></li>
+					<li><img src="images/b5.png"></li>
+					<li><img src="images/b6.png"></li>
 				</ul>
 			</div>
 		</div>

@@ -41,9 +41,10 @@ create sequence orderdetails_odid start with 1 increment by 1;
 		cage int,---年龄
 		cemail varchar2(20) not null unique --邮箱
 	);
-	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'123@qq.com');
+	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'1234@qq.com');
+	insert into customer values(customer_cid.nextval,'sa','a',1000,'男',18,'1320710348@qq.com'); 
 	
-	
+	delete customer 
 	select * from customer
 	
 --商品类型：

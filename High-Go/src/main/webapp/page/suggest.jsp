@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="utf-8">
+ <base href="/High-Go/"/>
 <title>客户反馈</title>
-<link rel="stylesheet" href="../css/suggest.css">
-<link rel="stylesheet" href="../css/newArrival.css" />
+<link rel="stylesheet" href="css/suggest.css">
+<link rel="stylesheet" href="css/newArrival.css" />
 </head>
 
 <body>
@@ -65,15 +66,15 @@
 
 <footer style="height:110px;">
 	<div class="bottom">
-    	<img id="bott" src="../images/bottomlogo.png">
+    	<img id="bott" src="images/bottomlogo.png">
         <div class="bott2">
             <ul>
-                <li><img src="../images/b1.png"></li>
-                <li><img src="../images/b2.png"></li>
-                <li><img src="../images/b3.png"></li>
-                <li><img src="../images/b4.png"></li>
-                <li><img src="../images/b5.png"></li>
-                <li><img src="../images/b6.png"></li>
+                <li><img src="images/b1.png"></li>
+                <li><img src="images/b2.png"></li>
+                <li><img src="images/b3.png"></li>
+                <li><img src="images/b4.png"></li>
+                <li><img src="images/b5.png"></li>
+                <li><img src="images/b6.png"></li>
             </ul>
         </div>
     </div>

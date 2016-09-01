@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.yc.highgo.entity.Customer;
 import com.yc.highgo.mapper.CustomerMapper;
 import com.yc.highgo.service.CustomerService;
+import com.yc.highgo.util.Encrypt;
 
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
@@ -14,7 +15,18 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerMapper customerMapper;
 	@Override
 	public Customer Login(Customer customer) {
+		//customer.setCpwd(Encrypt.md5AndSha(customer.getCpwd()));
 		return customerMapper.findAllByNp(customer);
+	}
+	@Override
+	public boolean register(Customer customer) {
+		//customer.setCpwd(Encrypt.md5AndSha(customer.getCpwd()));
+		try {
+			return customerMapper.insertCustomer(customer)>0;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;	
 	}
 
 }

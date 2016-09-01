@@ -3,8 +3,9 @@
 <!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/types.css">
+<link rel="stylesheet" href="css/types.css">
 <meta charset="utf-8">
+ <base href="/High-Go/"/>
 <title>商品分类</title>
 
 </head>
@@ -20,7 +21,7 @@
                 <li>帮助中心</li>
             </ul>
         </div></div>
-        <div class="logoo"><img src="../images/logo.png"></div> 
+        <div class="logoo"><img src="images/logo.png"></div> 
    		 <div class="tel"></div>	
     </div>
     </div>
@@ -38,7 +39,7 @@
     
     <div class="type2">
     	<div class="shang">
-        	<img src="../images/chinanode.png" style="float:left;border-right:hidden;">
+        	<img src="images/chinanode.png" style="float:left;border-right:hidden;">
         	<div class="pin">商品分类</div>
         </div>
         <div class="fen">
@@ -79,7 +80,7 @@
 
 	<div class="goods">
     	<div class="xinpin">
-        	<img src="../images/chinanode.png" style="float:left;border-right:hidden;">
+        	<img src="images/chinanode.png" style="float:left;border-right:hidden;">
         	<div class="cuxiao">新品上市大促销</div>
         </div>
         <div class="details">
@@ -98,15 +99,15 @@
 
 <footer style="height:110px;">
 	<div class="bottom">
-    	<img id="bott" src="../images/bottomlogo.png">
+    	<img id="bott" src="images/bottomlogo.png">
         <div class="bott2">
             <ul>
-                <li><img src="../images/b1.png"></li>
-                <li><img src="../images/b2.png"></li>
-                <li><img src="../images/b3.png"></li>
-                <li><img src="../images/b4.png"></li>
-                <li><img src="../images/b5.png"></li>
-                <li><img src="../images/b6.png"></li>
+                <li><img src="images/b1.png"></li>
+                <li><img src="images/b2.png"></li>
+                <li><img src="images/b3.png"></li>
+                <li><img src="images/b4.png"></li>
+                <li><img src="images/b5.png"></li>
+                <li><img src="images/b6.png"></li>
             </ul>
         </div>
     </div>

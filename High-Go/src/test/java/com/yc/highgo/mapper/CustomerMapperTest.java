@@ -21,5 +21,11 @@ public class CustomerMapperTest {
 		assertNotNull(customerMapper.findAllByNp(new Customer("sa","a")));
 
 	}
-
+	@Test
+	public void testadd() {
+		//System.out.println(customerMapper.insertCustomer(new Customer("hmw","a","男","543919061@qq.com")));
+		Customer suc =new Customer("hmw","a","男","5439190sd61@qq.com");
+		int reslut = customerMapper.insertCustomer(suc);
+		assertEquals(1, reslut);
+	}
 }
