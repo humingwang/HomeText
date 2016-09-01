@@ -1,4 +1,4 @@
-package com.jy.vote.test;
+package com.yc.highgo.test;
 
 import static org.junit.Assert.*;
 
@@ -14,20 +14,20 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring.xml")
-public class ConnTest {
+@ContextConfiguration(locations="classpath:spring.xml")
+public class Conntest {
+
 	@Autowired
 	private DataSource dataSource;
-	
 	@Test
 	public void test() {
+		Connection con=null;
 		try {
-			Connection con = dataSource.getConnection();
-			assertNotNull(con);
+			con=dataSource.getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		assertNotNull(con);
 	}
 
 }
