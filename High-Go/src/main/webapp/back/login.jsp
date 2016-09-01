@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -57,7 +59,7 @@
 
 											<div class="login_icon"><img src="images/login.png" /></div>
 
-											<form class="">
+											<form class="" action="admin/login" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
@@ -81,10 +83,10 @@
 															<span class="lbl">保存密码</span>
 														</label>
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
+														<input type="submit" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
 															<i class="icon-key"></i>
 															登陆
-														</button>
+														
 													</div>
 
 													<div class="space-4"></div>
@@ -114,7 +116,7 @@
 </body>
 </html>
 <script>
-$('#login_btn').on('click', function(){
+/* $('#login_btn').on('click', function(){
 	     var num=0;
 		 var str="";
      $("input[type$='text']").each(function(n){
@@ -135,10 +137,10 @@ $('#login_btn').on('click', function(){
                title: '提示框',				
 			   icon:1,		
 			  });
-	          location.href="index.html";
+	          location.href="index.jsp";
 			   layer.close(index);	
 		  }		  		     						
 		
-	})
+	}) */
 
 </script>

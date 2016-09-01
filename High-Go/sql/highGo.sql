@@ -15,12 +15,13 @@ drop sequence product_pid;
 drop sequence assess_asid;
 drop sequence orderdetails_odid;
 
-create sequence admin_aid start with 1 increment by 1;
-create sequence customer_cid start with 1 increment by 1;
-create sequence productType_ptid start with 1 increment by 1;
-create sequence product_pid start with 1 increment by 1;
-create sequence assess_asid start with 1 increment by 1;
-create sequence orderdetails_odid start with 1 increment by 1;
+drop sequence admin_aid
+create sequence admin_aid start with 1 increment by 1000;
+create sequence customer_cid start with 1 increment by 1000;
+create sequence productType_ptid start with 1 increment by 10000;
+create sequence product_pid start with 1 increment by 10000;
+create sequence assess_asid start with 1 increment by 10000;
+create sequence orderdetails_odid start with 1 increment by 10000;
 
 
 --管理员表：
@@ -29,7 +30,8 @@ create sequence orderdetails_odid start with 1 increment by 1;
 		aname varchar2(20) not null,--管理员名
 		apwd varchar2(20) not null --管理员密码
 	);
-	insert into admin values(admin_aid.nextval,'high','a');
+	insert into admin values(admin_aid.nextval,'sa','a');
+	select *from admin
 	
 --客户表：
 	create table customer(
