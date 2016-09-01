@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8" />
 <title>主页</title>
-<link rel="short icon" href="../images/icon.png" />
-<link rel="stylesheet" href="../css/newArrival.css" />
-<link rel="stylesheet" href="../css/index.css" />
-<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
-<script src="../js/slider.js"></script>
-<script src="../js/index.js"></script>
+<link rel="short icon" href="images/icon.png" />
+<link rel="stylesheet" href="css/newArrival.css" />
+<link rel="stylesheet" href="css/index.css" />
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/index.js"></script>
 </head>
 <body>
 	<div class="head">

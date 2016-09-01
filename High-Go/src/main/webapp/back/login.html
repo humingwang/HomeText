@@ -1,113 +1,144 @@
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<title>用户登录</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/login.css">
-<script src="../js/jquery-1.9.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+        <link rel="stylesheet" href="css/style.css"/>
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+		<script src="assets/js/ace-extra.min.js"></script>
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+		<script src="js/jquery-1.9.1.min.js"></script>        
+        <script src="assets/layer/layer.js" type="text/javascript"></script>
+<title>登陆</title>
 </head>
 
-<body style="background-image:url(../images/bgimage.jpg);">
+<body class="login-layout">
+<div class="logintop">    
+    <span>欢迎后台管理界面平台</span>    
+    <ul>
+    <li><a href="#">返回首页</a></li>
+    <li><a href="#">帮助</a></li>
+    <li><a href="#">关于</a></li>
+    </ul>    
+    </div>
+    <div class="loginbody">
+<div class="login-container">
+	<div class="center">
+	<h1>
+									<i class="icon-leaf green"></i>
+									<span class="orange">High-Go</span>
+									<span class="white">后台管理系统</span>
+								</h1>
+								<h4 class="white">Background Management System</h4>
+							</div>
 
-	<div class="container">
-		<div class="row">
-            <div class="col-md-5 col-md-offset-3">
-            	<div class="panel">
-                	<div class="panel-heading login-top">管理员登录</div>
-                    <div class="panel-body">
-                    	<form class="form-group col-lg-10 col-md-offset-1" action="manager/index.jsp" method="post" role="form">
-                			
-                            <div class="input-group">
-                            	<label for="uname" class="input-group-addon">管理员名</label>
-                                <input type="text" class="form-control" name="uname" id="uname" required placeholder="请输入用户名"/>
-                            </div>
-                            <br />
-                            <div class="input-group">
-                            	<label for="pwd" class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
-                                <input type="password" class="form-control" name="pwd" id="pwd" required  placeholder="请输入密码"/>
-                            </div>
-                            <br />
+							<div class="space-6"></div>
 
-                        
-                            <div class="input-group">
-                            	<button class="btn btn-success mybtn" >登录</button>
-                                <input type="reset" value="重置" class="btn btn-warning mybtn"/>
-                            </div>
-                         
-                		</form>
-                    </div>
-                    <div class="panel-footer login-footer">HighGo集团 &copy; 版权所有</div>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-	</div>
-    
-    <div class="register-page">
-		<div class="close-button">X</div>
-        <div class="register col-lg-6">
-            <div class="panel">
-                <div class="panel-heading login-top">用户注册</div>
-                <div class="panel-body">
-                    <form class="form-group col-lg-12" action="" method="post" role="form">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">角&nbsp;&nbsp;色<span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                    <li><a id="role1" href="javascript:login('role1','role')">学工处</a></li>
-                                    <li><a id="role2" href="javascript:login('role2','role')">保卫处</a></li>
-                                    <li><a id="role3" href="javascript:login('role3','role')">书记</a></li>
-                                    <li><a id="role4" href="javascript:login('role4','role')">辅导员</a></li>
-                                    <li><a id="role5" href="javascript:login('role5','role')">超级管理员</a></li>
-                                </ul>
-                            </div>
-                            <input id="role" type="text" class="form-control" disabled="disabled" required placeholder="请选择角色"/>							<label class="input-group-addon"><a href="javascript:backlogin()" class="errorinfo">我已有账号...</a></label>
+							<div class="position-relative">
+								<div id="login-box" class="login-box widget-box no-border visible">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="icon-coffee green"></i>
+												管理员登陆
+											</h4>
+
+											<div class="login_icon"><img src="images/login.png" /></div>
+
+											<form class="">
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="登录名"  name="登录名">
+															<i class="icon-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="密码" name="密码">
+															<i class="icon-lock"></i>
+														</span>
+													</label>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<label class="inline">
+															<input type="checkbox" class="ace">
+															<span class="lbl">保存密码</span>
+														</label>
+
+														<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
+															<i class="icon-key"></i>
+															登陆
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+
+											<div class="social-or-login center">
+												<span class="bigger-110">通知</span>
+											</div>
+
+											<div class="social-login center">
+											本网站系统不再对IE8以下浏览器支持，请见谅。
+											</div>
+										</div><!-- /widget-main -->
+
+										<div class="toolbar clearfix">
+											
+
+											
+										</div>
+									</div><!-- /widget-body -->
+								</div><!-- /login-box -->
+							</div><!-- /position-relative -->
+						</div>
                         </div>
-                        <br />
-                        <div class="input-group">
-                            <label for="rname" class="input-group-addon">用户名</label>
-                            <input type="text" class="form-control" name="uname" id="rname" required placeholder="请输入用户名" maxlength="12"/ >								<label class="input-group-addon promptinfo">由2-12位的中文、字母、数字和下划线组成</label>
-                        </div>
-                        <br />
-                        <div class="input-group">
-                            <label for="rpwd" class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</label>
-                            <input type="password" class="form-control" name="rpwd" id="rpwd" required  placeholder="请输入密码" maxlength="16"/>
-                            <label class="input-group-addon promptinfo">由6-16位的字母、数字和下划线组成</label>
-                        </div>
-                        <br />
-                        <div class="input-group">
-                            <label for="rpwds" class="input-group-addon">确认密码</label>
-                            <input type="password" class="form-control" name="rpwds" id="rpwds" required placeholder="请再输入一次密码，以确认" maxlength="16"/>
-                            <label class="input-group-addon promptinfo">请再输入一次密码，以确认</label>
-                        </div>
-                        <br/>
-                        <div class="input-group">
-                            <label for="email" class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</label>
-                            <input type="email" class="form-control" name="email" id="email" required placeholder="请输入您的邮箱账号"/>
-                            <label class="input-group-addon promptinfo">请输入邮箱账号，以便忘记密码时找回</label>
-                        </div>
-                        <br/>
-                        <div class="input-group">
-                            <label for="tel" class="input-group-addon">联系方式</label>
-                            <input type="number" class="form-control" name="tel" id="tel" maxlength="12" required placeholder="请输入您联系方式"/>
-                            <label class="input-group-addon promptinfo">请输您的联系方式</label>
-                        </div>
-                        <br/>
-                        <div class="input-group">
-                            <input type="submit" value="注册" class="btn btn-success user-register" />
-                            <input type="reset" value="重置" class="btn btn-danger mybtn"/>
-                        </div>
-                     </form>
-                </div>
-                <div class="panel-footer login-footer">源辰信息 &copy; 版权所有</div>
-            </div>
-        </div>
-	</div>
+                        <div class="loginbm">版权所有  2016  <a href="">嗨购有限公司</a> </div><strong></strong>
 </body>
 </html>
+<script>
+$('#login_btn').on('click', function(){
+	     var num=0;
+		 var str="";
+     $("input[type$='text']").each(function(n){
+          if($(this).val()=="")
+          {
+               
+			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
+                title: '提示框',				
+				icon:0,								
+          }); 
+		    num++;
+            return false;            
+          } 
+		 });
+		  if(num>0){  return false;}	 	
+          else{
+			  layer.alert('登陆成功！',{
+               title: '提示框',				
+			   icon:1,		
+			  });
+	          location.href="index.html";
+			   layer.close(index);	
+		  }		  		     						
+		
+	})
+
+</script>
