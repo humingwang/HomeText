@@ -119,23 +119,25 @@ public class CustomerHandler {
 	 * @return
 	 */
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public String register(@Valid @ModelAttribute("customer")Customer customer,BindingResult bindingResult,ModelMap map,HttpServletRequest request){
+	public String register(Customer customer,BindingResult bindingResult,ModelMap map,HttpServletRequest request){
 		System.out.println("register===>"+customer);
-		if(customer.getCpwd().equals(customer.getRecpwd())){
+		System.out.println(customer.getCpwd());
+		System.out.println(customer.getRecpwd());
+		System.out.println(customer.getCode());
+		if(!customer.getCpwd().equals(customer.getRecpwd())){
 			map.put("regErrorMsg", "密码不相同...");
 			return "register";
 		}
-
 		if(Integer.parseInt(customer.getCode())!=num){
 			map.put("regErrorMsg", "验证码不同!!!");
 			return "register";
 		}
-		if(customerService.register(customer)){
+		
+		
 			//成功注册，发送邮件，激活账号
-			return "login";
-		}
-		map.put("regErrorMsg", "注册失败!!!");
-		return "register";
+		  return "login";
+		
+		
 	}
 	
 	private String getSendContent() {
