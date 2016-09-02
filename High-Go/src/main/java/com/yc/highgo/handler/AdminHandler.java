@@ -1,5 +1,7 @@
 package com.yc.highgo.handler;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +19,7 @@ public class AdminHandler {
 
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(Admin admin,ModelMap map){
+		/*request.getRemoteUser();*/
 		System.out.println("admin login..."+admin);
 		admin=adminService.login(admin);
 		if(admin==null){
