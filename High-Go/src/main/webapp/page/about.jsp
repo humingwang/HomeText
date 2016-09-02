@@ -4,9 +4,10 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		 <base href="/High-Go/"/>
 		<title>新品上市</title>
-		<link rel="short icon" href="../images/icon.png"/>
-		<link rel="stylesheet" href="../css/about.css" />
+		<link rel="short icon" href="images/icon.png"/>
+		<link rel="stylesheet" href="css/about.css" />
 	</head>
 	<body>
 		<div class="head">
@@ -70,11 +71,11 @@
 					<li class="li_4"><a href="">新品上架<i></i></a>
 						<div class="new_div">
 							<ul class="new_ul">
-								<li><a href=""><img src="../images/cl7.jpg" class="gray"/><span>窗帘</span></a></li>
-								<li><a href=""><img src="../images/cp41.jpg" class="gray"/><span>床品</span></a></li>
-								<li><a href=""><img src="../images/dt20.jpg" class="gray"/><span>地毯</span></a></li>
-								<li><a href=""><img src="../images/kd58.jpg" class="gray"/><span>靠垫</span></a></li>
-								<li><a href=""><img src="../images/yj2.jpg" class="gray"/><span>浴巾</span></a></li>
+								<li><a href=""><img src="images/cl7.jpg" class="gray"/><span>窗帘</span></a></li>
+								<li><a href=""><img src="images/cp41.jpg" class="gray"/><span>床品</span></a></li>
+								<li><a href=""><img src="images/dt20.jpg" class="gray"/><span>地毯</span></a></li>
+								<li><a href=""><img src="images/kd58.jpg" class="gray"/><span>靠垫</span></a></li>
+								<li><a href=""><img src="images/yj2.jpg" class="gray"/><span>浴巾</span></a></li>
 							</ul>
 						</div>
 					</li>
@@ -117,15 +118,15 @@
 
 <footer style="height:110px;">
 	<div class="bottom">
-    	<img id="bott" src="../images/bottomlogo.png">
+    	<img id="bott" src="images/bottomlogo.png">
         <div class="bott2">
             <ul>
-                <li><img src="../images/b1.png"></li>
-                <li><img src="../images/b2.png"></li>
-                <li><img src="../images/b3.png"></li>
-                <li><img src="../images/b4.png"></li>
-                <li><img src="../images/b5.png"></li>
-                <li><img src="../images/b6.png"></li>
+                <li><img src="images/b1.png"></li>
+                <li><img src="images/b2.png"></li>
+                <li><img src="images/b3.png"></li>
+                <li><img src="images/b4.png"></li>
+                <li><img src="images/b5.png"></li>
+                <li><img src="images/b6.png"></li>
             </ul>
         </div>
     </div>

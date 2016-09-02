@@ -4,7 +4,8 @@ import com.yc.highgo.entity.Customer;
 
 public interface CustomerService {
 
-	public boolean register(Customer cus);
 
 	Customer Login(Customer customer);
+	boolean register(Customer customer);
+
 }

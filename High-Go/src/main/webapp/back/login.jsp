@@ -3,26 +3,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<base href="/High-Go/" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link href="back/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="back/assets/css/font-awesome.min.css" />
 		<!--[if IE 7]>
-		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		  <link rel="stylesheet" href="back/assets/css/font-awesome-ie7.min.css" />
 		<![endif]-->
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
-        <link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="back/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="back/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="back/assets/css/ace-skins.min.css" />
+        <link rel="stylesheet" href="back/css/style.css"/>
 		<!--[if lte IE 8]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		  <link rel="stylesheet" href="back/assets/css/ace-ie.min.css" />
 		<![endif]-->
-		<script src="assets/js/ace-extra.min.js"></script>
+		<script src="back/assets/js/ace-extra.min.js"></script>
 		<!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.js"></script>
-		<script src="assets/js/respond.min.js"></script>
+		<script src="back/assets/js/html5shiv.js"></script>
+		<script src="back/assets/js/respond.min.js"></script>
 		<![endif]-->
-		<script src="js/jquery-1.9.1.min.js"></script>        
-        <script src="assets/layer/layer.js" type="text/javascript"></script>
+		<script src="back/js/jquery-1.9.1.min.js"></script>        
+        <script src="back/assets/layer/layer.js" type="text/javascript"></script>
 <title>登陆</title>
 </head>
 
@@ -57,20 +58,20 @@
 												管理员登陆
 											</h4>
 
-											<div class="login_icon"><img src="images/login.png" /></div>
+											<div class="login_icon"><img src="back/images/login.png" /></div>
 
 											<form class="" action="admin/login" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="登录名"  name="登录名">
+															<input type="text" class="form-control" placeholder="登录名"  name="aname">
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="密码" name="密码">
+															<input type="password" class="form-control" placeholder="密码" name="apwd">
 															<i class="icon-lock"></i>
 														</span>
 													</label>
@@ -82,7 +83,6 @@
 															<input type="checkbox" class="ace">
 															<span class="lbl">保存密码</span>
 														</label>
-
 														<input type="submit" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
 															<i class="icon-key"></i>
 															登陆
@@ -116,7 +116,7 @@
 </body>
 </html>
 <script>
-/* $('#login_btn').on('click', function(){
+ $('#login_btn').on('click', function(){
 	     var num=0;
 		 var str="";
      $("input[type$='text']").each(function(n){
@@ -131,16 +131,8 @@
             return false;            
           } 
 		 });
-		  if(num>0){  return false;}	 	
-          else{
-			  layer.alert('登陆成功！',{
-               title: '提示框',				
-			   icon:1,		
-			  });
-	          location.href="index.jsp";
-			   layer.close(index);	
-		  }		  		     						
-		
-	}) */
+		 	 	
+         
+	}) 
 
 </script>

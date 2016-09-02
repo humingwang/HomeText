@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <base href="/High-Go/"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>商品详情</title>
 <meta name="keywords" content="首页" />
 <meta name="description" content="首页" />
-<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="../css/newArrival.css" />
-<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
-<script src="../js/big.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/newArrival.css" />
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="js/big.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var showproduct = {
@@ -88,11 +89,11 @@
 				<li class="li_4"><a href="">新品上架<i></i></a>
 					<div class="new_div">
 						<ul class="new_ul">
-							<li><a href=""><img src="../images/cl7.jpg" class="gray" /><span>窗帘</span></a></li>
-							<li><a href=""><img src="../images/cp41.jpg" class="gray" /><span>床品</span></a></li>
-							<li><a href=""><img src="../images/dt20.jpg" class="gray" /><span>地毯</span></a></li>
-							<li><a href=""><img src="../images/kd58.jpg" class="gray" /><span>靠垫</span></a></li>
-							<li><a href=""><img src="../images/yj2.jpg" class="gray" /><span>浴巾</span></a></li>
+							<li><a href=""><img src="images/cl7.jpg" class="gray" /><span>窗帘</span></a></li>
+							<li><a href=""><img src="images/cp41.jpg" class="gray" /><span>床品</span></a></li>
+							<li><a href=""><img src="images/dt20.jpg" class="gray" /><span>地毯</span></a></li>
+							<li><a href=""><img src="images/kd58.jpg" class="gray" /><span>靠垫</span></a></li>
+							<li><a href=""><img src="images/yj2.jpg" class="gray" /><span>浴巾</span></a></li>
 						</ul>
 					</div></li>
 				<li><a href="">客户留言</a></li>
@@ -115,12 +116,12 @@
 		<div class="showbot">
 			<!--  <div id="showbox_mask"></div>-->
 			<div id="showbox">
-				<img src="../images/photos/img01.jpg" width="400" height="400" /> <img
-					src="../images/photos/img02.jpg" width="400" height="400" /> <img
-					src="../images/photos/img03.jpg" width="400" height="400" /> <img
-					src="../images/photos/img04.jpg" width="400" height="400" /> <img
-					src="../images/photos/img05.jpg" width="400" height="400" /> <img
-					src="../images/photos/img06.jpg" width="400" height="400" />
+				<img src="images/photos/img01.jpg" width="400" height="400" /> <img
+					src="images/photos/img02.jpg" width="400" height="400" /> <img
+					src="images/photos/img03.jpg" width="400" height="400" /> <img
+					src="images/photos/img04.jpg" width="400" height="400" /> <img
+					src="images/photos/img05.jpg" width="400" height="400" /> <img
+					src="images/photos/img06.jpg" width="400" height="400" />
 
 			</div>
 			<!--展示图片盒子-->
@@ -181,21 +182,21 @@
 			</div>
 			<div class="nobdr-btns">
 				<button class="addcart hu">
-					<img src="../images/shop.png" width="25" height="25" />加入购物车
+					<img src="images/shop.png" width="25" height="25" />加入购物车
 				</button>
 				<button class="addcart yh">
-					<img src="../images/ht.png" width="25" height="25" />立即购买
+					<img src="images/ht.png" width="25" height="25" />立即购买
 				</button>
 			</div>
 			<div class="guarantee">
 				<span>邮费：包邮&nbsp;&nbsp;支持货到付款 <a href=""><img
-						src="../images/me.png" /></a></span>
+						src="images/me.png" /></a></span>
 			</div>
 		</div>
 		<!--right -->
 		<div class="extInfo">
 			<div class="brand-logo">
-				<a href="" title="奥影汽车影音"> <img src="../images/ho_03.png" />
+				<a href="" title="奥影汽车影音"> <img src="images/ho_03.png" />
 				</a>
 			</div>
 			<div class="seller-pop-box">
@@ -206,24 +207,24 @@
 			</div>
 			<div class="seller-phone">
 				<span class="pop im"> <a href="" data-name="联系卖家"><img
-						src="../images/phon.png" />联系卖家</a>
+						src="images/phon.png" />联系卖家</a>
 				</span> <span class="pop in"> <a href="" data-name="咨询卖家"><img
-						src="../images/qq.png" />咨询卖家</a>
+						src="images/qq.png" />咨询卖家</a>
 				</span> <span class="pop in"> <a href="" data-name="进店逛逛"><img
-						src="../images/shop-line.png" />进店逛逛</a>
+						src="images/shop-line.png" />进店逛逛</a>
 				</span> <span class="pop in"> <a href="" data-name="关注店铺"><img
-						src="../images/staar.png" />关注店铺</a>
+						src="images/staar.png" />关注店铺</a>
 				</span>
 			</div>
 			<div class="jd-service">
-				<a href=""> <img src="../images/ho_07.png" />
+				<a href=""> <img src="images/ho_07.png" />
 				</a>
 			</div>
 			<div class="suport-icons">
 				<h4>
 					扫一扫<br />手机下单更优惠
 				</h4>
-				<img src="../images/ho_11.jpg" />
+				<img src="images/ho_11.jpg" />
 			</div>
 		</div>
 	</div>
@@ -244,7 +245,7 @@
 			</div>
 			<!-- 搭配1 -->
 			<div class="dq_ori">
-				<a class="dq_ori_prd" href=""><img src="../images/hdy_11.jpg" /></a> <a
+				<a class="dq_ori_prd" href=""><img src="images/hdy_11.jpg" /></a> <a
 					class="ori_prd" href="">纯棉四件套夏沫之晨全棉斜纹印花床单被套</a>
 				<p class="ori_prd dp_wrap_pprice_ori">￥599.00</p>
 			</div>
@@ -254,7 +255,7 @@
 					<div class="icon_plus">+</div>
 					<div class="dp_p_wrap">
 						<a class="dp_wrap_pimg" href="" target="_blank"><img
-							src="../images/hdy_07.jpg" /></a> <a class="dp_wrap_pname" href=""
+							src="images/hdy_07.jpg" /></a> <a class="dp_wrap_pname" href=""
 							target="_blank">纯棉全棉斜纹居家拖鞋 穿着方便</a>
 						<p class="dp_wrap_pprice">
 							<label> <input type="checkbox" data-price="199"
@@ -268,7 +269,7 @@
 					<div class="icon_plus">+</div>
 					<div class="dp_p_wrap">
 						<a class="dp_wrap_pimg" href="" target="_blank"><img
-							src="../images/hdy_09.jpg" /></a> <a class="dp_wrap_pname" href=""
+							src="images/hdy_09.jpg" /></a> <a class="dp_wrap_pname" href=""
 							target="_blank">水洗棉四件套简约纯棉纯色格子条纹床品</a>
 						<p class="dp_wrap_pprice">
 							<label> <input type="checkbox" data-price="299"
@@ -282,7 +283,7 @@
 					<div class="icon_plus">+</div>
 					<div class="dp_p_wrap">
 						<a class="dp_wrap_pimg" href="" target="_blank"><img
-							src="../images/list_03.jpg" /></a> <a class="dp_wrap_pname" href=""
+							src="images/list_03.jpg" /></a> <a class="dp_wrap_pname" href=""
 							target="_blank">双人全棉被芯单人空调被F</a>
 						<p class="dp_wrap_pprice">
 							<label> <input type="checkbox" data-price="99"
@@ -301,11 +302,11 @@
 		<!-- left -->
 		<div class="aside">
 			<h3>
-				看了还看<span><img src="../images/fod.png" width="22" height="22" />换一批</span>
+				看了还看<span><img src="images/fod.png" width="22" height="22" />换一批</span>
 			</h3>
 			<dl class="ac-mod-list">
 				<dt>
-					<a href=""><img src="../images/hdy_09.jpg" /></a>
+					<a href=""><img src="images/hdy_09.jpg" /></a>
 				</dt>
 				<dd>
 					水洗棉四件套简约纯棉纯色格子条纹床品 <span>￥299</span>
@@ -313,7 +314,7 @@
 			</dl>
 			<dl class="ac-mod-list">
 				<dt>
-					<a href=""><img src="../images/hdy_07.jpg" /></a>
+					<a href=""><img src="images/hdy_07.jpg" /></a>
 				</dt>
 				<dd>
 					纯棉全棉斜纹居家拖鞋 穿着方便 <span>￥99</span>
@@ -321,7 +322,7 @@
 			</dl>
 			<dl class="ac-mod-list">
 				<dt>
-					<a href=""><img src="../images/hdy_11.jpg" /></a>
+					<a href=""><img src="images/hdy_11.jpg" /></a>
 				</dt>
 				<dd>
 					纯棉四件套夏沫之晨全棉斜纹印花床单被套 <span>￥599</span>
@@ -362,19 +363,19 @@
 						<li>上架时间：2016-05-24</li>
 						<li>商品毛重：0克</li>
 						<li>库存： 999</li>
-						<li><img src="../images/ko_11.jpg" /></li>
-						<li><img src="../images/ko_2.jpg" /></li>
-						<!--<li><img src="../images/ko.jpg"/></li>
-												        <li><img src="../images/ko-1.jpg"/></li>-->
+						<li><img src="images/ko_11.jpg" /></li>
+						<li><img src="images/ko_2.jpg" /></li>
+						<!--<li><img src="images/ko.jpg"/></li>
+												        <li><img src="images/ko-1.jpg"/></li>-->
 					</ul>
 				</div>
 				<!--商品规格-->
 				<div id="bit" class="bit">
 					<ul style="display: none;">
-						<li><img src="../images/ko_1.jpg" /></li>
-						<li><img src="../images/ko-2.jpg" /></li>
-						<li><img src="../images/ko.jpg" /></li>
-						<li><img src="../images/ko-2.jpg" /></li>
+						<li><img src="images/ko_1.jpg" /></li>
+						<li><img src="images/ko-2.jpg" /></li>
+						<li><img src="images/ko.jpg" /></li>
+						<li><img src="images/ko-2.jpg" /></li>
 
 					</ul>
 				</div>
@@ -393,8 +394,8 @@
 						<p>商品编号：ECS001983</p>
 						<p>品牌:威力马哈国产</p>
 						<p>上架时间：2016-05-24</p>
-						<span><img src="../images/ko-2.jpg" /></span>
-						<span><img src="../images/ko.jpg" /></span>
+						<span><img src="images/ko-2.jpg" /></span>
+						<span><img src="images/ko.jpg" /></span>
 					</ul>
 				</div>
 			</div>

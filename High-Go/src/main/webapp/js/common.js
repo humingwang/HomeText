@@ -66,4 +66,26 @@ $(function(){
 			$(this).parent().next().hide();
 		}
 	});
+
 });
+
+
+function Send(cemail){
+	$.post("customer/code/"+cemail,function(data){
+		if(data=1){
+			id=window.setInterval("setCodeTime()",1000);
+		}
+	},"json");//返回数据的格式
+}
+var time=60;
+function setCodeTime(){
+	$("#yzm").html("");
+	$("#code").html("<span style='font-size:12px;'>"+time+"秒后可重新发送</span>");
+	time--;
+	if(time==0){
+		$("#code").html("");
+		$("#code").html("<a id='yzm' href='javascript:void(0)' onclick='Send(" +$('#cemail').val()+")'>点击发送验证码</a>");
+		window.clearInterval(id);
+		time=60;
+	}
+}

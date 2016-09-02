@@ -10,4 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findAllByNp" parameterType="Customer" resultType="Customer">
 			select * from customer where cname=#{cname} and cpwd=#{cpwd}
 	</select>
+	<insert id="insertCustomer" parameterType="Customer">
+		 insert into customer values(customer_cid.nextval,#{cname},#{cpwd},1000,#{csex},18,#{cemail})
+	</insert>
 </mapper>

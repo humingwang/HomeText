@@ -28,7 +28,7 @@ create sequence orderdetails_odid start with 1 increment by 10000;
 
 create sequence photoType_phtid start with 1 increment by 1;
 create sequence photo_phid start with 1 increment by 1;
-
+select*from admin;
 
 --管理员表：
 	create table admin(
@@ -48,9 +48,13 @@ create sequence photo_phid start with 1 increment by 1;
 		cage int default 20,---年龄
 		cemail varchar2(20) not null unique --邮箱
 	);
+	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'1234@qq.com');
+	insert into customer values(customer_cid.nextval,'sa','a',1000,'男',18,'1320710348@qq.com'); 
 	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'123@qq.com');
 	insert into customer values(customer_cid.nextval,'w','a',default,default,default,'122@qq.com');
 	
+	delete customer 
+	select * from customer
 	
 	
 --商品类型：

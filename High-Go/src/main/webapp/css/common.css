@@ -98,7 +98,7 @@ header{
 .login_box{
 	width: 360px;
 	background: #FFFFFF;
-	margin: 0px auto;
+	margin: -10px auto;
 }
 .login_title{
 	font-size: 18px;
@@ -111,7 +111,7 @@ header{
 }
 .form_text_ipt{
 	width: 300px;
-	height: 40px;
+	height: 30px;
 	border: solid 1px #CCCCCC;
 	margin: 20px auto 0 auto;
 	background: #FFFFFF;
@@ -119,7 +119,7 @@ header{
 
 .form_text_ipt1{
 	width: 180px;
-	height: 40px;
+	height: 30px;
 	border: solid 1px #CCCCCC;
 	margin: 20px 10px 0 30px;
 	background: #FFFFFF;
@@ -129,7 +129,7 @@ header{
 	width: 110px;
 	height: 30px;
 	margin: 5px;
-	margin-top:-30px;
+	margin-top:-35px;
 	margin-right:20px;
 	border: none;
 	font-family: "微软雅黑";
@@ -137,9 +137,24 @@ header{
 	color: #666;
 	float:right;
 }
+.form_checkbox{
+		width: 180px;
+		height: 20px;
+}
+.form_checkbox input{
+	width: 30px;
+	height: 20px;
+	margin: 5px;
+	margin-left:30px;
+	border: none;
+	font-family: "微软雅黑";
+	font-size: 24px;
+	color: #666;
+}
+
 .form_text_ipt1 input{
 	width: 170px;
-	height: 30px;
+	height: 20px;
 	margin: 5px;
 	border: none;
 	font-family: "微软雅黑";
@@ -153,7 +168,16 @@ header{
 }
 .form_text_ipt input{
 	width: 290px;
-	height: 30px;
+	height: 20px;
+	margin: 5px;
+	border: none;
+	font-family: "微软雅黑";
+	font-size: 15px;
+	color: #666;
+}
+.form_text_ipt select{
+	width: 290px;
+	height: 20px;
 	margin: 5px;
 	border: none;
 	font-family: "微软雅黑";

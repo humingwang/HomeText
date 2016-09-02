@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
+<base href="/High-Go/"/>
 <title>主页</title>
 <link rel="short icon" href="images/icon.png" />
 <link rel="stylesheet" href="css/newArrival.css" />
@@ -18,8 +21,14 @@
 		<div class="login">
 			<div class="login_left">
 				<div class="welcome">
-					<a href="login.jsp" id="login">登录</a> | <a href="register.jsp"
+					<c:if test="${empty Msg}">
+						<a href="customer/active" id="login">登录</a> | <a href="customer/activeres"
 						id="register">注册</a> |
+					</c:if>
+					<c:if test="${not empty Msg }">
+						<span>欢迎你:${Msg.cname}</span>
+					<a href="customer/zxlogin"><font color="#FF0000" size="2">注销</font></a>
+					</c:if>
 				</div>
 				<div class="shop_car">
 					<a href="" id="shop_car"></a>
@@ -70,14 +79,14 @@
 				<li class="li_4"><a href="NewProbuct.jsp">新品上架<i></i></a>
 					<div class="new_div">
 						<ul class="new_ul">
-							<li><a href=""><img src="../images/cl7.jpg" class="gray" /><span>窗帘</span></a></li>
-							<li><a href=""><img src="../images/cp41.jpg"
+							<li><a href=""><img src="images/cl7.jpg" class="gray" /><span>窗帘</span></a></li>
+							<li><a href=""><img src="images/cp41.jpg"
 									class="gray" /><span>床品</span></a></li>
-							<li><a href=""><img src="../images/dt20.jpg"
+							<li><a href=""><img src="images/dt20.jpg"
 									class="gray" /><span>地毯</span></a></li>
-							<li><a href=""><img src="../images/kd58.jpg"
+							<li><a href=""><img src="images/kd58.jpg"
 									class="gray" /><span>靠垫</span></a></li>
-							<li><a href=""><img src="../images/yj2.jpg" class="gray" /><span>浴巾</span></a></li>
+							<li><a href=""><img src="images/yj2.jpg" class="gray" /><span>浴巾</span></a></li>
 						</ul>
 					</div></li>
 				<li><a href="suggest.jsp">客户留言</a></li>
@@ -102,28 +111,28 @@
 			<ul class="slides">
 				<li><a title="" target="_blank" href="#"> <img width="1920"
 						height="482" alt=""
-						style="background: url(../images/001.jpg) no-repeat center;"
-						src="../images/alpha.png">
+						style="background: url(images/001.jpg) no-repeat center;"
+						src="images/alpha.png">
 				</a></li>
 				<li><a title="" href="#"> <img width="1920" height="482"
 						alt=""
-						style="background: url(../images/002.jpg) no-repeat center;"
-						src="../images/alpha.png">
+						style="background: url(images/002.jpg) no-repeat center;"
+						src="images/alpha.png">
 				</a></li>
 				<li><a title="" href="#"> <img width="1920" height="482"
 						alt=""
-						style="background: url(../images/003.jpg) no-repeat center;"
-						src="../images/alpha.png">
+						style="background: url(images/003.jpg) no-repeat center;"
+						src="images/alpha.png">
 				</a></li>
 				<li><a title="" href="#"> <img width="1920" height="482"
 						alt=""
-						style="background: url(../images/004.jpg) no-repeat center;"
-						src="../images/alpha.png">
+						style="background: url(images/004.jpg) no-repeat center;"
+						src="images/alpha.png">
 				</a></li>
 				<li><a title="" href="#"> <img width="1920" height="482"
 						alt=""
-						style="background: url(../images/005.jpg) no-repeat center;"
-						src="../images/alpha.png">
+						style="background: url(images/005.jpg) no-repeat center;"
+						src="images/alpha.png">
 				</a></li>
 			</ul>
 			<!--    /*左右边的小箭头*/-->
@@ -144,15 +153,15 @@
 	<!---------------------------------------------尾部------------------------------------------->
 	<footer style="height: 110px;">
 		<div class="bottom">
-			<img id="bott" src="../images/bottomlogo.png">
+			<img id="bott" src="images/bottomlogo.png">
 			<div class="bott2">
 				<ul>
-					<li><img src="../images/b1.png"></li>
-					<li><img src="../images/b2.png"></li>
-					<li><img src="../images/b3.png"></li>
-					<li><img src="../images/b4.png"></li>
-					<li><img src="../images/b5.png"></li>
-					<li><img src="../images/b6.png"></li>
+					<li><img src="images/b1.png"></li>
+					<li><img src="images/b2.png"></li>
+					<li><img src="images/b3.png"></li>
+					<li><img src="images/b4.png"></li>
+					<li><img src="images/b5.png"></li>
+					<li><img src="images/b6.png"></li>
 				</ul>
 			</div>
 		</div>

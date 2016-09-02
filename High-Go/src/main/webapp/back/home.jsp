@@ -27,13 +27,14 @@
         
       
        <title>无标题文档</title>
+      
        </head>
 		
 <body>
 <div class="page-content clearfix">
  <div class="alert alert-block alert-success">
   <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-  <i class="icon-ok green"></i>欢迎使用<strong class="green">highgo后台管理系统<small>(v1.2)</small></strong>,你本次登陆时间为2016年7月12日13时34分，登陆IP:192.168.1.110.	
+  <i class="icon-ok green"></i>欢迎使用<strong class="green">highgo后台管理系统<small>(v1.2)</small></strong>,你本次登陆时间为<span  class="time"><em id="time"></em></span>，登陆IP:192.168.1.110.	
  </div>
  
              <!--实时交易记录-->
@@ -54,6 +55,20 @@
          </div>
  
 <script type="text/javascript">
+function currentTime(){
+	var d=new Date();
+	var str="";
+	str+=d.getFullYear()+'年'; 
+	str+=d.getMonth() + 1+'月'; 
+	str+=d.getDate()+'日'; 
+	str+=d.getHours()+'时'; 
+	str+=d.getMinutes()+'分'; 
+	str+= d.getSeconds()+'秒'; 
+	return str; 
+}
+	$("#time").html(currentTime);
+
+	
      $(document).ready(function(){
 		 
 		  $(".t_Record").width($(window).width()-320);
@@ -63,7 +78,7 @@
 		});
  });
 	 
-	 
+   
         require.config({
             paths: {
                 echarts: './assets/dist'

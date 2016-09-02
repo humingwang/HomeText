@@ -16,3 +16,5 @@ $(function() {
 		bannerSlider.next()
 	});
 })
+
+/*注销的方法*/

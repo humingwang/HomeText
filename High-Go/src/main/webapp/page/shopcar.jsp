@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	 <base href="/High-Go/"/>
 		<meta charset="utf-8" />
 		<title>购物车</title>
-		<link rel="short icon" href="../images/icon.png"/>
-		<link rel="stylesheet" href="../css/shopcar.css" />
-		<link rel="stylesheet" href="../css/newArrival.css" />
-		<link rel="stylesheet" type="text/css" href="../css/css.css" />
-		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="../js/shopping.js"></script>
+		<link rel="short icon" href="images/icon.png"/>
+		<link rel="stylesheet" href="css/shopcar.css" />
+		<link rel="stylesheet" href="css/newArrival.css" />
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/shopping.js"></script>
 	</head>
 	<body>
 		<div class="head">
@@ -74,11 +75,11 @@
 					<li class="li_4"><a href="">新品上架<i></i></a>
 						<div class="new_div">
 							<ul class="new_ul">
-								<li><a href=""><img src="../images/cl7.jpg" class="gray"/><span>窗帘</span></a></li>
-								<li><a href=""><img src="../images/cp41.jpg" class="gray"/><span>床品</span></a></li>
-								<li><a href=""><img src="../images/dt20.jpg" class="gray"/><span>地毯</span></a></li>
-								<li><a href=""><img src="../images/kd58.jpg" class="gray"/><span>靠垫</span></a></li>
-								<li><a href=""><img src="../images/yj2.jpg" class="gray"/><span>浴巾</span></a></li>
+								<li><a href=""><img src="images/cl7.jpg" class="gray"/><span>窗帘</span></a></li>
+								<li><a href=""><img src="images/cp41.jpg" class="gray"/><span>床品</span></a></li>
+								<li><a href=""><img src="images/dt20.jpg" class="gray"/><span>地毯</span></a></li>
+								<li><a href=""><img src="images/kd58.jpg" class="gray"/><span>靠垫</span></a></li>
+								<li><a href=""><img src="images/yj2.jpg" class="gray"/><span>浴巾</span></a></li>
 							</ul>
 						</div>
 					</li>
@@ -137,7 +138,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a><img src="../images/2f1.jpg" /></a>
+							<a><img src="images/2f1.jpg" /></a>
 						</td>
 						<td><span>小消息下</span></td>
 						<td>
@@ -162,7 +163,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a><img src="../images/2f1.jpg" /></a>
+							<a><img src="images/2f1.jpg" /></a>
 						</td>
 						<td><span>小消息下</span></td>
 						<td>
@@ -187,7 +188,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a><img src="../images/2f1.jpg" /></a>
+							<a><img src="images/2f1.jpg" /></a>
 						</td>
 						<td><span>小消息下</span></td>
 						<td>
@@ -212,7 +213,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a><img src="../images/2f1.jpg" /></a>
+							<a><img src="images/2f1.jpg" /></a>
 						</td>
 						<td><span>小消息下</span></td>
 						<td>
@@ -237,7 +238,7 @@
 					</tr>
 					<tr>
 						<td>
-							<a><img src="../images/2f1.jpg" /></a>
+							<a><img src="images/2f1.jpg" /></a>
 						</td>
 						<td><span>小消息下</span></td>
 						<td>
@@ -326,15 +327,15 @@
 	<!---------------------------------------------尾部------------------------------------------->
 		<footer style="height:110px;">
 	<div class="bottom">
-    	<img id="bott" src="../images/bottomlogo.png">
+    	<img id="bott" src="images/bottomlogo.png">
         <div class="bott2">
             <ul>
-                <li><img src="../images/b1.png"></li>
-                <li><img src="../images/b2.png"></li>
-                <li><img src="../images/b3.png"></li>
-                <li><img src="../images/b4.png"></li>
-                <li><img src="../images/b5.png"></li>
-                <li><img src="../images/b6.png"></li>
+                <li><img src="images/b1.png"></li>
+                <li><img src="images/b2.png"></li>
+                <li><img src="images/b3.png"></li>
+                <li><img src="images/b4.png"></li>
+                <li><img src="images/b5.png"></li>
+                <li><img src="images/b6.png"></li>
             </ul>
         </div>
     </div>

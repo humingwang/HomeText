@@ -84,9 +84,9 @@
 				$("#Bcrumbs").attr("href",cid).ready();
 				$(".Current_page a").attr('href',cid).ready();	
                 $(".Current_page").attr('name',cid);
-				$(".Current_page").html(cname).css({"color":"#333333","cursor":"default"}).ready();	
-				$("#parentIframe").html('<span class="parentIframe iframeurl"> </span>').css("display","none").ready();	
-				$("#parentIfour").html(''). css("display","none").ready();		
+				$(".Current_page").jsp(cname).css({"color":"#333333","cursor":"default"}).ready();	
+				$("#parentIframe").jsp('<span class="parentIframe iframeurl"> </span>').css("display","none").ready();	
+				$("#parentIfour").jsp(''). css("display","none").ready();		
       });
     
 		
@@ -190,7 +190,7 @@ $('.change_Password').on('click', function(){
 	 icon:2,
     }, 
 	function(){
-	  location.href="login.html";
+	  location.href="login.jsp";
         
     });
 });
@@ -310,47 +310,47 @@ $('.change_Password').on('click', function(){
 						</div>
 					</div><!-- #sidebar-shortcuts -->
 					<ul class="nav nav-list" id="nav_list">
-				     <li class="home"><a href="javascript:void(0)" name="home.html" class="iframeurl" title=""><i class="icon-dashboard"></i><span class="menu-text"> 系统首页 </span></a></li>
+				     <li class="home"><a href="javascript:void(0)" name="home.jsp" class="iframeurl" title=""><i class="icon-dashboard"></i><span class="menu-text"> 系统首页 </span></a></li>
                      <li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> 产品管理 </span><b class="arrow icon-angle-down"></b></a>
 					   <ul class="submenu">
-                         <li class="home"><a  href="javascript:void(0)" name="Products_List.html"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>产品类表</a></li>
-						 <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
+                         <li class="home"><a  href="javascript:void(0)" name="Products_List.jsp"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>产品类表</a></li>
+						 <li class="home"><a href="javascript:void(0)" name="Category_Manage.jsp" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
 
 						</ul>
 					</li>
 					<li>
 					<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text"> 图片管理 </span><b class="arrow icon-angle-down"></b></a>
 						<ul class="submenu">
-						<li class="home"><a href="javascript:void(0)" name="advertising.html" title="广告管理" class="iframeurl"><i class="icon-double-angle-right"></i>广告管理</a></li>
-						<li class="home"><a href="javascript:void(0)" name="Sort_ads.html" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
+						<li class="home"><a href="javascript:void(0)" name="advertising.jsp" title="广告管理" class="iframeurl"><i class="icon-double-angle-right"></i>广告管理</a></li>
+						<li class="home"><a href="javascript:void(0)" name="Sort_ads.jsp" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
 							</ul>
 						</li>
 					<li>
 					<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 交易管理 </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="transaction.html" title="交易信息"  class="iframeurl"><i class="icon-double-angle-right"></i>交易信息</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Amounts.html" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Order_handling.html" title="订单处理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单处理</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Cover_management.html" title="支付管理"  class="iframeurl"><i class="icon-double-angle-right"></i>支付管理</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="transaction.jsp" title="交易信息"  class="iframeurl"><i class="icon-double-angle-right"></i>交易信息</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="Amounts.jsp" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="Order_handling.jsp" title="订单处理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单处理</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="Cover_management.jsp" title="支付管理"  class="iframeurl"><i class="icon-double-angle-right"></i>支付管理</a></li>
                    </ul>
 				  </li>
                   <li>
                     <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="user_list.html" title="会员列表"  class="iframeurl"><i class="icon-double-angle-right"></i>会员列表</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="member-Grading.html" title="等级管理"  class="iframeurl"><i class="icon-double-angle-right"></i>等级管理</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="integration.html" title="会员记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>会员记录管理</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="user_list.jsp" title="会员列表"  class="iframeurl"><i class="icon-double-angle-right"></i>会员列表</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="member-Grading.jsp" title="等级管理"  class="iframeurl"><i class="icon-double-angle-right"></i>等级管理</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="integration.jsp" title="会员记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>会员记录管理</a></li>
 
                    </ul>
 				  </li>
 						<li><a href="#" class="dropdown-toggle"><i class="icon-edit"></i><span class="menu-text"> 消息管理 </span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="Guestbook.html" title="留言列表" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
+								<li class="home"><a href="javascript:void(0)" name="Guestbook.jsp" title="留言列表" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
 							</ul>
 						</li>
 						
                         <li><a href="#" class="dropdown-toggle"><i class="icon-group"></i><span class="menu-text"> 管理员管理 </span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">							
-								  <li class="home"><a href="javascript:void(0)" name="admin_info.html" title="个人信息" class="iframeurl"><i class="icon-double-angle-right"></i>个人信息</a></li>
+								  <li class="home"><a href="javascript:void(0)" name="admin_info.jsp" title="个人信息" class="iframeurl"><i class="icon-double-angle-right"></i>个人信息</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -369,7 +369,7 @@ $('.change_Password').on('click', function(){
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="index.html">首页</a>
+								<a href="index.jsp">首页</a>
 							</li>
 							<li class="active"><span class="Current_page iframeurl"></span></li>
                             <li class="active" id="parentIframe"><span class="parentIframe iframeurl"></span></li>
@@ -377,7 +377,7 @@ $('.change_Password').on('click', function(){
 						</ul>
 					</div>
                     
-                 <iframe id="iframe" style="border:0; width:100%; background-color:#FFF;"name="iframe" frameborder="0" src="home.html">  </iframe>
+                 <iframe id="iframe" style="border:0; width:100%; background-color:#FFF;"name="iframe" frameborder="0" src="home.jsp">  </iframe>
 				 
 
 <!-- /.page-content -->
