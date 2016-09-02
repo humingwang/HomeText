@@ -134,7 +134,7 @@ public class CustomerHandler {
 			return "register";
 		}
 		
-		
+		customerService.register(customer);
 			//成功注册，发送邮件，激活账号
 		  return "login";
 		
