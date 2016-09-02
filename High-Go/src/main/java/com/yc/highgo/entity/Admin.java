@@ -4,6 +4,12 @@ public class Admin {
 	private int aid;
 	private String aname;
 	private String apwd;
+	
+	
+	public Admin(String aname, String apwd) {
+		this.aname = aname;
+		this.apwd = apwd;
+	}
 	public int getAid() {
 		return aid;
 	}

@@ -28,7 +28,7 @@ create sequence orderdetails_odid start with 1 increment by 10000;
 
 create sequence photoType_phtid start with 1 increment by 1;
 create sequence photo_phid start with 1 increment by 1;
-
+select*from admin;
 
 --管理员表：
 	create table admin(

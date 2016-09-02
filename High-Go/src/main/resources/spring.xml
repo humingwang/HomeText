@@ -41,11 +41,14 @@
 	</bean>
 
 	<!-- 响应处理,视图处理配置 -->
-	<bean
+	 <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/page/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	
+	
 
 	<!-- 处理邮箱发送的bean -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
