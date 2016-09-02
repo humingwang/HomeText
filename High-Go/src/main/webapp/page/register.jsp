@@ -24,23 +24,18 @@
 							注册
 						</div>
 						<form action="customer/register" method="post">
-							
 							<div class="form_text_ipt">
-								<input name="cname" type="text" id="cname" placeholder="手机号/邮箱">
+								<input id="cname" name="cname" type="text" placeholder="用户名" onBlur="checkCusName(this)">
 							</div>
-							<div class="ececk_warning"><span>邮箱格式不正确</span></div>
+							<div class="ececk_warning"><span id="customer_earn"></span></div>
 							<div class="form_text_ipt">
-								<input name="cname" type="text" placeholder="用户名">
+								<input id="cpwd" name="cpwd" type="password" placeholder="密码" onBlur="checkpwd()" >
 							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
+							<div class="ececk_warning"><span id="pwd_earn"></span></div>
 							<div class="form_text_ipt">
-								<input name="cpwd" type="password" placeholder="密码">
+								<input id="recpwd" name="recpwd" type="password" placeholder="重复密码" onBlur="checkrepwd()">
 							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
-							<div class="form_text_ipt">
-								<input name="recpwd" type="password" placeholder="重复密码">
-							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
+							<div class="ececk_warning"><span id="repwd_earn"></span></div>
 							<div class="form_text_ipt">
 									<select class="csex" name="csex">
 										<option>选择性别</option>
@@ -49,23 +44,23 @@
 										
 									</select>
 							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
+							<div class="ececk_warning"><span></span></div>
 							<div class="form_text_ipt" >
-								<input name="cemail" id="cemail" type="text" placeholder="邮箱">
+								<input name="cemail" id="cemail" type="text" placeholder="邮箱" onBlur="checkEmail()">
 							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
+							<div class="ececk_warning"><span id="email_earn"></span></div>
 							<div class="form_text_ipt1">
 								<input name="code" type="text" placeholder="验证码">
                         	</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
+							<div class="ececk_warning"><span id=""></span></div>
 							<div class="form_a" id="code">
-								 <a id="yzm" href="javascript:void(0)" onclick='Send($("#cemail").val())'>点击发送验证码</a>
-							</div>
+							 	<input type="button" style="border:ridge 2px #CCCCCC" onclick='Send($("#cemail").val())' id="yzm" value="点击发送验证码"/> 
+<!-- 							<a id="yzm" href="javascript:void(0)" onclick='Send($("#cemail").val())'>点击发送验证码</a> -->							</div>
 							<div class="form_btn">
 								<button type="submit">注册</button>
 							</div>
 							<div class="form_reg_btn">
-								<span>已有帐号？</span><a href="login.jsp">马上登录</a>
+								<span>已有帐号？</span><a href="customer/active">马上登录</a>
 							</div>
 						</form>
 						<div class="other_login">

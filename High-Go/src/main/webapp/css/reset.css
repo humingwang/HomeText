@@ -24,10 +24,9 @@ em {font-style: normal;}
 .clear{clear:both;}
 .red{color: #f60;}
 
-.ececk_warning{
+ .ececk_warning{
 	font-size: 13px;
-	color: red;
+	 	
 	width: 300px;
 	margin: 0 auto;
-	display: none;
-}
+} 
