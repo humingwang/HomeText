@@ -34,7 +34,7 @@
 <div class="page-content clearfix">
  <div class="alert alert-block alert-success">
   <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-  <i class="icon-ok green"></i>欢迎使用<strong class="green">highgo后台管理系统<small>(v1.2)</small></strong>,你本次登陆时间为<span  class="time"><em id="time"></em></span>，登陆IP:<span class="IP"></span>	
+  <i class="icon-ok green"></i>欢迎使用<strong class="green">highgo后台管理系统<small>(v1.2)</small></strong>,你本次登陆时间为<span  class="time"><em id="time"></em></span>，登陆IP:${ip}	
  </div>
  
              <!--实时交易记录-->

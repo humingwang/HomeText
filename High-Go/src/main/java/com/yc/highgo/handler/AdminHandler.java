@@ -18,10 +18,12 @@ public class AdminHandler {
 	private AdminService adminService;
 
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public String login(Admin admin,ModelMap map){
-		/*request.getRemoteUser();*/
+	public String login(Admin admin,ModelMap map,HttpServletRequest request){
+		String ip=request.getRemoteUser();
 		System.out.println("admin login..."+admin);
+		System.out.println("ip====>"+ip);
 		admin=adminService.login(admin);
+		map.put("ip",ip);
 		if(admin==null){
 			map.put("errorMsg", "用户名或密码错误");
 			return "redirect:../back/login.jsp";

@@ -77,10 +77,9 @@
 									<div class="clearfix">
 										<label class="inline"> <input type="checkbox"
 											class="ace"> <span class="lbl">保存密码</span></label> 
-											<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
-															<i class="icon-key"></i>
-															登陆
-														</button>
+											<input type="submit" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn" value="登陆">
+											<!-- <i class="icon-key"></i> -->
+														
 									</div>
 
 									<div class="space-4"></div>
