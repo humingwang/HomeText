@@ -146,7 +146,8 @@ select*from admin;
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
 	'包装挺好，快递速度超快滴！就是垫子厚度一般在5cm，自作了一个加厚的褥子加在里面了，竟然装的正正好！！',3001,230001);
 	select *from assess;
-	
+	select count(1) from assess;
+	select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate from assess a,customer c where a.cid=c.cid;
 	
 --地址表
 	create table address(

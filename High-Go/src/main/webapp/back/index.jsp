@@ -111,6 +111,10 @@
 //})		
 //	});
 /*********************点击事件*********************/
+
+function getCount(){
+	$.post("../assess/findCount");
+}
 $( document).ready(function(){
   $('#nav_list').find('li.home').click(function(){
 	$('#nav_list').find('li.home').removeClass('active');
@@ -342,7 +346,7 @@ $('.change_Password').on('click', function(){
 				  </li>
 						<li><a href="#" class="dropdown-toggle"><i class="icon-edit"></i><span class="menu-text"> 消息管理 </span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="Guestbook.jsp" title="留言列表" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
+								<li class="home"><a href="javascript:void(0)" name="Guestbook.jsp" title="留言列表" onclick="getCount()" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
 							</ul>
 						</li>
 						
