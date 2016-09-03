@@ -18,4 +18,14 @@ public class AdminServiceImpl implements AdminService{
 		return adminMapper.login(admin);
 	}
 
-}
+	@Override
+	public int udateInfo(String aname, String asex, int aage, String atel, String aemail, int aid) {
+			return adminMapper.update(aname,asex,aage,atel,aemail,aid);
+		}
+	}
+
+
+
+
+	
+

@@ -214,7 +214,7 @@ $('.change_Password').on('click', function(){
                <ul class="nav ace-nav">	
                 <li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<span  class="time"><em id="time"></em></span><span class="user-info"><small>欢迎光临,</small>ADMIN	</span>
+								<span  class="time"><em id="time"></em></span><span class="user-info"><small>欢迎光临,</small>${admin.aname}	</span>
 							</a>
 						</li>
 	                   <li class="purple">
@@ -329,9 +329,7 @@ $('.change_Password').on('click', function(){
 					<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 交易管理 </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
                     <li class="home"><a href="javascript:void(0)" name="transaction.jsp" title="交易信息"  class="iframeurl"><i class="icon-double-angle-right"></i>交易信息</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Amounts.jsp" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
                     <li class="home"><a href="javascript:void(0)" name="Order_handling.jsp" title="订单处理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单处理</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="Cover_management.jsp" title="支付管理"  class="iframeurl"><i class="icon-double-angle-right"></i>支付管理</a></li>
                    </ul>
 				  </li>
                   <li>

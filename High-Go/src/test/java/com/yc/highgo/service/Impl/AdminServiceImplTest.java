@@ -24,5 +24,11 @@ public class AdminServiceImplTest {
 		System.out.println(admin);
 		assertNotNull(admin);
 	}
+	
+	@Test
+	public void testUpdate() {
+		int data=adminService.udateInfo("sa","男",12,"111","123123@qq.com",22001);
+		System.out.println(data);
+	}
 
 }

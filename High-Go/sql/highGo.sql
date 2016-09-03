@@ -34,10 +34,15 @@ select*from admin;
 	create table admin(
 		aid int primary key,--管理员编号
 		aname varchar2(20) not null,--管理员名
-		apwd varchar2(20) not null --管理员密码
+		apwd varchar2(20) not null, --管理员密码
+		asex varchar2(10) not null,--性别
+		aage int not null,--年龄
+		atel number(15) not null,--电话
+		aemail varchar2(20) not null unique--邮件
 	);
-	insert into admin values(admin_aid.nextval,'sa','a');
-	
+	insert into admin values(admin_aid.nextval,'sa','a','女',22,13245238956,'123@qq.com');
+	update admin set(aname=${aname},asex=${asex},aage=${aage},atel=${atel},aemail=${aamail} where aid=${aid})
+	delete from admin where aid=21001;
 --客户表：
 	create table customer(
 		cid int primary key,--客户编号
