@@ -178,7 +178,8 @@ function Guestbook_iew(id){
 					   icon:0,	
 					   btn:['确定','取消'],	
 					   yes: function(index){
-						   $.post("../assess/response",{rid:rid,content:content,currentTime:currentTime,id:id},function(data){
+						   var content=$('.form-control').val();
+						   $.post("../assess/response",{content:content,id:id},function(data){
 							   if(data>0){
 								   alert("回复成功!!!");
 							   }
@@ -200,17 +201,6 @@ function Guestbook_iew(id){
 	
 };
 
-
-function currentTime(){ 
-    var d=new Date(),str=''; 
-    str+=d.getFullYear()+'年'; 
-    str+=d.getMonth() + 1+'月'; 
-    str+=d.getDate()+'日'; 
-    str+=d.getHours()+'时'; 
-    str+=d.getMinutes()+'分'; 
-    str+= d.getSeconds()+'秒'; 
-    return str; 
-} 
 
 /*checkbox激发事件*/
 function res(){

@@ -9,6 +9,7 @@ drop table product;
 drop table productType;
 drop table address;
 drop table stock;
+drop table response;
 
 drop sequence admin_aid;
 drop sequence customer_cid;
@@ -19,6 +20,7 @@ drop sequence orderdetails_odid;
 drop sequence photo_phid;
 drop sequence photoType_phtid;
 drop sequence stock_kid;
+drop sequence response_rid;
 
 create sequence admin_aid start with 1000 increment by 1;
 create sequence customer_cid start with 1000 increment by 1;
@@ -155,9 +157,9 @@ select*from admin;
 	 create table response(
 	 rid int primary key,--回复编号
 	 content varchar2(1000) not null,--回复内容
-	 redate date,--回复日期
 	 asid int references assess(asid)--评价表的id
-  )
+  	);
+  	insert into response values(response_rid.nextval,"hj",1001);
   
   
 --地址表
