@@ -66,8 +66,6 @@ public class AdminHandler {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
 	}
-	
 }

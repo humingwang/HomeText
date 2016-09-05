@@ -30,6 +30,7 @@ create sequence orderdetails_odid start with 1000 increment by 1;
 create sequence photoType_phtid start with 1000 increment by 1;
 create sequence photo_phid start with 1000 increment by 1;
 create sequence stock_kid start with 1000 increment by 1;
+create sequence response_rid start with 1000 increment by 1;
 select*from admin;
 
 --管理员表：
@@ -148,7 +149,17 @@ select*from admin;
 	select *from assess;
 	select count(1) from assess;
 	select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate from assess a,customer c where a.cid=c.cid;
+	delete from assess where asid=1000;
 	
+	--回复表
+	 create table response(
+	 rid int primary key,--回复编号
+	 content varchar2(1000) not null,--回复内容
+	 redate date,--回复日期
+	 asid int references assess(asid)--评价表的id
+  )
+  
+  
 --地址表
 	create table address(
 		aid int primary key,--地址编号
@@ -179,3 +190,5 @@ select*from admin;
     cid  int references customer(cid),--客户编号
     oid  varchar2(20) references orders(oid)--订单号
   );
+
+ 
