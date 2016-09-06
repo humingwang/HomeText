@@ -127,9 +127,7 @@ function save_info(){
 	    var num=0;
 		 var str="";
      $(".xinxi input[type$='text']").each(function(n){
-          if($(this).val()=="")
-          {
-               
+          if($(this).val()=="") {
 			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
                 title: '提示框',				
 				icon:0,								

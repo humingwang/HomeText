@@ -26,11 +26,9 @@
 							<div class="form_text_ipt">
 								<input name="cname" class="input-text" type="text" placeholder="用户名">
 							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
 								<input name="cpwd"  class="input-text" type="password" placeholder="密码">
 							</div>
-							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_check_ipt">
 								<div class="left check_left">
 									<label><input name="" type="checkbox"> 下次自动登录</label>
