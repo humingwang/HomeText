@@ -28,34 +28,28 @@
  <div class="type_title">产品类型信息</div>
   <div class="type_content">
   <div class="Operate_btn">
-  <a href="javascript:ovid()" class="btn  btn-warning"><i class="icon-edit align-top bigger-125"></i>新增子类型</a>
-  <a href="javascript:ovid()" class="btn  btn-danger"><i class="icon-trash   align-top bigger-125"></i>删除该类型</a>
+  <a href="javascript:add()" class="btn  btn-warning"><i class="icon-edit align-top bigger-125"></i>新增子类型</a>
+  <a href="javascript:del()" class="btn  btn-danger"><i class="icon-trash   align-top bigger-125"></i>删除该类型</a>
   </div>
   <form action="" method="post" class="form form-horizontal" id="form-user-add">
     <div class="Operate_cont clearfix">
       <label class="form-label"><span class="c-red">*</span>分类名称：</label>
       <div class="formControls ">
-        <input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+        <input type="text" class="input-text" value="" placeholder="" id="name" name="product-category-name">
       </div>
     </div>
         <div class="Operate_cont clearfix">
-      <label class="form-label"><span class="c-red">*</span>排序：</label>
+      <label class="form-label"><span class="c-red">*</span>类型排序：</label>
       <div class="formControls ">
-        <input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+        <input type="text" class="input-text" value="" placeholder="" id="fptid" name="product-category-name">
       </div>
     </div>
-    <div class="Operate_cont clearfix">
-    <label class="form-label">备注：</label>
-    <div class="formControls">
-    <textarea name="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,100)"></textarea>
-     <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
-    </div>
-    </div>
+
     <div class="">
      <div class="" style=" text-align:center">
-      <input class="btn btn-primary radius" type="submit" value="提交">
+      <input class="btn btn-primary radius" type="submit" value="修改">
       </div>
-    </div>
+    </div> 
   </form>
   </div>
 </div> 
@@ -66,6 +60,29 @@
 <script type="text/javascript" src="js/H-ui.js"></script> 
 <script type="text/javascript" src="js/H-ui.admin.js"></script>
 <script type="text/javascript">
+function add(){
+	var name=$("#name").val();
+	var fptid=$("#fptid").val();
+	 if("" == name || name == null){
+		alert("请输入你要添加的子类名称");
+	}else if("" == fptid || fptid == null){
+		alert("请输入你的类型排序编号");
+	}else{ 
+
+	$.post("../productType/add/",{name:name,fptid:fptid},function(data){
+		if(data>0){
+			alert("恭喜你，添加成功！！");
+			parent.document.location.reload();
+			$("#name").val("");
+			$("#fptid").val(""); 
+		}else{
+			alert("不好意思，添加失败啦!!!")
+		}
+	
+	},"json");//返回数据的格式
+	}
+}
+
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',

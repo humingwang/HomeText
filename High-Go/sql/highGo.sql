@@ -21,7 +21,7 @@ drop sequence photoType_phtid;
 
 create sequence admin_aid start with 1 increment by 1000;
 create sequence customer_cid start with 1 increment by 1000;
-create sequence productType_ptid start with 1 increment by 10000;
+create sequence productType_ptid start with 1 increment by 1;
 create sequence product_pid start with 1 increment by 10000;
 create sequence assess_asid start with 1 increment by 10000;
 create sequence orderdetails_odid start with 1 increment by 10000;
@@ -55,24 +55,37 @@ select*from admin;
 	
 	delete customer 
 	select * from customer
+delete productType 
 	
-	
+drop productType;
 --商品类型：
 	create table productType(
 		ptid int primary key,--类型编号
-		ptname varchar2(10),--类型名
+		name varchar2(10),--类型名
 		fptid  int default 0
 	);
+	insert into productType values(productType_ptid.nextval,'yc',1);
+	insert into productType values(productType_ptid.nextval,'日常家具',3);
+
 	insert into productType values(productType_ptid.nextval,'床上用品',0);
 	insert into productType values(productType_ptid.nextval,'装饰设计',0);
 	insert into productType values(productType_ptid.nextval,'家居用品',0);
-	insert into productType values(productType_ptid.nextval,'四件套',1);
-	insert into productType values(productType_ptid.nextval,'装饰设计',1);
-	insert into productType values(productType_ptid.nextval,'家居用品',1);
-	insert into productType values(productType_ptid.nextval,'床上用品','');
-	insert into productType values(productType_ptid.nextval,'装饰设计','');
-	insert into productType values(productType_ptid.nextval,'家居用品','');
-	
+	insert into productType values(productType_ptid.nextval,'床上四件套',1);
+	insert into productType values(productType_ptid.nextval,'床单/被套',1);
+	insert into productType values(productType_ptid.nextval,'枕头',1);
+	insert into productType values(productType_ptid.nextval,'棉被',1);
+	insert into productType values(productType_ptid.nextval,'竹凉席',1);
+	insert into productType values(productType_ptid.nextval,'板材',2);
+	insert into productType values(productType_ptid.nextval,'墙纸',2);
+	insert into productType values(productType_ptid.nextval,'窗帘',2);
+	insert into productType values(productType_ptid.nextval,'天花板',2);
+	insert into productType values(productType_ptid.nextval,'家具',2);
+	insert into productType values(productType_ptid.nextval,'毛巾',3);
+	insert into productType values(productType_ptid.nextval,'毛毯',3);
+	insert into productType values(productType_ptid.nextval,'靠垫',3);
+	insert into productType values(productType_ptid.nextval,'地毯',3);
+	insert into productType values(productType_ptid.nextval,'沙发',3);
+	select * from productType
 --库存表
 	create table stock(
 		sid int primary key,--库存编号
@@ -137,3 +150,6 @@ select*from admin;
 		cid  int references customer(cid),--客户编号
 		oid  varchar2(20) references orders(oid)--订单号
 	);
+
+	
+	select a.*,b.

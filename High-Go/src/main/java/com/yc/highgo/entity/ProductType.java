@@ -2,36 +2,42 @@ package com.yc.highgo.entity;
 
 public class ProductType {
 	private int ptid;
-	private String ptname;
-	private String fpid;
+	private String name;
+	private int fptid;
 	public int getPtid() {
 		return ptid;
 	}
 	public void setPtid(int ptid) {
 		this.ptid = ptid;
 	}
-	public String getPtname() {
-		return ptname;
+	public String getName() {
+		return name;
 	}
-	public void setPtname(String ptname) {
-		this.ptname = ptname;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getFpid() {
-		return fpid;
+	public int getFptid() {
+		return fptid;
 	}
-	public void setFpid(String fpid) {
-		this.fpid = fpid;
+	public void setFptid(int fptid) {
+		this.fptid = fptid;
+	}
+	public ProductType(int ptid, String name, int fptid) {
+		this.ptid = ptid;
+		this.name = name;
+		this.fptid = fptid;
 	}
 	public ProductType() {
+		super();
+	}
+	public ProductType(String name, int fptid) {
+		this.name = name;
+		this.fptid = fptid;
 	}
 	@Override
 	public String toString() {
-		return "\nProductType [ptid=" + ptid + ", ptname=" + ptname + ", fpid=" + fpid + "]";
+		return " {ptid=" + ptid + ", name=" + name + ", fptid=" + fptid + "}";
 	}
-	public ProductType(int ptid, String ptname, String fpid) {
-		this.ptid = ptid;
-		this.ptname = ptname;
-		this.fpid = fpid;
-	}
+	
 	
 }
