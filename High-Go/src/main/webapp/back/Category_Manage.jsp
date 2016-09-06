@@ -108,9 +108,9 @@ var setting = {
 				zTree.expandNode(treeNode);
 				return false;
 			} else {
-				$.post("../productType/findById/",{ptid:treeId},function(data){
-					if(data>0){
-						alert(data);
+				$.post("../productType/findById/",{ptid:treeNode.ptid},function(data){
+					if(data){
+						$("#testIframe").attr("src","product-category-add.jsp?" + new Date().getTime());
 					}
 				},"json");//返回数据的格式
 /* 				demoIframe.attr("src",treeNode.file + ".jsp");

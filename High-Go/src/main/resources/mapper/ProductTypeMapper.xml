@@ -14,4 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertPros" parameterType="ProductType">
 	insert into productType values(productType_ptid.nextval,#{name},#{fptid})
 	</insert>
+	
+	<delete id="delPros" parameterType="String">
+		delete from productType where name=#{name}
+	</delete>
+	
+	<update id="updatePros"  parameterType="ProductType">
+		update productType set name=#{name},fptid=#{fptid} where ptid=#{ptid}
+	</update>
 </mapper>

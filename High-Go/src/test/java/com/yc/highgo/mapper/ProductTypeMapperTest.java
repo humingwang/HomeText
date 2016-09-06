@@ -32,4 +32,16 @@ public class ProductTypeMapperTest {
 		System.out.println(pro.findAllById(4));
 		assertNotNull(pro.findAllById(4));
 	}
+	
+	@Test
+	public void del() {
+		System.out.println(pro.delPros("gggg"));
+	}
+	
+	@Test
+	public void update() {
+		ProductType pros=new ProductType(19,"tt",1);
+		System.out.println(pro.updatePros(pros));
+
+	}
 }
