@@ -159,7 +159,7 @@ select*from admin;
 	 content varchar2(1000) not null,--回复内容
 	 asid int references assess(asid)--评价表的id
   	);
-  	insert into response values(response_rid.nextval,"hj",1001);
+  	insert into response values(response_rid.nextval,'你好',1001);
   
   
 --地址表
