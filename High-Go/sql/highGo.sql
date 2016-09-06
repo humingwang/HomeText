@@ -148,17 +148,22 @@ select*from admin;
 	'直接垫下面可以的，冬天更舒服。不会太软也不会太硬，刚刚好，物流也挺快的。卖家态度很好。',1001,230001);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
 	'包装挺好，快递速度超快滴！就是垫子厚度一般在5cm，自作了一个加厚的褥子加在里面了，竟然装的正正好！！',3001,230001);
-	select *from assess;
+	select * from assess;
 	select count(1) from assess;
 	select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate from assess a,customer c where a.cid=c.cid;
-	delete from assess where asid=1000;
+	delete from assess where asid in (select asid from response where asid=1001);
 	
+	select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate from assess a,customer c where a.cid=c.cid 
+		and ascount like '%加厚%' and asdate=to_date('2016-02-27', 'yyyy-MM-dd')
+
+	select date'2016-02-32' from dual;
 	--回复表
 	 create table response(
 	 rid int primary key,--回复编号
 	 content varchar2(1000) not null,--回复内容
 	 asid int references assess(asid)--评价表的id
   	);
+  
   	insert into response values(response_rid.nextval,'你好',1001);
   
   
