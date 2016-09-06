@@ -4,16 +4,26 @@ import java.util.Date;
 
 public class Assess {
 	private int asid;
-	private Date asdate;
+	private String asdate;
 	private String ascount;
+	private String cname;
 	
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+
 	public Assess() {
 	}
 
-	public Assess(int asid, Date asdate, String ascount) {
+	public Assess(int asid, String asdate, String ascount,String cname) {
 		this.asid = asid;
 		this.asdate = asdate;
 		this.ascount = ascount;
+		this.cname=cname;
 	}
 
 	public int getAsid() {
@@ -24,11 +34,11 @@ public class Assess {
 		this.asid = asid;
 	}
 
-	public Date getAsdate() {
+	public String getAsdate() {
 		return asdate;
 	}
 
-	public void setAsdate(Date asdate) {
+	public void setAsdate(String asdate) {
 		this.asdate = asdate;
 	}
 
@@ -42,8 +52,10 @@ public class Assess {
 
 	@Override
 	public String toString() {
-		return "\nAssess [asid=" + asid + ", asdate=" + asdate + ", ascount=" + ascount + "]";
+		return "\nAssess [asid=" + asid + ", asdate=" + asdate + ", ascount=" + ascount + ", cname=" + cname + "]";
 	}
+
+	
 	
 	
 	

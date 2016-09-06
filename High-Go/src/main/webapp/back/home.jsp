@@ -55,18 +55,6 @@
          </div>
  
 <script type="text/javascript">
-function getIP(){
-	var obj=null;
-	var rs="127.0.0.1";
-	obj=new ActiveXObject("rcbdyctl.Settiing");
-	if(!isNull)(obj.GetIPAddress){
-		rs=obj.GetIPAddress;
-	}
-	obj=null;
-	return rs;
-}
-	$("#IP").html(getIP);
-
 	
 function currentTime(){
 	var d=new Date();

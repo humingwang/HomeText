@@ -64,7 +64,7 @@
 								<fieldset>
 									<label class="block clearfix"> <span
 										class="block input-icon input-icon-right"> <input
-											type="text" class="form-control" placeholder="登录名"
+											type="text" class="form-control" plraceholder="登录名"
 											name="aname"> <i class="icon-user"></i></span>
 									</label> <label class="block clearfix"> <span
 										class="block input-icon input-icon-right"> <input

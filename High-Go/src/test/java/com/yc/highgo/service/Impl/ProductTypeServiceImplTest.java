@@ -8,27 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yc.highgo.entity.Admin;
-import com.yc.highgo.service.AdminService;
-
+import com.yc.highgo.entity.ProductType;
+import com.yc.highgo.service.ProductTypeService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring.xml")
-public class AdminServiceImplTest {
+public class ProductTypeServiceImplTest {
 
 	@Autowired
-	private AdminService adminService;
-	
+	private ProductTypeService pro;
 	@Test
-	public void testLogin() {
-		Admin admin=adminService.login(new Admin("sa","a"));
-		System.out.println(admin);
-		assertNotNull(admin);
+	public void test() {
+		System.out.println(pro.findAll());
+		assertNotNull(pro.findAll());
 	}
-	
 	@Test
-	public void testUpdate() {
-		int data=adminService.udateInfo("sa","男",12,"111","123123@qq.com",22001);
-		System.out.println(data);
+	public void testAdd() {
+		ProductType pros=new ProductType("日常",3);
+		int result=pro.insertPros(pros);
+		assertEquals(1, result);
 	}
-
 }

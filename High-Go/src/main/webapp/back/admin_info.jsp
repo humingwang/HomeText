@@ -33,28 +33,22 @@
      <div class="type_title">管理员信息 </div>
       <div class="xinxi">
         <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名： </label>
-          <div class="col-sm-9"><input type="text" name="用户名" id="website-title" value="张小泉" class="col-xs-7 text_info" disabled="disabled">
+          <div class="col-sm-9"><input type="text" name="用户名" id="website-title1" value="${admin.aname}" class="col-xs-7 text_info" disabled="disabled">
           &nbsp;&nbsp;&nbsp;<a href="javascript:ovid()" onclick="change_Password()" class="btn btn-warning btn-xs">修改密码</a></div>
           
           </div>
           <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">性别： </label>
-          <div class="col-sm-9">
-          <span class="sex">男</span>
-            <div class="add_sex">
-            <label><input name="form-field-radio" type="radio" class="ace" checked="checked"><span class="lbl">保密</span></label>&nbsp;&nbsp;
-            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;
-            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">女</span></label>
-            </div>
+          <div class="col-sm-9"><input type="text" name="性别" id="website-title2" value="${admin.asex }" class="col-xs-7 text_info" disabled="disabled"></div>
            </div>
-          </div>
+          
           <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">年龄： </label>
-          <div class="col-sm-9"><input type="text" name="年龄" id="website-title" value="24" class="col-xs-7 text_info" disabled="disabled"></div>
+          <div class="col-sm-9"><input type="text" name="年龄" id="website-title3" value="${admin.aage }" class="col-xs-7 text_info" disabled="disabled"></div>
           </div>
           <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">移动电话： </label>
-          <div class="col-sm-9"><input type="text" name="移动电话" id="website-title" value="13567878908" class="col-xs-7 text_info" disabled="disabled"></div>
+          <div class="col-sm-9"><input type="text" name="移动电话" id="website-title4" value="${admin.atel }" class="col-xs-7 text_info" disabled="disabled"></div>
           </div>
           <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">电子邮箱： </label>
-          <div class="col-sm-9"><input type="text" name="电子邮箱" id="website-title" value="567890@qq.com" class="col-xs-7 text_info" disabled="disabled"></div>
+          <div class="col-sm-9"><input type="text" name="电子邮箱" id="website-title5" value="${admin.aemail }" class="col-xs-7 text_info" disabled="disabled"></div>
           </div>
                     
            <div class="Button_operation clearfix"> 
@@ -78,9 +72,9 @@
     <tbody>
       <tr>
         <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-        <td>15686</td>
-        <td>admin</td>
-        <td>2014-6-11 11:11:42</td>      
+        <td>${admin.aid }</td>
+        <td>${admin.aname }</td>
+        <td id="time"></td>      
       </tr>
     </tbody>
   </table>
@@ -91,7 +85,7 @@
  <!--修改密码样式-->
          <div class="change_Pass_style" id="change_Pass">
             <ul class="xg_style">
-             <li><label class="label_name">原&nbsp;&nbsp;密&nbsp;码</label><input name="原密码" type="password" class="" id="password"></li>
+             <li><label class="label_name">原&nbsp;&nbsp;密&nbsp;码</label><input name="原密码" type="password" class="" value="${admin.apwd }" id="password"></li>
              <li><label class="label_name">新&nbsp;&nbsp;密&nbsp;码</label><input name="新密码" type="password" class="" id="Nes_pas"></li>
              <li><label class="label_name">确认密码</label><input name="再次确认密码" type="password" class="" id="c_mew_pas"></li>
               
@@ -101,6 +95,20 @@
 </body>
 </html>
 <script>
+//登陆时间
+function currentTime(){
+	var d=new Date();
+	var str="";
+	str+=d.getFullYear()+'-'; 
+	str+=d.getMonth() + 1+'-'; 
+	str+=d.getDate()+"   "; 
+	str+=d.getHours()+':'; 
+	str+=d.getMinutes()+':'; 
+	str+= d.getSeconds(); 
+	return str; 
+}
+	$("#time").html(currentTime);
+	
 
  //按钮点击事件
 function modify(){
@@ -110,6 +118,12 @@ function modify(){
 	  $('#Personal').find('.btn-success').css({'display':'block'});
 	};
 function save_info(){
+	var aname=$("#website-title1").val();
+	var asex=$("#website-title2").val();
+	var aage=$("#website-title3").val();
+	var atel=$("#website-title4").val();
+	var aemail=$("#website-title5").val();
+	
 	    var num=0;
 		 var str="";
      $(".xinxi input[type$='text']").each(function(n){
@@ -124,16 +138,20 @@ function save_info(){
 		 });
 		  if(num>0){  return false;}	 	
           else{
+        	  $.post("../admin/updateInfo",{aname:aname,asex:asex,aage:aage,atel:atel,aemail:aemail},function(data){
+        		  if(data>0){
+        			  layer.alert('修改成功！',{
+        	               title: '提示框',				
+        				   icon:1,			   		
+        				  });
+        				  $('#Personal').find('.xinxi').removeClass("hover");
+        				  $('#Personal').find('.text_info').removeClass("add").attr("disabled", true);
+        				  $('#Personal').find('.btn-success').css({'display':'none'});
+        				   layer.close(index);
+        				
+        		  }
+        	  });
 			  
-			   layer.alert('修改成功！',{
-               title: '提示框',				
-			   icon:1,			   		
-			  });
-			  $('#Personal').find('.xinxi').removeClass("hover");
-			  $('#Personal').find('.text_info').removeClass("add").attr("disabled", true);
-			  $('#Personal').find('.btn-success').css({'display':'none'});
-			   layer.close(index);
-			
 		  }		  		
 	};	
  //初始化宽度、高度    
@@ -162,6 +180,8 @@ function save_info(){
 			 });
 			return false;
           } 
+		  
+		  
 		  if ($("#Nes_pas").val()==""){
 			  layer.alert('新密码不能为空!',{
               title: '提示框',				
@@ -179,6 +199,7 @@ function save_info(){
 			 });
 			return false;
           }
+		 
 		    if(!$("#c_mew_pas").val || $("#c_mew_pas").val() != $("#Nes_pas").val() )
         {
             layer.alert('密码不一致!',{

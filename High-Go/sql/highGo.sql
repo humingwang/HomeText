@@ -9,6 +9,7 @@ drop table product;
 drop table productType;
 drop table address;
 drop table stock;
+drop table response;
 
 drop sequence admin_aid;
 drop sequence customer_cid;
@@ -19,12 +20,13 @@ drop sequence orderdetails_odid;
 drop sequence photo_phid;
 drop sequence photoType_phtid;
 
-create sequence admin_aid start with 1 increment by 1000;
-create sequence customer_cid start with 1 increment by 1000;
+th 1 increment by 10000;
+create sequence admin_aid start with 1 increment by 1;
+create sequence customer_cid start with 1 increment by 1;
 create sequence productType_ptid start with 1 increment by 1;
-create sequence product_pid start with 1 increment by 10000;
-create sequence assess_asid start with 1 increment by 10000;
-create sequence orderdetails_odid start with 1 increment by 10000;
+create sequence product_pid start with 1 increment by 1;
+create sequence assess_asid start with 1 increment by 1;
+create sequence orderdetails_odid start with 1 increment by 1;
 
 create sequence photoType_phtid start with 1 increment by 1;
 create sequence photo_phid start with 1 increment by 1;
@@ -34,7 +36,11 @@ select*from admin;
 	create table admin(
 		aid int primary key,--管理员编号
 		aname varchar2(20) not null,--管理员名
-		apwd varchar2(20) not null --管理员密码
+		apwd varchar2(20) not null, --管理员密码
+		asex varchar2(10) not null,--性别
+		aage int not null,--年龄
+		atel number(15) not null,--电话
+		aemail varchar2(20) not null unique--邮件
 	);
 	insert into admin values(admin_aid.nextval,'sa','a');
 	
@@ -48,8 +54,9 @@ select*from admin;
 		cage int default 20,---年龄
 		cemail varchar2(20) not null unique --邮箱
 	);
-	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'1234@qq.com');
-	insert into customer values(customer_cid.nextval,'sa','a',1000,'男',18,'1320710348@qq.com'); 
+	select *from customer;
+	insert into customer values(customer_cid.nextval,'qq','a',1000,'女',18,'1234@qq.com');
+	insert into customer values(customer_cid.nextval,'ww','a',1000,'男',18,'1320710348@qq.com'); 
 	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'123@qq.com');
 	insert into customer values(customer_cid.nextval,'w','a',default,default,default,'122@qq.com');
 	
