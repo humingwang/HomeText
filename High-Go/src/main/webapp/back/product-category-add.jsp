@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -32,23 +33,43 @@
   <a href="javascript:del()" class="btn  btn-danger"><i class="icon-trash   align-top bigger-125"></i>删除该类型</a>
   </div>
   <form action="" method="post" class="form form-horizontal" id="form-user-add">
+  	 <div class="Operate_cont clearfix" style="display:none">
+      <label class="form-label"><span class="c-red">*</span>分类编号：</label>
+      <div class="formControls ">
+      	<c:if test="${empty list}">
+      	       <input type="text" class="input-text" value="" placeholder="" id="ptid" name="product-category-name">
+      	</c:if>
+      	 <c:if test="${not empty list}">
+      	        <input type="text" class="input-text" value="${list.ptid}" placeholder="" id="ptid" name="product-category-name">
+      	</c:if>
+      </div>
+    </div> 
     <div class="Operate_cont clearfix">
       <label class="form-label"><span class="c-red">*</span>分类名称：</label>
       <div class="formControls ">
-        <input type="text" class="input-text" value="" placeholder="" id="name" name="product-category-name">
+      	<c:if test="${empty list}">
+      	       <input type="text" class="input-text" value="" placeholder="" id="name" name="product-category-name">
+      	</c:if>
+      	 <c:if test="${not empty list}">
+      	        <input type="text" class="input-text" value="${list.name}" placeholder="" id="name" name="product-category-name">
+      	</c:if>
       </div>
     </div>
         <div class="Operate_cont clearfix">
       <label class="form-label"><span class="c-red">*</span>类型排序：</label>
       <div class="formControls ">
-        <input type="text" class="input-text" value="" placeholder="" id="fptid" name="product-category-name">
+      <c:if test="${empty list}">
+        		<input type="text" class="input-text" value="" placeholder="" id="fptid" name="product-category-name">
+      	</c:if>
+      	<c:if test="${not empty list}">
+        		<input type="text" class="input-text" value="${list.fptid}" placeholder="" id="fptid" name="product-category-name">
+      	</c:if>
       </div>
     </div>
 
     <div class="">
      <div class="" style=" text-align:center">
-      <input class="btn btn-primary radius" type="submit" value="修改">
-      </div>
+	  <a href="javascript:update()" class="btn btn-primary radius"><i class="icon-trash   align-top bigger-125"></i>修改该类型</a>      </div>
     </div> 
   </form>
   </div>
@@ -73,8 +94,8 @@ function add(){
 		if(data>0){
 			alert("恭喜你，添加成功！！");
 			parent.document.location.reload();
-			$("#name").val("");
-			$("#fptid").val(""); 
+		 	$("#name").val("");
+			$("#fptid").val("");  
 		}else{
 			alert("不好意思，添加失败啦!!!")
 		}
@@ -83,6 +104,32 @@ function add(){
 	}
 }
 
+function update(){
+	var ptid=$("#ptid").val();
+	var name=$("#name").val();
+	var fptid=$("#fptid").val();
+	$.post("../productType/updatePros",{ptid:ptid,name:name,fptid:fptid},function(data){
+		if(data==true){
+			alert("修改成功");
+			$("#name").val("");
+			$("#fptid").val("");
+			parent.document.location.reload();
+			
+		}
+	},"json");//返回数据的格式
+}
+function del(){
+	var name=$("#name").val();
+	if(confirm("是否确定删除？")){
+		$.post("../productType/del/",{name:name},function(data){
+			if(data==true){
+				alert("删除成功");
+				parent.document.location.reload();
+			}
+		},"json");//返回数据的格式
+	}
+
+}
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',

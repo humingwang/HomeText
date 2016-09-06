@@ -23,8 +23,17 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 		return productTypeMapper.insertPros(productType);
 	}
 	@Override
-	public List<ProductType> findAllById(int ptid) {
+	public ProductType findAllById(int ptid) {
 		return productTypeMapper.findAllById(ptid);
+	}
+	@Override
+	public boolean delPros(String name) {
+		return productTypeMapper.delPros(name);
+	}
+	@Override
+	public boolean updatePros(ProductType productType) {
+		// TODO Auto-generated method stub
+		return productTypeMapper.updatePros(productType);
 	}
 
 }

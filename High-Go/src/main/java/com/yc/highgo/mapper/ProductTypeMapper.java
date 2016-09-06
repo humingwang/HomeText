@@ -7,6 +7,7 @@ import com.yc.highgo.entity.ProductType;
 public interface ProductTypeMapper {
 	List<ProductType> findAll();
 	int insertPros(ProductType productType);
-	List<ProductType> findAllById(int ptid);
-
+	ProductType findAllById(int ptid);
+	boolean delPros(String name);
+	boolean updatePros(ProductType productType);
 }
