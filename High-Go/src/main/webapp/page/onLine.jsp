@@ -11,6 +11,7 @@
 <link type="text/css" rel="stylesheet" href="css/reset.css" />
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/jquery.skidder.css">
+<link rel="stylesheet" href="css/onLine.css">
 
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/jquery_slide.js"></script>

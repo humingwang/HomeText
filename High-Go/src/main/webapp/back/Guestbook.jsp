@@ -110,7 +110,6 @@ function searchAssess() {
 	var date = $(".laydate-icon").val();
 	var str="";
 	$.post("../assess/searchAssess",{ascount : ascount,date : date},function(data) {
-		alert(JSON.stringify(data));
 		for (var i = 0; i < data.length; i++) {
 			str += '<thead>';
 			str += '<tr>';
@@ -148,9 +147,9 @@ function searchAssess() {
 	function member_show(title, url, id, w, h) {
 		layer_show(title, url + '#?=' + id, w, h);
 	}
+	
 	/*留言-删除*/
 	function member_del(obj, id) {
-		alert(id);
 		$.post("../assess/delAssessById", {id : id}, function(data) {
 			if (data > 0) {
 				layer.confirm('确认要删除吗？', function(index) {

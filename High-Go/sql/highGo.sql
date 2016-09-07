@@ -3,8 +3,8 @@ drop table orderdetails;
 drop table orders;
 drop table assess;
 drop table customer;
-drop table photo;
-drop table photoType;
+drop table photos;
+drop table photoTypes;
 drop table product;
 drop table productType;
 drop table address;
@@ -17,20 +17,20 @@ drop sequence productType_ptid;
 drop sequence product_pid;
 drop sequence assess_asid;
 drop sequence orderdetails_odid;
-drop sequence photo_phid;
-drop sequence photoType_phtid;
+drop sequence photos_phid;
+drop sequence photoTypes_phtid;
 drop sequence stock_kid;
 drop sequence response_rid;
 
 create sequence admin_aid start with 1000 increment by 1;
 create sequence customer_cid start with 1000 increment by 1;
-create sequence productType_ptid start with 1 increment by 1;
+create sequence productTypes_ptid start with 1 increment by 1;
 create sequence product_pid start with 1000 increment by 1;
 create sequence assess_asid start with 1000 increment by 1;
 create sequence orderdetails_odid start with 1000 increment by 1;
 
-create sequence photoType_phtid start with 1000 increment by 1;
-create sequence photo_phid start with 1000 increment by 1;
+create sequence photoTypes_phtid start with 1000 increment by 1;
+create sequence photos_phid start with 1000 increment by 1;
 create sequence stock_kid start with 1000 increment by 1;
 create sequence response_rid start with 1000 increment by 1;
 select*from admin;
@@ -76,7 +76,7 @@ select*from admin;
 		fptid  int default 0
 	);
 	delete productType
-	delete  productType  on delete cascade;
+	
   	select *from producttype;
   	
 	insert into productType values(productType_ptid.nextval,'床上用品',0);
@@ -111,18 +111,29 @@ select*from admin;
   insert into stock values(stock_kid.nextval,300);
   
 --图片类型
-	create table photoType(
+	create table photoTypes(
 		phtid int primary key,
-		phtname varchar2(20)		
+		phtname varchar2(500)		
 	);
+	insert into photoType values(photoTypes_phtid.nextval,'首页轮播广告大');
+	insert into photoType values(photoTypes_phtid.nextval,'轮播广告小1');
+	insert into photoType values(photoTypes_phtid.nextval,'轮播广告小2');
+	insert into photoType values(photoTypes_phtid.nextval,'轮播广告小2');
+	insert into photoType values(photoTypes_phtid.nextval,'横排广告');
+	select *from photoType;
+	
 --图片
-	create table photo(
-		phid int primary key,
-		phname varchar2(20),
-		phstatus int ,
-		phdate date,
-		phtid int references photoType(phtid)
+	create table photos(
+		phid int primary key,--图片编号
+		phname varchar2(20), --图片名称
+		pict varchar2(1500),--图片
+		psize varchar2(300),--图片大小
+		phdate date,--加入时间
+		phstatus int ,--状态
+		phtid int
 	);
+	
+	
 --商品表
 	create table product(
 		pid int primary key,--商品编号
@@ -132,9 +143,9 @@ select*from admin;
 		pprice number(6,2),--价格
 		pdate date,--上架时间
 		pview int,--浏览次数
-		phid int references photo(phid),--图片
-		ptid int references productType(ptid),--类型编号
-		sid int references stock(sid)--库存
+		phid int ,--图片
+		ptid int,--类型编号
+		sid int --库存
 	);
 	insert into product values(product_pid.nextval,'学生床垫','加厚寝室上下铺床垫折叠0.9m单人大学生宿舍用床褥子防潮1米1.2米',
 	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
