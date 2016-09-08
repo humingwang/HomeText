@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -41,11 +43,10 @@
       </div>
       <div class="widget-body">
          <ul class="b_P_Sort_list">
-             <li><i class="orange  fa fa-user-secret"></i><a href="#">全部(235)</a></li>
-             <li><i class="fa fa-image pink "></i> <a href="#">首页轮播广告大(5)</a></li>
-             <li> <i class="fa fa-image pink "></i> <a href="#">轮播广告小1(3)</a> </li>
-             <li> <i class="fa fa-image pink "></i> <a href="#">轮播广告小2(3)</a></li>
-             <li><i class="fa fa-image pink "></i> <a href="#">单个广告(6)</a></li>
+             <li><i class="orange  fa fa-user-secret"></i><a href="javascript:void(0)" name="Ads_list.jsp" onclick="getAll()">全部(235)</a></li>
+             <c:forEach items="${types }" var="type">
+             	<li><i class="fa fa-image pink "></i> <a href="javascript:void(0)" name="Ads_list.jsp" onclick="getAllPics(this,'${type.phtid}')">${type.phtname }</a></li>
+             </c:forEach>
          </ul>
   </div>
   </div>
@@ -56,7 +57,7 @@
         <a href="javascript:ovid()" id="ads_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加广告</a>
         <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
-       <span class="r_f">共：<b>45</b>条广告</span>
+       <span class="r_f">共：<b>${count} </b>条广告</span>
      </div>
      <div class="Ads_lists">
        <table class="table table-striped table-bordered table-hover" id="sample-table">
@@ -66,7 +67,7 @@
 				<th width="80">ID</th>
                 <th>排序</th>
 				<th width="100">分类</th>
-				<th width="240px">图片</th>
+				<th style="width: 190px;">图片</th>
 				<th width="150px">尺寸（大小）</th>
 				<th width="250px">链接地址</th>
 				<th width="180">加入时间</th>
@@ -74,23 +75,33 @@
 				<th width="250">操作</th>
 			</tr>
 		</thead>
-	<tbody>
+	<tbody id="tbody2">
+	<c:forEach items="${pics }" var="pic">
       <tr>
        <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-       <td>1</td>
+       <td>${pic.phid }</td>
        <td><input name="" type="text"  style=" width:50px" placeholder="1"/></td>
-       <td>幻灯片</td>
-       <td><span class="ad_img"><img src="products/ad.jpg"  width="100%" height="100%"/></span></td>
-       <td>1890x1080</td>
+       <td>${pic.phname }</td>
+       <td><span class="ad_img"><img src="../${pic.pict }"  width="100%" height="100%"/></span></td>
+       <td>${pic.psize } </td>
        <td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>
-       <td>2016-6-29 12:34</td>
-       <td class="td-status"><span class="label label-success radius">显示</span></td>
-      <td class="td-manage">
-        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
+       <td>${pic.phdate } </td>
+       <td class="td-status">
+       	<c:if test="${pic.phstatus!=0 }">
+       		<span class="label label-success radius">显示</span></td>
+			<td class="td-manage">
+			<a onClick="member_stop(this,${pic.phid})"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
+       	</c:if>
+       	<c:if test="${pic.phstatus==0 }">
+       		<span class="label label-defaunt radius">已关闭</span>
+			<td class="td-manage">
+			<a onClick="member_start(this,${pic.phid})"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>  
+       	</c:if>
         <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
-        <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
+        <a title="删除" href="javascript:;"  onclick="member_del(this,'${pic.phid}')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
        </td>
       </tr>
+       </c:forEach>
     </tbody>
     </table>
      </div>
@@ -144,6 +155,70 @@
 </body>
 </html>
 <script>
+function getAll(){
+	$.post("../photo/getAll",function(data){
+		var str="";
+		for(var i=0;i<data.length;i++){
+		str+='<tr>';
+		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
+		str+='<td>'+data[i].phid+'</td>';
+		str+='<td><input name="" type="text"  style=" width:50px;" placeholder="1"/></td>';
+		str+='<td>'+data[i].phname+'</td>';
+		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
+		str+='<td>'+data[i].psize+'</td>';
+		str+='<td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>';
+		str+='<td>'+data[i].phdate+'</td>';
+		str+='<td class="td-status">';
+		if(data[i].phstatus!=0){
+			str+='<span class="label label-success radius">显示</span></td>';
+			str+='<td class="td-manage">';
+			str+='<a onClick="member_stop(this,'+data[i].phid+')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
+		}else{
+			str+='<span class="label label-defaunt radius">已关闭</span>';
+			str+='<td class="td-manage">';
+			str+='<a onClick="member_start(this,'+data[i].phid+')"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
+		}
+		str+='<a title="编辑" onclick="member_edit()" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
+		str+='<a title="删除" href="javascript:;"  onclick="member_del(this,'+data[i].phid+')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
+		str+='</td>';
+		str+='</tr>';}
+		$("#tbody2").html(str);
+	},"json")
+}
+
+
+function getAllPics(obj,phtid){
+	$.post("../photo/getAllPhoto",{phtid:phtid},function(data){
+		var str="";
+		for(var i=0;i<data.length;i++){
+		str+='<tr>';
+		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
+		str+='<td>'+data[i].phid+'</td>';
+		str+='<td><input name="" type="text"  style=" width:50px;" placeholder="1"/></td>';
+		str+='<td>'+data[i].phname+'</td>';
+		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
+		str+='<td>'+data[i].psize+'</td>';
+		str+='<td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>';
+		str+='<td>'+data[i].phdate+'</td>';
+		str+='<td class="td-status">';
+		if(data[i].phstatus!=0){
+			str+='<span class="label label-success radius">显示</span></td>';
+			str+='<td class="td-manage">';
+			str+='<a onClick="member_stop(this,'+data[i].phid+')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
+		}else{
+			str+='<span class="label label-defaunt radius">已关闭</span>';
+			str+='<td class="td-manage">';
+			str+='<a onClick="member_start(this,'+data[i].phid+')"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
+		}
+		str+='<a title="编辑" onclick="member_edit()" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
+		str+='<a title="删除" href="javascript:;"  onclick="member_del(this,'+data[i].phid+')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
+		str+='</td>';
+		str+='</tr>';
+		}
+		$("#tbody2").html(str);
+	},"json")
+}
+
 //初始化宽度、高度  
  $(".widget-box").height($(window).height()); 
  $(".Ads_list").width($(window).width()-220);
@@ -167,28 +242,49 @@
 });
 /*广告图片-停用*/
 function member_stop(obj,id){
-	layer.confirm('确认要关闭吗？',{icon:0,},function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs " onClick="member_start(this,id)" href="javascript:;" title="显示"><i class="fa fa-close bigger-120"></i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已关闭</span>');
-		$(obj).remove();
-		layer.msg('关闭!',{icon: 5,time:1000});
-	});
+	$.post("../photo/stopAds",{id:id},function(data){
+		if(data>0){
+			layer.confirm('确认要关闭吗？',{icon:0,},function(index){
+				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs " onClick="member_start(this,id)" href="javascript:;" title="显示"><i class="fa fa-close bigger-120"></i></a>');
+				$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已关闭</span>');
+				$(obj).remove();
+				layer.msg('关闭!',{icon: 5,time:1000});
+			});
+		}else{
+			layer.alert("广告图片停用失败!!!");
+		}
+	})
+	
 }
 /*广告图片-启用*/
 function member_start(obj,id){
-	layer.confirm('确认要显示吗？',{icon:0,},function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs btn-success" onClick="member_stop(this,id)" href="javascript:;" title="关闭"><i class="fa fa-check  bigger-120"></i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">显示</span>');
-		$(obj).remove();
-		layer.msg('显示!',{icon: 6,time:1000});
-	});
+	$.post("../photo/startAds",{id:id},function(data){
+		if(data>0){
+			layer.confirm('确认要显示吗？',{icon:0,},function(index){
+			$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs btn-success" onClick="member_stop(this,id)" href="javascript:;" title="关闭"><i class="fa fa-check  bigger-120"></i></a>');
+			$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">显示</span>');
+			$(obj).remove();
+			layer.msg('显示!',{icon: 6,time:1000});
+		});
+	}else{
+		layer.alert("广告显示失败!!!");
+	}
+	})
 }
+
 /*广告图片-删除*/
 function member_del(obj,id){
-	layer.confirm('确认要删除吗？',{icon:0,},function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
+	$.post("../photo/delPhoto",{id:id},function(data){
+		if(data>0){
+			layer.confirm('确认要删除吗？',{icon:0,},function(index){
+				$(obj).parents("tr").remove();
+				layer.msg('已删除!',{icon:1,time:1000});
+			});
+		}else{
+			layer.alert("删除失败!!!");
+		}
+	})
+	
 }
 /*******添加广告*********/
  $('#ads_add').on('click', function(){
@@ -206,7 +302,6 @@ function member_del(obj,id){
      $(".add_adverts input[type$='text']").each(function(n){
           if($(this).val()=="")
           {
-               
 			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
                 title: '提示框',				
 				icon:0,								
@@ -217,11 +312,15 @@ function member_del(obj,id){
 		 });
 		  if(num>0){  return false;}	 	
           else{
-			  layer.alert('添加成功！',{
-               title: '提示框',				
-			icon:1,		
-			  });
-			   layer.close(index);	
+        	  $.post("../photo/addAds",{phtid:phtid,psize:psize,phstatus:phstatus},function(data){
+        		  if(data>0){
+        		  layer.alert('添加成功！',{
+                      title: '提示框',				
+       			icon:1,		
+       			  });
+       			   layer.close(index);}
+      		})
+			  	
 		  }		  		     				
 		}
     });
