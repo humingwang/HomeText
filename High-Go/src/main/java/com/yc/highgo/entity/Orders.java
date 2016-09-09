@@ -1,15 +1,24 @@
 package com.yc.highgo.entity;
 
 public class Orders {
-	private int oid;
+	private String oid;
 	private int onum;
-	private int ostatus;
+	private String odate;
+	private int ostutas;
 	private double omoney;
 	private Address address;
-	public int getOid() {
+	
+	
+	public String getOdate() {
+		return odate;
+	}
+	public void setOdate(String odate) {
+		this.odate = odate;
+	}
+	public String getOid() {
 		return oid;
 	}
-	public void setOid(int oid) {
+	public void setOid(String oid) {
 		this.oid = oid;
 	}
 	public int getOnum() {
@@ -18,11 +27,11 @@ public class Orders {
 	public void setOnum(int onum) {
 		this.onum = onum;
 	}
-	public int getOstatus() {
-		return ostatus;
+	public int getOstutas() {
+		return ostutas;
 	}
-	public void setOstatus(int ostatus) {
-		this.ostatus = ostatus;
+	public void setOstutas(int ostutas) {
+		this.ostutas = ostutas;
 	}
 	public double getOmoney() {
 		return omoney;
@@ -39,17 +48,17 @@ public class Orders {
 	
 	public Orders() {
 	}
-	public Orders(int oid, int onum, int ostatus, double omoney, Address address) {
+	public Orders(String oid, int onum, int ostutas, double omoney, Address address) {
 		this.oid = oid;
 		this.onum = onum;
-		this.ostatus = ostatus;
+		this.ostutas = ostutas;
 		this.omoney = omoney;
 		this.address = address;
 	}
 	@Override
 	public String toString() {
-		return "\nOrders [oid=" + oid + ", onum=" + onum + ", ostatus=" + ostatus + ", omoney=" + omoney + ", address="
-				+ address + "]";
+		return "\nOrders [oid=" + oid + ", onum=" + onum + ", ostutas=" + ostutas + ", odate=" + odate + ", omoney="
+				+ omoney + ", address=" + address + "]";
 	}
 	
 }

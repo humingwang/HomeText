@@ -241,15 +241,49 @@ select*from admin;
 	
 --订单表
 	create table orders(
-		oid varchar2(20) primary key,--订单号
-		omoney number(12,2),--订单价
+	oid varchar2(20) primary key,--订单号
+	omoney number(12,2),--订单价
     onum int,---数量
     ostutas int, --订单状态
     aid int references address(aid)--地址
   );
-  
-  
-  
+  	
+  	insert into orders values('20160105213313',8000.00,3,to_date('2016-1-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160105214413',8000.00,3,to_date('2016-1-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160105215513',8000.00,3,to_date('2016-1-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160205211113',8000.00,3,to_date('2016-2-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160205212213',8000.00,3,to_date('2016-2-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160205213313',8000.00,3,to_date('2016-2-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160305242413',8000.00,3,to_date('2016-3-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160305252513',8000.00,3,to_date('2016-3-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160305272613',8000.00,3,to_date('2016-3-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160405212213',8000.00,3,to_date('2016-4-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160405232413',8000.00,3,to_date('2016-4-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160405211253',8000.00,3,to_date('2016-4-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160505213313',8000.00,3,to_date('2016-5-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160505215213',8000.00,3,to_date('2016-5-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160505212513',8000.00,3,to_date('2016-5-07','YYYY-mm-dd'),3,1);
+  	insert into orders values('20160605213313',8000.00,3,to_date('2016-6-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160605214413',8000.00,3,to_date('2016-6-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160605215513',8000.00,3,to_date('2016-6-07','YYYY-mm-dd'),3,1);
+  	insert into orders values('20160705213313',8000.00,3,to_date('2016-7-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160705214413',8000.00,3,to_date('2016-7-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160705215513',8000.00,3,to_date('2016-7-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160805211113',8000.00,3,to_date('2016-8-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160805212213',8000.00,3,to_date('2016-8-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160805213313',8000.00,3,to_date('2016-8-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160905211113',8000.00,3,to_date('2016-9-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160905212213',8000.00,3,to_date('2016-9-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160905213313',8000.00,3,to_date('2016-9-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005242413',8000.00,3,to_date('2016-10-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005252513',8000.00,3,to_date('2016-10-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005272613',8000.00,3,to_date('2016-10-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005212213',8000.00,3,to_date('2016-11-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005232413',8000.00,3,to_date('2016-11-07','YYYY-mm-dd'),2,1);
+	insert into orders values('2016010052112513',8000.00,3,to_date('2016-11-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005213313',8000.00,3,to_date('2016-12-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005215213',8000.00,3,to_date('2016-12-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005212513',8000.00,3,to_date('2016-12-07','YYYY-mm-dd'),3,1);
 --订单详细表
   create table orderdetails(
     odid int primary key,--订单详细编号
