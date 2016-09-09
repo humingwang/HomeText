@@ -93,7 +93,7 @@
 			<td class="td-manage">
 			<a onClick="member_start(this,${pic.phid})"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>  
        	</c:if>
-        <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
+        <a title="编辑" onclick="member_edit(${pic.phid})" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
         <a title="删除" href="javascript:;"  onclick="member_del(this,'${pic.phid}')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
        </td>
       </tr>
@@ -146,6 +146,10 @@
 function addAds(){
 	$.post("../photoType/getAllTypes");
 }
+
+//编辑
+
+
 function getAll(){
 	$.post("../photo/getAll",function(data){
 		var str="";

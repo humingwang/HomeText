@@ -32,7 +32,7 @@
      <div class="border clearfix">
        <span class="l_f">
         <a href="javascript:ovid()" id="sort_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加分类</a>
-        <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+        <a href="../photoType/delMangPhotos" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>${number }</b>类</span>
      </div>
@@ -86,6 +86,7 @@
 </body>
 </html>
 <script type="text/javascript">
+//添加分类
 $('#sort_add').on('click', function(){
 	  layer.open({
         type: 1,
