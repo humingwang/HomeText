@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,7 +34,7 @@
         <a href="javascript:ovid()" id="sort_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加分类</a>
         <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
-       <span class="r_f">共：<b>5</b>类</span>
+       <span class="r_f">共：<b>${number }</b>类</span>
      </div>
   <div class="sort_list">
     <table class="table table-striped table-bordered table-hover" id="sample-table">
@@ -45,26 +46,25 @@
 				<th width="50px">数量</th>
 				<th width="350px">描述</th>
 				<th width="180px">加入时间</th>
-				<th width="70px">状态</th>                
 				<th width="250px">操作</th>
 			</tr>
 		</thead>
 	<tbody>
+	<c:forEach items="${types }" var="type">
       <tr>
        <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-       <td>1</td>
-       <td>幻灯片</td>
-       <td>5</td>
-       <td>首页顶部广告轮播图，大图区别于其他图片</td>
-       <td>2016-6-29 12:34</td>
-       <td class="td-status"><span class="label label-success radius">显示</span></td>
+       <td>${type.phtid }</td>
+       <td>${type.phtname}</td>
+       <td>${type.count }</td>
+       <td>${type.phdes }</td>
+       <td>${type.phdate }</td>
       <td class="td-manage">
-        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
         <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
-        <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
-        <a href="javascript:ovid()" name="Ads_list.html" class="btn btn-xs btn-pink ads_link" onclick="AdlistOrders('561');" title="幻灯片广告列表"><i class="fa  fa-bars  bigger-120"></i></a>
+        <a title="删除" href="javascript:;"  onclick="member_del(this,'${type.phtid }')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
+       <a href="../photo/getAllPhotoes?phtid=${type.phtid }" name="Ads_list.jsp" class="btn btn-xs btn-pink ads_link" title="幻灯片广告列表"><i class="fa  fa-bars  bigger-120"></i></a>
        </td>
       </tr>
+      </c:forEach>
     </tbody>
     </table>
   </div>
@@ -95,13 +95,12 @@ $('#sort_add').on('click', function(){
         area : ['750px' , ''],
         content:$('#sort_style_add'),
 		btn:['提交','取消'],
-		yes:function(index,layero){	
+		yes:function(index,layero){
 		 var num=0;
 		 var str="";
      $(".sort_style_add input[type$='text']").each(function(n){
           if($(this).val()=="")
           {
-               
 			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
                 title: '提示框',				
 				icon:0,								
@@ -112,10 +111,16 @@ $('#sort_add').on('click', function(){
 		 });
 		  if(num>0){  return false;}	 	
           else{
-			  layer.alert('添加成功！',{
-               title: '提示框',				
-			icon:1,		
-			  });
+        	  var phtname=$("#form-field-1").val();
+  			var phdes=$("#form-field-8").val();
+  			$.post("../photoType/addTypes",{phtname:phtname,phdes:phdes},function(data){
+  				if(data>0){
+  					layer.alert('添加成功！',{
+  		               title: '提示框',				
+  					icon:1,		
+  					  });
+  				}
+  			})
 			   layer.close(index);	
 		  }		  		     				
 		}
@@ -160,10 +165,14 @@ function member_start(obj,id){
 }
 /*广告图片-删除*/
 function member_del(obj,id){
-	layer.confirm('确认要删除吗？',{icon:0,},function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
+			layer.confirm('确认要删除吗？',{icon:0,},function(index){
+				$.post("../photoType/delType",{id:id},function(data){
+					if(data>0){
+				$(obj).parents("tr").remove();
+				layer.msg('已删除!',{icon:1,time:1000});
+				}
+		});
+	})
 }
 //面包屑返回值
 var index = parent.layer.getFrameIndex(window.name);
@@ -179,9 +188,6 @@ $('.Order_form ,.ads_link').on('click', function(){
     parent.layer.close(index);
 	
 });
-function AdlistOrders(id){
-	window.location.href = "Ads_list.html?="+id;
-};
 </script>
 <script type="text/javascript">
 jQuery(function($) {

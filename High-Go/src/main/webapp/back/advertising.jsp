@@ -54,7 +54,7 @@
   </div><div class="Ads_list">
    <div class="border clearfix">
        <span class="l_f">
-        <a href="javascript:ovid()" id="ads_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加广告</a>
+        <a href="javascript:ovid()" id="ads_add" class="btn btn-warning" onclick="addAds()"><i class="fa fa-plus"></i> 添加广告</a>
         <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>${count} </b>条广告</span>
@@ -65,11 +65,9 @@
 		 <tr>
 				<th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
 				<th width="80">ID</th>
-                <th>排序</th>
 				<th width="100">分类</th>
 				<th style="width: 190px;">图片</th>
 				<th width="150px">尺寸（大小）</th>
-				<th width="250px">链接地址</th>
 				<th width="180">加入时间</th>
 				<th width="70">状态</th>                
 				<th width="250">操作</th>
@@ -80,11 +78,9 @@
       <tr>
        <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
        <td>${pic.phid }</td>
-       <td><input name="" type="text"  style=" width:50px" placeholder="1"/></td>
        <td>${pic.phname }</td>
        <td><span class="ad_img"><img src="../${pic.pict }"  width="100%" height="100%"/></span></td>
        <td>${pic.psize } </td>
-       <td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>
        <td>${pic.phdate } </td>
        <td class="td-status">
        	<c:if test="${pic.phstatus!=0 }">
@@ -116,26 +112,18 @@
   <span class="cont_style">
   <select class="form-control" id="form-field-select-1">
     <option value="">选择分类</option>
-    <option value="AL">首页大幻灯片</option>
-    <option value="AK">首页小幻灯片</option>
-    <option value="AZ">单广告图</option>
-    <option value="AR">其他广告</option>
-    <option value="CA">板块栏目广告</option>
+     <c:forEach items="${types }" var="type">
+    	<option value="${type.phtid }">${type.phtname }</option>
+    </c:forEach>
   </select></span>
   </li>
   <li><label class="label_name">图片尺寸</label><span class="cont_style">
   <input name="长" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">
-  <span class="l_f" style="margin-left:10px;">x</span><input name="宽" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px"></span></li>
-  <li><label class="label_name">显示排序</label><span class="cont_style"><input name="排序" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:50px"></span></li>
-  <li><label class="label_name">链接地址</label><span class="cont_style"><input name="地址" type="text" id="form-field-1" placeholder="地址" class="col-xs-10 col-sm-5" style="width:450px"></span></li>
-   <li><label class="label_name">状&nbsp;&nbsp;态：</label>
-   <span class="cont_style">
-     &nbsp;&nbsp;<label><input name="form-field-radio1" type="radio" checked="checked" class="ace"><span class="lbl">显示</span></label>&nbsp;&nbsp;&nbsp;
-     <label><input name="form-field-radio1" type="radio" class="ace"><span class="lbl">隐藏</span></label></span><div class="prompt r_f"></div>
-     </li>
+  <span class="l_f" style="margin-left:10px;"></span></span></li>
+  	<li><label class="label_name">图片名称</label> <input type="text" style="width:100px;backgroundcolor:#fff;" id="getPhanme" /></li>
      <li><label class="label_name">图片</label><span class="cont_style">
  <div class="demo">
-	           <div class="logobox"><div class="resizebox"><img src="images/image.png" width="100px" alt="" height="100px"/></div></div>	
+	           <div class="logobox"><div class="resizebox"><img src="../images/1.png" width="100px" alt="" height="100px"/></div></div>	
                <div class="logoupload">
                   <div class="btnbox"><a id="uploadBtnHolder" class="uploadbtn" href="javascript:;">上传替换</a></div>
                   <div style="clear:both;height:0;overflow:hidden;"></div>
@@ -155,6 +143,9 @@
 </body>
 </html>
 <script>
+function addAds(){
+	$.post("../photoType/getAllTypes");
+}
 function getAll(){
 	$.post("../photo/getAll",function(data){
 		var str="";
@@ -162,11 +153,9 @@ function getAll(){
 		str+='<tr>';
 		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
 		str+='<td>'+data[i].phid+'</td>';
-		str+='<td><input name="" type="text"  style=" width:50px;" placeholder="1"/></td>';
 		str+='<td>'+data[i].phname+'</td>';
 		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
 		str+='<td>'+data[i].psize+'</td>';
-		str+='<td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>';
 		str+='<td>'+data[i].phdate+'</td>';
 		str+='<td class="td-status">';
 		if(data[i].phstatus!=0){
@@ -194,11 +183,9 @@ function getAllPics(obj,phtid){
 		str+='<tr>';
 		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
 		str+='<td>'+data[i].phid+'</td>';
-		str+='<td><input name="" type="text"  style=" width:50px;" placeholder="1"/></td>';
 		str+='<td>'+data[i].phname+'</td>';
 		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
 		str+='<td>'+data[i].psize+'</td>';
-		str+='<td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>';
 		str+='<td>'+data[i].phdate+'</td>';
 		str+='<td class="td-status">';
 		if(data[i].phstatus!=0){
@@ -312,7 +299,10 @@ function member_del(obj,id){
 		 });
 		  if(num>0){  return false;}	 	
           else{
-        	  $.post("../photo/addAds",{phtid:phtid,psize:psize,phstatus:phstatus},function(data){
+        	  alert($("#form-field-select-1").val());
+    		  alert($("#form-field-1").val());
+    		  alert($("#getPhanme").val());
+        	  $.post("../photo/addAds",{pict:pict,psize:psize,phname:phname,phtid:phtid,},function(data){
         		  if(data>0){
         		  layer.alert('添加成功！',{
                       title: '提示框',				

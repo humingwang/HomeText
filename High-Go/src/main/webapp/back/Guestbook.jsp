@@ -150,18 +150,16 @@ function searchAssess() {
 	
 	/*留言-删除*/
 	function member_del(obj, id) {
-		$.post("../assess/delAssessById", {id : id}, function(data) {
-			if (data > 0) {
 				layer.confirm('确认要删除吗？', function(index) {
+					$.post("../assess/delAssessById", {id : id}, function(data) {
+					if (data > 0) {
 					$(obj).parents("tr").remove();
 					layer.msg('已删除!', {
 						icon : 1,
 						time : 1000
 					});
-				});
-			}
+			}});
 		})
-
 	}
 
 	/*留言查看*/
