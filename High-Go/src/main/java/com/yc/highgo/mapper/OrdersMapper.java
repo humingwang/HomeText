@@ -8,4 +8,6 @@ public interface OrdersMapper {
 
 	List<Orders> findAll();
 
+	List<Orders> findAllNum();
+
 }

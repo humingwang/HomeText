@@ -5,6 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 使用映射接口的方式， 命名空间的值必须与映射接口的全限定名一致 -->
 <mapper namespace="com.yc.highgo.mapper.OrdersMapper">
 	<select id="findAll" resultType="Orders" >
-		select sum(oMoney) oMoney,extract (MONTH from oDate) as oDate,oStutas from orders  group by oDate,oStutas  order by oDate,oStutas desc
+		select sum(oMoney) oMoney,extract (MONTH from oDate) as oDate,ostutas 
+		from orders  group by oDate,ostutas  order by oDate,ostutas desc 
+	</select>
+	<select id="findAllNum" resultType="Orders" >
+		select (select sum(onum) from orders where ostutas=2) success,(select sum(onum) from orders) allnum,
+	(select sum(oMoney) from orders) omoney,sum(onum) onum,extract (MONTH from oDate) as oDate,oStutas from orders  
+	group by oDate,oStutas  order by oDate,oStutas desc
 	</select>
 </mapper>
