@@ -138,6 +138,7 @@ select*from admin;
 		phstatus int ,--状态
 		phtid int
 	);
+	
 	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1068);
 	insert into photos values(photos_phid.nextval,'棉被','images/pic2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1068);
 	insert into photos values(photos_phid.nextval,'床单四件套','images/pic3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1068);
@@ -169,11 +170,12 @@ select*from admin;
 	insert into photos values(photos_phid.nextval,'韩式风四件套','images/cp14.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'婚庆四件套','images/cp15.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1072);
 	
-	select phid,phname,pict,psize,to_char(phdate,'yyyy-mm-dd') phdate,phstatus,phtid from photos where phtid=1045
+	select phid,phname,pict,psize,to_char(phdate,'yyyy-mm-dd') phdate,phstatus,phtid from photos
 	delete from photos where phtid=1040;
+	select phname,psize,to_char(phdate,'yyyy-mm-dd') phdate from photos where phid=1145
 	select count(*) from photos;
-	update photos set phstatus=0 where phid=1063;
-	
+	update photos set phname='nihao',psize=111,phdate=to_date('2016-7-29','yyyy-mm-dd') where phid=1140
+	delete from photos where phid in(1140,1141);
 	
 --商品表
 	create table product(

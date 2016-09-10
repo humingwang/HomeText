@@ -55,7 +55,7 @@
    <div class="border clearfix">
        <span class="l_f">
         <a href="javascript:ovid()" id="ads_add" class="btn btn-warning" onclick="addAds()"><i class="fa fa-plus"></i> 添加广告</a>
-        <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+        <a href="javascript:ovid()" class="btn btn-danger" onclick="del()"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>${count} </b>条广告</span>
      </div>
@@ -63,7 +63,7 @@
        <table class="table table-striped table-bordered table-hover" id="sample-table">
 		<thead>
 		 <tr>
-				<th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
+				<th width="25"><label><input type="checkbox" name="checkbox" class="ace"><span class="lbl"></span></label></th>
 				<th width="80">ID</th>
 				<th width="100">分类</th>
 				<th style="width: 190px;">图片</th>
@@ -76,7 +76,7 @@
 	<tbody id="tbody2">
 	<c:forEach items="${pics }" var="pic">
       <tr>
-       <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
+       <td><label><input type="checkbox" name="checkbox" class="ace" value="${pic.phid }"><span class="lbl"></span></label></td>
        <td>${pic.phid }</td>
        <td>${pic.phname }</td>
        <td><span class="ad_img"><img src="../${pic.pict }"  width="100%" height="100%"/></span></td>
@@ -140,22 +140,108 @@
  </ul>
  </div>
 </div>
+
+<!--编辑图层-->
+<div class="add_menber" id="add_menber_style" style="display:none">
+    <!-- <ul class=" page-content">
+     <li><label class="label_name">分&nbsp;&nbsp;类 &nbsp;名：</label><span class="add_name"><input value="" name="分类名" type="text"  class="text_add1"/></span><div class="prompt r_f"></div></li>
+     <li><label class="label_name">尺寸：</label><span class="add_name"><input name="尺寸" type="text"  class="text_add2"/></span><div class="prompt r_f"></div></li>
+     <li><label class="label_name">加入时间：</label><span class="add_name"><input name="加入时间" type="text"  class="text_add3"/></span><div class="prompt r_f"></div></li>
+    </ul> -->
+ </div>
+ 
 </body>
 </html>
 <script>
+//批量删除
+function del() {
+		//var len=$("input[name='checkbox']:checked").length;
+		var phids ="";
+		$("input:checked").each(function(){
+			phids+=this.value+",";
+		});
+              if (phids != "") {
+                	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
+                    $.post("../photo/DeleteAds",{phids:phids}, function (data) {
+                    	if(data>0){
+                    	layer.msg('广告删除成功!!!',{icon: 5,time:1000});
+                    	setTimeout("location.reload()",100);//页面刷新
+                    	}
+                    });
+                }); 
+                 
+             } else {
+                layer.alert("请选择要删除的数据！");
+            }  
+}
+
 function addAds(){
 	$.post("../photoType/getAllTypes");
 }
 
-//编辑
-
-
+//广告编辑
+function member_edit(phid){
+	var str="";
+	$.post("../photo/editAds",{phid:phid},function(data){
+	str+='<ul class=" page-content">';
+	str+='<li><label class="label_name">分&nbsp;&nbsp;类 &nbsp;名：</label><span class="add_name"><input value="'+data.phname+'" name="分类名" type="text"  class="text_add1"/></span><div class="prompt r_f"></div></li>';
+	str+='<li><label class="label_name">尺寸：</label><span class="add_name"><input name="尺寸" type="text" value="'+data.psize+'" class="text_add2"/></span><div class="prompt r_f"></div></li>';
+	str+='<li><label class="label_name">加入时间：</label><span class="add_name"><input name="加入时间" type="text" value="'+data.phdate+'" class="text_add3"/></span><div class="prompt r_f"></div></li>';
+	str+='</ul>';
+	$("#add_menber_style").html(str);
+	
+	  layer.open({
+        type: 1,
+        title: '修改广告信息',
+		maxmin: true, 
+		shadeClose:false, //点击遮罩关闭层
+        area : ['800px' , ''],
+        content:$('#add_menber_style'),
+		btn:['提交','取消'],
+		yes:function(index,layero){	
+		 var num=0;
+		 var str="";
+     $(".add_menber input[type$='text']").each(function(n){
+          if($(this).val()=="")
+          {
+               
+			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
+                title: '提示框',				
+				icon:0,								
+          }); 
+		    num++;
+            return false;            
+          } 
+		 });
+		  if(num>0){  return false;}	 	
+          else{
+        	 var phname=$(".text_add1").val();
+        	var psize=$(".text_add2").val();
+        	var phdate=$(".text_add3").val();
+        	  $.post("../photo/updateAds",{phname:phname,psize:psize,phdate:phdate,phid:phid},function(data){
+        		  if(data>0){
+        			  layer.alert('添加成功！',{
+        	               title: '提示框',				
+        					icon:1,	
+        					
+        				  }); 
+        		  }
+        	  })
+			   layer.close(index);	
+		  }		  		     				
+		}
+    });
+	}, "json");
+};
+		
+		
+		
 function getAll(){
 	$.post("../photo/getAll",function(data){
 		var str="";
 		for(var i=0;i<data.length;i++){
 		str+='<tr>';
-		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
+		str+='<td><label><input type="checkbox" name="checkbox" value="'+data[i].phid+'" class="ace"><span class="lbl"></span></label></td>';
 		str+='<td>'+data[i].phid+'</td>';
 		str+='<td>'+data[i].phname+'</td>';
 		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
@@ -171,7 +257,7 @@ function getAll(){
 			str+='<td class="td-manage">';
 			str+='<a onClick="member_start(this,'+data[i].phid+')"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
 		}
-		str+='<a title="编辑" onclick="member_edit()" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
+		str+='<a title="编辑" onclick="member_edit('+data[i].phid+')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
 		str+='<a title="删除" href="javascript:;"  onclick="member_del(this,'+data[i].phid+')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
 		str+='</td>';
 		str+='</tr>';}
@@ -185,7 +271,7 @@ function getAllPics(obj,phtid){
 		var str="";
 		for(var i=0;i<data.length;i++){
 		str+='<tr>';
-		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
+		str+='<td><label><input type="checkbox" name="checkbox" value="'+data[i].phid+'" class="ace"><span class="lbl"></span></label></td>';
 		str+='<td>'+data[i].phid+'</td>';
 		str+='<td>'+data[i].phname+'</td>';
 		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
@@ -201,7 +287,7 @@ function getAllPics(obj,phtid){
 			str+='<td class="td-manage">';
 			str+='<a onClick="member_start(this,'+data[i].phid+')"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
 		}
-		str+='<a title="编辑" onclick="member_edit()" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
+		str+='<a title="编辑" onclick="member_edit('+data[i].phid+')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
 		str+='<a title="删除" href="javascript:;"  onclick="member_del(this,'+data[i].phid+')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
 		str+='</td>';
 		str+='</tr>';
@@ -277,6 +363,9 @@ function member_del(obj,id){
 	})
 	
 }
+
+
+
 /*******添加广告*********/
  $('#ads_add').on('click', function(){
 	  layer.open({
@@ -309,9 +398,10 @@ function member_del(obj,id){
         	  $.post("../photo/addAds",{pict:pict,psize:psize,phname:phname,phtid:phtid,},function(data){
         		  if(data>0){
         		  layer.alert('添加成功！',{
-                      title: '提示框',				
-       			icon:1,		
+                      title: '提示框',	
+       				icon:1,	
        			  });
+        		  setTimeout("location.reload()",100)//页面刷新
        			   layer.close(index);}
       		})
 			  	
@@ -416,12 +506,13 @@ jQuery(function($) {
 				
 				
 				$('table th input:checkbox').on('click' , function(){
-					var that = this;
+					alert("aaa");
+				/* 	var that = this;
 					$(this).closest('table').find('tr > td:first-child input:checkbox')
 					.each(function(){
 						this.checked = that.checked;
 						$(this).closest('tr').toggleClass('selected');
-					});
+					}); */
 						
 				});
 			
