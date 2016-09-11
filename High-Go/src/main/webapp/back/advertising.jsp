@@ -69,6 +69,7 @@
 				<th style="width: 190px;">图片</th>
 				<th width="150px">尺寸（大小）</th>
 				<th width="180">加入时间</th>
+				<th width="150px;">所属类别</th>
 				<th width="70">状态</th>                
 				<th width="250">操作</th>
 			</tr>
@@ -82,6 +83,7 @@
        <td><span class="ad_img"><img src="../${pic.pict }"  width="100%" height="100%"/></span></td>
        <td>${pic.psize } </td>
        <td>${pic.phdate } </td>
+       <td>${pic.phtname }</td>
        <td class="td-status">
        	<c:if test="${pic.phstatus!=0 }">
        		<span class="label label-success radius">显示</span></td>
@@ -161,7 +163,6 @@ function del() {
 		$("input:checked").each(function(){
 			phids+=this.value+",";
 		});
-		alert(phids);
               if (phids != "") {
                 	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
                     $.post("../photo/DeleteAds",{phids:phids}, function (data) {
@@ -225,8 +226,8 @@ function member_edit(phid){
         			  layer.alert('添加成功！',{
         	               title: '提示框',				
         					icon:1,	
-        					
         				  }); 
+        			 
         		  }
         	  })
 			   layer.close(index);	
@@ -240,7 +241,10 @@ function member_edit(phid){
 		
 function getAll(){
 	$.post("../photo/getAll",function(data){
-		var str="";
+		if(data){
+			location.reload();
+		}
+		/* var str="";
 		for(var i=0;i<data.length;i++){
 		str+='<tr>';
 		str+='<td><label><input type="checkbox" name="checkbox" value="'+data[i].phid+'" class="ace"><span class="lbl"></span></label></td>';
@@ -263,14 +267,17 @@ function getAll(){
 		str+='<a title="删除" href="javascript:;"  onclick="member_del(this,'+data[i].phid+')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
 		str+='</td>';
 		str+='</tr>';}
-		$("#tbody2").html(str);
+		$("#tbody2").html(str); */
 	},"json")
 }
 
 
 function getAllPics(obj,phtid){
 	$.post("../photo/getAllPhoto",{phtid:phtid},function(data){
-		var str="";
+		if(data){
+			location.reload();
+		}
+	/* 	var str="";
 		for(var i=0;i<data.length;i++){
 		str+='<tr>';
 		str+='<td><label><input type="checkbox" name="checkbox" value="'+data[i].phid+'" class="ace"><span class="lbl"></span></label></td>';
@@ -294,7 +301,7 @@ function getAllPics(obj,phtid){
 		str+='</td>';
 		str+='</tr>';
 		}
-		$("#tbody2").html(str);
+		$("#tbody2").html(str); */
 	},"json")
 }
 

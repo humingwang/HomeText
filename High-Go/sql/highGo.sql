@@ -170,7 +170,9 @@ select*from admin;
 	insert into photos values(photos_phid.nextval,'韩式风四件套','images/cp14.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'婚庆四件套','images/cp15.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1072);
 	
-	select phid,phname,pict,psize,to_char(phdate,'yyyy-mm-dd') phdate,phstatus,phtid from photos
+	select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
+	select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
+			and p.phtid=1068
 	delete from photos where phtid=1040;
 	select phname,psize,to_char(phdate,'yyyy-mm-dd') phdate from photos where phid=1145
 	select count(*) from photos;
