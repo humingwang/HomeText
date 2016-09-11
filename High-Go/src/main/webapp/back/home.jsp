@@ -146,12 +146,12 @@ series : [
       name:'待付款',
       type:'bar',
       data:arr1,
-      markPoint : {
+       /* markPoint : {
           data : [
-              {name : '年最高', value : 1182, xAxis: 7, yAxis: 1182, symbolSize:18},
-              {name : '年最低', value : 23, xAxis: 11, yAxis: 3}
+              {name : '年最高',  xAxis: 7, yAxis: 1182, symbolSize:18},
+              {name : '年最低',  xAxis: 11, yAxis: 3}
           ]
-      },
+      },  */
      
 		
   }
@@ -159,24 +159,24 @@ series : [
       name:'已付款',
       type:'bar',
       data:arr2,
-      markPoint : {
+     /*  markPoint : {
           data : [
-              {name : '年最高', value : 172, xAxis: 7, yAxis: 172, symbolSize:18},
-              {name : '年最低', value : 23, xAxis: 11, yAxis: 3}
+              {name : '年最高',  xAxis: 7, yAxis: 172, symbolSize:18},
+              {name : '年最低',  xAxis: 11, yAxis: 3}
           ]
-      },
+      }, */
      
 	}
 	, {
       name:'代发货',
       type:'bar',
       data:arr3,
-      markPoint : {
+     /*  markPoint : {
           data : [
-              {name : '年最高', value : 1072, xAxis: 7, yAxis: 1072, symbolSize:18},
-              {name : '年最低', value : 22, xAxis: 11, yAxis: 3}
+              {name : '年最高',  xAxis: 7, yAxis: 1072, symbolSize:18},
+              {name : '年最低',  xAxis: 11, yAxis: 3}
           ]
-      }
+      } */
      
 	}
 ]

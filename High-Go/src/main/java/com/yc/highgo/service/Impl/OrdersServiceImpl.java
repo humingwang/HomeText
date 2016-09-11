@@ -19,5 +19,10 @@ public class OrdersServiceImpl implements OrdersService{
 	public List<Orders> findAll() {
 		return orderMapper.findAll();
 	}
+
+	@Override
+	public List<Orders> findAllNum() {
+		return orderMapper.findAllNum();
+	}
 	
 }
