@@ -232,7 +232,6 @@ create sequence address_aid start with 1 increment by 1;
 	);
 	insert into address values(address_aid.nextval,'湖南衡阳','珠晖区湖南工学院',0,'ywb','15570974507');
 	
-	
 --订单详细表
   create table orderdetails(
     odid int primary key,--订单详细编号

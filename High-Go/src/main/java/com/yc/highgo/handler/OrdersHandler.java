@@ -46,11 +46,17 @@ public class OrdersHandler {
 	public void reports(ModelMap map,PrintWriter out ){
 		List<Orders> orderList=orderService.findAllNum();
 		map.put("all", orderList.get(0));
-		System.out.println(orderList.get(0));
 		Gson json=new Gson();
 		String orderStr=json.toJson(orderList);
 		out.print(orderStr);
 		out.flush();
 		out.close();
+	}
+	
+	
+	@RequestMapping(value="/handing",method=RequestMethod.GET)
+	public String orderTable(){
+		System.out.println("yes");
+		return null;
 	}
 }
