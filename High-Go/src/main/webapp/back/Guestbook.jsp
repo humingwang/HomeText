@@ -35,8 +35,8 @@
 				<ul class="search_content clearfix">
 					<li><label class="l_f">留言</label><input name="" type="text"
 						class="text_add" placeholder="输入留言信息" style="width: 250px"></li>
-					<li><label class="l_f">时间</label><input
-						class="inline laydate-icon" id="start" style="margin-left: 10px;"></li>
+					<li><label class="l_f">时间</label>
+					<input class="inline laydate-icon" id="start" style="margin-left: 10px;"/></li>
 					<li style="width: 90px;"><button type="button"
 							onclick="searchAssess()" class="btn_search">
 							<i class="icon-search"></i>查询
@@ -45,7 +45,7 @@
 			</div>
 			<div class="border clearfix">
 				<span class="l_f"> <a href="javascript:ovid()"
-					class="btn btn-danger"><i class="fa fa-trash" onclick="delAssess()"></i>&nbsp;批量删除</a> 
+					class="btn btn-danger" onclick="delAssess()"><i class="fa fa-trash" ></i>&nbsp;批量删除</a> 
 				</span> <span class="r_f">共：<b>${count }</b>条
 				</span>
 			</div>
@@ -55,7 +55,7 @@
 					id="sample-table">
 					<thead>
 						<tr>
-							<th width="25"><label><input type="checkbox"
+							<th width="25"><label><input type="checkbox" name="checkbox"
 									class="ace"><span class="lbl"></span></label></th>
 							<th width="80">ID</th>
 							<th width="150px">用户名</th>
@@ -67,7 +67,7 @@
 					<tbody>
 						<c:forEach items="${assesses }" var="assess">
 							<tr>
-								<td><label><input type="checkbox" class="ace"><span
+								<td><label><input type="checkbox" name="checkbox" class="ace" value="${assess.asid }"><span
 											class="lbl"></span></label></td>
 								<td>${assess.asid }</td>
 								<td><u style="cursor: pointer" id="cname"
@@ -100,7 +100,25 @@
 
 //批量删除
 function delAssess(){
-	
+	//var len=$("input[name='checkbox']:checked").length;
+	//alert(len);
+	var asids ="";
+	$("input:checked").each(function(){
+		asids+=this.value+",";
+	});
+          if (asids != "") {
+            	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
+                $.post("../assess/delAssess",{asids:asids}, function (data) {
+                	if(data>0){
+                	layer.msg('留言删除成功!!!',{icon: 5,time:1000});
+                	setTimeout("location.reload()",100);//页面刷新
+                	}
+                });
+            }); 
+             
+         } else {
+            layer.alert("请选择要删除的数据！");
+        }  
 }
 
 /*搜索查询*/
@@ -113,8 +131,8 @@ function searchAssess() {
 		for (var i = 0; i < data.length; i++) {
 			str += '<thead>';
 			str += '<tr>';
-			str += '<th width="25"><label><input type="checkbox"';
-			str+='class="ace"><span class="lbl"></span></label></th>';
+			str += '<th width="25"><label><input type="checkbox" name="checkbox"';
+			str+='class="ace" value="'+data[i].asid+'"><span class="lbl"></span></label></th>';
 			str += '<th width="80">ID</th>';
 			str += '<th width="150px">用户名</th>';
 			str += '<th width="">留言内容</th>';
@@ -150,18 +168,16 @@ function searchAssess() {
 	
 	/*留言-删除*/
 	function member_del(obj, id) {
-		$.post("../assess/delAssessById", {id : id}, function(data) {
-			if (data > 0) {
 				layer.confirm('确认要删除吗？', function(index) {
+					$.post("../assess/delAssessById", {id : id}, function(data) {
+					if (data > 0) {
 					$(obj).parents("tr").remove();
 					layer.msg('已删除!', {
 						icon : 1,
 						time : 1000
 					});
-				});
-			}
+			}});
 		})
-
 	}
 
 	/*留言查看*/

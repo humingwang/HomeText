@@ -111,10 +111,13 @@
 //})		
 //	});
 /*********************点击事件*********************/
+function findAllTypes(){
+	$.post("../photoType/findAllTypes");
+}
+
 function getAllPhoto(){
 	$.post("../photoType/getAllPname");
 	$.post("../photo/getAllPics");
-	$.post("../photo/getCount");
 }
 
 
@@ -332,7 +335,7 @@ $('.change_Password').on('click', function(){
 					<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text"> 图片管理 </span><b class="arrow icon-angle-down"></b></a>
 						<ul class="submenu">
 						<li class="home"><a href="javascript:void(0)" name="advertising.jsp" title="广告管理" onclick="getAllPhoto()" class="iframeurl"><i class="icon-double-angle-right"></i>广告管理</a></li>
-						<li class="home"><a href="javascript:void(0)" name="Sort_ads.jsp" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
+						<li class="home"><a href="javascript:void(0)" name="Sort_ads.jsp" title="分类管理"  onclick="findAllTypes()" class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
 							</ul>
 						</li>
 					<li>
