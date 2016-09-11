@@ -35,8 +35,8 @@
 				<ul class="search_content clearfix">
 					<li><label class="l_f">留言</label><input name="" type="text"
 						class="text_add" placeholder="输入留言信息" style="width: 250px"></li>
-					<li><label class="l_f">时间</label><input
-						class="inline laydate-icon" id="start" style="margin-left: 10px;"></li>
+					<li><label class="l_f">时间</label>
+					<input class="inline laydate-icon" id="start" style="margin-left: 10px;"/></li>
 					<li style="width: 90px;"><button type="button"
 							onclick="searchAssess()" class="btn_search">
 							<i class="icon-search"></i>查询

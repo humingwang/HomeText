@@ -105,7 +105,8 @@
 </div>
 <!--添加广告样式-->
 <div id="add_ads_style"  style="display:none">
- <div class="add_adverts">
+
+ <form class="add_adverts" action="../file/uploadFile" method="post"  enctype="multipart/form-data">
  <ul>
   <li>
   <label class="label_name">所属分类</label>
@@ -118,18 +119,18 @@
   </select></span>
   </li>
   <li><label class="label_name">图片尺寸</label><span class="cont_style">
-  <input name="长" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">
+   <input  type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">
   <span class="l_f" style="margin-left:10px;"></span></span></li>
   	<li><label class="label_name">图片名称</label> <input type="text" style="width:100px;backgroundcolor:#fff;" id="getPhanme" /></li>
      <li><label class="label_name">图片</label><span class="cont_style">
  <div class="demo">
-	           <div class="logobox"><div class="resizebox"><img src="../images/1.png" width="100px" alt="" height="100px"/></div></div>	
+	           <div class="logobox"><div class="resizebox"><img src="" width="100px" alt="" height="100px"/></div></div>	
                <div class="logoupload">
-                  <div class="btnbox"><a id="uploadBtnHolder" class="uploadbtn" href="javascript:;">上传替换</a></div>
+                  <div class="btnbox"><input type="file" id="uploadBtnHolder" class="uploadbtn" value="上传图片"/>
+                  </div>
+                  <div><input type="submit" value="提交"/></div>
                   <div style="clear:both;height:0;overflow:hidden;"></div>
                   <div class="progress-box" style="display:none;">
-                    <div class="progress-num">上传进度：<b>0%</b></div>
-                    <div class="progress-bar"><div style="width:0%;" class="bar-line"></div></div>
                   </div>  <div class="prompt"><p>图片大小小于5MB,支持.jpg;.gif;.png;.jpeg格式的图片</p></div>  
               </div>                                
            </div>           
@@ -138,7 +139,7 @@
  
   
  </ul>
- </div>
+ </form>
 </div>
 
 <!--编辑图层-->
@@ -160,6 +161,7 @@ function del() {
 		$("input:checked").each(function(){
 			phids+=this.value+",";
 		});
+		alert(phids);
               if (phids != "") {
                 	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
                     $.post("../photo/DeleteAds",{phids:phids}, function (data) {
@@ -375,7 +377,7 @@ function member_del(obj,id){
 		shadeClose: false, //点击遮罩关闭层
         area : ['800px' , ''],
         content:$('#add_ads_style'),
-		btn:['提交','取消'],
+		btn:['提1交','取消'],
 		yes:function(index,layero){	
 		 var num=0;
 		 var str="";
@@ -392,108 +394,18 @@ function member_del(obj,id){
 		 });
 		  if(num>0){  return false;}	 	
           else{
-        	  alert($("#form-field-select-1").val());
-    		  alert($("#form-field-1").val());
-    		  alert($("#getPhanme").val());
-        	  $.post("../photo/addAds",{pict:pict,psize:psize,phname:phname,phtid:phtid,},function(data){
-        		  if(data>0){
         		  layer.alert('添加成功！',{
                       title: '提示框',	
        				icon:1,	
        			  });
         		  setTimeout("location.reload()",100)//页面刷新
-       			   layer.close(index);}
-      		})
-			  	
+       			   layer.close(index);
 		  }		  		     				
 		}
     });
 })
 </script>
-<script type="text/javascript">
-function updateProgress(file) {
-	$('.progress-box .progress-bar > div').css('width', parseInt(file.percentUploaded) + '%');
-	$('.progress-box .progress-num > b').html(SWFUpload.speed.formatPercent(file.percentUploaded));
-	if(parseInt(file.percentUploaded) == 100) {
-		// 如果上传完成了
-		$('.progress-box').hide();
-	}
-}
 
-function initProgress() {
-	$('.progress-box').show();
-	$('.progress-box .progress-bar > div').css('width', '0%');
-	$('.progress-box .progress-num > b').html('0%');
-}
-
-function successAction(fileInfo) {
-	var up_path = fileInfo.path;
-	var up_width = fileInfo.width;
-	var up_height = fileInfo.height;
-	var _up_width,_up_height;
-	if(up_width > 120) {
-		_up_width = 120;
-		_up_height = _up_width*up_height/up_width;
-	}
-	$(".logobox .resizebox").css({width: _up_width, height: _up_height});
-	$(".logobox .resizebox > img").attr('src', up_path);
-	$(".logobox .resizebox > img").attr('width', _up_width);
-	$(".logobox .resizebox > img").attr('height', _up_height);
-}
-
-var swfImageUpload;
-$(document).ready(function() {
-	var settings = {
-		flash_url : "Widget/swfupload/swfupload.swf",
-		flash9_url : "Widget/swfupload/swfupload_fp9.swf",
-		upload_url: "upload.php",// 接受上传的地址
-		file_size_limit : "5MB",// 文件大小限制
-		file_types : "*.jpg;*.gif;*.png;*.jpeg;",// 限制文件类型
-		file_types_description : "图片",// 说明，自己定义
-		file_upload_limit : 100,
-		file_queue_limit : 0,
-		custom_settings : {},
-		debug: false,
-		// Button settings
-		button_image_url: "Widget/swfupload/upload-btn.png",
-		button_width: "95",
-		button_height: "30 ",
-		button_placeholder_id: 'uploadBtnHolder',
-		button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
-		button_cursor : SWFUpload.CURSOR.HAND,
-		button_action: SWFUpload.BUTTON_ACTION.SELECT_FILE,
-		
-		moving_average_history_size: 40,
-		
-		// The event handler functions are defined in handlers.js
-		swfupload_preload_handler : preLoad,
-		swfupload_load_failed_handler : loadFailed,
-		file_queued_handler : fileQueued,
-		file_dialog_complete_handler: fileDialogComplete,
-		upload_start_handler : function (file) {
-			initProgress();
-			updateProgress(file);
-		},
-		upload_progress_handler : function(file, bytesComplete, bytesTotal) {
-			updateProgress(file);
-		},
-		upload_success_handler : function(file, data, response) {
-			// 上传成功后处理函数
-			var fileInfo = eval("(" + data + ")");
-			successAction(fileInfo);
-		},
-		upload_error_handler : function(file, errorCode, message) {
-			alert('上传发生了错误！');
-		},
-		file_queue_error_handler : function(file, errorCode, message) {
-			if(errorCode == -110) {
-				alert('您选择的文件太大了。');	
-			}
-		}
-	};
-	swfImageUpload = new SWFUpload(settings);
-});
-</script>
 <script>
 jQuery(function($) {
 				var oTable1 = $('#sample-table').dataTable( {
@@ -506,13 +418,12 @@ jQuery(function($) {
 				
 				
 				$('table th input:checkbox').on('click' , function(){
-					alert("aaa");
-				/* 	var that = this;
+				var that = this;
 					$(this).closest('table').find('tr > td:first-child input:checkbox')
 					.each(function(){
 						this.checked = that.checked;
 						$(this).closest('tr').toggleClass('selected');
-					}); */
+					}); 
 						
 				});
 			

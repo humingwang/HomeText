@@ -32,7 +32,7 @@
      <div class="border clearfix">
        <span class="l_f">
         <a href="javascript:ovid()" id="sort_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加分类</a>
-        <a href="../photoType/delMangPhotos" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+        <a href="javascript:ovid()" class="btn btn-danger" onclick="delManyPhotos()"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>${number }</b>类</span>
      </div>
@@ -40,7 +40,7 @@
     <table class="table table-striped table-bordered table-hover" id="sample-table">
 		<thead>
 		 <tr>
-				<th width="25px"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
+				<th width="25px"><label><input type="checkbox"  class="ace"><span class="lbl"></span></label></th>
 				<th width="50px">ID</th>
 				<th width="100px">分类名称</th>
 				<th width="50px">数量</th>
@@ -52,7 +52,7 @@
 	<tbody>
 	<c:forEach items="${types }" var="type">
       <tr>
-       <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
+       <td><label><input type="checkbox" name="checkbox" value="${type.phtid }" class="ace"><span class="lbl"></span></label></td>
        <td>${type.phtid }</td>
        <td>${type.phtname}</td>
        <td>${type.count }</td>
@@ -86,6 +86,32 @@
 </body>
 </html>
 <script type="text/javascript">
+
+//批量删除
+function delManyPhotos() {
+		var len=$("input[name='checkbox']:checked").length;
+		alert(len);
+		var phtids ="";
+		$("input[name='checkbox']:checked").each(function(){
+			phtids+=this.value+",";
+		});
+		alert(phtids);
+              if (phtids != "") {
+                	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
+                    $.post("../photoType/DeleteTypes",{phtids:phtids}, function (data) {
+                    	if(data>0){
+                    	layer.msg('广告类型删除成功!!!',{icon: 5,time:1000});
+                    	setTimeout("location.reload()",100);//页面刷新
+                    	}
+                    });
+                }); 
+                 
+             } else {
+                layer.alert("请选择要删除的数据！");
+            }  
+}
+
+
 //添加分类
 $('#sort_add').on('click', function(){
 	  layer.open({

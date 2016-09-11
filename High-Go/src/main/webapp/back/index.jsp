@@ -113,13 +113,11 @@
 /*********************点击事件*********************/
 function findAllTypes(){
 	$.post("../photoType/findAllTypes");
-	$.post("../photoType/findCount");
 }
 
 function getAllPhoto(){
 	$.post("../photoType/getAllPname");
 	$.post("../photo/getAllPics");
-	$.post("../photo/getCount");
 }
 
 
