@@ -8,4 +8,6 @@ public interface OrdersService {
 
 	List<Orders> findAll();
 
+	List<Orders> findAllNum();
+
 }

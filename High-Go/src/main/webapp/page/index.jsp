@@ -31,12 +31,12 @@
 					</c:if>
 				</div>
 				<div class="shop_car">
-					<a href="" id="shop_car"></a>
+					<a href="customer/shopcar" id="shop_car"></a>
 				</div>
 			</div>
 			<div class="login_right">
 				<div class="welcome right_1">
-						<a href="shopcar.jsp">我的嗨购</a> | <a href="">会员俱乐部</a>
+						<a href="customer/shopcar">我的嗨购</a> | <a href="customer/personal">会员俱乐部</a>
 				</div>
 			</div>
 		</div>
@@ -46,37 +46,37 @@
 				<li class="li_1"></li>
 				<!--logo放置-->
 				<li><a href="">首页</a></li>
-				<li class="li_3"><a href="onLine.jsp">在线商城<i></i></a>
+				<li class="li_3"><a href="index/onLine">在线商城<i></i></a>
 					<ul class="on_ul">
 						<li class="one">床上用品
 							<ul class="two">
-								<li class="two_"><a href="types.jsp">床单/被套</a></li>
-								<li class="two_"><a href="types.jsp">床上四件套</a></li>
-								<li class="two_"><a href="types.jsp">抱枕</a></li>
-								<li class="two_"><a href="types.jsp">被子/被芯</a></li>
-								<li class="two_"><a href="types.jsp">竹凉席</a></li>
+								<li class="two_"><a href="index/types">床单/被套</a></li>
+								<li class="two_"><a href="index/types">床上四件套</a></li>
+								<li class="two_"><a href="index/types">抱枕</a></li>
+								<li class="two_"><a href="index/types">被子/被芯</a></li>
+								<li class="two_"><a href="index/types">竹凉席</a></li>
 							</ul>
 						</li>
 						<li class="one">装饰设计
 							<ul class="two">
-								<li class="two_"><a href="types.jsp">板材</a></li>
-								<li class="two_"><a href="types.jsp">墙纸/墙贴</a></li>
-								<li class="two_"><a href="types.jsp">窗帘</a></li>
-								<li class="two_"><a href="types.jsp">天花板</a></li>
-								<li class="two_"><a href="types.jsp">家具</a></li>
+								<li class="two_"><a href="index/types">板材</a></li>
+								<li class="two_"><a href="index/types">墙纸/墙贴</a></li>
+								<li class="two_"><a href="index/types">窗帘</a></li>
+								<li class="two_"><a href="index/types">天花板</a></li>
+								<li class="two_"><a href="index/types">家具</a></li>
 							</ul>
 						</li>
 						<li class="one">家居用品
 							<ul class="two">
-								<li class="two_"><a href="types.jsp">毛巾/浴巾</a></li>
-								<li class="two_"><a href="types.jsp">毛毯</a></li>
-								<li class="two_"><a href="types.jsp">靠垫</a></li>
-								<li class="two_"><a href="types.jsp">地毯</a></li>
-								<li class="two_"><a href="types.jsp">沙发</a></li>
+								<li class="two_"><a href="index/types">毛巾/浴巾</a></li>
+								<li class="two_"><a href="index/types">毛毯</a></li>
+								<li class="two_"><a href="index/types">靠垫</a></li>
+								<li class="two_"><a href="index/types">地毯</a></li>
+								<li class="two_"><a href="index/types">沙发</a></li>
 							</ul>
 						</li>
 					</ul></li>
-				<li class="li_4"><a href="NewProbuct.jsp">新品上架<i></i></a>
+				<li class="li_4"><a href="index/NewProduct">新品上架<i></i></a>
 					<div class="new_div">
 						<ul class="new_ul">
 							<li><a href=""><img src="images/cl7.jpg" class="gray" /><span>窗帘</span></a></li>
@@ -89,8 +89,8 @@
 							<li><a href=""><img src="images/yj2.jpg" class="gray" /><span>浴巾</span></a></li>
 						</ul>
 					</div></li>
-				<li><a href="suggest.jsp">客户留言</a></li>
-				<li><a href="">关于我们</a></li>
+				<li><a href="index/suggest">客户留言</a></li>
+				<li><a href="index/about">关于我们</a></li>
 			</ul>
 			<!--搜索框-->
 			<div class="search_box">

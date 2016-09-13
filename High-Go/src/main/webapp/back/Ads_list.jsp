@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -54,64 +56,29 @@
 				<th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
 				<th width="80px">ID</th>               
 				<th width="100">分类</th>
-                <th  width="80px">排序</th>
 				<th width="240px">图片</th>
 				<th width="150px">尺寸（大小）</th>
-				<th width="250px">链接地址</th>
 				<th width="180">加入时间</th>
 				<th width="70">状态</th>                
 				<th width="250">操作</th>
 			</tr>
 		</thead>
 	<tbody>
+	<c:forEach items="${pics }" var="photo">
       <tr>
        <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-       <td>1</td>
-       <td>幻灯片</td>
-        <td><input name="" type="text"  style=" width:50px" placeholder="1"/></td>
-       <td><span class="ad_img"><a href="products/ad.jpg" data-rel="colorbox" data-title="广告图"><img src="products/ad.jpg"  width="100%" height="100%"/></a></span></td>      
-       <td>1890x1080</td>
-       <td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>
-       <td>2016-6-29 12:34</td>
+       <td>${photo.phid } </td>
+       <td>${photo.phname } </td>
+       <td><span class="ad_img"><a href="products/ad.jpg" data-rel="colorbox" data-title="广告图"><img src="../${photo.pict }"  width="100%" height="100%"/></a></span></td>      
+       <td>${photo.psize } </td>
+       <td>${photo.phdate } </td>
        <td class="td-status"><span class="label label-success radius">显示</span></td>
       <td class="td-manage">
         <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
         <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
         <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
        </td>
-      </tr>
-      <tr>
-       <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-       <td>2</td>
-       <td>幻灯片</td>
-        <td><input name="" type="text"  style=" width:50px" placeholder="2"/></td>
-       <td><span class="ad_img"><a href="products/ad1.jpg" data-rel="colorbox" data-title="广告图"><img src="products/ad1.jpg"  width="100%" height="100%"/></a></span></td>      
-       <td>1890x1080</td>
-       <td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>
-       <td>2016-6-29 12:34</td>
-       <td class="td-status"><span class="label label-success radius">显示</span></td>
-      <td class="td-manage">
-        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
-        <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
-        <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
-       </td>
-      </tr>
-       <tr>
-       <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-       <td>2</td>
-       <td>幻灯片</td>
-        <td><input name="" type="text"  style=" width:50px" placeholder="2"/></td>
-       <td><span class="ad_img"><a href="products/p_42.jpg" data-rel="colorbox" data-title="广告图"><img src="products/p_42.jpg"  width="100%" height="100%"/></a></span></td>      
-       <td>1890x1080</td>
-       <td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>
-       <td>2016-6-29 12:34</td>
-       <td class="td-status"><span class="label label-success radius">显示</span></td>
-      <td class="td-manage">
-        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
-        <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
-        <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
-       </td>
-      </tr>
+      </tr></c:forEach>
     </tbody>
     </table>
      </div>
@@ -127,11 +94,10 @@
   <span class="cont_style">
   <select class="form-control" id="form-field-select-1">
     <option value="">选择分类</option>
-    <option value="AL">首页大幻灯片</option>
-    <option value="AK">首页小幻灯片</option>
-    <option value="AZ">单广告图</option>
-    <option value="AR">其他广告</option>
-    <option value="CA">板块栏目广告</option>
+    <c:forEach items="${types }" var="type">
+    	<option value="AL">${type.phtname }</option>
+    </c:forEach>
+    
   </select></span>
   </li>
   <li><label class="label_name">图片尺寸</label><span class="cont_style">

@@ -7,7 +7,17 @@ public class Assess {
 	private String asdate;
 	private String ascount;
 	private String cname;
+	private String pname;
 	
+	
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+
 	public String getCname() {
 		return cname;
 	}
@@ -19,12 +29,7 @@ public class Assess {
 	public Assess() {
 	}
 
-	public Assess(int asid, String asdate, String ascount,String cname) {
-		this.asid = asid;
-		this.asdate = asdate;
-		this.ascount = ascount;
-		this.cname=cname;
-	}
+	
 
 	public int getAsid() {
 		return asid;
@@ -52,8 +57,19 @@ public class Assess {
 
 	@Override
 	public String toString() {
-		return "\nAssess [asid=" + asid + ", asdate=" + asdate + ", ascount=" + ascount + ", cname=" + cname + "]";
+		return "Assess [asid=" + asid + ", asdate=" + asdate + ", ascount=" + ascount + ", cname=" + cname + ", pname="
+				+ pname + "]";
 	}
+
+	public Assess(int asid, String asdate, String ascount, String cname, String pname) {
+		this.asid = asid;
+		this.asdate = asdate;
+		this.ascount = ascount;
+		this.cname = cname;
+		this.pname = pname;
+	}
+
+	
 
 	
 	

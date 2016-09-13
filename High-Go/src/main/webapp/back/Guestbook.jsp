@@ -35,8 +35,8 @@
 				<ul class="search_content clearfix">
 					<li><label class="l_f">留言</label><input name="" type="text"
 						class="text_add" placeholder="输入留言信息" style="width: 250px"></li>
-					<li><label class="l_f">时间</label><input
-						class="inline laydate-icon" id="start" style="margin-left: 10px;"></li>
+					<li><label class="l_f">时间</label>
+					<input class="inline laydate-icon" id="start" style="margin-left: 10px;"/></li>
 					<li style="width: 90px;"><button type="button"
 							onclick="searchAssess()" class="btn_search">
 							<i class="icon-search"></i>查询
@@ -45,7 +45,7 @@
 			</div>
 			<div class="border clearfix">
 				<span class="l_f"> <a href="javascript:ovid()"
-					class="btn btn-danger"><i class="fa fa-trash" onclick="delAssess()"></i>&nbsp;批量删除</a> 
+					class="btn btn-danger" onclick="delAssess()"><i class="fa fa-trash" ></i>&nbsp;批量删除</a> 
 				</span> <span class="r_f">共：<b>${count }</b>条
 				</span>
 			</div>
@@ -55,19 +55,20 @@
 					id="sample-table">
 					<thead>
 						<tr>
-							<th width="25"><label><input type="checkbox"
+							<th width="25"><label><input type="checkbox" name="checkbox"
 									class="ace"><span class="lbl"></span></label></th>
 							<th width="80">ID</th>
 							<th width="150px">用户名</th>
 							<th width="">留言内容</th>
-							<th width="200px">时间</th>
+							<th width="150px">时间</th>
+							<th width="70">所买商品</th>    
 							<th width="250">操作</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="tbody2">
 						<c:forEach items="${assesses }" var="assess">
 							<tr>
-								<td><label><input type="checkbox" class="ace"><span
+								<td><label><input type="checkbox" name="checkbox" class="ace" value="${assess.asid }"><span
 											class="lbl"></span></label></td>
 								<td>${assess.asid }</td>
 								<td><u style="cursor: pointer" id="cname"
@@ -76,6 +77,7 @@
 								<td class="text-l"><a href="javascript:;"
 									onclick="Guestbook_iew('${assess.asid }')">${assess.ascount }</a>
 									<td>${assess.asdate }</td>
+									<td>${assess.pname }</td>
 									<td class="td-manage"><a
 										onclick="Guestbook_iew('${assess.asid }')" title="回复"
 										href="javascript:;" class="btn btn-xs btn-info"><i
@@ -100,32 +102,38 @@
 
 //批量删除
 function delAssess(){
-	
+	//var len=$("input[name='checkbox']:checked").length;
+	//alert(len);
+	var asids ="";
+	$("input:checked").each(function(){
+		asids+=this.value+",";
+	});
+          if (asids != "") {
+            	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
+                $.post("../assess/delAssess",{asids:asids}, function (data) {
+                	if(data>0){
+                	layer.msg('留言删除成功!!!',{icon: 5,time:1000});
+                	setTimeout("location.reload()",100);//页面刷新
+                	}
+                });
+            }); 
+             
+         } else {
+            layer.alert("请选择要删除的数据！");
+        }  
 }
 
 /*搜索查询*/
 function searchAssess() {
-	$("#sample-table").html("");
+	$("#tbody2").html("");
 	var ascount = $(".text_add").val();
 	var date = $(".laydate-icon").val();
 	var str="";
 	$.post("../assess/searchAssess",{ascount : ascount,date : date},function(data) {
+		alert(data.length);
 		for (var i = 0; i < data.length; i++) {
-			str += '<thead>';
 			str += '<tr>';
-			str += '<th width="25"><label><input type="checkbox"';
-			str+='class="ace"><span class="lbl"></span></label></th>';
-			str += '<th width="80">ID</th>';
-			str += '<th width="150px">用户名</th>';
-			str += '<th width="">留言内容</th>';
-			str += '<th width="200px">时间</th>';
-			str += '<th width="250">操作</th>';
-			str += '</tr>';
-			str += '</thead>';
-			str += '<tbody>';
-			str += '<tr>';
-			str += '<td><label><input type="checkbox" class="ace"><span';
-			str+='class="lbl"></span></label></td>';
+			str += '<td><label><input type="checkbox" name="checkbox" value="'+data[i].asid+'" class="ace"><span class="lbl"></span></label></td>';
 			str += '<td>'+data[i].asid+'</td>';
 			str += '<td><u style="cursor: pointer" id="cname"';
 			str += 'class="text-primary"';
@@ -133,13 +141,13 @@ function searchAssess() {
 			str += '<td class="text-l"><a href="javascript:;"';
 			str += 'onclick="Guestbook_iew(' + data[i].asid+ ')">' + data[i].ascount + '</a>';
 			str += '<td>' + data[i].asdate + '</td>';
+			str +='<td>' + data[i].pname + '</td>';
 			str += ' <td class="td-manage">';
 			str += '<a  onclick="Guestbook_iew('+data[i].asid+')" title="回复"  href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';     
 	       str+=' <a  href="javascript:;"  onclick="member_del(this,'+data[i].asid+')" title="删除" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
 			str += '</td></tr>';
-			str += '</tbody>';
 			}
-			$("#sample-table").html(str);
+			$("#tbody2").html(str);
 	}, "json")}
 	
 	
@@ -150,18 +158,16 @@ function searchAssess() {
 	
 	/*留言-删除*/
 	function member_del(obj, id) {
-		$.post("../assess/delAssessById", {id : id}, function(data) {
-			if (data > 0) {
 				layer.confirm('确认要删除吗？', function(index) {
+					$.post("../assess/delAssessById", {id : id}, function(data) {
+					if (data > 0) {
 					$(obj).parents("tr").remove();
 					layer.msg('已删除!', {
 						icon : 1,
 						time : 1000
 					});
-				});
-			}
+			}});
 		})
-
 	}
 
 	/*留言查看*/
@@ -179,8 +185,8 @@ function searchAssess() {
 							str += '</div>';
 							str += '<div class="form-group"><label class="col-sm-2 control-label no-padding-right" for="form-field-1">是否回复</label>';
 							str += '<div class="col-sm-9">';
-							str += '<label><input name="checkbox" type="checkbox" class="ace" id="checkbox" onclick="res()"><span class="lbl"> 回复</span></label>';
-							str += '<div class="Reply_style" id="Reply_style">';
+							str += '<label><input name="checkbox1" type="checkbox" class="ace" id="checkbox" onclick="res()"><span class="lbl"> 回复</span></label>';
+							str += '<div class="Reply_style" id="Reply_style" >';
 							str += '<textarea name="权限描述" class="form-control" id="form_textarea" placeholder="" onkeyup="checkLength(this);"></textarea>';
 							str += '<span class="wordage">剩余字数：<span id="sy" style="color:Red;">200</span>字</span>';
 							str += '</div>';
@@ -236,7 +242,7 @@ function searchAssess() {
 
 	/*checkbox激发事件*/
 	function res() {
-		if ($('input[name="checkbox"]').prop("checked")) {
+		if ($('input[name="checkbox1"]').prop("checked")) {
 			$('#Reply_style').css('display', 'block');
 		} else {
 			$('#Reply_style').css('display', 'none');

@@ -54,8 +54,8 @@
   </div><div class="Ads_list">
    <div class="border clearfix">
        <span class="l_f">
-        <a href="javascript:ovid()" id="ads_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加广告</a>
-        <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+        <a href="javascript:ovid()" id="ads_add" class="btn btn-warning" onclick="addAds()"><i class="fa fa-plus"></i> 添加广告</a>
+        <a href="javascript:ovid()" class="btn btn-danger" onclick="del()"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>${count} </b>条广告</span>
      </div>
@@ -63,14 +63,13 @@
        <table class="table table-striped table-bordered table-hover" id="sample-table">
 		<thead>
 		 <tr>
-				<th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
+				<th width="25"><label><input type="checkbox" name="checkbox" class="ace"><span class="lbl"></span></label></th>
 				<th width="80">ID</th>
-                <th>排序</th>
 				<th width="100">分类</th>
 				<th style="width: 190px;">图片</th>
 				<th width="150px">尺寸（大小）</th>
-				<th width="250px">链接地址</th>
 				<th width="180">加入时间</th>
+				<th width="150px;">所属类别</th>
 				<th width="70">状态</th>                
 				<th width="250">操作</th>
 			</tr>
@@ -78,14 +77,13 @@
 	<tbody id="tbody2">
 	<c:forEach items="${pics }" var="pic">
       <tr>
-       <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
+       <td><label><input type="checkbox" name="checkbox" class="ace" value="${pic.phid }"><span class="lbl"></span></label></td>
        <td>${pic.phid }</td>
-       <td><input name="" type="text"  style=" width:50px" placeholder="1"/></td>
        <td>${pic.phname }</td>
        <td><span class="ad_img"><img src="../${pic.pict }"  width="100%" height="100%"/></span></td>
        <td>${pic.psize } </td>
-       <td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>
        <td>${pic.phdate } </td>
+       <td>${pic.phtname }</td>
        <td class="td-status">
        	<c:if test="${pic.phstatus!=0 }">
        		<span class="label label-success radius">显示</span></td>
@@ -97,7 +95,7 @@
 			<td class="td-manage">
 			<a onClick="member_start(this,${pic.phid})"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>  
        	</c:if>
-        <a title="编辑" onclick="member_edit('编辑','member-add.html','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
+        <a title="编辑" onclick="member_edit(${pic.phid})" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>      
         <a title="删除" href="javascript:;"  onclick="member_del(this,'${pic.phid}')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
        </td>
       </tr>
@@ -109,39 +107,32 @@
 </div>
 <!--添加广告样式-->
 <div id="add_ads_style"  style="display:none">
- <div class="add_adverts">
+
+ <form class="add_adverts" action="../file/uploadFile" method="post"  enctype="multipart/form-data">
  <ul>
   <li>
   <label class="label_name">所属分类</label>
   <span class="cont_style">
   <select class="form-control" id="form-field-select-1">
     <option value="">选择分类</option>
-    <option value="AL">首页大幻灯片</option>
-    <option value="AK">首页小幻灯片</option>
-    <option value="AZ">单广告图</option>
-    <option value="AR">其他广告</option>
-    <option value="CA">板块栏目广告</option>
+     <c:forEach items="${types }" var="type">
+    	<option value="${type.phtid }">${type.phtname }</option>
+    </c:forEach>
   </select></span>
   </li>
   <li><label class="label_name">图片尺寸</label><span class="cont_style">
-  <input name="长" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">
-  <span class="l_f" style="margin-left:10px;">x</span><input name="宽" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px"></span></li>
-  <li><label class="label_name">显示排序</label><span class="cont_style"><input name="排序" type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:50px"></span></li>
-  <li><label class="label_name">链接地址</label><span class="cont_style"><input name="地址" type="text" id="form-field-1" placeholder="地址" class="col-xs-10 col-sm-5" style="width:450px"></span></li>
-   <li><label class="label_name">状&nbsp;&nbsp;态：</label>
-   <span class="cont_style">
-     &nbsp;&nbsp;<label><input name="form-field-radio1" type="radio" checked="checked" class="ace"><span class="lbl">显示</span></label>&nbsp;&nbsp;&nbsp;
-     <label><input name="form-field-radio1" type="radio" class="ace"><span class="lbl">隐藏</span></label></span><div class="prompt r_f"></div>
-     </li>
+   <input  type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">
+  <span class="l_f" style="margin-left:10px;"></span></span></li>
+  	<li><label class="label_name">图片名称</label> <input type="text" style="width:100px;backgroundcolor:#fff;" id="getPhanme" /></li>
      <li><label class="label_name">图片</label><span class="cont_style">
  <div class="demo">
-	           <div class="logobox"><div class="resizebox"><img src="images/image.png" width="100px" alt="" height="100px"/></div></div>	
+	           <div class="logobox"><div class="resizebox" ><img src="${imagePath }" width="100px" alt="" height="100px"/></div></div>	
                <div class="logoupload">
-                  <div class="btnbox"><a id="uploadBtnHolder" class="uploadbtn" href="javascript:;">上传替换</a></div>
+                  <div class="btnbox"><input type="file" name="uploadBtnHolder" id="uploadBtnHolder" class="uploadbtn" value="上传图片"/>
+                  </div>
+                  <div><input type="submit" value="提交"/></div>
                   <div style="clear:both;height:0;overflow:hidden;"></div>
                   <div class="progress-box" style="display:none;">
-                    <div class="progress-num">上传进度：<b>0%</b></div>
-                    <div class="progress-bar"><div style="width:0%;" class="bar-line"></div></div>
                   </div>  <div class="prompt"><p>图片大小小于5MB,支持.jpg;.gif;.png;.jpeg格式的图片</p></div>  
               </div>                                
            </div>           
@@ -150,23 +141,124 @@
  
   
  </ul>
- </div>
+ </form>
 </div>
+
+<!--编辑图层-->
+<div class="add_menber" id="add_menber_style" style="display:none">
+    <!-- <ul class=" page-content">
+     <li><label class="label_name">分&nbsp;&nbsp;类 &nbsp;名：</label><span class="add_name"><input value="" name="分类名" type="text"  class="text_add1"/></span><div class="prompt r_f"></div></li>
+     <li><label class="label_name">尺寸：</label><span class="add_name"><input name="尺寸" type="text"  class="text_add2"/></span><div class="prompt r_f"></div></li>
+     <li><label class="label_name">加入时间：</label><span class="add_name"><input name="加入时间" type="text"  class="text_add3"/></span><div class="prompt r_f"></div></li>
+    </ul> -->
+ </div>
+ 
 </body>
 </html>
 <script>
+
+//图片上传
+function getImage(){
+	$.post
+}
+//批量删除
+function del() {
+	alert(".resizebox").val();
+		//var len=$("input[name='checkbox']:checked").length;
+		var phids ="";
+		$("input:checked").each(function(){
+			phids+=this.value+",";
+		});
+              if (phids != "") {
+                	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
+                    $.post("../photo/DeleteAds",{phids:phids}, function (data) {
+                    	if(data>0){
+                    	layer.msg('广告删除成功!!!',{icon: 5,time:1000});
+                    	setTimeout("location.reload()",100);//页面刷新
+                    	}
+                    });
+                }); 
+                 
+             } else {
+                layer.alert("请选择要删除的数据！");
+            }  
+}
+
+function addAds(){
+	$.post("../photoType/getAllTypes");
+}
+
+//广告编辑
+function member_edit(phid){
+	var str="";
+	$.post("../photo/editAds",{phid:phid},function(data){
+	str+='<ul class=" page-content">';
+	str+='<li><label class="label_name">分&nbsp;&nbsp;类 &nbsp;名：</label><span class="add_name"><input value="'+data.phname+'" name="分类名" type="text"  class="text_add1"/></span><div class="prompt r_f"></div></li>';
+	str+='<li><label class="label_name">尺寸：</label><span class="add_name"><input name="尺寸" type="text" value="'+data.psize+'" class="text_add2"/></span><div class="prompt r_f"></div></li>';
+	str+='<li><label class="label_name">加入时间：</label><span class="add_name"><input name="加入时间" type="text" value="'+data.phdate+'" class="text_add3"/></span><div class="prompt r_f"></div></li>';
+	str+='</ul>';
+	$("#add_menber_style").html(str);
+	
+	  layer.open({
+        type: 1,
+        title: '修改广告信息',
+		maxmin: true, 
+		shadeClose:false, //点击遮罩关闭层
+        area : ['800px' , ''],
+        content:$('#add_menber_style'),
+		btn:['提交','取消'],
+		yes:function(index,layero){	
+		 var num=0;
+		 var str="";
+     $(".add_menber input[type$='text']").each(function(n){
+          if($(this).val()=="")
+          {
+               
+			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
+                title: '提示框',				
+				icon:0,								
+          }); 
+		    num++;
+            return false;            
+          } 
+		 });
+		  if(num>0){  return false;}	 	
+          else{
+        	 var phname=$(".text_add1").val();
+        	var psize=$(".text_add2").val();
+        	var phdate=$(".text_add3").val();
+        	  $.post("../photo/updateAds",{phname:phname,psize:psize,phdate:phdate,phid:phid},function(data){
+        		  if(data>0){
+        			  layer.alert('广告修改成功！',{
+        	               title: '提示框',				
+        					icon:1,	
+        				  }); 
+        			  $.post("../photo/getAll");
+        		  }
+        	  })
+        	  
+			   layer.close(index);	
+		  }		  		     				
+		}
+    });
+	}, "json");
+};
+		
+		
+		
 function getAll(){
 	$.post("../photo/getAll",function(data){
-		var str="";
+		if(data){
+			location.reload();
+		}
+		/* var str="";
 		for(var i=0;i<data.length;i++){
 		str+='<tr>';
-		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
+		str+='<td><label><input type="checkbox" name="checkbox" value="'+data[i].phid+'" class="ace"><span class="lbl"></span></label></td>';
 		str+='<td>'+data[i].phid+'</td>';
-		str+='<td><input name="" type="text"  style=" width:50px;" placeholder="1"/></td>';
 		str+='<td>'+data[i].phname+'</td>';
 		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
 		str+='<td>'+data[i].psize+'</td>';
-		str+='<td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>';
 		str+='<td>'+data[i].phdate+'</td>';
 		str+='<td class="td-status">';
 		if(data[i].phstatus!=0){
@@ -178,27 +270,28 @@ function getAll(){
 			str+='<td class="td-manage">';
 			str+='<a onClick="member_start(this,'+data[i].phid+')"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
 		}
-		str+='<a title="编辑" onclick="member_edit()" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
+		str+='<a title="编辑" onclick="member_edit('+data[i].phid+')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
 		str+='<a title="删除" href="javascript:;"  onclick="member_del(this,'+data[i].phid+')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
 		str+='</td>';
 		str+='</tr>';}
-		$("#tbody2").html(str);
+		$("#tbody2").html(str); */
 	},"json")
 }
 
 
 function getAllPics(obj,phtid){
 	$.post("../photo/getAllPhoto",{phtid:phtid},function(data){
-		var str="";
+		if(data){
+			location.reload();
+		}
+	/* 	var str="";
 		for(var i=0;i<data.length;i++){
 		str+='<tr>';
-		str+='<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>';
+		str+='<td><label><input type="checkbox" name="checkbox" value="'+data[i].phid+'" class="ace"><span class="lbl"></span></label></td>';
 		str+='<td>'+data[i].phid+'</td>';
-		str+='<td><input name="" type="text"  style=" width:50px;" placeholder="1"/></td>';
 		str+='<td>'+data[i].phname+'</td>';
 		str+='<td style="width:80px;height:100px;"><span class="ad_img"><img src="../'+data[i].pict+'"  width="80%" height="100%"/></span></td>';
 		str+='<td>'+data[i].psize+'</td>';
-		str+='<td><a href="#" target="_blank">http://item.jd.com/10443270082.html</a></td>';
 		str+='<td>'+data[i].phdate+'</td>';
 		str+='<td class="td-status">';
 		if(data[i].phstatus!=0){
@@ -210,12 +303,12 @@ function getAllPics(obj,phtid){
 			str+='<td class="td-manage">';
 			str+='<a onClick="member_start(this,'+data[i].phid+')"  href="javascript:;" title="显示"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a> ';  
 		}
-		str+='<a title="编辑" onclick="member_edit()" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
+		str+='<a title="编辑" onclick="member_edit('+data[i].phid+')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>';      
 		str+='<a title="删除" href="javascript:;"  onclick="member_del(this,'+data[i].phid+')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>';
 		str+='</td>';
 		str+='</tr>';
 		}
-		$("#tbody2").html(str);
+		$("#tbody2").html(str); */
 	},"json")
 }
 
@@ -286,6 +379,9 @@ function member_del(obj,id){
 	})
 	
 }
+
+
+
 /*******添加广告*********/
  $('#ads_add').on('click', function(){
 	  layer.open({
@@ -312,104 +408,24 @@ function member_del(obj,id){
 		 });
 		  if(num>0){  return false;}	 	
           else{
-        	  $.post("../photo/addAds",{phtid:phtid,psize:psize,phstatus:phstatus},function(data){
+        	  var pict=$(".resizebox").val();
+        	  alert(pict);
+        	  $.post("../photo/addAds",{pict:pict,phname:phname,phname:phname,phtid:phtid},function(data){
         		  if(data>0){
-        		  layer.alert('添加成功！',{
-                      title: '提示框',				
-       			icon:1,		
-       			  });
-       			   layer.close(index);}
-      		})
-			  	
+        			  layer.alert('广告添加成功！',{
+                          title: '提示框',	
+           				icon:1,	
+           			  }); 
+        		  }
+        	  })
+        		  setTimeout("location.reload()",100)//页面刷新
+       			   layer.close(index);
 		  }		  		     				
 		}
     });
 })
 </script>
-<script type="text/javascript">
-function updateProgress(file) {
-	$('.progress-box .progress-bar > div').css('width', parseInt(file.percentUploaded) + '%');
-	$('.progress-box .progress-num > b').html(SWFUpload.speed.formatPercent(file.percentUploaded));
-	if(parseInt(file.percentUploaded) == 100) {
-		// 如果上传完成了
-		$('.progress-box').hide();
-	}
-}
 
-function initProgress() {
-	$('.progress-box').show();
-	$('.progress-box .progress-bar > div').css('width', '0%');
-	$('.progress-box .progress-num > b').html('0%');
-}
-
-function successAction(fileInfo) {
-	var up_path = fileInfo.path;
-	var up_width = fileInfo.width;
-	var up_height = fileInfo.height;
-	var _up_width,_up_height;
-	if(up_width > 120) {
-		_up_width = 120;
-		_up_height = _up_width*up_height/up_width;
-	}
-	$(".logobox .resizebox").css({width: _up_width, height: _up_height});
-	$(".logobox .resizebox > img").attr('src', up_path);
-	$(".logobox .resizebox > img").attr('width', _up_width);
-	$(".logobox .resizebox > img").attr('height', _up_height);
-}
-
-var swfImageUpload;
-$(document).ready(function() {
-	var settings = {
-		flash_url : "Widget/swfupload/swfupload.swf",
-		flash9_url : "Widget/swfupload/swfupload_fp9.swf",
-		upload_url: "upload.php",// 接受上传的地址
-		file_size_limit : "5MB",// 文件大小限制
-		file_types : "*.jpg;*.gif;*.png;*.jpeg;",// 限制文件类型
-		file_types_description : "图片",// 说明，自己定义
-		file_upload_limit : 100,
-		file_queue_limit : 0,
-		custom_settings : {},
-		debug: false,
-		// Button settings
-		button_image_url: "Widget/swfupload/upload-btn.png",
-		button_width: "95",
-		button_height: "30 ",
-		button_placeholder_id: 'uploadBtnHolder',
-		button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
-		button_cursor : SWFUpload.CURSOR.HAND,
-		button_action: SWFUpload.BUTTON_ACTION.SELECT_FILE,
-		
-		moving_average_history_size: 40,
-		
-		// The event handler functions are defined in handlers.js
-		swfupload_preload_handler : preLoad,
-		swfupload_load_failed_handler : loadFailed,
-		file_queued_handler : fileQueued,
-		file_dialog_complete_handler: fileDialogComplete,
-		upload_start_handler : function (file) {
-			initProgress();
-			updateProgress(file);
-		},
-		upload_progress_handler : function(file, bytesComplete, bytesTotal) {
-			updateProgress(file);
-		},
-		upload_success_handler : function(file, data, response) {
-			// 上传成功后处理函数
-			var fileInfo = eval("(" + data + ")");
-			successAction(fileInfo);
-		},
-		upload_error_handler : function(file, errorCode, message) {
-			alert('上传发生了错误！');
-		},
-		file_queue_error_handler : function(file, errorCode, message) {
-			if(errorCode == -110) {
-				alert('您选择的文件太大了。');	
-			}
-		}
-	};
-	swfImageUpload = new SWFUpload(settings);
-});
-</script>
 <script>
 jQuery(function($) {
 				var oTable1 = $('#sample-table').dataTable( {
@@ -422,12 +438,12 @@ jQuery(function($) {
 				
 				
 				$('table th input:checkbox').on('click' , function(){
-					var that = this;
+				var that = this;
 					$(this).closest('table').find('tr > td:first-child input:checkbox')
 					.each(function(){
 						this.checked = that.checked;
 						$(this).closest('tr').toggleClass('selected');
-					});
+					}); 
 						
 				});
 			

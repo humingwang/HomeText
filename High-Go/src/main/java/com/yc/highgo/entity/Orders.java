@@ -7,8 +7,23 @@ public class Orders {
 	private int ostutas;
 	private double omoney;
 	private Address address;
+	private int success;
+	private int allnum;
 	
 	
+	
+	public int getAllnum() {
+		return allnum;
+	}
+	public void setAllnum(int allnum) {
+		this.allnum = allnum;
+	}
+	public int getSuccess() {
+		return success;
+	}
+	public void setSuccess(int success) {
+		this.success = success;
+	}
 	public String getOdate() {
 		return odate;
 	}
