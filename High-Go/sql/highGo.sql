@@ -13,7 +13,7 @@ drop table response;
 
 drop sequence admin_aid;
 drop sequence customer_cid;
-drop sequence productType_ptid;
+drop sequence productTypes_ptid;
 drop sequence product_pid;
 drop sequence assess_asid;
 drop sequence orderdetails_odid;
@@ -25,7 +25,7 @@ drop sequence response_rid;
 create sequence admin_aid start with 1000 increment by 1;
 create sequence customer_cid start with 1000 increment by 1;
 create sequence productTypes_ptid start with 1 increment by 1;
-create sequence product_pid start with 1000 increment by 1;
+create sequence product_pid start with 1 increment by 1;
 create sequence assess_asid start with 1000 increment by 1;
 create sequence orderdetails_odid start with 1000 increment by 1;
 
@@ -79,24 +79,24 @@ select*from admin;
 	
   	select *from producttype;
   	
-	insert into productType values(productType_ptid.nextval,'床上用品',0);
-	insert into productType values(productType_ptid.nextval,'装饰设计',0);
-	insert into productType values(productType_ptid.nextval,'家居用品',0);
-	insert into productType values(productType_ptid.nextval,'床上四件套',1);
-	insert into productType values(productType_ptid.nextval,'床单/被套',1);
-	insert into productType values(productType_ptid.nextval,'枕头',1);
-	insert into productType values(productType_ptid.nextval,'棉被',1);
-	insert into productType values(productType_ptid.nextval,'竹凉席',1);
-	insert into productType values(productType_ptid.nextval,'板材',2);
-	insert into productType values(productType_ptid.nextval,'墙纸',2);
-	insert into productType values(productType_ptid.nextval,'窗帘',2);
-	insert into productType values(productType_ptid.nextval,'天花板',2);
-	insert into productType values(productType_ptid.nextval,'家具',2);
-	insert into productType values(productType_ptid.nextval,'毛巾',3);
-	insert into productType values(productType_ptid.nextval,'毛毯',3);
-	insert into productType values(productType_ptid.nextval,'靠垫',3);
-	insert into productType values(productType_ptid.nextval,'地毯',3);
-	insert into productType values(productType_ptid.nextval,'沙发',3);
+	insert into productType values(productTypes_ptid.nextval,'床上用品',0);
+	insert into productType values(productTypes_ptid.nextval,'装饰设计',0);
+	insert into productType values(productTypes_ptid.nextval,'家居用品',0);
+	insert into productType values(productTypes_ptid.nextval,'床上四件套',1);
+	insert into productType values(productTypes_ptid.nextval,'床单/被套',1);
+	insert into productType values(productTypes_ptid.nextval,'枕头',1);
+	insert into productType values(productTypes_ptid.nextval,'棉被',1);
+	insert into productType values(productTypes_ptid.nextval,'竹凉席',1);
+	insert into productType values(productTypes_ptid.nextval,'板材',2);
+	insert into productType values(productTypes_ptid.nextval,'墙纸',2);
+	insert into productType values(productTypes_ptid.nextval,'窗帘',2);
+	insert into productType values(productTypes_ptid.nextval,'天花板',2);
+	insert into productType values(productTypes_ptid.nextval,'家具',2);
+	insert into productType values(productTypes_ptid.nextval,'毛巾',3);
+	insert into productType values(productTypes_ptid.nextval,'毛毯',3);
+	insert into productType values(productTypes_ptid.nextval,'靠垫',3);
+	insert into productType values(productTypes_ptid.nextval,'地毯',3);
+	insert into productType values(productTypes_ptid.nextval,'沙发',3);
 	select * from productType;
 	
 --库存表
@@ -178,16 +178,35 @@ select*from admin;
 		pprice number(6,2),--价格
 		pdate date,--上架时间
 		pview int,--浏览次数
-		phid int ,--图片
+		pict varchar2(1500) ,--图片
 		ptid int,--类型编号
 		sid int --库存
 	);
+	
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
+
 	insert into product values(product_pid.nextval,'学生床垫','加厚寝室上下铺床垫折叠0.9m单人大学生宿舍用床褥子防潮1米1.2米',
-	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic1.jpg',1,2);
 	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,null,2,1000);
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',2,1000);
 	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,3,1001);
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic3.jpg',3,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic4.jpg',4,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic5.jpg',4,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic6.jpg',5,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic1.jpg',5,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',6,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic3.jpg',4,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',7,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic5.jpg',6,1001);
 	select *from product;
 	
 	
@@ -216,7 +235,7 @@ select*from admin;
 		and ascount like '%加厚%' and asdate=to_date('2016-02-27', 'yyyy-MM-dd')
 
 	delete from assess where asid=1001 on delete cascade;
-	
+
 	--回复表
 	 create table response(
 	 rid int primary key,--回复编号
@@ -240,7 +259,7 @@ select*from admin;
 	
 	
 --订单表
-	create table orders(
+create table orders(
 	oid varchar2(20) primary key,--订单号
 	omoney number(12,2),--订单价
     onum int,---数量

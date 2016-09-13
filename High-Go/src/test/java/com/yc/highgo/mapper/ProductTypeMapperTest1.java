@@ -12,7 +12,7 @@ import com.yc.highgo.entity.ProductType;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring.xml")
-public class ProductTypeMapperTest {
+public class ProductTypeMapperTest1 {
 	
 	@Autowired
 	private ProductTypeMapper pro;

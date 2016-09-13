@@ -1,6 +1,7 @@
-package com.yc.highgo.handler;
+ package com.yc.highgo.handler;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,8 @@ import com.yc.highgo.service.ProductTypeService;
 
 @Controller
 @RequestMapping("/productType")
-@SessionAttributes("list")
+@SessionAttributes(value={"list","types"})
+
 public class ProductTypeHandler {
 	@Autowired
 	private ProductTypeService productTypeService;
@@ -33,12 +35,16 @@ public class ProductTypeHandler {
 	@ModelAttribute
 	public void getModel(ModelMap map){
 		map.put("list", new ProductType());
+		map.put("types", new ArrayList<ProductType>());
+
 	}
 	@RequestMapping(value="/findAll",method=RequestMethod.POST)
 	@ResponseBody
-	public List<ProductType> findAll(){
+	public List<ProductType> findAll(ModelMap map){
 		LogManager.getLogger().debug("//查询方法成功到达处理方法中.....");
 		List<ProductType> list=productTypeService.findAll();
+		System.out.println(list);
+		map.put("types", list);
 		return list;
 	}
 	
