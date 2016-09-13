@@ -24,20 +24,9 @@
                         <li>帮助中心</li>
                     </ul>
        	 </div></div>
-         <div class="logo5"></div>
     
    		 <div class="tel"></div>	
    		 </div>
-         <div class="fenlei">
-        	<ul>
-            	<li ><a href="#">首页</li>
-                <li><a href="#">新品上架</li>
-                <li><a href="#">爱一张床</li>
-                <li><a href="#">毯毯荡荡</li>
-                <li><a href="#">垂坠窗帘</li>
-                <li class="wei"><a href="#">随心所浴</li>
-            </ul>
-        </div>
      
     </div>
     <div class="logoo"><a href="#" class="high">当前位置：High Go>意见反馈</div>
