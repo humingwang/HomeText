@@ -10,7 +10,7 @@
   .header{
 	  width:100%;
 	  height:100px;
-	  border:1px solid red;
+	  border:1px solid #ccc;
 	  float:left;
   }
   a{
@@ -29,7 +29,10 @@
 		line-height:30px;
 		text-align:center;
 		font-size:14px;
-		float:left;}  
+		float:left;} 
+		.font  a:hover{
+		color:#ff4400;
+		} 
 	  .tel{
 		  width:400px;
 		  height:30px;
@@ -69,9 +72,8 @@
 			width:100%;
 			height:280px;
 			float:left;
-			background-image:url(../images/bigpic.jpg);
+			background-image:url(../images/pic.png);
 			background-size:cover;
-			border:1px solid red;
 		}
 		.shou{
 			margin-left:170px;}
@@ -116,7 +118,6 @@
 			width:830px;
 			height:278px;
 			float:left;
-			border-right:1px solid red;
 			}
 		.detail ul{
 			width:650px;
@@ -135,7 +136,7 @@
 			width:275px;
 			height:278px;
 			float:left;
-			border:1px solid red;}
+			}
 		.loo{
 			wdith:100%;
 			height:35px;

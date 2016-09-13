@@ -27,8 +27,9 @@
 	<div class="logo">
 		<ul>
 			<li class="wel">coco欢迎您!&nbsp;&nbsp;&nbsp;&nbsp;</li>
-			<li>登陆&nbsp;&nbsp;</li>
-			<li>免费注册</li>
+			<li><a style="color:red;" href="customer/active" id="login">【请登录】  </a> </li>
+            <li>|<a  style="color:black;" href="customer/activeres"
+						id="register">【免费注册】</a> |</li>
 		</ul>
 	</div>
 	<div class="haigou">
@@ -37,16 +38,19 @@
 	</div>
 	<div class="search">
 		<div class="input_text">
-			<input class="sousou" type="text">
+		<div class="sousou">
+			<input class="sousou2" style="border: none;" placeholder="请输入您要查找的商品" type="text" />
+			<button style="border: none;" id="sear" onclick="search()"></button>
+			</div>
 		</div>
 	</div>
 	<div class="types">
 		<ul>
-			<li class="shou"><a href="javascript:type()">首页</a></li>
-			<li><a href="types.jsp">床上用品</a></li>
-			<li><a href="javascript:type()">装饰设计</a></li>
-			<li><a href="javascript:type()">家居用品</a></li>
-			<li style="color:#fff;"><a href="">关于我们</a></li>
+			<li class="shou"><a style="color:#fff;" href="index/index">首页</a></li>
+			<li><a style="color:#fff;" href="index/types">床上用品</a></li>
+			<li><a style="color:#fff;" href="index/types">装饰设计</a></li>
+			<li><a style="color:#fff;" href="index/types">家居用品</a></li>
+			<li><a style="color:#fff;" href="index/about">关于我们</a></li>
 		</ul>
 	</div>
 
@@ -143,6 +147,7 @@
 	<div class="body1">
 		<div class="leftbody1">
 			<ul class="styles">
+			
 				<li id="kuang">公主风
 					</button>
 				</li>
@@ -371,6 +376,13 @@
 	</footer>
 
 	<script>
+	function search(){
+		var pname=$(".sousou2").val();
+		alert(pname);
+		$.post("onLine/searchGoods",{pname:pname},function(data){
+			
+		},"json")
+	}
 		(function() {
 			$("#marquee1").kxbdMarquee({
 				direction : "right"

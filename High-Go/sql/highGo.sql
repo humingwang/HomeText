@@ -134,7 +134,7 @@ create sequence address_aid start with 1 increment by 1;
 		phstatus int ,--状态
 		phtid int
 	);
-	
+	select *from photos;
 	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1068);
 	insert into photos values(photos_phid.nextval,'棉被','images/pic2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1068);
 	insert into photos values(photos_phid.nextval,'床单四件套','images/pic3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1068);
@@ -188,6 +188,7 @@ create sequence address_aid start with 1 increment by 1;
 		ptid int,--类型编号
 		sid int --库存
 	);
+	select pname,pict,pprice from product p,photos h where p.phid=h.phid and pname like '%四%'
 	insert into product values(product_pid.nextval,'学生床垫','加厚寝室上下铺床垫折叠0.9m单人大学生宿舍用床褥子防潮1米1.2米',
 	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
 	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
@@ -198,9 +199,9 @@ create sequence address_aid start with 1 increment by 1;
 	'150*200cm3斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
 	
 	insert into product values(product_pid.nextval,'棉被','冬被子冬被加厚保暖冬季棉被被芯春秋被太空被被褥丝棉被学生宿舍  ',
-	'150*200cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
+	'150*200cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,1168,1,2);
 	insert into product values(product_pid.nextval,'棉被','Homeplus被子加厚被芯春秋被冬天棉被保暖冬被双人空调被夏凉被 ',
-	'200*230cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
+	'200*230cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,1181,1,2);
 	insert into product values(product_pid.nextval,'棉被','北极绒冬天被子冬被加厚保暖被芯双人太空被空调被单人棉被春秋被  ',
 	'200*230cm5斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
 	insert into product values(product_pid.nextval,'棉被','被子被芯双人加厚棉被 冬被保暖子母被学生空调被 单人被褥春秋被  ',

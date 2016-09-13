@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="css/types.css">
+<link rel="stylesheet" href="../css/types.css">
 <meta charset="utf-8">
  <base href="/High-Go/"/>
 <title>商品分类</title>
@@ -16,8 +16,9 @@
 		<div class="font">
             <ul>
                 <li>您好！</li>
-                <li>【请登录】</li>
-                <li>【免费注册】</li>
+                <li><a style="color:red;" href="customer/active" id="login">【请登录】  </a> </li>
+                <li >  |<a   href="customer/activeres"
+						id="register">【免费注册】</a> |</li>
                 <li>帮助中心</li>
             </ul>
         </div></div>
@@ -28,10 +29,10 @@
     
     <div class="types">
     	<ul>
-			<li class="shou"><a href="javascript:type()">首页</a></li>
-			<li><a href="javascript:type()">床上用品</a></li>
-			<li><a href="javascript:type()">装饰设计</a></li>
-			<li><a href="javascript:type()">家具用品</a></li>
+			<li class="shou"><a style="color:#fff;" href="index/index">首页</a></li>
+			<li><a style="color:#fff;" href="index/types">床上用品</a></li>
+			<li><a style="color:#fff;" href="index/types">装饰设计</a></li>
+			<li><a style="color:#fff;" href="index/types">家具用品</a></li>
 		</ul>
     </div>
 

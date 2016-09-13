@@ -10,6 +10,9 @@
 	height:30px;
 	background-color:#CCC;
 }
+.logo a:hover{
+	color:red;
+}
 .wel{
 	margin-left:80px;
 }
@@ -45,12 +48,21 @@
 	background-color:#FF4400;
 }
 .sousou{
-	width:500px;
-	height:41px;
-	border:1px solid #ff4040;
+	width:497px;
+	height:38px;
 	display:inline-block;
-	background:url(../images/2016-08-22_185637.png) no-repeat right;
+	border:3px solid #ff4400;
 	margin-top:10px;}
+.sousou2{
+	width:410px;
+	height:38px;
+	float:left;
+}
+#sear{
+	width:87px;
+	height:38px;
+	background:url(../images/111.png);
+}
 ul li{
 	list-style:none;
 	}		
