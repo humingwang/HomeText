@@ -126,9 +126,9 @@
   	<li><label class="label_name">图片名称</label> <input type="text" style="width:100px;backgroundcolor:#fff;" id="getPhanme" /></li>
      <li><label class="label_name">图片</label><span class="cont_style">
  <div class="demo">
-	           <div class="logobox"><div class="resizebox"><img src="" width="100px" alt="" height="100px"/></div></div>	
+	           <div class="logobox"><div class="resizebox" ><img src="${imagePath }" width="100px" alt="" height="100px"/></div></div>	
                <div class="logoupload">
-                  <div class="btnbox"><input type="file" id="uploadBtnHolder" class="uploadbtn" value="上传图片"/>
+                  <div class="btnbox"><input type="file" name="uploadBtnHolder" id="uploadBtnHolder" class="uploadbtn" value="上传图片"/>
                   </div>
                   <div><input type="submit" value="提交"/></div>
                   <div style="clear:both;height:0;overflow:hidden;"></div>
@@ -156,8 +156,14 @@
 </body>
 </html>
 <script>
+
+//图片上传
+function getImage(){
+	$.post
+}
 //批量删除
 function del() {
+	alert(".resizebox").val();
 		//var len=$("input[name='checkbox']:checked").length;
 		var phids ="";
 		$("input:checked").each(function(){
@@ -223,13 +229,14 @@ function member_edit(phid){
         	var phdate=$(".text_add3").val();
         	  $.post("../photo/updateAds",{phname:phname,psize:psize,phdate:phdate,phid:phid},function(data){
         		  if(data>0){
-        			  layer.alert('添加成功！',{
+        			  layer.alert('广告修改成功！',{
         	               title: '提示框',				
         					icon:1,	
         				  }); 
-        			 
+        			  $.post("../photo/getAll");
         		  }
         	  })
+        	  
 			   layer.close(index);	
 		  }		  		     				
 		}
@@ -384,7 +391,7 @@ function member_del(obj,id){
 		shadeClose: false, //点击遮罩关闭层
         area : ['800px' , ''],
         content:$('#add_ads_style'),
-		btn:['提1交','取消'],
+		btn:['提交','取消'],
 		yes:function(index,layero){	
 		 var num=0;
 		 var str="";
@@ -401,10 +408,16 @@ function member_del(obj,id){
 		 });
 		  if(num>0){  return false;}	 	
           else{
-        		  layer.alert('添加成功！',{
-                      title: '提示框',	
-       				icon:1,	
-       			  });
+        	  var pict=$(".resizebox").val();
+        	  alert(pict);
+        	  $.post("../photo/addAds",{pict:pict,phname:phname,phname:phname,phtid:phtid},function(data){
+        		  if(data>0){
+        			  layer.alert('广告添加成功！',{
+                          title: '提示框',	
+           				icon:1,	
+           			  }); 
+        		  }
+        	  })
         		  setTimeout("location.reload()",100)//页面刷新
        			   layer.close(index);
 		  }		  		     				
