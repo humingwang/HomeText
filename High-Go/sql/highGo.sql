@@ -399,106 +399,106 @@ create sequence address_aid start with 1 increment by 1;
 	
 	
 	insert into product values(product_pid.nextval,'沙发',' 真皮沙发进口头层牛皮沙发现代简约皮沙发大户型转角皮艺沙发组合    ',
-	'(国产)双+贵妃',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj1.jpg',1,2);
+	'(国产)双+贵妃',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf1.png',1,2);
 	insert into product values(product_pid.nextval,'沙发','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+单+贵妃',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj2.jpg',2,1000);
+	'(国产)双+单+贵妃',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf2.png',2,1000);
 	insert into product values(product_pid.nextval,'沙发','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃+边几',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj3.jpg',3,1001);
+	'(国产)双+贵妃+边几',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf3.png',3,1001);
 	insert into product values(product_pid.nextval,'沙发','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(国产)单+贵妃',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj4.jpg',1,2);
+	'(国产)单+贵妃',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf4.png',1,2);
 	insert into product values(product_pid.nextval,'沙发','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj5.jpg',2,1000);
+	'(国产)双+贵妃',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf5.png',2,1000);
 	insert into product values(product_pid.nextval,'沙发','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)双+单+贵妃',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj6.jpg',3,1001);
+	'(进口)双+单+贵妃',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf6.png',3,1001);
 	insert into product values(product_pid.nextval,'沙发','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾   ',
-	'(进口)双+贵妃+边几',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj7.jpg',1,2);
+	'(进口)双+贵妃+边几',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf7.png',1,2);
 	insert into product values(product_pid.nextval,'沙发','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)单+贵妃+边几',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj8.jpg',2,1000);
+	'(进口)单+贵妃+边几',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf8.png',2,1000);
 	insert into product values(product_pid.nextval,'沙发','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾 ',
-	'(中厚皮)双+贵妃',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj9.jpg',3,1001);
+	'(中厚皮)双+贵妃',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf9.png',3,1001);
 	insert into product values(product_pid.nextval,'沙发','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+单+贵妃',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj10.jpg',1,2);
+	'(中厚皮)双+单+贵妃',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf10.png',1,2);
 	insert into product values(product_pid.nextval,'沙发','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+贵妃+边几',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj11.jpg',2,1000);
+	'(中厚皮)双+贵妃+边几',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf11.png',2,1000);
 	insert into product values(product_pid.nextval,'沙发','特价全棉毛巾被 纯棉单人双人加厚大夏季空调被盖毯婴儿童毛毯子  ',
-	'(中厚皮)单+贵妃',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj12.jpg',3,1001);
+	'(中厚皮)单+贵妃',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/sf12.png',3,1001);
 	
-	insert into product values(product_pid.nextval,'壁纸',' 真皮沙发进口头层牛皮沙发现代简约皮沙发大户型转角皮艺沙发组合    ',
-	'(国产)双+贵妃',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj1.jpg',1,2);
-	insert into product values(product_pid.nextval,'壁纸','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+单+贵妃',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj2.jpg',2,1000);
-	insert into product values(product_pid.nextval,'壁纸','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃+边几',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj3.jpg',3,1001);
-	insert into product values(product_pid.nextval,'壁纸','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(国产)单+贵妃',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj4.jpg',1,2);
-	insert into product values(product_pid.nextval,'壁纸','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj5.jpg',2,1000);
-	insert into product values(product_pid.nextval,'壁纸','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)双+单+贵妃',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj6.jpg',3,1001);
-	insert into product values(product_pid.nextval,'壁纸','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾   ',
-	'(进口)双+贵妃+边几',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj7.jpg',1,2);
-	insert into product values(product_pid.nextval,'壁纸','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)单+贵妃+边几',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj8.jpg',2,1000);
-	insert into product values(product_pid.nextval,'壁纸','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾 ',
-	'(中厚皮)双+贵妃',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj9.jpg',3,1001);
-	insert into product values(product_pid.nextval,'壁纸','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+单+贵妃',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj10.jpg',1,2);
-	insert into product values(product_pid.nextval,'壁纸','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+贵妃+边几',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj11.jpg',2,1000);
-	insert into product values(product_pid.nextval,'壁纸','特价全棉毛巾被 纯棉单人双人加厚大夏季空调被盖毯婴儿童毛毯子  ',
-	'(中厚皮)单+贵妃',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj12.jpg',3,1001);
-	
-	
-	insert into product values(product_pid.nextval,'天花板',' 真皮沙发进口头层牛皮沙发现代简约皮沙发大户型转角皮艺沙发组合    ',
-	'(国产)双+贵妃',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj1.jpg',1,2);
-	insert into product values(product_pid.nextval,'天花板','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+单+贵妃',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj2.jpg',2,1000);
-	insert into product values(product_pid.nextval,'天花板','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃+边几',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj3.jpg',3,1001);
-	insert into product values(product_pid.nextval,'天花板','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(国产)单+贵妃',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj4.jpg',1,2);
-	insert into product values(product_pid.nextval,'天花板','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj5.jpg',2,1000);
-	insert into product values(product_pid.nextval,'天花板','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)双+单+贵妃',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj6.jpg',3,1001);
-	insert into product values(product_pid.nextval,'天花板','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾   ',
-	'(进口)双+贵妃+边几',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj7.jpg',1,2);
-	insert into product values(product_pid.nextval,'天花板','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)单+贵妃+边几',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj8.jpg',2,1000);
-	insert into product values(product_pid.nextval,'天花板','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾 ',
-	'(中厚皮)双+贵妃',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj9.jpg',3,1001);
-	insert into product values(product_pid.nextval,'天花板','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+单+贵妃',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj10.jpg',1,2);
-	insert into product values(product_pid.nextval,'天花板','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+贵妃+边几',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj11.jpg',2,1000);
-	insert into product values(product_pid.nextval,'天花板','特价全棉毛巾被 纯棉单人双人加厚大夏季空调被盖毯婴儿童毛毯子  ',
-	'(中厚皮)单+贵妃',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj12.jpg',3,1001);
+	insert into product values(product_pid.nextval,'壁纸',' 简约现代素色麻布纹壁纸欧式复古 卧室客厅墙纸防水纯色 亚麻满铺 ',
+	'颜色',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz1.png',1,2);
+	insert into product values(product_pid.nextval,'壁纸','复古怀旧工业风金属铁皮壁纸个性时尚格子酒吧咖啡馆饭店背景墙纸 ',
+	'颜色',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz2.png',2,1000);
+	insert into product values(product_pid.nextval,'壁纸','3D田园墙纸卧室小花无纺布壁纸客厅卧室女孩儿童房满铺婚房背景墙  ',
+	'颜色',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz3.png',3,1001);
+	insert into product values(product_pid.nextval,'壁纸','3D立体无纺布墙纸客厅卧室电视背景墙温馨蒲公英田园壁纸特价包邮   ',
+	'颜色',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz4.png',1,2);
+	insert into product values(product_pid.nextval,'壁纸','复古新中式仿木纹地板纹墙纸客厅沙发电视背景墙现代立体古典壁纸  ',
+	'颜色',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz5.png',2,1000);
+	insert into product values(product_pid.nextval,'壁纸','现代新大花鸟中式壁纸田园美式乡村客厅卧室电视背景墙墙纸东南亚   ',
+	'颜色',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz6.png',3,1001);
+	insert into product values(product_pid.nextval,'壁纸','纯色无纺布墙纸 客厅 卧室现代简约素色条纹电视背景墙壁纸   ',
+	'颜色',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz7.png',1,2);
+	insert into product values(product_pid.nextval,'壁纸','月光森林 卧室无纺布墙纸3d现代简约客厅电视背景墙壁纸纯色条纹',
+	'颜色',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz8.png',2,1000);
+	insert into product values(product_pid.nextval,'壁纸','现代中式3D灰砖砖纹墙纸仿古砖块个性餐厅酒吧复古红砖青砖壁纸 ',
+	'颜色',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz9.png',3,1001);
+	insert into product values(product_pid.nextval,'壁纸','立体复古仿砖块服装店铺装修壁纸时尚砖纹卧室客厅电视背景墙墙纸   ',
+	'颜色',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz10.png',1,2);
+	insert into product values(product_pid.nextval,'壁纸','欧式无纺布墙纸 镶钻3D立体浮雕 客厅温馨卧室沙发电视背景墙壁纸   ',
+	'颜色',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz11.png',2,1000);
+	insert into product values(product_pid.nextval,'壁纸','竖条素色墙纸简约现代纯色单色无纺布卧室客厅电视背景墙酒店壁纸  ',
+	'颜色',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/bz12.png',3,1001);
 	
 	
-	insert into product values(product_pid.nextval,'吊灯',' 真皮沙发进口头层牛皮沙发现代简约皮沙发大户型转角皮艺沙发组合    ',
-	'(国产)双+贵妃',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj1.jpg',1,2);
-	insert into product values(product_pid.nextval,'吊灯','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+单+贵妃',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj2.jpg',2,1000);
-	insert into product values(product_pid.nextval,'吊灯','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃+边几',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj3.jpg',3,1001);
-	insert into product values(product_pid.nextval,'吊灯','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(国产)单+贵妃',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj4.jpg',1,2);
-	insert into product values(product_pid.nextval,'吊灯','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾 ',
-	'(国产)双+贵妃',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj5.jpg',2,1000);
-	insert into product values(product_pid.nextval,'吊灯','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)双+单+贵妃',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj6.jpg',3,1001);
-	insert into product values(product_pid.nextval,'吊灯','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾   ',
-	'(进口)双+贵妃+边几',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj7.jpg',1,2);
-	insert into product values(product_pid.nextval,'吊灯','浴巾纯棉成人儿童男女裹胸情侣白柔软吸水性感酒店全棉大毛巾浴巾  ',
-	'(进口)单+贵妃+边几',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj8.jpg',2,1000);
-	insert into product values(product_pid.nextval,'吊灯','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾 ',
-	'(中厚皮)双+贵妃',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj9.jpg',3,1001);
-	insert into product values(product_pid.nextval,'吊灯','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+单+贵妃',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj10.jpg',1,2);
-	insert into product values(product_pid.nextval,'吊灯','纯棉浴巾 成人加厚大浴巾酒店吸水大毛巾批 发婴儿童男女全棉浴巾  ',
-	'(中厚皮)双+贵妃+边几',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj11.jpg',2,1000);
-	insert into product values(product_pid.nextval,'吊灯','特价全棉毛巾被 纯棉单人双人加厚大夏季空调被盖毯婴儿童毛毯子  ',
-	'(中厚皮)单+贵妃',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dyj12.jpg',3,1001);
+	insert into product values(product_pid.nextval,'天花板','房客厅3D天花板亚克力立体墙贴创意卡通温馨墙纸贴画  ',
+	'标准规格',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb1.png',1,2);
+	insert into product values(product_pid.nextval,'天花板','104生态木白金红吊顶天花板免漆招牌门头背景墙面装饰材料防水火 ',
+	'标准规格',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb2.png',2,1000);
+	insert into product values(product_pid.nextval,'天花板','天花板自粘卧室创意儿童房幼儿园发光夜光壁纸贴纸荧光贴星星墙贴  ',
+	'标准规格',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb3.png',3,1001);
+	insert into product values(product_pid.nextval,'天花板','欧式圆形灯池 吊顶装饰 客厅天花板吊顶 ps发泡材料灯盘x-105   ',
+	'标准规格',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb4.png',1,2);
+	insert into product values(product_pid.nextval,'天花板','灯池吊顶装饰 pvc灯盘石膏客厅天花板装饰 欧式装修材料吊顶设计  ',
+	'标准规格',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb5.png',2,1000);
+	insert into product values(product_pid.nextval,'天花板','暑期装饰画 蓝天白云立体3d天花板自粘墙贴卧室客厅布置墙壁贴画   ',
+	'标准规格',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb6.png',3,1001);
+	insert into product values(product_pid.nextval,'天花板','欧式圆形灯池客厅天花板吊顶装饰材料水晶灯吸顶灯吊灯PU灯盘M56   ',
+	'标准规格',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb7.png',1,2);
+	insert into product values(product_pid.nextval,'天花板','欧式圆形灯池客厅天花板吊顶装饰材料水晶灯吸顶灯吊灯PU灯盘Y3   ',
+	'标准规格',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb8.png',2,1000);
+	insert into product values(product_pid.nextval,'天花板','可移除荧光贴发光墙贴天花板卧室儿童房宿舍背景卡通夜光墙壁贴纸 ',
+	'标准规格',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb9.png',3,1001);
+	insert into product values(product_pid.nextval,'天花板','立体亚克力镜面墙贴 腰线踢脚线吊顶天花板电视背景墙边框装饰贴   ',
+	'标准规格',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb10.png',1,2);
+	insert into product values(product_pid.nextval,'天花板','正野集成吊顶换气扇排气扇30*30嵌入式天花板换气扇BPT10-13K',
+	'标准规格',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb11.png',2,1000);
+	insert into product values(product_pid.nextval,'天花板','生态木墙板 浮雕墙裙墙围 厨卫吊顶电视背景墙 长城板天花板   ',
+	'标准规格',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/thb12.png',3,1001);
+	
+	
+	insert into product values(product_pid.nextval,'吊灯','欧式蜡烛水晶吊灯大气客厅灯具现代简约LED餐厅卧室房间奢华灯饰 ',
+	'配套k9水晶头壁灯+LED',2234,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt1.png',1,2);
+	insert into product values(product_pid.nextval,'吊灯','餐厅吊灯现代简约餐吊灯 创意三头餐厅灯卧室灯饰LED吧台饭厅灯具 ',
+	'配套k9直径65高度60cm水晶头壁灯+LED',3900,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt2.png',2,1000);
+	insert into product values(product_pid.nextval,'吊灯','欧式客厅水晶吊灯现代蜡烛led餐厅卧室灯美式酒店大厅吸吊两用灯  ',
+	'单层8头k9直径80高度60+LED',4320,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt3.png',3,1001);
+	insert into product values(product_pid.nextval,'吊灯','吊灯楼梯创意个性门厅过道灯走廊灯玄关阳台卧室水晶吸顶餐厅灯具   ',
+	'单层8头k9直径85高度65+LED',2345,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt4.png',1,2);
+	insert into product values(product_pid.nextval,'吊灯','法雕欧式吊灯全铜客厅灯简欧水晶灯铜灯餐厅灯美式卧室灯复古灯具  ',
+	'双层8头k9直径80高度60+LED',3300,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt5.png',2,1000);
+	insert into product values(product_pid.nextval,'吊灯','美式法式复古珠链铁艺水晶简欧客厅儿童房卧室公主房城堡宫殿吊灯   ',
+	'双层8头k9直径85高度65+LED',4200,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt6.png',3,1001);
+	insert into product values(product_pid.nextval,'吊灯','中式吊灯现代新古典实木陶瓷灯木艺吸顶灯大气LED客厅灯餐厅灯饰    ',
+	'双层12头k9直径80高度60+LED',4390,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt7.png',1,2);
+	insert into product values(product_pid.nextval,'吊灯','现代中式实木吊灯 仿古羊皮灯客厅餐厅茶楼酒吧高档大气工程灯具   ',
+	'双层12头k9直径85高度65+LED',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt8.png',2,1000);
+	insert into product values(product_pid.nextval,'吊灯','客厅吊灯美式北欧式现代简约卧室韩式田园地中海大气宜家陶瓷灯具  ',
+	'双层15头k9直径80高度60+LED',3820,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt9.png',3,1001);
+	insert into product values(product_pid.nextval,'吊灯','北欧田园loft美式乡村个性创意餐厅网咖酒吧台复古麻绳吊灯具包邮 ',
+	'双层15头k9直径85高度65+LED',4322,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt10.png',1,2);
+	insert into product values(product_pid.nextval,'吊灯','5头 吊灯 简约简欧 现代美式 乡村田园 卧室 客厅书房 混搭装饰  ',
+	'双层18头k9直径80高度60+LED',4580,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt11.png',2,1000);
+	insert into product values(product_pid.nextval,'吊灯','办公室led吊灯 现代简约创意长方形个性写字楼工作室办公照明灯具  ',
+	'双层18头k9直径85高度65+LED',3500,to_date('2016-8-12','yyyy-mm-dd'),2,'images/dt12.png',3,1001);
 	
 	
 	select *from product;
