@@ -36,7 +36,7 @@
 			</div>
 			<div class="login_right">
 				<div class="welcome right_1">
-						<a href="customer/shopcar">我的嗨购</a> | <a href="customer/personal">会员俱乐部</a>
+						<a href="customer/shopcar">我的嗨购</a> | <a href="customer/personal">个人俱乐部</a>
 				</div>
 			</div>
 		</div>
