@@ -60,7 +60,7 @@
 				</ul>
 			</div>
 			<div class="border clearfix">
-				<span class="l_f"> <a href="javascript:add()" title="添加商品"
+				<span class="l_f"> <a href="javascript:ovid()" title="添加商品" id="add_Product"
 					class="btn btn-warning Order_form"><i class="icon-plus"></i>添加商品</a>
 					<a href="javascript:ovid()" class="btn btn-danger"><i
 						class="icon-trash"></i>批量删除</a>
@@ -149,7 +149,9 @@
 		</fieldset>
 	</div>
 		<form style="float:left; width: 500px;"  enctype="multipart/form-data" method="post"  id="add" >
-		<input type="hidden" name="pid" value="" id="pid"></input>
+		<c:if test="${not empty product.pid }">
+			<input type="hidden" name="pid" value="" id="pid"></input>
+		</c:if>
 			<ul class=" page-content">
 				<li><label class="label_name">产品名称：</label><span
 					class="add_name"><input value="" name="pname" type="text"
@@ -335,59 +337,63 @@ function member_start(obj,id){
 }
 
 /*产品-添加*/
-function add(){
-		layer.open({
-			type : 1,
-			title : '添加用户信息',
-			maxmin : true,
-			shadeClose : false, //点击遮罩关闭层
-			area : [ '800px', '' ],
-			content : $('#add_menber_style'),
-			btn : [ '提交', '取消' ],
-			yes : function(index, layero) {
-				var num = 0;
-				var str = "";
-				$(".add_menber input[type$='text']").each(
-						function(n) {
-							if ($(this).val() == "") {
-								layer.alert(str += "" + $(this).attr("name")
-										+ "不能为空！\r\n", {
-									title : '提示框',
-									icon : 0,
+  $('#add_Product').on(
+			'click',
+			function() {
+				layer.open({
+					type : 1,
+					title : '添加用户信息',
+					maxmin : true,
+					shadeClose : false, //点击遮罩关闭层
+					area : [ '800px', '' ],
+					content : $('#add_menber_style'),
+					btn : [ '提交', '取消' ],
+					yes : function(index, layero) {
+						var num = 0;
+						var str = "";
+						$(".add_menber input[type$='text']").each(
+								function(n) {
+									if ($(this).val() == "") {
+										layer.alert(str += "" + $(this).attr("name")
+												+ "不能为空！\r\n", {
+											title : '提示框',
+											icon : 0,
+										});
+										num++;
+										return false;
+									}
 								});
-								num++;
-								return false;
-							}
-						});
-				if (num > 0) {
-					return false;
-				} else {
-					alert($("#pict").val()+666);
-						$.ajaxFileUpload({
-						url:"../product/add?" + $("#add").serialize(),
-						secureuri:false,
-						fileElementId:"pict",
-						dataType:"json",
-						success:function(data,status){
-							if(data){
-								alert('成功提示','产品信息添加成功...','success');
-								layer.close(index);
-								findByND();
-								// 刷新表格数据，分页信息不会重置
-							}else{
-								alert('失败提示','店铺信息添加失败...','error');
-							}
-						},error:function(data,status,e){
-							alert("错误提示","店铺信息添加失败...\n"+e,"error");
-						}
-						});
+						if (num > 0) {
+							return false;
+						} else {
+							alert( $("#add").serialize());
+								$.ajaxFileUpload({
+								url:"../product/add?" +$("#add").serialize(),
+								secureuri:false,
+								fileElementId:"pict",
+								dataType:"json",
+								success:function(data,status){
+									if(data){
+										alert('产品信息添加成功...','success');
+										layer.close(index);
+										findByND();
+										// 刷新表格数据，分页信息不会重置
+									}else{
+										alert('店铺信息添加失败...','error');
+									}
+								}
+								});
 
-				}
-			} 
-		});
+						}
+					} 
+				});
+			});
+
+ /*产品-添加*/
 	
 	
-}
+
+
 
 function member_edit(id){
 	$.post("../product/findById?pid="+id,function(data){
@@ -433,7 +439,7 @@ function member_edit(id){
 					url:"../product/update?" + $("#add").serialize(),
 					secureuri:false,
 					fileElementId:"pict",
-					dataType:"json",
+					//dataType:"json",
 					success:function(data,status){
 						if(data){
 							alert('成功提示','产品信息修改成功...','success');
@@ -463,7 +469,6 @@ $.ajax({
     url: '../product/findCount/',
   	dataType: "json", //可以是text，如果用text，返回的结果为字符串；如果需要json格式的，可是设置为json
     success: function (data) {
-    	alert(data);
     	document.getElementById("num").innerText = data; 
     	},
     error: function (msg) {
@@ -489,7 +494,6 @@ function member_del(obj,id){
  function findByND(){
 	var pname=$.trim($("#pname").val());
 	var pdate=$.trim($("#start").val());
-	alert(pname+pdate); 
 	$.post("../product/findAllBynd",{pname:pname,pdate:pdate},function(data){
 			if(data){
 				location.reload();
@@ -497,7 +501,7 @@ function member_del(obj,id){
 				alert("表单加载失败");
 			}
 			});
-}
+};
 //面包屑返回值
 var index = parent.layer.getFrameIndex(window.name);
 parent.layer.iframeAuto(index);

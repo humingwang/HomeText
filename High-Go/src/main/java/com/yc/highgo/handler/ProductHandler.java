@@ -26,13 +26,15 @@ import com.yc.highgo.service.ProductService;
 
 @Controller
 @RequestMapping("/product")
-@SessionAttributes("lists")
+@SessionAttributes(value={"lists","product"})
 public class ProductHandler {
 	@Autowired
 	private ProductService productService;
 	@ModelAttribute
 	public void getModel(ModelMap map){
 		map.put("lists", new ArrayList<Product>());
+		map.put("lists", new Product());
+
 	}
 	@RequestMapping(value="/findAll",method=RequestMethod.GET)
 	@ResponseBody
@@ -79,6 +81,7 @@ public class ProductHandler {
 		LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
 		String pid=request.getParameter("pid");
 		Product product=productService.findById(Integer.parseInt(pid));
+		map.put("product", product);
 		return product;
 	}
 	
@@ -105,26 +108,26 @@ public class ProductHandler {
 	}
 	@ResponseBody
 	@RequestMapping("/update"	)
-	public boolean update(@RequestParam(value = "pic", required = false) MultipartFile file, HttpServletRequest request, Product product) throws IllegalStateException, IOException {
+	public boolean update(@RequestParam(value = "pic", required = false) MultipartFile[] files, HttpServletRequest request, Product product) throws IllegalStateException, IOException {
 		System.out.println("===>" + product);
-		String uploadPath="../images/";
-        String path = request.getServletContext().getRealPath("/")+uploadPath;
-        String fileName = file.getOriginalFilename();  
-        System.out.println(path);  
-        File targetFile = new File(path, fileName);
-        if(!targetFile.exists()){  
-            targetFile.mkdirs();  
-        }  
-        try {  
-            file.transferTo(targetFile);  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-        //store.setSimagelogo(request.getContextPath()+"/upload/"+fileName);
-        product.setPict(path+fileName);
-        String pid=request.getParameter("pid");
-        System.out.println(pid);
-		System.out.println(product);
+		String uploadPath="";
+        String path = request.getServletContext().getRealPath("/")+"/pics";
+        for (int i = 0; i < files.length; i++) {
+			String fileName = files[i].getOriginalFilename();
+			File targetFile = new File(path, fileName);
+			File testFile = new File("F:/GitWork/WorkGit/HomeText/High-Go/src/main/webapp/pics", fileName);
+			
+			System.out.println(targetFile + " ==> " + testFile);
+			try {
+				files[i].transferTo(targetFile);
+				//files[i].transferTo(testFile);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			uploadPath += "/High-Go/pics/" + fileName + ",";
+		}
+        product.setPict(uploadPath.substring(0, uploadPath.length() - 1));
+        System.out.println(uploadPath.substring(0, uploadPath.length() - 1));
        return productService.UpdateById(product);
 
 	}
@@ -140,24 +143,26 @@ public class ProductHandler {
 		
 		@ResponseBody
 		@RequestMapping("/add"	)
-		public int addStore(@RequestParam(value = "pic", required = false) MultipartFile file, HttpServletRequest request, Product product) throws IllegalStateException, IOException {
+		public int addStore(@RequestParam(value = "pic", required = false) MultipartFile[] files, HttpServletRequest request, Product product) throws IllegalStateException, IOException {
 			System.out.println("===>" + product);
-			String uploadPath="../images/";
-	        String path = request.getServletContext().getRealPath("/")+uploadPath;
-	        String fileName = file.getOriginalFilename();  
-	        System.out.println(path);  
-	        File targetFile = new File(path, fileName);
-	        if(!targetFile.exists()){  
-	            targetFile.mkdirs();  
-	        }  
-	        try {  
-	            file.transferTo(targetFile);  
-	        } catch (Exception e) {  
-	            e.printStackTrace();  
-	        }  
-	        //store.setSimagelogo(request.getContextPath()+"/upload/"+fileName);
-	        product.setPict(path+fileName);
-	       System.out.println(product);
+			String uploadPath="";
+	        String path = request.getServletContext().getRealPath("/")+"/pics";
+	        for (int i = 0; i < files.length; i++) {
+				String fileName = files[i].getOriginalFilename();
+				File targetFile = new File(path, fileName);
+				File testFile = new File("F:/GitWork/WorkGit/HomeText/High-Go/src/main/webapp/pics", fileName);
+				
+				System.out.println(targetFile + " ==> " + testFile);
+				try {
+					files[i].transferTo(targetFile);
+					//files[i].transferTo(testFile);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				uploadPath += "/High-Go/pics/" + fileName + ",";
+			}
+	        product.setPict(uploadPath.substring(0, uploadPath.length() - 1));
+	        System.out.println(uploadPath.substring(0, uploadPath.length() - 1));
 	       return productService.addProduct(product);
 
 		}

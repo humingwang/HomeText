@@ -3,17 +3,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"/>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
          <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="css/style.css"/>       
-        <link href="assets/css/codemirror.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/colorbox.css"> 
+        <link href="assets/css/codemirror.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="assets/css/colorbox.css"/> 
          <!--图片相册-->   
         <link rel="stylesheet" href="assets/css/ace.min.css" />
       
@@ -148,7 +148,6 @@
      $(".add_adverts input[type$='text']").each(function(n){
           if($(this).val()=="")
           {
-               
 			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
                 title: '提示框',				
 				icon:0,								
@@ -157,7 +156,9 @@
             return false;            
           } 
 		 });
-		  if(num>0){  return false;}	 	
+		  if(num>0){ 
+			  return false;
+		}	 	
           else{
 			  layer.alert('添加成功！',{
                title: '提示框',				
