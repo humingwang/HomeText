@@ -6,13 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="css/style.css"/>       
-        <link href="assets/css/codemirror.css" rel="stylesheet">
+        <link href="assets/css/codemirror.css" rel="stylesheet"/>
         <link rel="stylesheet" href="assets/css/ace.min.css" />
         <link rel="stylesheet" href="font/css/font-awesome.min.css" />
         <!--[if lte IE 8]>
@@ -28,6 +28,8 @@
         <script type="text/javascript" src="Widget/swfupload/swfupload.queue.js"></script>
         <script type="text/javascript" src="Widget/swfupload/swfupload.speed.js"></script>
         <script type="text/javascript" src="Widget/swfupload/handlers.js"></script>
+                <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+        
 <title>广告管理</title>
 </head>
 
@@ -54,7 +56,7 @@
   </div><div class="Ads_list">
    <div class="border clearfix">
        <span class="l_f">
-        <a href="javascript:ovid()" id="ads_add" class="btn btn-warning" onclick="addAds()"><i class="fa fa-plus"></i> 添加广告</a>
+        <a href="javascript:ovid()"  class="btn btn-warning" id="add_ads"><i class="fa fa-plus"></i> 添加广告</a>
         <a href="javascript:ovid()" class="btn btn-danger" onclick="del()"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>${count} </b>条广告</span>
@@ -108,12 +110,12 @@
 <!--添加广告样式-->
 <div id="add_ads_style"  style="display:none">
 
- <form class="add_adverts" action="../file/uploadFile" method="post"  enctype="multipart/form-data">
+ <form class="add_adverts" action="" method="post"  enctype="multipart/form-data" id="add_adverts">
  <ul>
   <li>
   <label class="label_name">所属分类</label>
   <span class="cont_style">
-  <select class="form-control" id="form-field-select-1">
+  <select class="form-control" id="form-field-select-1" name="phtid">
     <option value="">选择分类</option>
      <c:forEach items="${types }" var="type">
     	<option value="${type.phtid }">${type.phtname }</option>
@@ -121,17 +123,17 @@
   </select></span>
   </li>
   <li><label class="label_name">图片尺寸</label><span class="cont_style">
-   <input  type="text" id="form-field-1" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px">
+   <input  type="text" id="form-field-1" name="psize" placeholder="0" class="col-xs-10 col-sm-5" style="width:80px"/>
   <span class="l_f" style="margin-left:10px;"></span></span></li>
-  	<li><label class="label_name">图片名称</label> <input type="text" style="width:100px;backgroundcolor:#fff;" id="getPhanme" /></li>
+  	<li><label class="label_name">图片名称</label> <input type="text" name="phname" style="width:100px;backgroundcolor:#fff;" id="getPhanme" /></li>
      <li><label class="label_name">图片</label><span class="cont_style">
  <div class="demo">
 	           <div class="logobox"><div class="resizebox" ><img src="${imagePath }" width="100px" alt="" height="100px"/></div></div>	
                <div class="logoupload">
-                  <div class="btnbox"><input type="file" name="uploadBtnHolder" id="uploadBtnHolder" class="uploadbtn" value="上传图片"/>
+                  <div class="btnbox"><input type="file" name="pic" id="uploadBtnHolder" class="uploadbtn" value="上传图片"/>
                   </div>
-                  <div><input type="submit" value="提交"/></div>
-                  <div style="clear:both;height:0;overflow:hidden;"></div>
+<!--                   <div><input type="submit" value="提交"/></div>
+ -->                  <div style="clear:both;height:0;overflow:hidden;"></div>
                   <div class="progress-box" style="display:none;">
                   </div>  <div class="prompt"><p>图片大小小于5MB,支持.jpg;.gif;.png;.jpeg格式的图片</p></div>  
               </div>                                
@@ -163,7 +165,7 @@ function getImage(){
 }
 //批量删除
 function del() {
-	alert(".resizebox").val();
+	//alert(".resizebox").val();
 		//var len=$("input[name='checkbox']:checked").length;
 		var phids ="";
 		$("input:checked").each(function(){
@@ -383,7 +385,7 @@ function member_del(obj,id){
 
 
 /*******添加广告*********/
- $('#ads_add').on('click', function(){
+ $('#add_ads').on('click', function(){
 	  layer.open({
         type: 1,
         title: '添加广告',
@@ -408,16 +410,33 @@ function member_del(obj,id){
 		 });
 		  if(num>0){  return false;}	 	
           else{
-        	  var pict=$(".resizebox").val();
-        	  alert(pict);
-        	  $.post("../photo/addAds",{pict:pict,phname:phname,phname:phname,phtid:phtid},function(data){
+        	  alert($("#add_adverts").serialize());
+          	$.ajaxFileUpload({
+          		url:"../photo/addAds?"+$("#add_adverts").serialize(),
+          		secureuri:false,
+          		fileElementId:"uploadBtnHolder",
+          		//dataType:"json",
+          		success:function(data,status){
+          			alert(data);
+          			if(data>0){
+          				layer.alert('广告添加成功！',{
+                            title: '提示框',	
+             				icon:1,	
+             			  }); 
+          			}else{
+          				layer.alert("错误提示","广告信息添加失败...\n","error");
+          			}
+          		},
+          	
+          	});
+        /* 	  $.post("../photo/addAds",{pict:pict,phname:phname,phname:phname,phtid:phtid},function(data){
         		  if(data>0){
         			  layer.alert('广告添加成功！',{
                           title: '提示框',	
            				icon:1,	
            			  }); 
         		  }
-        	  })
+        	  }) */
         		  setTimeout("location.reload()",100)//页面刷新
        			   layer.close(index);
 		  }		  		     				

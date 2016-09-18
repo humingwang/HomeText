@@ -10,9 +10,6 @@
 	height:30px;
 	background-color:#CCC;
 }
-.logo a:hover{
-	color:red;
-}
 .wel{
 	margin-left:80px;
 }
@@ -48,21 +45,12 @@
 	background-color:#FF4400;
 }
 .sousou{
-	width:497px;
-	height:38px;
+	width:500px;
+	height:41px;
+	border:1px solid #ff4040;
 	display:inline-block;
-	border:3px solid #ff4400;
+	background:url(file:///C|/Users/%E4%BB%87%E5%AA%9B%E5%AA%9B/Desktop/%E5%AE%B6%E7%BA%BA%E7%BD%91/images/2016-08-22_185637.png) no-repeat right;
 	margin-top:10px;}
-.sousou2{
-	width:410px;
-	height:38px;
-	float:left;
-}
-#sear{
-	width:87px;
-	height:38px;
-	background:url(../images/111.png);
-}
 ul li{
 	list-style:none;
 	}		
@@ -189,6 +177,7 @@ ul li{
 	margin-left:40px;
 	}
 .guan{
+	clear:both;
 	width:1250px;
 	background-color:#F7F7F7;
 	float:left;
@@ -196,7 +185,7 @@ ul li{
 .guan2{
 	float:left;
 	}
-.body2{
+#body2{
 	clear:both;
 	width:1250px;
 	height:558px;
@@ -204,23 +193,95 @@ ul li{
 	margin-top:20px;
 	margin-left:40px;
 	border:1px solid red;
+
 }
-.body2 ul{
+/*.body2 ul{
 	width:100%;
 	height:520px;
-}
-.body2 ul li{
+}*/
+#body2 ul{
+	position:relative;
 	list-style:none;
 	float:left;
-	height:255px;
+	height:550px;
 	width:100%;
 }
+#body2 ul li{
+	
+	/*float:left;*/
+	display:inline-block;
+	border:1px solid #ccc; 
+	}
+.as{
+   z-index:10;	
+	}
+#body ul li .img1{
+	width:253px;
+	height:252px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+#body ul li .img2{
+	width:260px;
+	height:253px;
+	position:absolute;
+	top:0px;
+	left:253px;
+	}
+#body ul li .img3{
+	width:253px;
+	height:252px;
+	position:absolute;
+	top:0px;
+	left:513px;
+	}
+#body ul li .img4{
+	width:252px;
+	height:252px;
+	position:absolute;
+	top:0px;
+	left:260px;
+	
+	}
+#body ul li .img5{
+	width:253px;
+	height:252px;
+	position:absolute;
+	top:252px;
+	left:0px;
+}
+#body ul li .img6{
+	position:absolute;
+	width:260px;
+	height:253px;
+	top:252px;
+	left:253px;
+	
+	}
+#body ul li .img7{
+	position:absolute;
+	width:253px;
+	height:252px;
+	top:252px;
+	left:513px;
+	}
+#body ul li .img8{
+	position:absolute;
+	width:252px;
+	height:252px
+	top:252px;
+	left:766px;
+	
+	}
 .aa{
 	width:260px;
 	height:255px;
 	float:left;
 
 }
+.aa:hover{
+	background-image:url(../images/big.png)}
 .bb{
 	width:410px;
 	height:255px;

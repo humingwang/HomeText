@@ -187,8 +187,11 @@ public class CustomerHandler {
 	
 	//到达个人信息页面
 	@RequestMapping("/personal")
-	public String personal(ModelMap map){
+	public String personal(Customer customer,ModelMap map){
 		LogManager.getLogger().debug("//个人俱乐部页面成功到达.....");
+		customer=customerService.Login(customer);
+		System.out.println("================="+customer);
+		map.put("Msg", customer);
 		return "personal";
 	}
 }
