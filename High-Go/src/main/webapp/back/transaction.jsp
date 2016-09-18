@@ -95,9 +95,9 @@ require(
 						 if(data[i].ostutas==1){
 							arr1.push(data[i].onum);
 						 }else if(data[i].ostutas==2){
-							 arr2.push(data[i].onum);
+							 arr2.push(data[i].success);
 						 }else if(data[i].ostutas==3){
-							 arr3.push(data[i].onum);
+							 arr3.push(data[i].waits);
 						 }
 				}
 		  

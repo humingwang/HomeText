@@ -310,19 +310,22 @@ body {
 	width: 100%;
 
 }
-
 .newMenu {
-	float: left;
-	width: 5%;
-	height: 100%;
+	background-color:#ccc;
+	float: right;
+	width: 130px;
+	height: 300px;
 	display: inline-block;
 	position: relative;
 	top: 150px;
-	left: 20px;
 }
 
-.newMenu ul li {
+.newMenu ul li  {
 	list-style: none;
+	font-size: 17px;
+	height: 17px;
+	text-align: center;
+	margin-top: 20px;
 }
 
 .news {

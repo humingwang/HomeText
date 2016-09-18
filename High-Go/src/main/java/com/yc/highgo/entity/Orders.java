@@ -6,12 +6,30 @@ public class Orders {
 	private String odate;
 	private int ostutas;
 	private double omoney;
-	private Address address;
 	private int success;
 	private int allnum;
+	private String pname;
+	private Address address;
+	private int waits;
 	
-	
-	
+	public int getWaits() {
+		return waits;
+	}
+	public void setWaits(int waits) {
+		this.waits = waits;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
 	public int getAllnum() {
 		return allnum;
 	}
@@ -54,26 +72,25 @@ public class Orders {
 	public void setOmoney(double omoney) {
 		this.omoney = omoney;
 	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 	
 	public Orders() {
 	}
-	public Orders(String oid, int onum, int ostutas, double omoney, Address address) {
+	public Orders(String oid, int onum, String odate, int ostutas, double omoney, int success,
+			int allnum, String pname) {
 		this.oid = oid;
 		this.onum = onum;
+		this.odate = odate;
 		this.ostutas = ostutas;
 		this.omoney = omoney;
-		this.address = address;
+		this.success = success;
+		this.allnum = allnum;
+		this.pname = pname;
 	}
 	@Override
 	public String toString() {
-		return "\nOrders [oid=" + oid + ", onum=" + onum + ", ostutas=" + ostutas + ", odate=" + odate + ", omoney="
-				+ omoney + ", address=" + address + "]";
+		return "Orders [oid=" + oid + ", onum=" + onum + ", odate=" + odate + ", ostutas=" + ostutas + ", omoney="
+				+ omoney + ", success=" + success + ", allnum=" + allnum + ", pname=" + pname + ", address=" + address
+				+ "]";
 	}
 	
 }

@@ -1,1 +1,5 @@
-//当前页面时菜单栏显黄色
+$(function(){
+	$.post("../high/new",function(data){
+		
+	})
+})

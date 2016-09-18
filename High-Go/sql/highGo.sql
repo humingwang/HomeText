@@ -171,19 +171,7 @@ create sequence address_aid start with 1 increment by 1;
 	update photos set phname='nihao',psize=111,phdate=to_date('2016-7-29','yyyy-mm-dd') where phid=1140
 	delete from photos where phid in(1140,1141);
 	
---商品表
-	create table product(
-		pid int primary key,--商品编号
-		pname varchar2(300) ,--商品名
-		pdesc varchar2(1000),--商品描述
-		pnorms varchar2(100),--规格
-		pprice number(6,2),--价格
-		pdate date,--上架时间
-		pview int,--浏览次数
-		phid int ,--图片
-		ptid int,--类型编号
-		sid int --库存
-	);
+
 	insert into product values(product_pid.nextval,'学生床垫','加厚寝室上下铺床垫折叠0.9m单人大学生宿舍用床褥子防潮1米1.2米',
 	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
 	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
@@ -240,55 +228,56 @@ create sequence address_aid start with 1 increment by 1;
 	);
 	insert into address values(address_aid.nextval,'湖南衡阳','珠晖区湖南工学院',0,'ywb','15570974507');
  
---订单表
-	create table orders(
-		oid varchar2(20) primary key,--订单号
-		omoney number(12,2),--订单价
-		onum int,---数量
-		odate date,--下单时间时间
-		ostutas int, --订单状态  1 待付款  2已付款   3代发货
-		aid int references address(aid),--地址
-		odid  int references orderdetails(odid)--详细订单编号
-	);
+ 20160105213313    1000    3 2016-01-07       1   1
+
+  	delete from orders where oid=201601005252513
+  	select * from orders where oid=201601005252513
+  	delete from orders where oid= 20160105213313 
+  	select * from orders where oid= 20160105213313 
   	
-  	insert into orders values('20160105213313',1000.00,3,to_date('2016-1-07','YYYY-mm-dd'),1,1,1000);
-	insert into orders values('20160105214413',2000.00,3,to_date('2016-1-07','YYYY-mm-dd'),2,1,1001);
-	insert into orders values('20160105215513',3000.00,3,to_date('2016-1-07','YYYY-mm-dd'),3,1,1002);
-	insert into orders values('20160205211113',1000.00,3,to_date('2016-2-07','YYYY-mm-dd'),1,1,1001);
-	insert into orders values('20160205212213',2000.00,3,to_date('2016-2-07','YYYY-mm-dd'),2,1,1000);
-	insert into orders values('20160205213313',3000.00,3,to_date('2016-2-07','YYYY-mm-dd'),3,1,1001);
-	insert into orders values('20160305242413',1000.00,3,to_date('2016-3-07','YYYY-mm-dd'),1,1,1000);
-	insert into orders values('20160305252513',3000.00,3,to_date('2016-3-07','YYYY-mm-dd'),2,1,1002);
-	insert into orders values('20160305272613',2000.00,3,to_date('2016-3-07','YYYY-mm-dd'),3,1,1000);
-	insert into orders values('20160405212213',1000.00,3,to_date('2016-4-07','YYYY-mm-dd'),1,1,1001);
-	insert into orders values('20160405232413',2000.00,3,to_date('2016-4-07','YYYY-mm-dd'),2,1,1002);
-	insert into orders values('20160405211253',3000.00,3,to_date('2016-4-07','YYYY-mm-dd'),3,1,1001);
-	insert into orders values('20160505213313',1000.00,3,to_date('2016-5-07','YYYY-mm-dd'),1,1,1002);
-	insert into orders values('20160505215213',2000.00,3,to_date('2016-5-07','YYYY-mm-dd'),2,1,1000);
-	insert into orders values('20160505212513',3000.00,3,to_date('2016-5-07','YYYY-mm-dd'),3,1,1000);
-  	insert into orders values('20160605213313',1000.00,3,to_date('2016-6-07','YYYY-mm-dd'),1,1,1001);
-	insert into orders values('20160605214413',3000.00,3,to_date('2016-6-07','YYYY-mm-dd'),2,1,1002);
-	insert into orders values('20160605215513',2000.00,3,to_date('2016-6-07','YYYY-mm-dd'),3,1,1000);
-  	insert into orders values('20160705213313',1000.00,3,to_date('2016-7-07','YYYY-mm-dd'),1,1,1000);
-	insert into orders values('20160705214413',4000.00,3,to_date('2016-7-07','YYYY-mm-dd'),2,1,1002);
-	insert into orders values('20160705215513',2000.00,3,to_date('2016-7-07','YYYY-mm-dd'),3,1,1001);
-	insert into orders values('20160805211113',1000.00,3,to_date('2016-8-07','YYYY-mm-dd'),1,1,1001);
-	insert into orders values('20160805212213',3000.00,3,to_date('2016-8-07','YYYY-mm-dd'),2,1,1000);
-	insert into orders values('20160805213313',2000.00,3,to_date('2016-8-07','YYYY-mm-dd'),3,1,1002);
-	insert into orders values('20160905211113',2000.00,3,to_date('2016-9-07','YYYY-mm-dd'),1,1,1002);
-	insert into orders values('20160905212213',3000.00,3,to_date('2016-9-07','YYYY-mm-dd'),2,1,1000);
-	insert into orders values('20160905213313',4000.00,3,to_date('2016-9-07','YYYY-mm-dd'),3,1,1001);
-	insert into orders values('201601005242413',1000.00,3,to_date('2016-10-07','YYYY-mm-dd'),1,1,1001);
-	insert into orders values('201601005252513',5000.00,3,to_date('2016-10-07','YYYY-mm-dd'),2,1,1000);
-	insert into orders values('201601005272613',8000.00,3,to_date('2016-10-07','YYYY-mm-dd'),3,1,1002);
-	insert into orders values('201601005212213',1000.00,3,to_date('2016-11-07','YYYY-mm-dd'),1,1,1002);
-	insert into orders values('201601005232413',3000.00,3,to_date('2016-11-07','YYYY-mm-dd'),2,1,1001);
-	insert into orders values('201601005211253',2000.00,3,to_date('2016-11-07','YYYY-mm-dd'),3,1,1002);
-	insert into orders values('201601005213313',2000.00,3,to_date('2016-12-07','YYYY-mm-dd'),1,1,1002);
-	insert into orders values('201601005215213',7000.00,3,to_date('2016-12-07','YYYY-mm-dd'),2,1,1001);
-	insert into orders values('201601005212513',8000.00,3,to_date('2016-12-07','YYYY-mm-dd'),3,1,1000);
-	--总金额  总数   成功数 
-	select (select sum(onum) from orders where ostutas=2) success,(select sum(onum) from orders) allnum,
+  	
+  	select sum(o.omoney) omoney,o.oid oid,o.ostutas ostutas,a.aname aname,a.adetail adetail,a.atel atel
+		  from orders o ,orderdetails od,address a where od.oid=o.oid and a.aid=o.aid group by 
+		  o.oid,o.ostutas,a.aname,a.adetail,a.atel
+  	
+  	
+  	insert into orders values('20160105213313',1000.00,to_date('2016-1-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160105214413',2000.00,to_date('2016-1-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160105215513',3000.00,to_date('2016-1-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160205211113',1000.00,to_date('2016-2-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160205212213',2000.00,to_date('2016-2-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160205213313',3000.00,to_date('2016-2-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160305242413',1000.00,to_date('2016-3-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160305252513',3000.00,to_date('2016-3-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160305272613',2000.00,to_date('2016-3-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160405212213',1000.00,to_date('2016-4-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160405232413',2000.00,to_date('2016-4-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160405211253',3000.00,to_date('2016-4-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160505213313',1000.00,to_date('2016-5-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160505215213',2000.00,to_date('2016-5-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160505212513',3000.00,to_date('2016-5-07','YYYY-mm-dd'),3,1);
+  	insert into orders values('20160605213313',1000.00,to_date('2016-6-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160605214413',3000.00,to_date('2016-6-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160605215513',2000.00,to_date('2016-6-07','YYYY-mm-dd'),3,1);
+  	insert into orders values('20160705213313',1000.00,to_date('2016-7-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160705214413',4000.00,to_date('2016-7-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160705215513',2000.00,to_date('2016-7-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160805211113',1000.00,to_date('2016-8-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160805212213',3000.00,to_date('2016-8-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160805213313',2000.00,to_date('2016-8-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160905211113',2000.00,to_date('2016-9-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160905212213',3000.00,to_date('2016-9-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160905213313',4000.00,to_date('2016-9-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005242413',1000.00,to_date('2016-10-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005252513',5000.00,to_date('2016-10-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005272613',8000.00,to_date('2016-10-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005212213',1000.00,to_date('2016-11-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005232413',3000.00,to_date('2016-11-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005211253',2000.00,to_date('2016-11-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005213313',2000.00,to_date('2016-12-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005215213',7000.00,to_date('2016-12-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005212513',8000.00,to_date('2016-12-07','YYYY-mm-dd'),3,1);
+	--总金额  总数   成功数 	select (select sum(onum) from orders where ostutas=2) success,(select sum(onum) from orders) allnum,
 	(select sum(oMoney) from orders) omoney,sum(onum) onum,extract (MONTH from oDate) as oDate,oStutas from orders  
 	group by oDate,oStutas  order by oDate,oStutas desc
 	
@@ -296,17 +285,19 @@ create sequence address_aid start with 1 increment by 1;
 	select max(omoney),sum(oMoney) omoney,extract (MONTH from oDate) as oDate,ostutas 
 		from orders  group by oDate,ostutas  order by oDate,ostutas desc 
 		
-		
-		
-		
+
+	insert into orderdetails values(orderdetails_odid.nextval,1000,1000,'201601005252513');	
+	insert into orderdetails values(orderdetails_odid.nextval,1001,1001,'201601005252513');	
+	insert into orderdetails values(orderdetails_odid.nextval,1000,1001,'201601005232413');	
 select * from admin;
-select * from orders;
-select * from orderdetails;
-select * from customer;
+
 select * from assess;
 select * from photos;
 select * from photoTypes;
 select * from product;
+select * from orderdetails;
+select * from orders;
+select * from customer;
 select * from productType;
 select * from address;
 select * from stock;
@@ -315,3 +306,50 @@ select * from response;
   select * from photos;
   select p.phtid,phtname,phdes,to_char(phdate,'yyyy-mm-dd') phdate , (select count(1) from photos where phtid = p.phtid) count from photoTypes p
  select p.* , (select count(1) from photos where phtid = p.phtid) count from photoTypes p;
+ 
+ --订单号   购买商品   收货人   收货地址   联系方式   交易金额   订单状态   
+ select o.aid, o.oid,o.omoney,o.ostutas,p.pname,a.aname,a.adetail,a.atel from orders o ,orderdetails od,address a,product p where od.oid=o.oid and a.aid=oaid and od.pid=p.pid
+
+  select o.oid oid,o.omoney omoney,o.ostutas ostutas,p.pname pname,a.aname aname,a.adetail adetail,a.atel atel
+		  from orders o ,orderdetails od,address a,product p where od.oid=o.oid and a.aid=o.aid and od.pid=p.pid 
+		  
+		  
+		  select sum(o.omoney) omoney,o.oid oid,o.ostutas ostutas,a.aname aname,a.adetail adetail,a.atel atel
+		  from orders o ,address a where  a.aid=o.aid group by 
+		  o.oid,o.ostutas,a.aname,a.adetail,a.atel 
+  --订单表
+	create table orders(
+		oid varchar2(20) primary key,--订单号
+		omoney number(12,2),--订单价
+		odate date,--下单时间时间
+		ostutas int, --订单状态  1 待付款  2已付款   3代发货
+		aid int references address(aid)--地址
+	);
+select (select count(1) from orders where ostutas=1) onum,(select count(1) from orders where ostutas=2) success,
+		(select count(1)from orders where ostutas=3) waits,(select count(1) from orders) allnum,
+	(select sum(oMoney) from orders) omoney,extract (MONTH from oDate) as oDate,oStutas from orders  
+	group by oDate,oStutas  order by oDate,oStutas desc
+			  --订单详细表
+create table orderdetails(
+    odid int primary key,--订单详细编号
+    pid  int references product(pid),--商品编号
+    cid  int references customer(cid),--客户编号
+    oid  varchar2(20) references orders(oid)--订单编号
+  );
+   select sum(o.omoney) omoney,o.oid oid,o.ostutas ostutas,a.aname aname,a.adetail adetail,a.atel atel,o.odate odate
+		  from orders o ,address a where  a.aid=o.aid group by 
+		  o.oid,o.ostutas,a.aname,a.adetail,a.atel ,o.odate
+  
+	--商品表
+	create table product(
+		pid int primary key,--商品编号
+		pname varchar2(300) ,--商品名
+		pdesc varchar2(1000),--商品描述
+		pnorms varchar2(100),--规格
+		pprice number(6,2),--价格
+		pdate date,--上架时间
+		pview int,--浏览次数
+		phid int ,--图片
+		ptid int,--类型编号
+		sid int --库存
+	);
