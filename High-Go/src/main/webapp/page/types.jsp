@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="css/types.css">
+<link rel="stylesheet" href="../css/types.css">
 <meta charset="utf-8">
  <base href="/High-Go/"/>
 <title>商品分类</title>

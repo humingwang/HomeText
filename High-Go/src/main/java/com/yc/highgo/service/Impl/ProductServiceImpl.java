@@ -56,6 +56,12 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.addProduct(product);
 	}
 
+	@Override
+	public boolean delPros(String... pids) {
+		// TODO Auto-generated method stub
+		return productMapper.delPros(pids);
+	}
+
 	
 
 

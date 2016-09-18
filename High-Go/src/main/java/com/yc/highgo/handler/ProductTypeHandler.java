@@ -13,14 +13,15 @@ import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.yc.highgo.entity.Customer;
 import com.yc.highgo.entity.ProductType;
 import com.yc.highgo.service.ProductTypeService;
+
 
 @Controller
 @RequestMapping("/productType")
@@ -29,9 +30,6 @@ import com.yc.highgo.service.ProductTypeService;
 public class ProductTypeHandler {
 	@Autowired
 	private ProductTypeService productTypeService;
-
-	
-	
 	@ModelAttribute
 	public void getModel(ModelMap map){
 		map.put("list", new ProductType());
@@ -70,7 +68,25 @@ public class ProductTypeHandler {
 		String ptid=request.getParameter("ptid");
 		ProductType list=productTypeService.findAllById(Integer.parseInt(ptid));
 		map.put("list", list);
+		return list;
+	}
+	@RequestMapping(value="/findByfptId",method=RequestMethod.POST)
+	@ResponseBody
+	public List<ProductType> findByfptId(ModelMap map,HttpServletRequest request){
+		LogManager.getLogger().debug("//按fptId查询方法成功到达处理方法中.....");
+		String fptid=request.getParameter("fptid");
+		List<ProductType> list=productTypeService.findAllByfptId(Integer.parseInt(fptid));
+		map.put("findbyfptid", list);
 		System.out.println(list);
+		return list;
+	}
+	@RequestMapping(value="/findByfptid", method=RequestMethod.POST)
+	@ResponseBody
+	public List<ProductType> edit(ModelMap map,HttpServletRequest request){
+		LogManager.getLogger().debug("//a标签按请求成功到达处理方法中,请求参数\n\t\temp===》》》》.");
+		String fptid=request.getParameter("fptid");
+		List<ProductType> list=productTypeService.findAllByfptId(Integer.parseInt(fptid));
+		map.put("findAllByfptid", list);
 		return list;
 	}
 	

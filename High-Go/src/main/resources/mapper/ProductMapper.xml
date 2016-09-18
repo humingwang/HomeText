@@ -10,8 +10,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findCount" resultType="int">
 		select count(pid) as total from  product
 	</select>
-	
-
+	<select id="findByPage" resultMap="Product">
+		
+	</select>
 	
 	<select id="findAllBynd" parameterType="Product" resultType="Product">
 		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
@@ -32,6 +33,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<delete id="delProduct" parameterType="int">
 		delete from product where pid=#{pid}
+	</delete>
+	<delete id="delPros" parameterType="String">
+		delete from product where pid in 
+		<foreach collection="array" item="pids" open="(" close=")" separator=",">
+			#{pids}
+		</foreach>
 	</delete>
 	<update id="UpdateById" parameterType="Product">
 		update product set  pid=#{pid},pname=#{pname},pdesc=#{pdesc},pnorms=#{pnorms},pprice=#{pprice}, pdate=to_date(#{pdate},'YYYY-MM-dd'),pict=#{pict},ptid=#{ptid} where pid=#{pid}

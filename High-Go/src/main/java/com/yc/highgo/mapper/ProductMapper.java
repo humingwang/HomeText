@@ -14,4 +14,5 @@ public interface ProductMapper {
 	List<Product> findByPtId(int ptid);
 	boolean UpdateById(Product product);
 	int addProduct(Product product);
+	boolean delPros(String...pids);
 }

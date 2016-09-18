@@ -11,6 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findAllById" parameterType="int" resultType="ProductType">
 		select * from ProductType where ptid=#{ptid}
 	</select>
+	<select id="findAllByfptId" parameterType="int" resultType="ProductType">
+		select * from ProductType where fptid=#{fptid}
+	</select>
+	
 	<insert id="insertPros" parameterType="ProductType">
 	insert into productType values(productType_ptid.nextval,#{name},#{fptid})
 	</insert>

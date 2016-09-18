@@ -13,5 +13,7 @@ public interface ProductService {
 	boolean UpdateById(Product product);
 	List<Product> findByPtId(int ptid);
 	int addProduct(Product product);
+	boolean delPros(String...pids);
+
 
 }

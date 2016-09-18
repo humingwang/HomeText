@@ -3,6 +3,7 @@ package com.yc.highgo.entity;
 
 public class Product {
 	private int pid;
+	private String pids;
 	private String pname;
 	private String pdesc;
 	private String pnorms;
@@ -12,6 +13,12 @@ public class Product {
 	private String pdate;
 	private int ptid;
 	
+	public String getPids() {
+		return pids;
+	}
+	public void setPids(String pids) {
+		this.pids = pids;
+	}
 	public int getPtid() {
 		return ptid;
 	}

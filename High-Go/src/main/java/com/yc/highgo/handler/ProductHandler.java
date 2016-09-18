@@ -33,7 +33,7 @@ public class ProductHandler {
 	@ModelAttribute
 	public void getModel(ModelMap map){
 		map.put("lists", new ArrayList<Product>());
-		map.put("lists", new Product());
+		map.put("product", new Product());
 
 	}
 	@RequestMapping(value="/findAll",method=RequestMethod.GET)
@@ -57,7 +57,15 @@ public class ProductHandler {
 		int res=productService.delProduct(pid);
 		return res;
 	}
-	
+	@RequestMapping(value="/delpros",method=RequestMethod.POST)
+	@ResponseBody
+	public boolean delpros(HttpServletRequest request){
+		LogManager.getLogger().debug("//批量删除方法成功到达处理方法中.....");
+		String pids=request.getParameter("pros_ids");
+		System.out.println(pids);
+		boolean res=productService.delPros(pids);
+		return res;
+	}
 	@RequestMapping(value="/findAllBynd",method=RequestMethod.POST)
 	@ResponseBody
 	public List<Product> findAllBynd(HttpServletRequest request,ModelMap map){
@@ -120,7 +128,7 @@ public class ProductHandler {
 			System.out.println(targetFile + " ==> " + testFile);
 			try {
 				files[i].transferTo(targetFile);
-				//files[i].transferTo(testFile);
+				files[i].transferTo(testFile);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -131,15 +139,6 @@ public class ProductHandler {
        return productService.UpdateById(product);
 
 	}
-
-
-/*	@RequestMapping(value="/add", method=RequestMethod.POST)
-		public String save(Product product,ModelMap map){
-			System.out.println(product);
-			LogManager.getLogger().debug("//添加请求成功到达处理方法中,请求参数\n\t\temp===》》》》.");
-			productService.addProduct(product);
-			return "redirect:/back/Products_List.jsp";
-		}*/
 		
 		@ResponseBody
 		@RequestMapping("/add"	)
@@ -155,11 +154,11 @@ public class ProductHandler {
 				System.out.println(targetFile + " ==> " + testFile);
 				try {
 					files[i].transferTo(targetFile);
-					//files[i].transferTo(testFile);
+					files[i].transferTo(testFile);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				uploadPath += "/High-Go/pics/" + fileName + ",";
+				uploadPath += "pics/" + fileName + ",";
 			}
 	        product.setPict(uploadPath.substring(0, uploadPath.length() - 1));
 	        System.out.println(uploadPath.substring(0, uploadPath.length() - 1));

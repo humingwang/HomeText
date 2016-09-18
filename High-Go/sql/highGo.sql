@@ -148,11 +148,13 @@ select*from admin;
 	select count(*) from photos;
 	update photos set phstatus=0 where phid=1063;
 	
+	
+	select * from productTypes;
 --商品表
 	create table product(
 		pid int primary key,--商品编号
 		pname varchar2(300) ,--商品名
-		pdesc varchar2(1000),--商品描述
+		pdesc varchar2(1000),--商品描述 	
 		pnorms varchar2(100),--规格
 		pprice number(6,2),--价格
 		pdate date,--上架时间
@@ -161,32 +163,179 @@ select*from admin;
 		ptid int,--类型编号
 		sid int --库存
 	);
-	
+	delete product
 		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
 
-	insert into product values(product_pid.nextval,'学生床垫','加厚寝室上下铺床垫折叠0.9m单人大学生宿舍用床褥子防潮1米1.2米',
-	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic1.jpg',1,2);
-	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',2,1000);
-	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic3.jpg',3,1001);
-	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic4.jpg',4,1000);
-	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic5.jpg',4,1001);
-	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic6.jpg',5,1000);
-	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic1.jpg',5,1001);
-	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',6,1000);
-	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic3.jpg',4,1001);
-	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',7,1000);
-	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic5.jpg',6,1001);
+	insert into product values(product_pid.nextval,'棉被','被子被芯磨绒加厚春秋被单人空调被 学生太空被保暖棉被双人冬被 ',
+	'150*200cm3斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pic/cp1.jpg',1,2);	
+	insert into product values(product_pid.nextval,'棉被','冬被子冬被加厚保暖冬季棉被被芯春秋被太空被被褥丝棉被学生宿舍  ',
+	'150*200cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp2.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','Homeplus被子加厚被芯春秋被冬天棉被保暖冬被双人空调被夏凉被 ',
+	'200*230cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp3.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','北极绒冬天被子冬被加厚保暖被芯双人太空被空调被单人棉被春秋被  ',
+	'200*230cm5斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp4.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','被子被芯双人加厚棉被 冬被保暖子母被学生空调被 单人被褥春秋被  ',
+	'220*240cm5斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp5.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','维科冬天被子被芯棉被太空被褥单人双人空调被夏凉被特价春秋薄被  ',
+	'220*240cm6斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp6.jpg',7,2);
+		insert into product values(product_pid.nextval,'棉被','被子被芯磨绒加厚春秋被单人空调被 学生太空被保暖棉被双人冬被 ',
+	'150*200cm3斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp7.jpg',7,2);	
+	insert into product values(product_pid.nextval,'棉被','冬被子冬被加厚保暖冬季棉被被芯春秋被太空被被褥丝棉被学生宿舍  ',
+	'150*200cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp8.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','Homeplus被子加厚被芯春秋被冬天棉被保暖冬被双人空调被夏凉被 ',
+	'200*230cm4斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp9.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','北极绒冬天被子冬被加厚保暖被芯双人太空被空调被单人棉被春秋被  ',
+	'200*230cm5斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp10.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','被子被芯双人加厚棉被 冬被保暖子母被学生空调被 单人被褥春秋被  ',
+	'220*240cm5斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp11.jpg',7,2);
+	insert into product values(product_pid.nextval,'棉被','维科冬天被子被芯棉被太空被褥单人双人空调被夏凉被特价春秋薄被  ',
+	'220*240cm6斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp12.jpg',7,2);
+	insert into product values(product_pid.nextval,'床上四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ','2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1000);
+	insert into product values(product_pid.nextval,'床上四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1001);
+	insert into product values(product_pid.nextval,'床上四件套','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1000);
+	insert into product values(product_pid.nextval,'床上四件套','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1001);
+	insert into product values(product_pid.nextval,'床上四件套','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1000);
+	insert into product values(product_pid.nextval,'床上四件套','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1001);
+	insert into product values(product_pid.nextval,'床上四件套','简约纯色素色床上用品1.5m纯棉磨毛床单被套三件套1.8m全棉四件套  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1000);
+	insert into product values(product_pid.nextval,'床上四件套','欧式全棉贡缎提花四件套1.8m床单婚庆床品四件套纯棉天丝被套双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1001);
+		insert into product values(product_pid.nextval,'床上四件套','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1001);
+	insert into product values(product_pid.nextval,'床上四件套','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1000);
+	insert into product values(product_pid.nextval,'床上四件套','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1001);
+	insert into product values(product_pid.nextval,'床上四件套','简约纯色素色床上用品1.5m纯棉磨毛床单被套三件套1.8m全棉四件套  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1000);
+	insert into product values(product_pid.nextval,'床上四件套','欧式全棉贡缎提花四件套1.8m床单婚庆床品四件套纯棉天丝被套双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/cp1.jpg',4,1001);
+	insert into product values(product_pid.nextval,'枕头','恒源祥枕头 枕芯 颈椎枕五星级酒店软枕头 包邮zhentou 正品 ',
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd.jpg',6,2);
+	insert into product values(product_pid.nextval,'枕头','暖舒舒太空记忆枕慢回弹记忆枕头颈椎枕头记忆棉护颈保健枕头枕芯  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd1.jpg',6,1000);
+	insert into product values(product_pid.nextval,'枕头','包邮专柜枕头枕芯决明子保健护颈枕夏单人薰衣草正品荞麦一对成人 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd2.jpg',6,1001);
+	insert into product values(product_pid.nextval,'枕头','送枕套正品决明子枕头薰衣草荞麦壳皮枕芯护颈椎学生成人单人一对 ',
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd4.jpg',6,2);
+	insert into product values(product_pid.nextval,'枕头','迪缦 酒店枕头枕芯 全棉面料特价羽丝绒纯棉成人护颈椎一对拍2  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd3.jpg',6,1000);
+	insert into product values(product_pid.nextval,'枕头','枕头可水洗羽丝棉防螨枕芯五星酒店宿舍宾馆枕头特价一对拍2包邮 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd5.jpg',6,1001);
+	insert into product values(product_pid.nextval,'枕头','枕头枕芯一对拍2 酒店保健水洗羽丝绒真空护颈椎宿舍记忆枕心包邮 ',
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd6.jpg',6,2);
+	insert into product values(product_pid.nextval,'枕头','专柜正品枕芯枕头一对决明子枕头单人磁疗保健护颈枕成人正品特价 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd7.jpg',6,1000);
+	insert into product values(product_pid.nextval,'枕头','莫凡家纺正品舒梦枕芯一只五星酒店枕珍珠棉枕芯学生枕头枕芯包邮',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd8.jpg',6,1001);
+	insert into product values(product_pid.nextval,'枕头','水星家纺枕头枕芯一对抗菌防螨羽丝绒枕头保健枕成人正品特价包邮 ',
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/dkd9.jpg',6,2);
+	insert into product values(product_pid.nextval,'枕头','【第二件1元】南极人酒店枕头枕芯全棉面料羽丝绒酒店枕一对拍2',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd11.jpg',6,1000);
+	insert into product values(product_pid.nextval,'枕头','可水洗枕头枕芯记忆好睡眠成人保健护脊椎创意时尚酒店中高枕包邮 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd12.jpg',6,1001);
+		insert into product values(product_pid.nextval,'枕头','枕头枕芯一对拍2 酒店保健水洗羽丝绒真空护颈椎宿舍记忆枕心包邮 ',
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd13.jpg',6,2);
+	insert into product values(product_pid.nextval,'枕头','专柜正品枕芯枕头一对决明子枕头单人磁疗保健护颈枕成人正品特价 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd14.jpg',6,1000);
+	insert into product values(product_pid.nextval,'枕头','莫凡家纺正品舒梦枕芯一只五星酒店枕珍珠棉枕芯学生枕头枕芯包邮',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd15.jpg',6,1001);
+	insert into product values(product_pid.nextval,'枕头','水星家纺枕头枕芯一对抗菌防螨羽丝绒枕头保健枕成人正品特价包邮 ',
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd16.jpg',6,2);
+	insert into product values(product_pid.nextval,'枕头','【第二件1元】南极人酒店枕头枕芯全棉面料羽丝绒酒店枕一对拍2',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd17.jpg',6,1000);
+	insert into product values(product_pid.nextval,'枕头','可水洗枕头枕芯记忆好睡眠成人保健护脊椎创意时尚酒店中高枕包邮 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/kd18.jpg',6,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj35.jpg',14,1002);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj36.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj37.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj38.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj39.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj40.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj41.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj42.jpg',14,1001);
+		insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj43.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj44.jpg',14,1001);	
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj45.jpg',14,1001);	
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj46.jpg',14,1001);
+	insert into product values(product_pid.nextval,'浴巾','美容院宾馆洗浴桑拿足浴汗蒸沙发抹胸专用浴巾柔软吸水床单大毛巾 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj47.jpg',14,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj48.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj49.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj50.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj51.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj52.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj53.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj54.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj55.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj56.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj57.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj58.jpg',11,1001);
+		insert into product values(product_pid.nextval,'窗帘','名门 现代纯色棉麻布客厅卧室落地窗环保全遮光窗帘成品定制加厚 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/yj59.jpg',11,1001);
+		insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt1.jpg',17,1001);
+		insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt2.jpg',17,1001);	
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt3.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt4.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt5.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt6.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt7.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt8.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt9.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt10.jpg',17,1001);	
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt11.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt12.jpg',17,1001);	
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt1.jpg',17,1001);
+	insert into product values(product_pid.nextval,'地毯','土耳其简约抽象地毯 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pics/ddt2.jpg',17,1001);
 	select *from product;
+	
+	 select rownum,a.* from (select rownum,s.*,(select count(1) from studyCourse where courseid = s.courseid ) memberCount,
+		(select avg(assess) from studyCourse where courseid = s.courseid) assessAvg
+		 from course s where rownum>=#{pagesize}*(#{pagenumber}-1))a where #{pagesize}*#{pagenumber}>=rownum 
+	
+
 	
 	
 --商品评价表：

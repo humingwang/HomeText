@@ -62,10 +62,10 @@
 			<div class="border clearfix">
 				<span class="l_f"> <a href="javascript:ovid()" title="添加商品" id="add_Product"
 					class="btn btn-warning Order_form"><i class="icon-plus"></i>添加商品</a>
-					<a href="javascript:ovid()" class="btn btn-danger"><i
+					<a href="javascript:delPros()" class="btn btn-danger"><i
 						class="icon-trash"></i>批量删除</a>
 				</span> <span class="r_f" >共：<a id="num"></a><b></b>件商品
-				</span>
+				</span>  
 			</div>
 			<!--产品列表展示-->
 			<div class="h_products_list clearfix" id="products_list">
@@ -110,7 +110,7 @@
 						<tbody>
 							<c:forEach items="${lists}" var="item">
 								<tr>
-									<td width="25px"><label><input type="checkbox"class="ace"><span class="lbl"></span></label></td>
+									<td width="25px"><label><input type="checkbox"class="ace">  </span></label></td>
 									<td width="80px">${item.pid }</td>
 									<td width="100px">${item.pname }</td>
 									<td width="250px"><u style="cursor: pointer"
@@ -390,11 +390,6 @@ function member_start(obj,id){
 			});
 
  /*产品-添加*/
-	
-	
-
-
-
 function member_edit(id){
 	$.post("../product/findById?pid="+id,function(data){
 		var str;
@@ -404,8 +399,8 @@ function member_edit(id){
 		$("input[name='pnorms']").val(data.pnorms);
 		$("input[name='pprice']").val(data.pprice);
 		$("input[name='pdate']").val(data.pdate);
-		$("input[name='ptid']").val(data.ptid);
-		str="<img src="+data.pict+" width='60px';height='60px'; />&nbsp;&nbsp;"
+		$("select[name='ptid']").val(data.ptid);
+		str="<img src=../"+data.pict+" width='60px';height='60px'; />&nbsp;&nbsp;"
 		$("#Product_pics_show").html(str);
 
 	},"json"); 
@@ -489,6 +484,27 @@ function member_del(obj,id){
 	
 		});
 	});
+}
+/*批量删除*/
+function delPros(){
+	  var pros =[];//定义一个数组    
+	  $('input:checked').each(function(){
+		  pros.push($.trim($(this).val())); 
+	   });
+		alert(pros);
+          if (pros != null) {
+            	layer.confirm("数据删除后将不可恢复，确实要删除吗？", function () {
+                $.post("../product/delpros",{pros:pros}, function (data) {
+                	if(data>0){
+                	layer.msg('数据删除成功!!!',{icon: 5,time:1000});
+                	findByND();
+                	}
+                });
+            }); 
+             
+         } else {
+            layer.alert("请选择要删除的数据！");
+        }  
 }
 /*按条件搜索*/
  function findByND(){
