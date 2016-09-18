@@ -24,5 +24,23 @@ public class OrdersServiceImpl implements OrdersService{
 	public List<Orders> findAllNum() {
 		return orderMapper.findAllNum();
 	}
+
+	@Override
+	public List<Orders> orderList() {
+		return orderMapper.orderList();
+	}
+
+	@Override
+	public int sendOrder(String oid) {
+		return orderMapper.sendOrder(oid);
+	}
+
+	@Override
+	public boolean delOrder(String oid) {
+		if(orderMapper.delOrder(oid)>0){
+			return true;
+		}
+		return false;
+	}
 	
 }

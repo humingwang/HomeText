@@ -54,9 +54,31 @@ public class OrdersHandler {
 	}
 	
 	
-	@RequestMapping(value="/handing",method=RequestMethod.GET)
-	public String orderTable(){
-		System.out.println("yes");
-		return null;
+	@RequestMapping(value="/handling",method=RequestMethod.GET)
+	public void orderTable(PrintWriter out,ModelMap map){
+		List<Orders> allOrders=orderService.orderList();
+		System.out.println(allOrders);
+		Gson json=new Gson();
+		String orderStr=json.toJson(allOrders);
+		System.out.println(orderStr);
+		out.print(orderStr);
+		out.flush();
+		out.close();
+	}
+	
+	@RequestMapping(value="/send",method=RequestMethod.POST)
+	public void orderSend( String oid,PrintWriter out, ModelMap map){
+		int result=orderService.sendOrder(oid);
+		out.print(result);
+		out.flush();
+		out.close();
+	}
+	@RequestMapping(value="/del",method=RequestMethod.POST)
+	public void delOrder(String oid,PrintWriter out){
+		System.out.println(oid);
+		boolean flag=orderService.delOrder(oid);
+		out.println(flag);
+		out.flush();
+		out.close();
 	}
 }

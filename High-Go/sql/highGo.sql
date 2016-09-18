@@ -148,9 +148,13 @@ select*from admin;
 	select count(*) from photos;
 	update photos set phstatus=0 where phid=1063;
 	
+<<<<<<< HEAD
 	
 	select * from productTypes;
 --商品表
+=======
+	--商品表
+>>>>>>> branch 'master' of ssh://git@github.com/humingwang/HomeText.git
 	create table product(
 		pid int primary key,--商品编号
 		pname varchar2(300) ,--商品名
@@ -159,12 +163,16 @@ select*from admin;
 		pprice number(6,2),--价格
 		pdate date,--上架时间
 		pview int,--浏览次数
-		pict varchar2(1500) ,--图片
+		phid int ,--图片
 		ptid int,--类型编号
 		sid int --库存
+<<<<<<< HEAD
 	);
 	delete product
 		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
+=======
+	);
+>>>>>>> branch 'master' of ssh://git@github.com/humingwang/HomeText.git
 
 	insert into product values(product_pid.nextval,'棉被','被子被芯磨绒加厚春秋被单人空调被 学生太空被保暖棉被双人冬被 ',
 	'150*200cm3斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pic/cp1.jpg',1,2);	
@@ -385,7 +393,6 @@ select*from admin;
 	);
 	
 	
-	
 --订单表
 create table orders(
 	oid varchar2(20) primary key,--订单号
@@ -395,48 +402,74 @@ create table orders(
     aid int references address(aid)--地址
   );
   	
-  	insert into orders values('20160105213313',8000.00,3,to_date('2016-1-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160105214413',8000.00,3,to_date('2016-1-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160105215513',8000.00,3,to_date('2016-1-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160205211113',8000.00,3,to_date('2016-2-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160205212213',8000.00,3,to_date('2016-2-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160205213313',8000.00,3,to_date('2016-2-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160305242413',8000.00,3,to_date('2016-3-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160305252513',8000.00,3,to_date('2016-3-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160305272613',8000.00,3,to_date('2016-3-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160405212213',8000.00,3,to_date('2016-4-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160405232413',8000.00,3,to_date('2016-4-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160405211253',8000.00,3,to_date('2016-4-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160505213313',8000.00,3,to_date('2016-5-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160505215213',8000.00,3,to_date('2016-5-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160505212513',8000.00,3,to_date('2016-5-07','YYYY-mm-dd'),3,1);
-  	insert into orders values('20160605213313',8000.00,3,to_date('2016-6-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160605214413',8000.00,3,to_date('2016-6-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160605215513',8000.00,3,to_date('2016-6-07','YYYY-mm-dd'),3,1);
-  	insert into orders values('20160705213313',8000.00,3,to_date('2016-7-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160705214413',8000.00,3,to_date('2016-7-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160705215513',8000.00,3,to_date('2016-7-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160805211113',8000.00,3,to_date('2016-8-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160805212213',8000.00,3,to_date('2016-8-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160805213313',8000.00,3,to_date('2016-8-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160905211113',8000.00,3,to_date('2016-9-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160905212213',8000.00,3,to_date('2016-9-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160905213313',8000.00,3,to_date('2016-9-07','YYYY-mm-dd'),3,1);
-	insert into orders values('201601005242413',8000.00,3,to_date('2016-10-07','YYYY-mm-dd'),1,1);
-	insert into orders values('201601005252513',8000.00,3,to_date('2016-10-07','YYYY-mm-dd'),2,1);
-	insert into orders values('201601005272613',8000.00,3,to_date('2016-10-07','YYYY-mm-dd'),3,1);
-	insert into orders values('201601005212213',8000.00,3,to_date('2016-11-07','YYYY-mm-dd'),1,1);
-	insert into orders values('201601005232413',8000.00,3,to_date('2016-11-07','YYYY-mm-dd'),2,1);
-	insert into orders values('2016010052112513',8000.00,3,to_date('2016-11-07','YYYY-mm-dd'),3,1);
-	insert into orders values('201601005213313',8000.00,3,to_date('2016-12-07','YYYY-mm-dd'),1,1);
-	insert into orders values('201601005215213',8000.00,3,to_date('2016-12-07','YYYY-mm-dd'),2,1);
-	insert into orders values('201601005212513',8000.00,3,to_date('2016-12-07','YYYY-mm-dd'),3,1);
+  	insert into orders values('20160105213313',1000.00,to_date('2016-1-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160105214413',2000.00,to_date('2016-1-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160105215513',3000.00,to_date('2016-1-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160205211113',1000.00,to_date('2016-2-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160205212213',2000.00,to_date('2016-2-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160205213313',3000.00,to_date('2016-2-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160305242413',1000.00,to_date('2016-3-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160305252513',3000.00,to_date('2016-3-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160305272613',2000.00,to_date('2016-3-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160405212213',1000.00,to_date('2016-4-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160405232413',2000.00,to_date('2016-4-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160405211253',3000.00,to_date('2016-4-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160505213313',1000.00,to_date('2016-5-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160505215213',2000.00,to_date('2016-5-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160505212513',3000.00,to_date('2016-5-07','YYYY-mm-dd'),3,1);
+  	insert into orders values('20160605213313',1000.00,to_date('2016-6-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160605214413',3000.00,to_date('2016-6-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160605215513',2000.00,to_date('2016-6-07','YYYY-mm-dd'),3,1);
+  	insert into orders values('20160705213313',1000.00,to_date('2016-7-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160705214413',4000.00,to_date('2016-7-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160705215513',2000.00,to_date('2016-7-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160805211113',1000.00,to_date('2016-8-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160805212213',3000.00,to_date('2016-8-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160805213313',2000.00,to_date('2016-8-07','YYYY-mm-dd'),3,1);
+	insert into orders values('20160905211113',2000.00,to_date('2016-9-07','YYYY-mm-dd'),1,1);
+	insert into orders values('20160905212213',3000.00,to_date('2016-9-07','YYYY-mm-dd'),2,1);
+	insert into orders values('20160905213313',4000.00,to_date('2016-9-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005242413',1000.00,to_date('2016-10-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005252513',5000.00,to_date('2016-10-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005272613',8000.00,to_date('2016-10-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005212213',1000.00,to_date('2016-11-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005232413',3000.00,to_date('2016-11-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005211253',2000.00,to_date('2016-11-07','YYYY-mm-dd'),3,1);
+	insert into orders values('201601005213313',2000.00,to_date('2016-12-07','YYYY-mm-dd'),1,1);
+	insert into orders values('201601005215213',7000.00,to_date('2016-12-07','YYYY-mm-dd'),2,1);
+	insert into orders values('201601005212513',8000.00,to_date('2016-12-07','YYYY-mm-dd'),3,1);
+
+	insert into orderdetails values(orderdetails_odid.nextval,1000,1000,'201601005252513');	
+	insert into orderdetails values(orderdetails_odid.nextval,1001,1001,'201601005252513');	
+	insert into orderdetails values(orderdetails_odid.nextval,1000,1001,'201601005232413');	
+	
+  --订单表
+	create table orders(
+		oid varchar2(20) primary key,--订单号
+		omoney number(12,2),--订单价
+		odate date,--下单时间时间
+		ostutas int, --订单状态  1 待付款  2已付款   3代发货
+		aid int references address(aid)--地址
+	);
 --订单详细表
-  create table orderdetails(
+create table orderdetails(
     odid int primary key,--订单详细编号
     pid  int references product(pid),--商品编号
     cid  int references customer(cid),--客户编号
-    oid  varchar2(20) references orders(oid)--订单号
+    oid  varchar2(20) references orders(oid)--订单编号
   );
+  
 
- 
+	select * from admin;
+
+select * from assess;
+select * from photos;
+select * from photoTypes;
+select * from product;
+select * from orderdetails;
+select * from orders;
+select * from customer;
+select * from productType;
+select * from address;
+select * from stock;
+select * from response;	

@@ -10,4 +10,10 @@ public interface OrdersMapper {
 
 	List<Orders> findAllNum();
 
+	List<Orders> orderList();
+
+	int sendOrder(String oid);
+
+	int delOrder(String oid);
+
 }

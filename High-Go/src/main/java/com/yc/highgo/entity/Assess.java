@@ -1,7 +1,5 @@
 package com.yc.highgo.entity;
 
-import java.util.Date;
-
 public class Assess {
 	private int asid;
 	private String asdate;

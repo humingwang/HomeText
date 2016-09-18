@@ -46,9 +46,6 @@
 		<property name="prefix" value="/page/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
-	
-	
 
 	<!-- 处理邮箱发送的bean -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -80,5 +77,5 @@
             <!-- 内存中的最大值 -->
             <property name="maxInMemorySize" value="40960" />  
         </bean>
-	
+	  
 </beans>
