@@ -6,7 +6,7 @@
 		width:98%;
 		margin-left:10px;
 		float:left;
-		height:200px;
+		height:150px;
 		border:1px solid #ccc;
 		}
 	ul li{
@@ -62,8 +62,7 @@
 		float:right;
 		text-align:center;
 		background-repeat:no-repeat;
-		background-color:#F9F9F9;
-		border:1px solid #CCC;}
+		}
 	#leftbody{
 		width:10%;
 		height:540px;
@@ -140,26 +139,8 @@
 			margin-top:5px;
 			font-size:20px;
 		}
-		.fenlei{
-			width:81%;
-			height:62px;
-			border:#CCC;
-			float:right;
-			background-color:#E9EDF6;}
-		.fenlei ul li{
-			list-style:none;
-			float:left;
-			line-height:60px;
-			font-size:20px;
-			font-weight:bold;
-			height:20px;
-			width:150px;
-			text-align:center;
-			height:60px;
-			}
-		.fenlei ul li:hover{
-			background-color:#ccc;
-			}
+		
+		
 		.wei{
 			margin-right:90px;}
 		.fenlei ul li a{

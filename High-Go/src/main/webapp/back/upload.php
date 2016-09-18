@@ -18,7 +18,7 @@
 	}
 
 	// 设置
-	$save_path = "upload/"; // 存储路径
+	$save_path = "../pics"; // 存储路径
 	$max_file_size_in_bytes = 2*1024*1024*1024;// 2GB in bytes
 	$extension_whitelist = array("jpg", "gif", "png", "flv", "f4v", "mp4");	// 允许的文件类型
 	

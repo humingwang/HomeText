@@ -1,6 +1,6 @@
 drop table admin;
-drop table orders;
 drop table orderdetails;
+drop table orders;
 drop table assess;
 drop table customer;
 drop table photos;
@@ -13,7 +13,7 @@ drop table response;
 
 drop sequence admin_aid;
 drop sequence customer_cid;
-drop sequence productType_ptid;
+drop sequence productTypes_ptid;
 drop sequence product_pid;
 drop sequence assess_asid;
 drop sequence orderdetails_odid;
@@ -21,12 +21,11 @@ drop sequence photos_phid;
 drop sequence photoTypes_phtid;
 drop sequence stock_kid;
 drop sequence response_rid;
-drop sequence address_aid;
 
 create sequence admin_aid start with 1000 increment by 1;
 create sequence customer_cid start with 1000 increment by 1;
-create sequence productType_ptid start with 1 increment by 1;
-create sequence product_pid start with 1000 increment by 1;
+create sequence productTypes_ptid start with 1 increment by 1;
+create sequence product_pid start with 1 increment by 1;
 create sequence assess_asid start with 1000 increment by 1;
 create sequence orderdetails_odid start with 1000 increment by 1;
 
@@ -34,7 +33,7 @@ create sequence photoTypes_phtid start with 1000 increment by 1;
 create sequence photos_phid start with 1000 increment by 1;
 create sequence stock_kid start with 1000 increment by 1;
 create sequence response_rid start with 1000 increment by 1;
-create sequence address_aid start with 1 increment by 1;
+select*from admin;
 
 --管理员表：
 	create table admin(
@@ -47,7 +46,7 @@ create sequence address_aid start with 1 increment by 1;
 		aemail varchar2(20) not null unique--邮件
 	);
 	insert into admin values(admin_aid.nextval,'sa','a','女',22,13245238956,'123@qq.com');
-
+	select *from admin;
 	
 --客户表：
 	create table customer(
@@ -64,6 +63,7 @@ create sequence address_aid start with 1 increment by 1;
 	insert into customer values(customer_cid.nextval,'sa','a',1000,'女',18,'123@qq.com');
 	insert into customer values(customer_cid.nextval,'w','a',default,default,default,'122@qq.com');
 	
+	delete customer 
 	select * from customer
 	
 	
@@ -73,24 +73,28 @@ create sequence address_aid start with 1 increment by 1;
 		name varchar2(10),--类型名
 		fptid  int default 0
 	);
-	insert into productType values(productType_ptid.nextval,'床上用品',0);
-	insert into productType values(productType_ptid.nextval,'装饰设计',0);
-	insert into productType values(productType_ptid.nextval,'家居用品',0);
-	insert into productType values(productType_ptid.nextval,'床上四件套',1);
-	insert into productType values(productType_ptid.nextval,'床单/被套',1);
-	insert into productType values(productType_ptid.nextval,'枕头',1);
-	insert into productType values(productType_ptid.nextval,'棉被',1);
-	insert into productType values(productType_ptid.nextval,'竹凉席',1);
-	insert into productType values(productType_ptid.nextval,'板材',2);
-	insert into productType values(productType_ptid.nextval,'墙纸',2);
-	insert into productType values(productType_ptid.nextval,'窗帘',2);
-	insert into productType values(productType_ptid.nextval,'天花板',2);
-	insert into productType values(productType_ptid.nextval,'家具',2);
-	insert into productType values(productType_ptid.nextval,'毛巾',3);
-	insert into productType values(productType_ptid.nextval,'毛毯',3);
-	insert into productType values(productType_ptid.nextval,'靠垫',3);
-	insert into productType values(productType_ptid.nextval,'地毯',3);
-	insert into productType values(productType_ptid.nextval,'沙发',3);
+	delete productType
+	
+  	select *from producttype;
+  	
+	insert into productType values(productTypes_ptid.nextval,'床上用品',0);
+	insert into productType values(productTypes_ptid.nextval,'装饰设计',0);
+	insert into productType values(productTypes_ptid.nextval,'家居用品',0);
+	insert into productType values(productTypes_ptid.nextval,'床上四件套',1);
+	insert into productType values(productTypes_ptid.nextval,'床单/被套',1);
+	insert into productType values(productTypes_ptid.nextval,'枕头',1);
+	insert into productType values(productTypes_ptid.nextval,'棉被',1);
+	insert into productType values(productTypes_ptid.nextval,'竹凉席',1);
+	insert into productType values(productTypes_ptid.nextval,'板材',2);
+	insert into productType values(productTypes_ptid.nextval,'墙纸',2);
+	insert into productType values(productTypes_ptid.nextval,'窗帘',2);
+	insert into productType values(productTypes_ptid.nextval,'天花板',2);
+	insert into productType values(productTypes_ptid.nextval,'家具',2);
+	insert into productType values(productTypes_ptid.nextval,'毛巾',3);
+	insert into productType values(productTypes_ptid.nextval,'毛毯',3);
+	insert into productType values(productTypes_ptid.nextval,'靠垫',3);
+	insert into productType values(productTypes_ptid.nextval,'地毯',3);
+	insert into productType values(productTypes_ptid.nextval,'沙发',3);
 	select * from productType;
 	
 --库存表
@@ -109,8 +113,6 @@ create sequence address_aid start with 1 increment by 1;
 		phtid int primary key,
 		phtname varchar2(500)		
 	);
-	alter table photoTypes add phdes varchar2(800);
-	alter table photoTypes add phdate date;
 	
 	insert into photoTypes values(photoTypes_phtid.nextval,'首页轮播广告大','首页顶部广告轮播图，图片大于其他',to_date('2016-7-7','yyyy-mm-dd'));
 	insert into photoTypes values(photoTypes_phtid.nextval,'轮播广告小1','首页右侧广告轮播图1',to_date('2016-7-22','yyyy-mm-dd'));
@@ -132,52 +134,56 @@ create sequence address_aid start with 1 increment by 1;
 		phstatus int ,--状态
 		phtid int
 	);
-	
-	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'棉被','images/pic2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'床单四件套','images/pic3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic5.jpg','1024*1024',to_date('2016-4-13','yyyy-mm-dd'),1,1068);
-	
-	insert into photos values(photos_phid.nextval,'欧式窗帘','images/cl1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'简约现代式窗帘','images/cl2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'绝色美式窗帘','images/cl3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'高档加厚式窗帘','images/cl4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'田园式窗帘','images/cl5.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1069);
-	
-	insert into photos values(photos_phid.nextval,'珊瑚绒毯','images/ddt1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'拉舍尔毛毯','images/ddt2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'羊毛羊绒','images/ddt3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'竹纤维毯','images/ddt4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'蚕丝毯','images/ddt4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1070);
-	
-	insert into photos values(photos_phid.nextval,'卡通靠垫','images/dkd1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'办公座椅靠垫','images/dkd2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'韩式靠垫','images/dkd3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'多功能纯棉靠垫','images/dkd4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'可爱抱枕','images/dkd4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1071);
-	
-	insert into photos values(photos_phid.nextval,'简约式四件套','images/cp1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1072);
+		insert into photos values(photos_phid.nextval,'简约式四件套','images/cp1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'欧美风四件套','images/cp12.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'田园四件套','images/cp13.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'韩式风四件套','images/cp14.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'婚庆四件套','images/cp15.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1072);
-	
-	select phid,phname,pict,psize,to_char(phdate,'yyyy-mm-dd') phdate,phstatus,phtid from photos
+
+	select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
+	select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
+			and p.phtid=1068
 	delete from photos where phtid=1040;
 	select phname,psize,to_char(phdate,'yyyy-mm-dd') phdate from photos where phid=1145
 	select count(*) from photos;
-	update photos set phname='nihao',psize=111,phdate=to_date('2016-7-29','yyyy-mm-dd') where phid=1140
-	delete from photos where phid in(1140,1141);
+	update photos set phstatus=0 where phid=1063;
 	
+	--商品表
+	create table product(
+		pid int primary key,--商品编号
+		pname varchar2(300) ,--商品名
+		pdesc varchar2(1000),--商品描述
+		pnorms varchar2(100),--规格
+		pprice number(6,2),--价格
+		pdate date,--上架时间
+		pview int,--浏览次数
+		phid int ,--图片
+		ptid int,--类型编号
+		sid int --库存
+	);
 
 	insert into product values(product_pid.nextval,'学生床垫','加厚寝室上下铺床垫折叠0.9m单人大学生宿舍用床褥子防潮1米1.2米',
-	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,1,2);
+	'1m*2m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic1.jpg',1,2);
 	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,null,2,1000);
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',2,1000);
 	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,null,3,1001);
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic3.jpg',3,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic4.jpg',4,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic5.jpg',4,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic6.jpg',5,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic1.jpg',5,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',6,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic3.jpg',4,1001);
+	insert into product values(product_pid.nextval,'四件套','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic2.jpg',7,1000);
+	insert into product values(product_pid.nextval,'四件套','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/pic5.jpg',6,1001);
 	select *from product;
 	
 	
@@ -206,7 +212,7 @@ create sequence address_aid start with 1 increment by 1;
 		and ascount like '%加厚%' and asdate=to_date('2016-02-27', 'yyyy-MM-dd')
 
 	delete from assess where asid=1001 on delete cascade;
-	
+
 	--回复表
 	 create table response(
 	 rid int primary key,--回复编号
@@ -226,20 +232,16 @@ create sequence address_aid start with 1 increment by 1;
 		aname varchar2(20),--姓名
 		atel varchar2(15)     --手机号码
 	);
-	insert into address values(address_aid.nextval,'湖南衡阳','珠晖区湖南工学院',0,'ywb','15570974507');
- 
- 20160105213313    1000    3 2016-01-07       1   1
-
-  	delete from orders where oid=201601005252513
-  	select * from orders where oid=201601005252513
-  	delete from orders where oid= 20160105213313 
-  	select * from orders where oid= 20160105213313 
-  	
-  	
-  	select sum(o.omoney) omoney,o.oid oid,o.ostutas ostutas,a.aname aname,a.adetail adetail,a.atel atel
-		  from orders o ,orderdetails od,address a where od.oid=o.oid and a.aid=o.aid group by 
-		  o.oid,o.ostutas,a.aname,a.adetail,a.atel
-  	
+	
+	
+--订单表
+create table orders(
+	oid varchar2(20) primary key,--订单号
+	omoney number(12,2),--订单价
+    onum int,---数量
+    ostutas int, --订单状态
+    aid int references address(aid)--地址
+  );
   	
   	insert into orders values('20160105213313',1000.00,to_date('2016-1-07','YYYY-mm-dd'),1,1);
 	insert into orders values('20160105214413',2000.00,to_date('2016-1-07','YYYY-mm-dd'),2,1);
@@ -277,19 +279,29 @@ create sequence address_aid start with 1 increment by 1;
 	insert into orders values('201601005213313',2000.00,to_date('2016-12-07','YYYY-mm-dd'),1,1);
 	insert into orders values('201601005215213',7000.00,to_date('2016-12-07','YYYY-mm-dd'),2,1);
 	insert into orders values('201601005212513',8000.00,to_date('2016-12-07','YYYY-mm-dd'),3,1);
-	--总金额  总数   成功数 	select (select sum(onum) from orders where ostutas=2) success,(select sum(onum) from orders) allnum,
-	(select sum(oMoney) from orders) omoney,sum(onum) onum,extract (MONTH from oDate) as oDate,oStutas from orders  
-	group by oDate,oStutas  order by oDate,oStutas desc
-	
-	
-	select max(omoney),sum(oMoney) omoney,extract (MONTH from oDate) as oDate,ostutas 
-		from orders  group by oDate,ostutas  order by oDate,ostutas desc 
-		
 
 	insert into orderdetails values(orderdetails_odid.nextval,1000,1000,'201601005252513');	
 	insert into orderdetails values(orderdetails_odid.nextval,1001,1001,'201601005252513');	
 	insert into orderdetails values(orderdetails_odid.nextval,1000,1001,'201601005232413');	
-select * from admin;
+	
+  --订单表
+	create table orders(
+		oid varchar2(20) primary key,--订单号
+		omoney number(12,2),--订单价
+		odate date,--下单时间时间
+		ostutas int, --订单状态  1 待付款  2已付款   3代发货
+		aid int references address(aid)--地址
+	);
+--订单详细表
+create table orderdetails(
+    odid int primary key,--订单详细编号
+    pid  int references product(pid),--商品编号
+    cid  int references customer(cid),--客户编号
+    oid  varchar2(20) references orders(oid)--订单编号
+  );
+  
+
+	select * from admin;
 
 select * from assess;
 select * from photos;
@@ -301,55 +313,4 @@ select * from customer;
 select * from productType;
 select * from address;
 select * from stock;
-select * from response;		
-
-  select * from photos;
-  select p.phtid,phtname,phdes,to_char(phdate,'yyyy-mm-dd') phdate , (select count(1) from photos where phtid = p.phtid) count from photoTypes p
- select p.* , (select count(1) from photos where phtid = p.phtid) count from photoTypes p;
- 
- --订单号   购买商品   收货人   收货地址   联系方式   交易金额   订单状态   
- select o.aid, o.oid,o.omoney,o.ostutas,p.pname,a.aname,a.adetail,a.atel from orders o ,orderdetails od,address a,product p where od.oid=o.oid and a.aid=oaid and od.pid=p.pid
-
-  select o.oid oid,o.omoney omoney,o.ostutas ostutas,p.pname pname,a.aname aname,a.adetail adetail,a.atel atel
-		  from orders o ,orderdetails od,address a,product p where od.oid=o.oid and a.aid=o.aid and od.pid=p.pid 
-		  
-		  
-		  select sum(o.omoney) omoney,o.oid oid,o.ostutas ostutas,a.aname aname,a.adetail adetail,a.atel atel
-		  from orders o ,address a where  a.aid=o.aid group by 
-		  o.oid,o.ostutas,a.aname,a.adetail,a.atel 
-  --订单表
-	create table orders(
-		oid varchar2(20) primary key,--订单号
-		omoney number(12,2),--订单价
-		odate date,--下单时间时间
-		ostutas int, --订单状态  1 待付款  2已付款   3代发货
-		aid int references address(aid)--地址
-	);
-select (select count(1) from orders where ostutas=1) onum,(select count(1) from orders where ostutas=2) success,
-		(select count(1)from orders where ostutas=3) waits,(select count(1) from orders) allnum,
-	(select sum(oMoney) from orders) omoney,extract (MONTH from oDate) as oDate,oStutas from orders  
-	group by oDate,oStutas  order by oDate,oStutas desc
-			  --订单详细表
-create table orderdetails(
-    odid int primary key,--订单详细编号
-    pid  int references product(pid),--商品编号
-    cid  int references customer(cid),--客户编号
-    oid  varchar2(20) references orders(oid)--订单编号
-  );
-   select sum(o.omoney) omoney,o.oid oid,o.ostutas ostutas,a.aname aname,a.adetail adetail,a.atel atel,o.odate odate
-		  from orders o ,address a where  a.aid=o.aid group by 
-		  o.oid,o.ostutas,a.aname,a.adetail,a.atel ,o.odate
-  
-	--商品表
-	create table product(
-		pid int primary key,--商品编号
-		pname varchar2(300) ,--商品名
-		pdesc varchar2(1000),--商品描述
-		pnorms varchar2(100),--规格
-		pprice number(6,2),--价格
-		pdate date,--上架时间
-		pview int,--浏览次数
-		phid int ,--图片
-		ptid int,--类型编号
-		sid int --库存
-	);
+select * from response;	

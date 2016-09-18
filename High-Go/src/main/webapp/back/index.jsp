@@ -163,7 +163,7 @@ $('.change_Password').on('click', function(){
           } 
 		  if ($("#Nes_pas").val()==""){
 			  layer.alert('新密码不能为空!',{
-              title: '提示框',				
+	              title: '提示框',				
 				icon:0,
 			    
 			 });
@@ -326,7 +326,7 @@ $('.change_Password').on('click', function(){
 				     <li class="home"><a href="javascript:void(0)" name="home.jsp" class="iframeurl" title=""><i class="icon-dashboard"></i><span class="menu-text"> 系统首页 </span></a></li>
                      <li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> 产品管理 </span><b class="arrow icon-angle-down"></b></a>
 					   <ul class="submenu">
-                         <li class="home"><a  href="javascript:void(0)" name="Products_List.jsp"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>产品类表</a></li>
+                         <li class="home"><a  href="javascript:findAllBypage()" name="Products_List.jsp"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>产品类表</a></li>
 						 <li class="home"><a href="javascript:void(0)" name="Category_Manage.jsp" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
 
 						</ul>
@@ -452,6 +452,16 @@ $('.change_Password').on('click', function(){
          </div>
         <!-- /.main-container -->
 		<!-- basic scripts -->
+		
+		 <script type="text/javascript">
+		 	function findAllBypage(){
+				$.get("../product/findAll",function(data){
+					if(data){
+						console.info(data);
+					}
+				}) ;
+			 }
+		</script> 
 		
 </body>
 </html>

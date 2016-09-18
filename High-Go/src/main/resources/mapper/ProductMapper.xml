@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用映射接口的方式， 命名空间的值必须与映射接口的全限定名一致 -->
+<mapper namespace="com.yc.highgo.mapper.ProductMapper">
+	<select id="findAll" parameterType="Product" resultType="Product">
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
+	</select>
+	<select id="findCount" resultType="int">
+		select count(pid) as total from  product
+	</select>
+	
+
+	
+	<select id="findAllBynd" parameterType="Product" resultType="Product">
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
+		<where>
+			<if test="pdate!=''">
+			  pdate=to_date(#{pdate},'YYYY-MM-dd') 
+			</if>
+			<if test="pname!=''">
+			and pname =#{pname}  
+			</if>
+			</where> 
+	</select>
+	<select id="findById" parameterType="int" resultType="Product">
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product where pid=#{pid} 
+	</select>
+		<select id="findByPtId" parameterType="int" resultType="Product">
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product where ptid=#{ptid} 
+	</select>
+	<delete id="delProduct" parameterType="int">
+		delete from product where pid=#{pid}
+	</delete>
+	<update id="UpdateById" parameterType="Product">
+		update product set  pid=#{pid},pname=#{pname},pdesc=#{pdesc},pnorms=#{pnorms},pprice=#{pprice}, pdate=to_date(#{pdate},'YYYY-MM-dd'),pict=#{pict},ptid=#{ptid} where pid=#{pid}
+	</update>
+	<insert id="addProduct" parameterType="Product">
+		insert into product values(product_pid.nextval,#{pname},#{pdesc},
+			#{pnorms},#{pprice},to_date(#{pdate},'yyyy-mm-dd'),2,#{pict},#{ptid},1001)
+	</insert>
+</mapper>

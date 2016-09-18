@@ -47,52 +47,30 @@
   </div>
    <div class="page_right_style">
    <div class="type_title">添加商品</div>
-	<form action="" method="post" class="form form-horizontal" id="form-article-add">
+	<form action="../product/add" method="post" class="form form-horizontal" id="form-article-add">
 		<div class="clearfix cl">
-         <label class="form-label col-2"><span class="c-red">*</span>图片标题：</label>
-		 <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
+         <label class="form-label col-2"><span class="c-red">*</span>商品名称：</label>
+		 <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="" name="pname"></div>
 		</div>
 		<div class=" clearfix cl">
          <label class="form-label col-2">商品描述：</label>
-	     <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
+	     <div class="formControls col-10"><input type="text" class="input-text" value="" placeholder="" id="" name="pdesc"></div>
 		</div>
 		<div class=" clearfix cl">
-			
+			    <div class="Add_p_s">
+             <label class="form-label col-2">规&nbsp;&nbsp;&nbsp;&nbsp;格：</label>	
+			 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name="pnorms"></div>
+			</div> 
 			<div class="Add_p_s">
-            <label class="form-label col-2">商品名：</label>
-			<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
+            <label class="form-label col-2">展示价格：</label>
+			<div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name="pprice">元</div>
             </div>
             <div class="Add_p_s">
-             <label class="form-label col-2">规&nbsp;&nbsp;&nbsp;&nbsp;格：</label>	
-			 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name=""></div>
-			</div>                       
-             <div class="Add_p_s">
-             <label class="form-label col-2">单位：</label>	
-			 <div class="formControls col-2"><span class="select-box">
-				<select class="select">
-					<option>请选择</option>
-					<option value="1">件</option>					
-					<option value="5">套</option>
-				</select>
-				</span></div>
+             <label class="form-label col-2">上架时间：</label>	
+			 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name="pdate" ></div>
 			</div>
-            <div class="Add_p_s">
-             <label class="form-label col-2">展示价格：</label>	
-			 <div class="formControls col-2"><input type="text" class="input-text" value="" placeholder="" id="" name="" >元</div>
-			</div>
-
-           
-			
+			 
 		</div>
-		
-		<div class="clearfix cl">
-			<label class="form-label col-2">关键词：</label>
-			<div class="formControls col-10">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="">
-			</div>
-		</div>
-		
-		
 		<div class="clearfix cl">
 			<label class="form-label col-2">图片上传：</label>
 			<div class="formControls col-10">
@@ -114,16 +92,11 @@
 				</div>
 			</div>
 		</div>
-         <div class="clearfix cl">
-         <label class="form-label col-2">详细内容：</label>
-			<div class="formControls col-10">
-				<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
-             </div>
-        </div>
+       	
         <div class="clearfix cl">
-         <label class="form-label col-2">允许评论：</label>
+         <label class="form-label col-2" style="margin-left:155px">产品类型编号：</label>
 			<div class="formControls col-2 skin-minimal">
-			 <div class="check-box" style=" margin-top:9px"><input type="checkbox" id="checkbox-1"><label for="checkbox-1">&nbsp;</label></div>
+			 <div class="check-box" style=" margin-top:9px"><input type="text" class="input-text" value="" placeholder="" id="ptid" name="ptid"></div>
              </div>
         </div>
 		<div class="clearfix cl">
@@ -154,7 +127,7 @@
 <script type="text/javascript" src="js/H-ui.js"></script> 
 <script type="text/javascript" src="js/H-ui.admin.js"></script> 
 <script>
-$(function() { 
+$(function() {   
 	$("#add_picture").fix({
 		float : 'left',
 		skin : 'green',	
@@ -191,8 +164,8 @@ var setting = {
 	data: {
 		simpleData: {
 			enable:true,
-			idKey: "id",
-			pIdKey: "pId",
+			idKey: "ptid",
+			pIdKey: "fptid",
 			rootPId: ""
 		}
 	},
@@ -203,31 +176,25 @@ var setting = {
 				zTree.expandNode(treeNode);
 				return false;
 			} else {
-				demoIframe.attr("src",treeNode.file + ".html");
-				return true;
+			$("#ptid").val(treeNode.ptid);				
 			}
 		}
 	}
 };
-
-var zNodes =[
-	{ id:1, pId:0, name:"商城分类列表", open:true},
-	{ id:11, pId:1, name:"蔬菜水果"},
-	{ id:111, pId:11, name:"蔬菜"},
-	{ id:112, pId:11, name:"苹果"},
-	{ id:113, pId:11, name:"大蒜"},
-	{ id:114, pId:11, name:"白菜"},
-	{ id:115, pId:11, name:"青菜"},
-	{ id:12, pId:1, name:"手机数码"},
-	{ id:121, pId:12, name:"手机 "},
-	{ id:122, pId:12, name:"照相机 "},
-	{ id:13, pId:1, name:"电脑配件"},
-	{ id:131, pId:13, name:"手机 "},
-	{ id:122, pId:13, name:"照相机 "},
-	{ id:14, pId:1, name:"服装鞋帽"},
-	{ id:141, pId:14, name:"手机 "},
-	{ id:42, pId:14, name:"照相机 "},
-];
+ 
+    $.ajax({
+        type: 'Post',
+        url: '../productType/findAll/',
+      	dataType: "json", //可以是text，如果用text，返回的结果为字符串；如果需要json格式的，可是设置为json
+        success: function (data) {
+    		$.fn.zTree.init( $("#treeDemo"), setting, data);
+    		console.info(data);
+    		
+        },
+        error: function (msg) {
+            alert(" 数据加载失败！" + msg);
+        }
+    });
 		
 var code;
 		
@@ -237,12 +204,9 @@ function showCode(str) {
 	code.append("<li>"+str+"</li>");
 }
 $(document).ready(function(){
-	var t = $("#treeDemo");
-	t = $.fn.zTree.init(t, setting, zNodes);
+
 	demoIframe = $("#testIframe");
-	//demoIframe.bind("load", loadReady);
 	var zTree = $.fn.zTree.getZTreeObj("tree");
-	//zTree.selectNode(zTree.getNodeByParam("id",'11'));
 });			
 </script>
 <script type="text/javascript">
@@ -260,10 +224,11 @@ $(function(){
 
 	var uploader = WebUploader.create({
 		auto: true,
-		swf: 'lib/webuploader/0.1.5/Uploader.swf',
+		swf: 'Widget/webuploader/0.1.5/Uploader.swf',
 	
 		// 文件接收服务端。
-		server: 'http://lib.h-ui.net/webuploader/0.1.5/server/fileupload.php',
+		
+		server: 'Widget/webuploader/0.1.5/server/fileupload.php',
 	
 		// 选择文件的按钮。可选。
 		// 内部根据当前运行是创建，可能是input元素，也可能是flash.
@@ -286,7 +251,7 @@ $(function(){
 				'<p class="state">等待上传...</p>'+
 			'</div>'
 		),
-		$img = $li.find('img');
+		$img = $li.find('img');	
 		$list.append( $li );
 	
 		// 创建缩略图
@@ -463,7 +428,7 @@ $(function(){
                         delete window['expressinstallcallback'];
                     };
 
-                    var swf = 'expressInstall.swf';
+                    var swf = 'Widget/webuploader/0.1.5/expressInstall.swf';
                     // insert flash object
                     var html = '<object type="application/' +
                             'x-shockwave-flash" data="' +  swf + '" ';
@@ -504,10 +469,10 @@ $(function(){
             },
             dnd: '#dndArea',
             paste: '#uploader',
-            swf: 'lib/webuploader/0.1.5/Uploader.swf',
+            swf: 'Widget/webuploader/0.1.5/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'http://lib.h-ui.net/webuploader/0.1.5/server/fileupload.php',
+            server: 'Widget/webuploader/0.1.5/server/fileupload.php',
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -568,12 +533,12 @@ $(function(){
 
         // 当有文件添加进来时执行，负责view的创建
         function addFile( file ) {
+        	alert(file.name);
             var $li = $( '<li id="' + file.id + '">' +
                     '<p class="title">' + file.name + '</p>' +
                     '<p class="imgWrap"></p>'+
                     '<p class="progress"><span></span></p>' +
                     '</li>' ),
-
                 $btns = $('<div class="file-panel">' +
                     '<span class="cancel">删除</span>' +
                     '<span class="rotateRight">向右旋转</span>' +
@@ -583,6 +548,7 @@ $(function(){
                 $info = $('<p class="error"></p>'),
 
                 showError = function( code ) {
+            		alert(code);
                     switch( code ) {
                         case 'exceed_size':
                             text = '文件大小超出';
@@ -615,9 +581,9 @@ $(function(){
 
                     if( isSupportBase64 ) {
                         img = $('<img src="'+src+'">');
-                        $wrap.empty().append( img );
+                        $wrap.empty().append( img );   
                     } else {
-                        $.ajax('lib/webuploader/0.1.5/server/preview.php', {
+                        $.ajax('Widget/webuploader/0.1.5/server/preview.php', {
                             method: 'POST',
                             data: src,
                             dataType:'json'
@@ -625,6 +591,10 @@ $(function(){
                             if (response.result) {
                                 img = $('<img src="'+response.result+'">');
                                 $wrap.empty().append( img );
+                                $.ajax('upload.php', {
+                                    method: 'POST',
+                                    dataType:'json'
+                                } );
                             } else {
                                 $wrap.text("预览出错");
                             }
@@ -760,7 +730,7 @@ $(function(){
             } else if ( state === 'confirm' ) {
                 stats = uploader.getStats();
                 if ( stats.uploadFailNum ) {
-                    text = '已成功上传' + stats.successNum+ '张照片至XX相册，'+
+                    text = '已成功上传' + stats.successNum+ '张照片至images相册，'+
                         stats.uploadFailNum + '张照片上传失败，<a class="retry" href="#">重新上传</a>失败图片或<a class="ignore" href="#">忽略</a>'
                 }
 
@@ -900,6 +870,7 @@ $(function(){
             alert( 'Eroor: ' + code );
         };
 
+        //上传按钮的点击事件
         $upload.on('click', function() {
             if ( $(this).hasClass( 'disabled' ) ) {
                 return false;
@@ -927,6 +898,8 @@ $(function(){
     });
 
 })( jQuery );
+
+
 </script>
 </body>
 </html>
