@@ -197,6 +197,7 @@ function member_edit(phid){
 	str+='<ul class=" page-content">';
 	str+='<li><label class="label_name">分&nbsp;&nbsp;类 &nbsp;名：</label><span class="add_name"><input value="'+data.phname+'" name="分类名" type="text"  class="text_add1"/></span><div class="prompt r_f"></div></li>';
 	str+='<li><label class="label_name">尺寸：</label><span class="add_name"><input name="尺寸" type="text" value="'+data.psize+'" class="text_add2"/></span><div class="prompt r_f"></div></li>';
+	str+='<li><label class="label_name">图片：</label><span class="add_name"><div style="width:210px;height:100px;border:1px solid #ccc;" name="图片" type="text" "><img src="'+data.pict+'"></div></span><div class="prompt r_f"></div></li>';
 	str+='<li><label class="label_name">加入时间：</label><span class="add_name"><input name="加入时间" type="text" value="'+data.phdate+'" class="text_add3"/></span><div class="prompt r_f"></div></li>';
 	str+='</ul>';
 	$("#add_menber_style").html(str);
@@ -415,14 +416,14 @@ function member_del(obj,id){
           		url:"../photo/addAds?"+$("#add_adverts").serialize(),
           		secureuri:false,
           		fileElementId:"uploadBtnHolder",
-          		//dataType:"json",
+          		dataType:"json",
           		success:function(data,status){
-          			alert(data);
-          			if(data>0){
+          			if(data){
           				layer.alert('广告添加成功！',{
                             title: '提示框',	
              				icon:1,	
              			  }); 
+          				getAllPhoto();
           			}else{
           				layer.alert("错误提示","广告信息添加失败...\n","error");
           			}
@@ -437,7 +438,7 @@ function member_del(obj,id){
            			  }); 
         		  }
         	  }) */
-        		  setTimeout("location.reload()",100)//页面刷新
+        		 // setTimeout("location.reload()",100)//页面刷新
        			   layer.close(index);
 		  }		  		     				
 		}
@@ -446,6 +447,10 @@ function member_del(obj,id){
 </script>
 
 <script>
+function getAllPhoto(){
+	$.post("../photoType/getAllPname");
+	$.post("../photo/getAllPics");
+}
 jQuery(function($) {
 				var oTable1 = $('#sample-table').dataTable( {
 				"aaSorting": [[ 1, "desc" ]],//默认第几个排序
