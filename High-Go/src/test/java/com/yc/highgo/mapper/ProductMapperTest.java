@@ -32,6 +32,14 @@ public class ProductMapperTest {
 		boolean falg = pro.delPros(new String[]{"23","25","26"});
 		System.out.println(falg);
 	}
-	
+	@Test
+	public void page(){
+		List<Product> list=pro.findByPage(2);
+	}
+	@Test
+	public void pageid(){
+		Product product=new Product(2,1);
+		List<Product> list=pro.findByPageId(product);
+	}
 
 }

@@ -12,7 +12,14 @@ public class Product {
 	private int pview;
 	private String pdate;
 	private int ptid;
+	private int pageNo;
 	
+	public int getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
 	public String getPids() {
 		return pids;
 	}
@@ -125,6 +132,11 @@ public class Product {
 	public Product(String pname, String pdate) {
 		this.pname = pname;
 		this.pdate = pdate;
+
+	}
+	public Product(int ptid, int pageNo) {
+		this.ptid = ptid;
+		this.pageNo = pageNo;
 
 	}
 	@Override

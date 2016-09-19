@@ -2,14 +2,15 @@
     pageEncoding="UTF-8"%>
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
-<html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>在线商城</title>
+<title>商品分类</title>
 <link rel="stylesheet" type="text/css" href="../css/Product.css"/>
 <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="../js/js_z.js"></script>
+<script type="text/javascript" src="../js/jquery.page.js"></script>
 <script type="text/javascript" src="../js/product.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/thems.css">
 
@@ -53,8 +54,10 @@
       </tr>
     </table>
 	<div class="space_hx">&nbsp;</div>
-    <ul class="pro_l clearfix">
-    	<li>
+     <ul class="pro_l clearfix"  id="prosList">
+
+     
+    	<!-- <li>
         	<a href="product_d.html">
             	<img src="../images/cp14.jpg" alt=""/>
                 <p>D000498(共1件)</p>
@@ -125,16 +128,10 @@
             	<img src="../images/cp14.jpg" alt=""/>
                 <p>D000498(共1件)</p>
             </a>
-        </li>
-    </ul>
-    <div class="pages">
-    	<a href="">首页</a>
-        <a href="">上一页</a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">下一页</a>
-        <a href="">最后一页</a>
+        </li> -->
+    </ul> 
+    <div class="tcdPageCode">
+    	
     </div>
 </div>
 <div class="space_hx">&nbsp;</div>

@@ -113,6 +113,15 @@ public class ProductHandler {
 		System.out.println("总数量是"+result);
 		return result;
 	}
+	@RequestMapping(value="/findCountById",method=RequestMethod.POST)
+	@ResponseBody
+	public int findCountById(HttpServletRequest request,ModelMap map){
+		LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
+		String ptid=request.getParameter("ptid");
+		int result=productService.findCountById(Integer.parseInt(ptid));
+		System.out.println("总数量是"+result);
+		return result;
+	}
 	@ResponseBody
 	@RequestMapping("/update"	)
 	public boolean update(@RequestParam(value = "pic", required = false) MultipartFile[] files, HttpServletRequest request, Product product) throws IllegalStateException, IOException {
@@ -165,4 +174,34 @@ public class ProductHandler {
 
 		}
 
+		
+		@RequestMapping(value="/findBypage",method=RequestMethod.POST)
+		@ResponseBody
+		public List<Product> findBypage(HttpServletRequest request,ModelMap map){
+			LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
+			List<Product>  pros;
+			String p=request.getParameter("p");
+			System.out.println(p);
+			if(p==""){
+				 pros=productService.findByPage(1);
+			}else{
+				 pros=productService.findByPage(Integer.parseInt(p));
+			}
+			return pros;
+		}
+		
+		@RequestMapping(value="/findBypageId",method=RequestMethod.POST)
+		@ResponseBody
+		public List<Product> findBypageId(HttpServletRequest request,ModelMap map){
+			LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
+			List<Product>  pros;
+			String p=request.getParameter("p");
+			System.out.println(p);
+			if(p=="0"){
+				p="1";
+			}
+			String ptid=request.getParameter("ptid");
+			pros=productService.findByPageId(new Product(Integer.parseInt(ptid), Integer.parseInt(p)));
+			return pros;
+		}
 }

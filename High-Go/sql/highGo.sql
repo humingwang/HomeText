@@ -28,7 +28,6 @@ create sequence productTypes_ptid start with 1 increment by 1;
 create sequence product_pid start with 1 increment by 1;
 create sequence assess_asid start with 1000 increment by 1;
 create sequence orderdetails_odid start with 1000 increment by 1;
-
 create sequence photoTypes_phtid start with 1000 increment by 1;
 create sequence photos_phid start with 1000 increment by 1;
 create sequence stock_kid start with 1000 increment by 1;
@@ -134,7 +133,7 @@ select*from admin;
 		phstatus int ,--状态
 		phtid int
 	);
-		insert into photos values(photos_phid.nextval,'简约式四件套','images/cp1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1072);
+	insert into photos values(photos_phid.nextval,'简约式四件套','images/cp1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'欧美风四件套','images/cp12.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'田园四件套','images/cp13.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1072);
 	insert into photos values(photos_phid.nextval,'韩式风四件套','images/cp14.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1072);
@@ -148,13 +147,9 @@ select*from admin;
 	select count(*) from photos;
 	update photos set phstatus=0 where phid=1063;
 	
-<<<<<<< HEAD
 	
 	select * from productTypes;
---商品表
-=======
 	--商品表
->>>>>>> branch 'master' of ssh://git@github.com/humingwang/HomeText.git
 	create table product(
 		pid int primary key,--商品编号
 		pname varchar2(300) ,--商品名
@@ -166,13 +161,13 @@ select*from admin;
 		phid int ,--图片
 		ptid int,--类型编号
 		sid int --库存
-<<<<<<< HEAD
 	);
 	delete product
 		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
-=======
 	);
->>>>>>> branch 'master' of ssh://git@github.com/humingwang/HomeText.git
+	
+			 select * from (select a.*,rownum rn from (select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product where ptid=2 order by pview desc,pid asc)a and 1*12>=rownum) where rn>(1-1)*12
+
 
 	insert into product values(product_pid.nextval,'棉被','被子被芯磨绒加厚春秋被单人空调被 学生太空被保暖棉被双人冬被 ',
 	'150*200cm3斤',89,to_date('2016-8-12','yyyy-mm-dd'),2,'pic/cp1.jpg',1,2);	
@@ -341,11 +336,14 @@ select*from admin;
 	
 	 select rownum,a.* from (select rownum,s.*,(select count(1) from studyCourse where courseid = s.courseid ) memberCount,
 		(select avg(assess) from studyCourse where courseid = s.courseid) assessAvg
-		 from course s where rownum>=#{pagesize}*(#{pagenumber}-1))a where #{pagesize}*#{pagenumber}>=rownum 
+		 from course s where rownum>=12*(1-1))a where 12*#{pagenumber}>=rownum 
 	
+		 select rownum,a.* from (select)
 
-	
-	
+		 
+		 select * from (select a.*,rownum rn from
+		 (select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product  order by pview desc,pid asc)a where rownum>=12*(0))a where 12*1>=rownum 
+select * from (select a.*,rownum rn from (select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product order by pview desc,pid asc)a where rownum>=12*(2-1))a where 12*2>=rownum 	
 --商品评价表：
 	create table assess(
 		asid int primary key,--编号
@@ -381,7 +379,7 @@ select*from admin;
   
   	insert into response values(response_rid.nextval,'你好',1001);
   
-  
+  drop table address
 --地址表
 	create table address(
 		aid int primary key,--地址编号
@@ -392,16 +390,19 @@ select*from admin;
 		atel varchar2(15)     --手机号码
 	);
 	
-	
---订单表
-create table orders(
-	oid varchar2(20) primary key,--订单号
-	omoney number(12,2),--订单价
-    onum int,---数量
-    ostutas int, --订单状态
-    aid int references address(aid)--地址
-  );
+  	insert into address values(1,'湖南','湖南工学院',414000,'胡明望','15674732978');
+	drop table orders;
+	  --订单表
+	create table orders(
+		oid varchar2(20) primary key,--订单号
+		omoney number(12,2),--订单价
+		odate date,--下单时间时间
+		ostutas int, --订单状态  1 待付款  2已付款   3代发货
+		aid int references address(aid)--地址
+	);
   	
+	
+	
   	insert into orders values('20160105213313',1000.00,to_date('2016-1-07','YYYY-mm-dd'),1,1);
 	insert into orders values('20160105214413',2000.00,to_date('2016-1-07','YYYY-mm-dd'),2,1);
 	insert into orders values('20160105215513',3000.00,to_date('2016-1-07','YYYY-mm-dd'),3,1);
@@ -438,19 +439,11 @@ create table orders(
 	insert into orders values('201601005213313',2000.00,to_date('2016-12-07','YYYY-mm-dd'),1,1);
 	insert into orders values('201601005215213',7000.00,to_date('2016-12-07','YYYY-mm-dd'),2,1);
 	insert into orders values('201601005212513',8000.00,to_date('2016-12-07','YYYY-mm-dd'),3,1);
-
 	insert into orderdetails values(orderdetails_odid.nextval,1000,1000,'201601005252513');	
 	insert into orderdetails values(orderdetails_odid.nextval,1001,1001,'201601005252513');	
 	insert into orderdetails values(orderdetails_odid.nextval,1000,1001,'201601005232413');	
 	
-  --订单表
-	create table orders(
-		oid varchar2(20) primary key,--订单号
-		omoney number(12,2),--订单价
-		odate date,--下单时间时间
-		ostutas int, --订单状态  1 待付款  2已付款   3代发货
-		aid int references address(aid)--地址
-	);
+drop table orderdetails;
 --订单详细表
 create table orderdetails(
     odid int primary key,--订单详细编号
