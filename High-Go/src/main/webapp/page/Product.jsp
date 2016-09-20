@@ -12,14 +12,14 @@
 <script type="text/javascript" src="../js/js_z.js"></script>
 <script type="text/javascript" src="../js/jquery.page.js"></script>
 <script type="text/javascript" src="../js/product.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/thems.css">
+<link rel="stylesheet" type="text/css" href="../css/thems.css"/>
 
 </head>
 
 <body>
 <!--头部-->
 <div class="head clearfix">
-    <div class="logo"><a href="index.html"><img src="../images/logo.png" alt="福瑞星"/></a></div>
+    <div class="logo"><a href="index.html"><img src="../images/logo.png" alt=""/></a></div>
     <div class="head_r">
     	<div class="shopcar"><a href="shopcar.html">我的购物车</a></div>
         <div class="by"><img src="../images/12.jpg" alt=""/></div>
@@ -130,9 +130,10 @@
             </a>
         </li> -->
     </ul> 
-    <div class="tcdPageCode">
-    	
-    </div>
+    <div class="tcdPageCode" id="tcdPageCode"></div>
+    <div class="tcdPageCode" id="tcdPageCode1"></div>
+    <div class="tcdPageCode" id="tcdPageCode2"></div>
+    
 </div>
 <div class="space_hx">&nbsp;</div>
 <!--底部-->

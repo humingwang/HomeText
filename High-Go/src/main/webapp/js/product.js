@@ -16,7 +16,7 @@ window.onload=function(){
 	$.post("../product/findBypage",{p:1},function(data){
 		var str="";
 		for(var i=0;i<data.length;i++){
-			str+='<li><a href="product_d.html">';
+			str+='<li><a href="../product/findbypid/'+data[i].pid+'">';
 			str+='<img src="../'+data[i].pict+'" alt=""/>';
 			str+='<p>'+data[i].pname+'</p>';
 			str+='</a></li>';
@@ -31,14 +31,15 @@ window.onload=function(){
 		}else{
 			pagesize=Math.floor((page/12)+1);
 		}
-		$(".tcdPageCode").createPage({
+	
+		$("#tcdPageCode").createPage({
 		    pageCount:pagesize,
 		    current:1,
 		    backFn:function(p){
 		    	$.post("../product/findBypage",{p:p  },function(data){
 		    		var str="";
 		    		for(var i=0;i<data.length;i++){
-		    			str+='<li><a href="product_d.html">';
+		    			str+='<li><a href="../product/findbyPid/'+data[i].pid+'">';
 		    			str+='<img src="../'+data[i].pict+'" alt=""/>';
 		    			str+='<p>'+data[i].pname+'</p>';
 		    			str+='</a></li>';
@@ -58,7 +59,7 @@ function findByfid(id){
 			var str="";
 			str+='<a href="" class="now">全部</a>';
 			for(var i=0;i<data.length;i++){
-				str+='<a href="javascript:findBytid('+data[i].ptid+')">'+data[i].name+'</a>';
+				str+='<a href="javascript:findByfid('+data[i].ptid+')">'+data[i].name+'</a>';
 			}
 			$.post("../productType/findById",{ptid:id},function(data){
 				if(data){
@@ -78,22 +79,22 @@ function findByfid(id){
 		}  	$.post("../product/findBypageId",{p:1,ptid:id},function(data){
 		    		var pagestr="";
 		    		for(var i=0;i<data.length;i++){
-		    			pagestr+='<li><a href="product_d.html">';
+		    			pagestr+='<li><a href="../product/findbyPid/'+data[i].pid+'">';
 		    			pagestr+='<img src="../'+data[i].pict+'" alt=""/>';
 		    			pagestr+='<p>'+data[i].pname+'</p>';
 		    			pagestr+='</a></li>';
 		    		}
 		    		$("#prosList").html(pagestr);	
 		    	});
-	
-		$(".tcdPageCode").createPage({
+		$("#tcdPageCode").hide();
+		$("#tcdPageCode1").createPage({
 		    pageCount:num,
 		    current:1,
 		    backFn:function(p){
 		    	$.post("../product/findBypageId",{p:p,ptid:id},function(data){
 		    		var pagestr="";
 		    		for(var i=0;i<data.length;i++){
-		    			pagestr+='<li><a href="product_d.html">';
+		    			pagestr+='<li><a href="../product/findbyPid/'+data[i].pid+'">';
 		    			pagestr+='<img src="../'+data[i].pict+'" alt=""/>';
 		    			pagestr+='<p>'+data[i].pname+'</p>';
 		    			pagestr+='</a></li>';
@@ -119,21 +120,22 @@ function  findBytid(id){
 		    	$.post("../product/findBypageId",{p:1,ptid:id},function(data){
 		    		var pagestr="";
 		    		for(var i=0;i<data.length;i++){
-		    			pagestr+='<li><a href="product_d.html">';
+		    			pagestr+='<li><a href="../product/findbyPid?pid='+data[i].pid+'">';
 		    			pagestr+='<img src="../'+data[i].pict+'" alt=""/>';
 		    			pagestr+='<p>'+data[i].pname+'</p>';
 		    			pagestr+='</a></li>';
 		    		}
 		    		$("#prosList").html(pagestr);	
 		    	});
-		$(".tcdPageCode").createPage({
+	$("#tcdPageCode1").hide();
+	$("#tcdPageCode2").createPage({
 		    pageCount:num,
 		    current:1,
 		    backFn:function(p){
 		    	$.post("../product/findBypageId",{p:p,ptid:id},function(data){
 		    		var pagestr="";
 		    		for(var i=0;i<data.length;i++){
-		    			pagestr+='<li><a href="product_d.html">';
+		    			pagestr+='<li><a href="../product/findbyPid?'+data[i].pid+'">';
 		    			pagestr+='<img src="../'+data[i].pict+'" alt=""/>';
 		    			pagestr+='<p>'+data[i].pname+'</p>';
 		    			pagestr+='</a></li>';
@@ -145,4 +147,12 @@ function  findBytid(id){
 	});
 
 }
+
+/*function findbyPid(id){
+	$.post("../product/findbyPid",{pid:id},function(data){
+		if(data){
+			request.getRequestDispatcher("/goodsInfo.jsp").forward(request,response);
+		}
+	});
+}*/
 

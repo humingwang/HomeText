@@ -42,5 +42,10 @@ public class OrdersServiceImpl implements OrdersService{
 		}
 		return false;
 	}
+
+	@Override
+	public int addOrder(Orders orders) {
+		return orderMapper.addOrder(orders);
+	}
 	
 }

@@ -21,6 +21,7 @@ drop sequence photos_phid;
 drop sequence photoTypes_phtid;
 drop sequence stock_kid;
 drop sequence response_rid;
+drop sequence address_aid;
 
 create sequence admin_aid start with 1000 increment by 1;
 create sequence customer_cid start with 1000 increment by 1;
@@ -31,6 +32,7 @@ create sequence orderdetails_odid start with 1000 increment by 1;
 create sequence photoTypes_phtid start with 1000 increment by 1;
 create sequence photos_phid start with 1000 increment by 1;
 create sequence stock_kid start with 1000 increment by 1;
+create sequence address_aid start with 2 increment by 1;
 create sequence response_rid start with 1000 increment by 1;
 select*from admin;
 

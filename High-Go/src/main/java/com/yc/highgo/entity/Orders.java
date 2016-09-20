@@ -11,7 +11,14 @@ public class Orders {
 	private String pname;
 	private Address address;
 	private int waits;
+	private int aid;
 	
+	public int getAid() {
+		return aid;
+	}
+	public void setAid(int aid) {
+		this.aid = aid;
+	}
 	public int getWaits() {
 		return waits;
 	}
@@ -85,6 +92,12 @@ public class Orders {
 		this.success = success;
 		this.allnum = allnum;
 		this.pname = pname;
+	}
+	
+	public Orders(String oid, double omoney,int aid) {
+		this.oid = oid;
+		this.omoney = omoney;
+		this.aid=aid;
 	}
 	@Override
 	public String toString() {

@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findAll" parameterType="Product" resultType="Product">
 		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
 	</select>
+	
 	<select id="findCount" resultType="int">
 		select count(pid) as total from  product
 	</select>

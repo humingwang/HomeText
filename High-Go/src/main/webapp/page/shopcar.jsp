@@ -11,7 +11,10 @@
 		<link rel="stylesheet" href="css/newArrival.css" />
 		<link rel="stylesheet" type="text/css" href="css/css.css" />
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="js/shopping.js"></script>
+		<script type="text/javascript" src="js/shopcar.js"></script>
+		<script type="text/javascript" src="js/shopping.js"></script>	
+			 
+		
 	</head>
 	<body>
 		<div class="head">
@@ -98,25 +101,22 @@
 	<!---------------------------------------------内容------------------------------------------->
 		<div class="content">
 		<div class="Caddress">
-			<div class="open_new">
+				<!-- <div class="open_new">
 				<button class="open_btn" onclick="javascript:onclick_open();">使用新地址</button>
 			</div>
+			
 			<div class="add_mi">
+				<p style="border-bottom:1px dashed #ccc;line-height:28px;">浙江杭州(爸爸收)</p>
+				<p>萧山 北干 明怡花苑53幢3单元 13735683918</p>
+			</div>
+		<div class="add_mi">
 				<p style="border-bottom:1px dashed #ccc;line-height:28px;">浙江杭州(爸爸收)</p>
 				<p>萧山 北干 明怡花苑53幢3单元 13735683918</p>
 			</div>
 			<div class="add_mi">
 				<p style="border-bottom:1px dashed #ccc;line-height:28px;">浙江杭州(爸爸收)</p>
 				<p>萧山 北干 明怡花苑53幢3单元 13735683918</p>
-			</div>
-			<div class="add_mi">
-				<p style="border-bottom:1px dashed #ccc;line-height:28px;">浙江杭州(爸爸收)</p>
-				<p>萧山 北干 明怡花苑53幢3单元 13735683918</p>
-			</div>
-			<div class="add_mi">
-				<p style="border-bottom:1px dashed #ccc;line-height:28px;">浙江杭州(爸爸收)</p>
-				<p>萧山 北干 明怡花苑53幢3单元 13735683918</p>
-			</div>
+			</div> -->
 		
 		</div>
 
@@ -138,19 +138,19 @@
 					</tr>
 					<tr>
 						<td>
-							<a><img src="images/2f1.jpg" /></a>
+							<a><img src="${product.pict}" /></a>
 						</td>
-						<td><span>小消息下</span></td>
+						<td><span>${product.pname }</span></td>
 						<td>
 							<div class="">
-								<span id="">颜色</span>：<span>白色</span>
+								<span id="">颜色</span>：<span>红色</span>
 							</div>
 							<div class="">
-								<span id="">尺码</span>：<span>L</span>
+								<span id="">规格</span>：<span>${product.pnorms }</span>
 							</div>
 						</td>
 						<td>
-							<span class="span_momey">11.10</span>
+							<span class="span_momey">${product.pprice }</span>
 						</td>
 						<td>
 							<button class="btn_reduce" onclick="javascript:onclick_reduce(this);">-</button>
@@ -161,7 +161,7 @@
 							<button class="btn_r" onclick="javascript:onclick_remove(this);">删除</button>
 						</td>
 					</tr>
-					<tr>
+				<!-- 	<tr>
 						<td>
 							<a><img src="images/2f1.jpg" /></a>
 						</td>
@@ -260,13 +260,13 @@
 						<td>
 							<button class="btn_r" onclick="javascript:onclick_remove(this);">删除</button>
 						</td>
-					</tr>
+					</tr> -->
 				</table>
 				<div class="" style="width: 100%; text-align: right; margin-top: 10px;">
 					<div class="div_outMumey" style="float: left;">
-						总价：<span class="out_momey">11</span>
+						总价：<span class="out_momey" id="out_momey">11</span>
 					</div>
-					<button class="btn_closing">结算</button>
+					<button class="btn_closing" onclick="sale()">结算</button>
 				</div>
 			</div>
 		</div>
@@ -292,26 +292,26 @@
 					新增收货地址
 				</div>
 				<div class="col-xs-12 shade_from">
-					<form action="" method="post">
+					<form action="address/add" method="post">
 						<div class="col-xs-12">
 							<span class="span_style" id="">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</span>
-							<input class="input_style" type="text" name="" id="region" value="" placeholder="&nbsp;&nbsp;请输入您的所在地区" />
+							<input class="input_style" type="text" name="aarea" id="region" value="" placeholder="&nbsp;&nbsp;请输入您的所在地区" />
 						</div>
 						<div class="col-xs-12">
 							<span class="span_style" id="">详细地址</span>
-							<input class="input_style" type="text" name="" id="address" value="" placeholder="&nbsp;&nbsp;请输入您的详细地址" />
+							<input class="input_style" type="text" name="adetail" id="address" value="" placeholder="&nbsp;&nbsp;请输入您的详细地址" />
 						</div>
 						<div class="col-xs-12">
 							<span class="span_style" id="">邮政编号</span>
-							<input class="input_style" type="text" name="" id="number_this" value="" placeholder="&nbsp;&nbsp;请输入您的邮政编号" />
+							<input class="input_style" type="text" name="amail" id="number_this" value="" placeholder="&nbsp;&nbsp;请输入您的邮政编号" />
 						</div>
 						<div class="col-xs-12">
 							<span class="span_style" class="span_sty" id="">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
-							<input class="input_style" type="text" name="" id="name_" value="" placeholder="&nbsp;&nbsp;请输入您的姓名" />
+							<input class="input_style" type="text" name="aname" id="name_" value="" placeholder="&nbsp;&nbsp;请输入您的姓名" />
 						</div>
 						<div class="col-xs-12">
 							<span class="span_style" id="">手机号码</span>
-							<input class="input_style" type="text" name="" id="phone" value="" placeholder="&nbsp;&nbsp;请输入您的手机号码" />
+							<input class="input_style" type="text" name="atel" id="phone" value="" placeholder="&nbsp;&nbsp;请输入您的手机号码" />
 						</div>
 						<div class="col-xs-12">
 							<input class="btn_remove" type="button" id="" onclick="javascript:onclick_close();" value="取消" />

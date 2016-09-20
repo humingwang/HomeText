@@ -43,7 +43,7 @@
 					$('input[name=num]').val(parseInt($('input[name=num]').val()) - 1);
 				})
 				$('.Caddress .add_mi').click(function() {
-					$(this).css('background', 'url("../images/mail_1.jpg") no-repeat').siblings('.add_mi').css('background', 'url("../images/mail.jpg") no-repeat')
+					$(this).css('background', 'url("images/mail_1.jpg") no-repeat').siblings('.add_mi').css('background', 'url("images/mail.jpg") no-repeat')
 				})
 			})
 			var x = Array();

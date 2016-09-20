@@ -41,4 +41,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from orders where oid=#{oid}
 	</delete>
 	
+	<insert id="addOrder" parameterType="orders">
+  		insert into orders values(#{oid},#{omoney},sysdate,2,#{aid})
+	</insert>
+	
 </mapper>

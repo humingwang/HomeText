@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -92,6 +93,19 @@ public class ProductHandler {
 		return product;
 	}
 	
+	
+	@RequestMapping(value="/findbypid/{pid}")
+	public String findAllBypId(@PathVariable("pid") int pid,ModelMap map){
+		LogManager.getLogger().debug("//商品详情页面正在响应成功.....");
+		Product product=productService.findById(pid);
+		map.put("product", product);
+		return "goodsInfo";
+	}
+	@RequestMapping(value="/showcar",method=RequestMethod.GET)
+	public String showcar(){
+		LogManager.getLogger().debug("//购物车页面正在响应成功.....");
+		return "showcar";
+	}
 	@RequestMapping(value="/findByPtid",method=RequestMethod.POST)
 	@ResponseBody
 	public boolean findAllByPtid(HttpServletRequest request,ModelMap map){
@@ -140,7 +154,7 @@ public class ProductHandler {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			uploadPath += "/High-Go/pics/" + fileName + ",";
+			uploadPath += "pics/" + fileName + ",";
 		}
         product.setPict(uploadPath.substring(0, uploadPath.length() - 1));
         System.out.println(uploadPath.substring(0, uploadPath.length() - 1));

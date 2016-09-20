@@ -7,7 +7,7 @@ public class Address {
 	private int amail;
 	private String aname;
 	private String atel;
-	
+	 
 	
 	
 	public Address() {

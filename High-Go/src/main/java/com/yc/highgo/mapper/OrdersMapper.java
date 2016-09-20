@@ -16,4 +16,5 @@ public interface OrdersMapper {
 
 	int delOrder(String oid);
 
+	int addOrder(Orders orders);
 }

@@ -4,11 +4,14 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.google.gson.Gson;
@@ -81,4 +84,17 @@ public class OrdersHandler {
 		out.flush();
 		out.close();
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/add",method=RequestMethod.POST)
+	public int addOrder(HttpServletRequest request){
+		String oid=request.getParameter("oid");
+		String aid=request.getParameter("aid");
+		String omoney=request.getParameter("omoney");
+		System.out.println(aid);
+		Orders ord=new Orders(oid,Double.parseDouble(omoney),Integer.parseInt(aid));
+		int res=orderService.addOrder(ord);	
+		return res;
+	}
 }
+
