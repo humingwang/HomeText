@@ -2,7 +2,6 @@ package com.yc.highgo.handler;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.google.gson.Gson;
 import com.yc.highgo.entity.Product;
 import com.yc.highgo.service.ProductService;
 
@@ -34,7 +33,7 @@ public class ProductHandler {
 	@ModelAttribute
 	public void getModel(ModelMap map){
 		map.put("lists", new ArrayList<Product>());
-		map.put("lists", new Product());
+		map.put("product", new Product());
 
 	}
 	@RequestMapping(value="/findAll",method=RequestMethod.GET)
@@ -58,10 +57,18 @@ public class ProductHandler {
 		int res=productService.delProduct(pid);
 		return res;
 	}
-	
-	//@RequestMapping(value="/findAllBynd",method=RequestMethod.POST)
-	//@ResponseBody
-	/*public List<Product> findAllBynd(HttpServletRequest request,ModelMap map){
+	@RequestMapping(value="/delpros",method=RequestMethod.POST)
+	@ResponseBody
+	public boolean delpros(HttpServletRequest request){
+		LogManager.getLogger().debug("//批量删除方法成功到达处理方法中.....");
+		String pids=request.getParameter("pros_ids");
+		System.out.println(pids);
+		boolean res=productService.delPros(pids);
+		return res;
+	}
+	@RequestMapping(value="/findAllBynd",method=RequestMethod.POST)
+	@ResponseBody
+	public List<Product> findAllBynd(HttpServletRequest request,ModelMap map){
 		LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
 		String pname=request.getParameter("pname");
 		String pdate=request.getParameter("pdate");
@@ -69,11 +76,11 @@ public class ProductHandler {
 		Product product=new Product(pname,pdate);
 		List<Product>  pros=productService.findAllBynd(product);
 		HttpSession session = request.getSession();
-        session.removeAttribute("lists");ss
+        session.removeAttribute("lists");
         map.remove("lists");
         map.put("lists", pros);
 		return pros;
-	}*/
+	}
 	
 	
 	@RequestMapping(value="/findById",method=RequestMethod.POST)
@@ -86,6 +93,19 @@ public class ProductHandler {
 		return product;
 	}
 	
+	
+	@RequestMapping(value="/findbypid/{pid}")
+	public String findAllBypId(@PathVariable("pid") int pid,ModelMap map){
+		LogManager.getLogger().debug("//商品详情页面正在响应成功.....");
+		Product product=productService.findById(pid);
+		map.put("product", product);
+		return "goodsInfo";
+	}
+	@RequestMapping(value="/showcar",method=RequestMethod.GET)
+	public String showcar(){
+		LogManager.getLogger().debug("//购物车页面正在响应成功.....");
+		return "showcar";
+	}
 	@RequestMapping(value="/findByPtid",method=RequestMethod.POST)
 	@ResponseBody
 	public boolean findAllByPtid(HttpServletRequest request,ModelMap map){
@@ -107,6 +127,15 @@ public class ProductHandler {
 		System.out.println("总数量是"+result);
 		return result;
 	}
+	@RequestMapping(value="/findCountById",method=RequestMethod.POST)
+	@ResponseBody
+	public int findCountById(HttpServletRequest request,ModelMap map){
+		LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
+		String ptid=request.getParameter("ptid");
+		int result=productService.findCountById(Integer.parseInt(ptid));
+		System.out.println("总数量是"+result);
+		return result;
+	}
 	@ResponseBody
 	@RequestMapping("/update"	)
 	public boolean update(@RequestParam(value = "pic", required = false) MultipartFile[] files, HttpServletRequest request, Product product) throws IllegalStateException, IOException {
@@ -121,26 +150,17 @@ public class ProductHandler {
 			System.out.println(targetFile + " ==> " + testFile);
 			try {
 				files[i].transferTo(targetFile);
-				//files[i].transferTo(testFile);
+				files[i].transferTo(testFile);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			uploadPath += "/High-Go/pics/" + fileName + ",";
+			uploadPath += "pics/" + fileName + ",";
 		}
         product.setPict(uploadPath.substring(0, uploadPath.length() - 1));
         System.out.println(uploadPath.substring(0, uploadPath.length() - 1));
        return productService.UpdateById(product);
 
 	}
-
-
-/*	@RequestMapping(value="/add", method=RequestMethod.POST)
-		public String save(Product product,ModelMap map){
-			System.out.println(product);
-			LogManager.getLogger().debug("//添加请求成功到达处理方法中,请求参数\n\t\temp===》》》》.");
-			productService.addProduct(product);
-			return "redirect:/back/Products_List.jsp";
-		}*/
 		
 		@ResponseBody
 		@RequestMapping("/add"	)
@@ -156,11 +176,11 @@ public class ProductHandler {
 				System.out.println(targetFile + " ==> " + testFile);
 				try {
 					files[i].transferTo(targetFile);
-					//files[i].transferTo(testFile);
+					files[i].transferTo(testFile);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				uploadPath += "/High-Go/pics/" + fileName + ",";
+				uploadPath += "pics/" + fileName + ",";
 			}
 	        product.setPict(uploadPath.substring(0, uploadPath.length() - 1));
 	        System.out.println(uploadPath.substring(0, uploadPath.length() - 1));
@@ -169,15 +189,33 @@ public class ProductHandler {
 		}
 
 		
-		//点击图片获取详情
-		@RequestMapping("/getDetail")
-		public String getDetail(int pid,ModelMap map,PrintWriter out){
-			System.out.println("getDetail coming"+pid);
-			Product lists=productService.getDetail(pid);
-			System.out.println(lists);
-			map.put("lists", lists);
-			return "goodsInfo";
+		@RequestMapping(value="/findBypage",method=RequestMethod.POST)
+		@ResponseBody
+		public List<Product> findBypage(HttpServletRequest request,ModelMap map){
+			LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
+			List<Product>  pros;
+			String p=request.getParameter("p");
+			System.out.println(p);
+			if(p==""){
+				 pros=productService.findByPage(1);
+			}else{
+				 pros=productService.findByPage(Integer.parseInt(p));
+			}
+			return pros;
 		}
 		
-		
+		@RequestMapping(value="/findBypageId",method=RequestMethod.POST)
+		@ResponseBody
+		public List<Product> findBypageId(HttpServletRequest request,ModelMap map){
+			LogManager.getLogger().debug("//按条件方法成功到达处理方法中.....");
+			List<Product>  pros;
+			String p=request.getParameter("p");
+			System.out.println(p);
+			if(p=="0"){
+				p="1";
+			}
+			String ptid=request.getParameter("ptid");
+			pros=productService.findByPageId(new Product(Integer.parseInt(ptid), Integer.parseInt(p)));
+			return pros;
+		}
 }

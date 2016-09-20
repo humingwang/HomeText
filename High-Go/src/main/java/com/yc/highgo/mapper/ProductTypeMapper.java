@@ -9,6 +9,8 @@ public interface ProductTypeMapper {
 	List<ProductType> findAll();
 	int insertPros(ProductType productType);
 	ProductType findAllById(int ptid);
+	List<ProductType> findAllByfptId(int fptid);
+
 	boolean delPros(String name);
 	boolean updatePros(ProductType productType);
 	List<ProductType> getPtypes();

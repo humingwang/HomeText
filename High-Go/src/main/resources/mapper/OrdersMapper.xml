@@ -9,8 +9,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from orders  group by oDate,ostutas  order by oDate,ostutas desc 
 	</select>
 	<select id="findAllNum" resultType="Orders" >
-		select (select sum(onum) from orders where ostutas=2) success,(select sum(onum) from orders) allnum,
-	(select sum(oMoney) from orders) omoney,sum(onum) onum,extract (MONTH from oDate) as oDate,oStutas from orders  
+		select (select count(1) from orders where ostutas=1) onum,(select count(1) from orders where ostutas=2) success,
+		(select count(1)from orders where ostutas=1)waits,(select count(1) from orders) allnum,
+	(select sum(oMoney) from orders) omoney,extract (MONTH from oDate) as oDate,oStutas from orders  
 	group by oDate,oStutas  order by oDate,oStutas desc
 	</select>
+	
+	<select id="orderList" resultMap="od">
+		  select sum(o.omoney) omoney,o.oid oid,o.ostutas ostutas,o.odate odate,a.aname aname,a.adetail adetail,a.atel atel
+		  from orders o ,address a where  a.aid=o.aid group by 
+		  o.oid,o.ostutas,a.aname,a.adetail,a.atel ,o.odate
+	</select>
+	<resultMap type="orders" id="od">
+		<id column="oid" property="oid"/>
+			<result column="omoney" property="omoney"/>
+			<result column="ostutas" property="ostutas"/>
+			<result column="odate" property="odate"/>
+			<result column="pname" property="pname"/>
+		<association property="address" column="aid" javaType="Address">
+		<id column="aid" property="aid" />
+		<result column="aname" property="aname"/>
+		<result column="adetail" property="adetail"/>
+		<result column="atel" property="atel"/>
+			
+		</association>
+	</resultMap>
+	<update id="sendOrder" parameterType="string">
+		update orders set ostutas=1 where oid=#{oid}
+	</update>
+	<delete id="delOrder" parameterType="string">
+		delete from orders where oid=#{oid}
+	</delete>
+	
+	<insert id="addOrder" parameterType="orders">
+  		insert into orders values(#{oid},#{omoney},sysdate,2,#{aid})
+	</insert>
+	
 </mapper>

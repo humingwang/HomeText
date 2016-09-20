@@ -15,11 +15,6 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductMapper productMapper;
 
-@Override
-	public List<Product> searchGoodsByName(String pname) {
-		return productMapper.searchGoodsByName(pname);
-	}
-	
 	@Override
 	public List<Product> findAll() {
 		return productMapper.findAll();
@@ -62,9 +57,27 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product getDetail(int pid) {
-		return productMapper.getDetail(pid);
+	public boolean delPros(String... pids) {
+		return productMapper.delPros(pids);
 	}
+
+	@Override
+	public List<Product> findByPage(int pageNo) {
+		return productMapper.findByPage(pageNo);
+	}
+
+	@Override
+	public List<Product> findByPageId(Product product) {
+		// TODO Auto-generated method stub
+		return productMapper.findByPageId(product);
+	}
+
+	@Override
+	public int findCountById(int ptid) {
+		// TODO Auto-generated method stub
+		return productMapper.findCountById(ptid);
+	}
+
 
 
 	

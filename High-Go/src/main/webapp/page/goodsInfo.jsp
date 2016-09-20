@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,8 @@
 <link rel="stylesheet" type="text/css" href="css/newArrival.css" />
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="js/big.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/goodsInfo.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		var showproduct = {
@@ -116,12 +119,13 @@
 		<div class="showbot">
 			<!--  <div id="showbox_mask"></div>-->
 			<div id="showbox">
-				<img src="images/photos/img01.jpg" width="400" height="400" /> <img
-					src="images/photos/img02.jpg" width="400" height="400" /> <img
-					src="images/photos/img03.jpg" width="400" height="400" /> <img
-					src="images/photos/img04.jpg" width="400" height="400" /> <img
-					src="images/photos/img05.jpg" width="400" height="400" /> <img
-					src="images/photos/img06.jpg" width="400" height="400" />
+			
+				<img src="${product.pict }" width="400" height="400" />
+				 <img src="images/photos/img02.jpg" width="400" height="400" /> 
+				 <img src="images/photos/img03.jpg" width="400" height="400" /> 
+				 <img src="images/photos/img04.jpg" width="400" height="400" />
+				 <img src="images/photos/img05.jpg" width="400" height="400" />
+				 <img src="images/photos/img06.jpg" width="400" height="400" />
 
 			</div>
 			<!--展示图片盒子-->
@@ -135,9 +139,9 @@
 		</div>
 		<!--conet -->
 		<div class="tb-property">
-			<div class="tr-nobdr">${lists.pdesc }</div>
+			<div class="tr-nobdr" style="font-size:24px">${product.pdesc }</div>
 			<div class="txt">
-				<span class="nowprice">￥<a href="">${lists.pprice }</a></span>
+				<span class="nowprice">￥<a href="">${product.pprice }</a></span>
 				<div class="cumulative">
 					<span class="number ty1">累计售出<br /> <em
 						id="add_sell_num_363">370</em></span> <span class="number tyu">累计评价<br />
@@ -181,7 +185,7 @@
 					id="add" name="" type="button" value="+" /> <span class="Hgt">库存（99）</span>
 			</div>
 			<div class="nobdr-btns">
-				<button class="addcart hu">
+				<button class="addcart hu" onclick="addshowcar()" id="addshowcar">
 					<img src="images/shop.png" width="25" height="25" />加入购物车
 				</button>
 				<button class="addcart yh">
@@ -202,7 +206,7 @@
 			<div class="seller-pop-box">
 				<span class="tr">商家名称：嗨购极有家优品家纺</span> <span class="tr">商家等级：初级店铺</span>
 				<span class="tr">客家电话：15012365897</span> <span class="tr hoh">
-					<a title="河南郑州市航海路57号河南郑州市航海路57号" href="">所在地区：湖南省衡阳市湖南工学院嗨购 </a>
+					<a title="河南郑州市航海路57号河南郑州市航海路57号" href="">所在地区：河南郑州市航海路57号河南郑州市航海路57号</a>
 				</span>
 			</div>
 			<div class="seller-phone">

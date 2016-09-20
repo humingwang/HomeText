@@ -10,4 +10,13 @@ public interface OrdersService {
 
 	List<Orders> findAllNum();
 
+	List<Orders> orderList();
+
+	int sendOrder(String oid);
+
+	boolean delOrder(String oid);
+	
+	int addOrder(Orders orders);
+
+
 }

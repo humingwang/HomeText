@@ -10,9 +10,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findCount" resultType="int">
 		select count(pid) as total from  product
 	</select>
-	
-
-	
 	<select id="findAllBynd" parameterType="Product" resultType="Product">
 		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
 		<where>
@@ -50,4 +47,58 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getDetail" parameterType="int" resultType="Product">
 		select pname,pdesc,pnorms,pprice,pdate,pict from product where pid=#{pid}
 	</select>
+	
+	<select id="findCount" resultType="int">
+		select count(pid) as total from  product
+	</select>
+	<select id="findCountById" resultType="int" parameterType="int">
+		select count(pid) as total from  product where ptid in(select ptid
+        from productType
+        start with ptid=#{ptid}
+        connect by prior ptid = fptid)
+	</select>
+	<select id="findByPage" parameterType="int" resultType="Product">
+		 select * from (select a.*,rownum rn from (select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product order by pview desc,pid asc)a where #{pageNo}*12>=rownum) where rn>(#{pageNo}-1)*12
+	</select>
+	<select id="findByPageId" parameterType="Product" resultType="Product">
+	    select * from (
+      		 select a.*,rownum rn from (
+     		  select pid,t.ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd')
+       			 pdate,pview,pict,sid from product p ,productType t where p.ptid=t.ptid and t.ptid in(select ptid
+        		from productType start with ptid=#{ptid} connect by prior ptid = fptid) order by pview desc,pid asc)a where #{pageNo}*12>=rownum) where rn>(#{pageNo}-1)*12
+	
+	</select>
+	<select id="findAllBynd" parameterType="Product" resultType="Product">
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product 
+		<where>
+			<if test="pdate!=''">
+			  pdate=to_date(#{pdate},'YYYY-MM-dd') 
+			</if>
+			<if test="pname!=''">
+			and pname =#{pname}  
+			</if>
+			</where> 
+	</select>
+	<select id="findById" parameterType="int" resultType="Product">
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product where pid=#{pid} 
+	</select>
+		<select id="findByPtId" parameterType="int" resultType="Product">
+		select pid,ptid,pname,pdesc,pnorms,pprice,to_char(pdate,'yyyy-MM-dd') pdate,pview,pict,sid from product where ptid=#{ptid} 
+	</select>
+	<delete id="delProduct" parameterType="int">
+		delete from product where pid=#{pid}
+	</delete>
+	<delete id="delPros" parameterType="String">
+		delete from product where pid in 
+		<foreach collection="array" item="pids" open="(" close=")" separator=",">
+			#{pids}
+		</foreach>
+	</delete>
+	<update id="UpdateById" parameterType="Product">
+		update product set  pid=#{pid},pname=#{pname},pdesc=#{pdesc},pnorms=#{pnorms},pprice=#{pprice}, pdate=to_date(#{pdate},'YYYY-MM-dd'),pict=#{pict},ptid=#{ptid} where pid=#{pid}
+	</update>
+	<insert id="addProduct" parameterType="Product">
+		insert into product values(product_pid.nextval,#{pname},#{pdesc},
+			#{pnorms},#{pprice},to_date(#{pdate},'yyyy-mm-dd'),2,#{pict},#{ptid},1001)
+	</insert>
 </mapper>

@@ -33,14 +33,22 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	}
 	@Override
 	public boolean updatePros(ProductType productType) {
+		// TODO Auto-generated method stub
 		return productTypeMapper.updatePros(productType);
 	}
 	@Override
+	public List<ProductType> findAllByfptId(int fptid) {
+		// TODO Auto-generated method stub
+		return productTypeMapper.findAllByfptId(fptid);
+	}
+	@Override
 	public List<ProductType> getPtypes() {
+		// TODO Auto-generated method stub
 		return productTypeMapper.getPtypes();
 	}
 	@Override
 	public List<Product> getPstylesById(int ptid) {
+		// TODO Auto-generated method stub
 		return productTypeMapper.getPstylesById(ptid);
 	}
 

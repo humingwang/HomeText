@@ -1,16 +1,43 @@
 package com.yc.highgo.entity;
 
-import java.util.Date;
 
 public class Product {
 	private int pid;
+	private String pids;
 	private String pname;
 	private String pdesc;
 	private String pnorms;
-	private String pprice;
-	private String pict;
+	private double pprice;
+	private String pict; 
 	private int pview;
-	private Date pdate;
+	private String pdate;
+	private int ptid;
+	private int pageNo;
+	
+	public int getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+	public String getPids() {
+		return pids;
+	}
+	public void setPids(String pids) {
+		this.pids = pids;
+	}
+	public int getPtid() {
+		return ptid;
+	}
+	public void setPtid(int ptid) {
+		this.ptid = ptid;
+	}
+	public String getPict() {
+		return pict;
+	}
+	public void setPict(String pict) {
+		this.pict = pict;
+	}
 	private ProductType productType;
 	
 	public int getPid() {
@@ -37,28 +64,23 @@ public class Product {
 	public void setPnorms(String pnorms) {
 		this.pnorms = pnorms;
 	}
-	public String getPprice() {
+	public double getPprice() {
 		return pprice;
 	}
-	public void setPprice(String pprice) {
+	public void setPprice(double pprice) {
 		this.pprice = pprice;
 	}
-	public String getPict() {
-		return pict;
-	}
-	public void setPict(String pict) {
-		this.pict = pict;
-	}
+
 	public int getPview() {
 		return pview;
 	}
 	public void setPview(int pview) {
 		this.pview = pview;
 	}
-	public Date getPdate() {
+	public String getPdate() {
 		return pdate;
 	}
-	public void setPdate(Date pdate) {
+	public void setPdate(String pdate) {
 		this.pdate = pdate;
 	}
 	public ProductType getProductType() {
@@ -67,26 +89,62 @@ public class Product {
 	public void setProductType(ProductType productType) {
 		this.productType = productType;
 	}
-	public Product(int pid, String pname, String pdesc, String pnorms, String pprice, String pict, int pview,
-			Date pdate, ProductType productType) {
+	public Product(int pid, String pname, String pdesc, String pnorms, double pprice, String ppic, int pview,
+			String pdate, String pict, ProductType productType) {
+		super();
 		this.pid = pid;
 		this.pname = pname;
 		this.pdesc = pdesc;
 		this.pnorms = pnorms;
 		this.pprice = pprice;
-		this.pict = pict;
 		this.pview = pview;
 		this.pdate = pdate;
+		this.pict = pict;
 		this.productType = productType;
 	}
 	
+	public Product( String pname, String pdesc, String pnorms, double pprice,String pdate, String pict, 
+			int ptid) {
+		super();
+
+		this.pname = pname;
+		this.pdesc = pdesc;
+		this.pnorms = pnorms;
+		this.pprice = pprice;
+		this.pict = pict;
+		this.pdate = pdate;
+		this.ptid=ptid;
+	
+	}
+	
+	public Product(int pid, String pname, String pdesc,  double pprice,String pnorms,
+			String pdate) {
+		this.pid = pid;
+		this.pname = pname;
+		this.pdesc = pdesc;
+		this.pnorms = pnorms;
+		this.pprice = pprice;
+		this.pdate = pdate;
+	
+	}
 	public Product() {
+	}
+	public Product(String pname, String pdate) {
+		this.pname = pname;
+		this.pdate = pdate;
+
+	}
+	public Product(int ptid, int pageNo) {
+		this.ptid = ptid;
+		this.pageNo = pageNo;
+
 	}
 	@Override
 	public String toString() {
-		return "\nProduct [pid=" + pid + ", pname=" + pname + ", pdesc=" + pdesc + ", pnorms=" + pnorms + ", pprice="
-				+ pprice + ", pict=" + pict + ", pview=" + pview + ", pdate=" + pdate + ", productType=" + productType
-				+ "]";
+		return "Product [pid=" + pid + ", pname=" + pname + ", pdesc=" + pdesc + ", pnorms=" + pnorms + ", pprice="
+				+ pprice + ", pict=" + pict + ", pview=" + pview + ", pdate=" + pdate + ", ptid=" + ptid
+				+ ", productType=" + productType + "]";
 	}
+
 	
 }

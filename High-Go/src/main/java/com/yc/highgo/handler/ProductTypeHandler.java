@@ -1,4 +1,4 @@
-package com.yc.highgo.handler;
+ package com.yc.highgo.handler;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,23 +16,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 import com.google.gson.Gson;
-import com.yc.highgo.entity.Customer;
 import com.yc.highgo.entity.Photo;
 import com.yc.highgo.entity.Product;
 import com.yc.highgo.entity.ProductType;
 import com.yc.highgo.service.PhotoService;
 import com.yc.highgo.service.ProductTypeService;
 
+
 @Controller
 @RequestMapping("/productType")
-@SessionAttributes("list")
+@SessionAttributes(value={"list","types"})
+
 public class ProductTypeHandler {
 	@Autowired
 	private ProductTypeService productTypeService;
 
-	@Autowired
 	private PhotoService photoService;
 	
 	@ModelAttribute
@@ -41,14 +39,17 @@ public class ProductTypeHandler {
 		map.put("list", new ProductType());
 		map.put("ptyes", new ArrayList<Product>());
 		map.put("phot", new ArrayList<Photo>());
-	
+		map.put("types", new ArrayList<ProductType>());
+
 	}
 	
 	@RequestMapping(value="/findAll",method=RequestMethod.POST)
 	@ResponseBody
-	public List<ProductType> findAll(){
+	public List<ProductType> findAll(ModelMap map){
 		LogManager.getLogger().debug("//查询方法成功到达处理方法中.....");
 		List<ProductType> list=productTypeService.findAll();
+		System.out.println(list);
+		map.put("types", list);
 		return list;
 	}
 	
@@ -74,7 +75,25 @@ public class ProductTypeHandler {
 		String ptid=request.getParameter("ptid");
 		ProductType list=productTypeService.findAllById(Integer.parseInt(ptid));
 		map.put("list", list);
+		return list;
+	}
+	@RequestMapping(value="/findByfptId",method=RequestMethod.POST)
+	@ResponseBody
+	public List<ProductType> findByfptId(ModelMap map,HttpServletRequest request){
+		LogManager.getLogger().debug("//按fptId查询方法成功到达处理方法中.....");
+		String fptid=request.getParameter("fptid");
+		List<ProductType> list=productTypeService.findAllByfptId(Integer.parseInt(fptid));
+		map.put("findbyfptid", list);
 		System.out.println(list);
+		return list;
+	}
+	@RequestMapping(value="/findByfptid", method=RequestMethod.POST)
+	@ResponseBody
+	public List<ProductType> edit(ModelMap map,HttpServletRequest request){
+		LogManager.getLogger().debug("//a标签按请求成功到达处理方法中,请求参数\n\t\temp===》》》》.");
+		String fptid=request.getParameter("fptid");
+		List<ProductType> list=productTypeService.findAllByfptId(Integer.parseInt(fptid));
+		map.put("findAllByfptid", list);
 		return list;
 	}
 	

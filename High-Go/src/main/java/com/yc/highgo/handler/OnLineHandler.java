@@ -19,11 +19,11 @@ public class OnLineHandler {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping("/searchGoods")
+	/*@RequestMapping("/searchGoods")
 	public String searchGoods(String pname,ModelMap map){
 		System.out.println("searchGoods coming...");
 		List<Product> products=productService.searchGoodsByName(pname);
 		System.out.println(products);
 		return "types";
-	}
+	}*/
 }

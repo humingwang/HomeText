@@ -179,7 +179,7 @@ public class CustomerHandler {
 	}
 	
 	//到达我的嗨购页面
-	@RequestMapping("/shopcar")
+	@RequestMapping(value=("/shopcar"),method=RequestMethod.GET)
 	public String shopcar(ModelMap map){
 		LogManager.getLogger().debug("//我的嗨购页面成功到达.....");
 		return "shopcar";

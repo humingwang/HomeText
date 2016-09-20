@@ -3,16 +3,19 @@ package com.yc.highgo.entity;
 public class Address {
 	private int aid;
 	private String aarea;
-	private String detail;
+	private String adetail;
 	private int amail;
 	private String aname;
 	private String atel;
+	 
+	
+	
 	public Address() {
 	}
-	public Address(int aid, String aarea, String detail, int amail, String aname, String atel) {
+	public Address(int aid, String aarea, String adetail, int amail, String aname, String atel) {
 		this.aid = aid;
 		this.aarea = aarea;
-		this.detail = detail;
+		this.adetail = adetail;
 		this.amail = amail;
 		this.aname = aname;
 		this.atel = atel;
@@ -29,11 +32,11 @@ public class Address {
 	public void setAarea(String aarea) {
 		this.aarea = aarea;
 	}
-	public String getDetail() {
-		return detail;
+	public String getAdetail() {
+		return adetail;
 	}
-	public void setDetail(String detail) {
-		this.detail = detail;
+	public void setAdetail(String adetail) {
+		this.adetail = adetail;
 	}
 	public int getAmail() {
 		return amail;
@@ -55,7 +58,7 @@ public class Address {
 	}
 	@Override
 	public String toString() {
-		return "\nAddress [aid=" + aid + ", aarea=" + aarea + ", detail=" + detail + ", amail=" + amail + ", aname="
+		return "Address [aid=" + aid + ", aarea=" + aarea + ", adetail=" + adetail + ", amail=" + amail + ", aname="
 				+ aname + ", atel=" + atel + "]";
 	}
 	

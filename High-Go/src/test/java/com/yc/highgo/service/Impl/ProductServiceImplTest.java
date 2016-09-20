@@ -17,9 +17,9 @@ public class ProductServiceImplTest {
 	@Autowired
 	private ProductService productService;
 	
-	@Test
+	/*@Test
 	public void testSearchGoodsByName() {
 		System.out.println(productService.searchGoodsByName("四"));
-	}
+	}*/
 
 }
