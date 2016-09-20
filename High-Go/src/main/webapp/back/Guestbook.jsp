@@ -218,7 +218,9 @@ function searchAssess() {
 														btn : ['确定','取消' ],
 														yes : function(index) {
 														var content = $('.form-control').val();
+														alert(content);
 														$.post("../assess/response",{content : content,id : id},function(data) {
+															alert(data);
 														if (data > 0) {
 															layer.alert("您的留言回复成功!!!");
 														}

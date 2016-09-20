@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用映射接口的方式， 命名空间的值必须与映射接口的全限定名一致 -->
+<mapper namespace="com.yc.highgo.mapper.AssessMapper">
+	<select id="findAssCount" resultType="int">
+		select count(1) from assess
+	</select>
+	
+	<select id="findAllAssess" resultType="Assess">
+			select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate,pname from assess a,customer c,product p where a.cid=c.cid and a.pid=p.pid
+	</select>
+	
+	<select id="findAssessById" parameterType="int" resultType="Assess">
+		select c.cname,ascount from assess a, customer c where a.cid=c.cid and asid=#{asid} 
+	</select>
+	
+	<delete id="delAssessById" parameterType="int">
+		delete from assess where asid=#{asid}
+	</delete>
+	
+	<insert id="insertResponse">
+		 insert into response values(response_rid.nextval,#{content},#{asid})
+	</insert>
+	
+	 <select id="searchAssess" resultType="Assess">
+		select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate,pname from assess a,customer c,product p where a.cid=c.cid and a.pid=p.pid
+		and ascount like '%'||#{ascount}||'%' and asdate=to_date('${asdate}', 'yyyy-MM-dd')
+	</select> 
+	
+	<delete id="delResponseByAssessId" parameterType="int">
+		delete from response where asid = #{id} 
+	</delete>
+	
+	<!-- 批量删除留言 -->
+	<delete id="delAssess" parameterType="string">
+		delete from assess where asid in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+</mapper>

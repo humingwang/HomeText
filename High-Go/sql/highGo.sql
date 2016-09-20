@@ -155,12 +155,12 @@ select*from admin;
 	);
 	alter table photos add 
 	select phid,phname,pict from photos where phtid=1002;
-	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1000);
-	insert into photos values(photos_phid.nextval,'棉被','images/pic2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1000);
-	insert into photos values(photos_phid.nextval,'床单四件套','images/pic3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1000);
-	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1000);
-	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1000);
-	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic5.jpg','1024*1024',to_date('2016-4-13','yyyy-mm-dd'),1,1000);
+	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1001);
+	insert into photos values(photos_phid.nextval,'棉被','images/pic2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1001);
+	insert into photos values(photos_phid.nextval,'床单四件套','images/pic3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1001);
+	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1001);
+	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1001);
+	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic5.jpg','1024*1024',to_date('2016-4-13','yyyy-mm-dd'),1,1001);
 	
 	insert into photos values(photos_phid.nextval,'欧式窗帘','images/cl1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1004);
 	insert into photos values(photos_phid.nextval,'简约现代式窗帘','images/cl2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1004);
@@ -211,44 +211,6 @@ select*from admin;
 	update photos set phname='nihao',psize=111,phdate=to_date('2016-7-29','yyyy-mm-dd') where phid=1140
 	delete from photos where phid in(1140,1141);
 	delete photos;
-	--商品表(二二二二二)
-	create table products(
-		pid int primary key,--商品编号
-		pname varchar2(300) ,--商品名
-		pdesc varchar2(1000),--商品描述
-		pnorms varchar2(100),--规格
-		pprice number(6,2),--价格
-		pdate date,--上架时间
-		pview int,--浏览次数
-		phid int ,--图片编号
-		ptid int,--类型编号
-		sid int --库存
-	);
-	insert into products values(products_pid.nextval,'简约风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,1058,4,1000);
-	insert into product values(product_pid.nextval,'简约风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),4,1059,4,1001);
-	insert into product values(product_pid.nextval,'简约风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,1060,4,1000);
-	insert into product values(product_pid.nextval,'简约风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),4,1061,4,1001);
-	insert into product values(product_pid.nextval,'简约风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,1056,4,1000);
-	insert into product values(product_pid.nextval,'简约风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
-	insert into product values(product_pid.nextval,'卡通风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
-	insert into product values(product_pid.nextval,'卡通风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt2.png',4,1001);
-	insert into product values(product_pid.nextval,'卡通风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt3.png',4,1000);
-	insert into product values(product_pid.nextval,'卡通风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt4.png',4,1001);
-	insert into product values(product_pid.nextval,'卡通风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
-	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt5.png',4,1000);
-	insert into product values(product_pid.nextval,'卡通风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
-	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt6.png',4,1001);
-	
 --商品表
 	create table product(
 		pid int primary key,--商品编号
@@ -264,7 +226,7 @@ select*from admin;
 	);
 	select pname,pdesc,pnorms,pprice,pdate,pict from product p,photos h where 
 	select pname,pict,pprice from product where pname like '%四%';
-	
+	select *from product
 	select pid,pict from product p,productType t where p.pname=t.name and t.ptid=66;
 	delete from product where ptid=4;
 	select pname,pdesc,pnorms,pprice,pdate,pict from product where pid=281;
@@ -802,78 +764,81 @@ select*from admin;
 		asdate date,--时间
 		ascount varchar2(2000),--内容
 		cid  int references customer(cid),--客户编号
-		pid  int references product(pid)--商品编号
-	);	
+		pid  int--商品编号
+	);
+	delete assess
+	select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate,pname from assess a,customer c,product p where a.cid=c.cid and a.pid=p.pid
+	select *from assess;
 	alter table assess update pid int;
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'轻便，无异味，做工好，可拆洗，面料柔软，厚度也够,也介绍给了朋友，很惊喜的床垫哦，很满意。',1,1004);
+	'轻便，无异味，做工好，可拆洗，面料柔软，厚度也够,也介绍给了朋友，很惊喜的床垫哦，很满意。',1000,323);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'垫子确实不错，物流特别快，床垫的厚度适中，很舒服很柔软，超喜欢，夏天嫌热睡反面，冬天睡绒面舒适暖和，特别适合大学生宿舍使用，值得买。',2001,1008);
+	'垫子确实不错，物流特别快，床垫的厚度适中，很舒服很柔软，超喜欢，夏天嫌热睡反面，冬天睡绒面舒适暖和，特别适合大学生宿舍使用，值得买。',1001,324);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'直接垫下面可以的，冬天更舒服。不会太软也不会太硬，刚刚好，物流也挺快的。卖家态度很好。',1001,1006);
+	'直接垫下面可以的，冬天更舒服。不会太软也不会太硬，刚刚好，物流也挺快的。卖家态度很好。',1001,325);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'包装挺好，快递速度超快滴！就是垫子厚度一般在5cm，自作了一个加厚的褥子加在里面了，竟然装的正正好！！',3001,1007);
+	'包装挺好，快递速度超快滴！就是垫子厚度一般在5cm，自作了一个加厚的褥子加在里面了，竟然装的正正好！！',1001,326);
 	
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子还可以，刚打开有一点点的味道，但物流真的是不怎么样，5号提交的订单，9号才有物流消息 一直显示的是等待揽件',1,1021);
+	'被子还可以，刚打开有一点点的味道，但物流真的是不怎么样，5号提交的订单，9号才有物流消息 一直显示的是等待揽件',1002,327);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'昨天收到，看上去不错，还没用，应该不会差，老品牌，好的话再来买一条，好评五分',2001,1008);
+	'昨天收到，看上去不错，还没用，应该不会差，老品牌，好的话再来买一条，好评五分',1003,328);
 	
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'软软的，摸起来很舒服，也挺厚的，感觉足够了，也不会太重，也没有奇怪的味道，第一次在网上买被子，是南极人的，我很满意，',1041,1020);
+	'软软的，摸起来很舒服，也挺厚的，感觉足够了，也不会太重，也没有奇怪的味道，第一次在网上买被子，是南极人的，我很满意，',1000,329);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'宝贝收到，和描述的一致，做工非常细致，蓬松度也是非常好，儿子非常喜欢，大爱，给个好评！满分！',3001,1022);
+	'宝贝收到，和描述的一致，做工非常细致，蓬松度也是非常好，儿子非常喜欢，大爱，给个好评！满分！',1003,330);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子收到了，很松软，手感也细腻，很喜欢，不错、、、赞一个；美中不足的是物流太慢了',1042,1023);
+	'被子收到了，很松软，手感也细腻，很喜欢，不错、、、赞一个；美中不足的是物流太慢了',1002,331);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子摸起来软软的，好舒服，满意，也实惠，尺寸正规，当时拍的时候还怕尺寸会偏小，特意就拍了最大的尺寸，喜欢的朋友看中了，不要忧 异了!',2001,1008);
+	'被子摸起来软软的，好舒服，满意，也实惠，尺寸正规，当时拍的时候还怕尺寸会偏小，特意就拍了最大的尺寸，喜欢的朋友看中了，不要忧 异了!',1001,332);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子挺厚实的，包装的很特别，我喜欢。唯一不足的是有好几处黄色的脏点点。不过总体很满意。会推荐给好友的。',1043,1024);
+	'被子挺厚实的，包装的很特别，我喜欢。唯一不足的是有好几处黄色的脏点点。不过总体很满意。会推荐给好友的。',1001,333);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子真的特别特别好 我用了淘金币抵扣才19快多 被子很厚实还有拉链袋收纳 没有异味真的是超级好啊 而且好厚实的',3001,1025);
+	'被子真的特别特别好 我用了淘金币抵扣才19快多 被子很厚实还有拉链袋收纳 没有异味真的是超级好啊 而且好厚实的',1003,334);
 	
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子收到了，宝贝很不错，款式非常漂亮，柔软舒服，手感好，质量很棒，非常好的卖家与店铺！忠心地感谢你，让我买到了梦寐以求的宝贝',1042,1026);
+	'被子收到了，宝贝很不错，款式非常漂亮，柔软舒服，手感好，质量很棒，非常好的卖家与店铺！忠心地感谢你，让我买到了梦寐以求的宝贝',1001,335);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子洗了一点也不掉色，而且很干净，洗过的水很清澈，也不掉毛，很厚实，真的赚到了',2001,1008);
+	'被子洗了一点也不掉色，而且很干净，洗过的水很清澈，也不掉毛，很厚实，真的赚到了',1001,336);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'被子一边是黄色另外一边是白色的，枕头也是不同颜色，黄与蓝搭配得非常好！被子毛绒绒的，非常舒服，它的质量也非常好，与卖家描述的完全一致，非常满意,真的很喜欢，完全超出期望值',1043,1027);
+	'被子一边是黄色另外一边是白色的，枕头也是不同颜色，黄与蓝搭配得非常好！被子毛绒绒的，非常舒服，它的质量也非常好，与卖家描述的完全一致，非常满意,真的很喜欢，完全超出期望值',1003,336);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'收到宝贝后真的很惊喜哦，我很满意，是双成的，摸着面料很舒服很柔软，这个价格能买到这么好又实惠的真的不错，南极人你值得拥有',1041,1028);
+	'收到宝贝后真的很惊喜哦，我很满意，是双成的，摸着面料很舒服很柔软，这个价格能买到这么好又实惠的真的不错，南极人你值得拥有',1002,337);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'轻便，无异味，做工好，可拆洗，面料柔软，厚度也够,也介绍给了朋友，很惊喜的床垫哦，很满意。',1,1029);
+	'轻便，无异味，做工好，可拆洗，面料柔软，厚度也够,也介绍给了朋友，很惊喜的床垫哦，很满意。',1000,338);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'垫子确实不错，物流特别快，床垫的厚度适中，很舒服很柔软，超喜欢，夏天嫌热睡反面，冬天睡绒面舒适暖和，特别适合大学生宿舍使用，值得买。',2001,1008);
+	'垫子确实不错，物流特别快，床垫的厚度适中，很舒服很柔软，超喜欢，夏天嫌热睡反面，冬天睡绒面舒适暖和，特别适合大学生宿舍使用，值得买。',1001,339);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'其实是抱着试一试的心态买的，虽然评价很高，但是也会担心有假的，后头一想反正99嘛，还是比较熟悉的品牌，就买了，收到货真的很惊讶，质量花纹做的都很完美，',1001,1030);
+	'其实是抱着试一试的心态买的，虽然评价很高，但是也会担心有假的，后头一想反正99嘛，还是比较熟悉的品牌，就买了，收到货真的很惊讶，质量花纹做的都很完美，',1003,340);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'发货快 第二天就收到了 宝贝实在太好了！搞活买的，之前质疑这个价位是不是纯棉的，还买了运费险，收到宝贝后扯了几根线头用打火机烧了下全成灰烬，好高兴是纯绵的，',3001,1031);
+	'发货快 第二天就收到了 宝贝实在太好了！搞活买的，之前质疑这个价位是不是纯棉的，还买了运费险，收到宝贝后扯了几根线头用打火机烧了下全成灰烬，好高兴是纯绵的，',1002,104);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'今天很柔软，摸着很舒服，冬天应该挺暖和，不会冷。顺丰快递也十分给力，速度很快。店家服务态度非常好，主动给我打电话告诉我店里活动，真的很暖心。',1,1032);
+	'今天很柔软，摸着很舒服，冬天应该挺暖和，不会冷。顺丰快递也十分给力，速度很快。店家服务态度非常好，主动给我打电话告诉我店里活动，真的很暖心。',1000,105);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'产品比想象中的还要好，法兰绒的面料摸着很舒服，枕头套两面都是法兰绒的，两面的颜色都不一样，图案和图片上也是一样的，很喜欢，使用之前建议先洗了之后再用哦',2001,1008);
+	'产品比想象中的还要好，法兰绒的面料摸着很舒服，枕头套两面都是法兰绒的，两面的颜色都不一样，图案和图片上也是一样的，很喜欢，使用之前建议先洗了之后再用哦',1001,106);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'实物和图片上一样，很美，因为现在太热，还没有上被芯，手感非常舒服，洗过了也不会掉毛，厚实，这个冬天不怕冷了',1042,1033);
+	'实物和图片上一样，很美，因为现在太热，还没有上被芯，手感非常舒服，洗过了也不会掉毛，厚实，这个冬天不怕冷了',1002,107);
 	
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'枕头不错，就是枕头套就有点难看了，反正送的就无所谓了，另外我买的那个枕头套质量一般般 ',3001,1034);
+	'枕头不错，就是枕头套就有点难看了，反正送的就无所谓了，另外我买的那个枕头套质量一般般 ',1003,108);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'挺好的，弹性好，但刚收到有一点气味，不过晒晒应该就好了 ',1,1035);
+	'挺好的，弹性好，但刚收到有一点气味，不过晒晒应该就好了 ',1000,333);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'真空包装，感觉还可以，毕竟这个价位，对吧，祝生意兴隆哈 ',2001,1008);
+	'真空包装，感觉还可以，毕竟这个价位，对吧，祝生意兴隆哈 ',1001,334);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'直接垫下面可以的，冬天更舒服。不会太软也不会太硬，刚刚好，物流也挺快的。卖家态度很好。',1001,1036);
+	'直接垫下面可以的，冬天更舒服。不会太软也不会太硬，刚刚好，物流也挺快的。卖家态度很好。',1003,332);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'质量对于这个价格来说很满意了，颜色比图片深偏艳丽反正套枕套也就无所谓了',1043,1037);
+	'质量对于这个价格来说很满意了，颜色比图片深偏艳丽反正套枕套也就无所谓了',1002,104);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'枕头还可以，毕竟这个价钱，回来的时候被我拆了几层棉花有点不匀，捣鼓了好半天。花色还可以，我比较喜欢枕高枕，这个高度不太喜欢啊！ ',1042,1038);
+	'枕头还可以，毕竟这个价钱，回来的时候被我拆了几层棉花有点不匀，捣鼓了好半天。花色还可以，我比较喜欢枕高枕，这个高度不太喜欢啊！ ',1002,105);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'收到迫不及待的打开了了，不错，不错，卖家服务态度挺好的，有需要还会再来的 ',2001,1008);
+	'收到迫不及待的打开了了，不错，不错，卖家服务态度挺好的，有需要还会再来的 ',1001,106);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
-	'用过两天再评价的，首先，卖家服务真的特别好，一直耐心的解释。然后枕头也很满意，是店家说的中枕，躺下大概还有5厘米左右吧，软软的，很舒服，这个价位太值了，周末去了趟超市，不敢说特别好，但这个价格这个质量，棒棒哒 ',1001,1039);
+	'用过两天再评价的，首先，卖家服务真的特别好，一直耐心的解释。然后枕头也很满意，是店家说的中枕，躺下大概还有5厘米左右吧，软软的，很舒服，这个价位太值了，周末去了趟超市，不敢说特别好，但这个价格这个质量，棒棒哒 ',1001,108);
 	insert into assess values(assess_asid.nextval,to_date('2016-2-27','yyyy-mm-dd'),
 	'刚开始包裹送来的时候扁扁的，还以为是只有枕套，拆开包装袋，把拉链一打开，突然膨胀了起来，这效果超棒的！
-	枕套粉色的很漂亮花纹很精致，枕芯的棉花质量也不错，枕下去很舒适软软的弹性十足，物超所值，全五星好评～！(=^ω^=) ',3001,1040);
+	枕套粉色的很漂亮花纹很精致，枕芯的棉花质量也不错，枕下去很舒适软软的弹性十足，物超所值，全五星好评～！(=^ω^=) ',1002,107);
 	select * from assess;
 	select count(1) from assess;
 	select asid,c.cname,ascount,to_char(asdate,'yyyy-mm-dd') asdate,pname from assess a,customer c,product p where a.cid=c.cid and a.pid=p.pid;
@@ -916,45 +881,45 @@ select*from admin;
 	);
   	
   	
-  	insert into orders values('20160105213313',1000.00,to_date('2016-1-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160105214413',2000.00,to_date('2016-1-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160105215513',3000.00,to_date('2016-1-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160205211113',1000.00,to_date('2016-2-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160205212213',2000.00,to_date('2016-2-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160205213313',3000.00,to_date('2016-2-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160305242413',1000.00,to_date('2016-3-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160305252513',3000.00,to_date('2016-3-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160305272613',2000.00,to_date('2016-3-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160405212213',1000.00,to_date('2016-4-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160405232413',2000.00,to_date('2016-4-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160405211253',3000.00,to_date('2016-4-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160505213313',1000.00,to_date('2016-5-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160505215213',2000.00,to_date('2016-5-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160505212513',3000.00,to_date('2016-5-07','YYYY-mm-dd'),3,1);
-  	insert into orders values('20160605213313',1000.00,to_date('2016-6-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160605214413',3000.00,to_date('2016-6-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160605215513',2000.00,to_date('2016-6-07','YYYY-mm-dd'),3,1);
-  	insert into orders values('20160705213313',1000.00,to_date('2016-7-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160705214413',4000.00,to_date('2016-7-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160705215513',2000.00,to_date('2016-7-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160805211113',1000.00,to_date('2016-8-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160805212213',3000.00,to_date('2016-8-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160805213313',2000.00,to_date('2016-8-07','YYYY-mm-dd'),3,1);
-	insert into orders values('20160905211113',2000.00,to_date('2016-9-07','YYYY-mm-dd'),1,1);
-	insert into orders values('20160905212213',3000.00,to_date('2016-9-07','YYYY-mm-dd'),2,1);
-	insert into orders values('20160905213313',4000.00,to_date('2016-9-07','YYYY-mm-dd'),3,1);
-	insert into orders values('201601005242413',1000.00,to_date('2016-10-07','YYYY-mm-dd'),1,1);
-	insert into orders values('201601005252513',5000.00,to_date('2016-10-07','YYYY-mm-dd'),2,1);
-	insert into orders values('201601005272613',8000.00,to_date('2016-10-07','YYYY-mm-dd'),3,1);
-	insert into orders values('201601005212213',1000.00,to_date('2016-11-07','YYYY-mm-dd'),1,1);
-	insert into orders values('201601005232413',3000.00,to_date('2016-11-07','YYYY-mm-dd'),2,1);
-	insert into orders values('201601005211253',2000.00,to_date('2016-11-07','YYYY-mm-dd'),3,1);
-	insert into orders values('201601005213313',2000.00,to_date('2016-12-07','YYYY-mm-dd'),1,1);
-	insert into orders values('201601005215213',7000.00,to_date('2016-12-07','YYYY-mm-dd'),2,1);
-	insert into orders values('201601005212513',8000.00,to_date('2016-12-07','YYYY-mm-dd'),3,1);
-	insert into orderdetails values(orderdetails_odid.nextval,1000,1000,'201601005252513');	
-	insert into orderdetails values(orderdetails_odid.nextval,1001,1001,'201601005252513');	
-	insert into orderdetails values(orderdetails_odid.nextval,1000,1001,'201601005232413');	
+  	insert into orders values('20160105213313',1000.00,to_date('2016-1-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160105214413',2000.00,to_date('2016-1-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160105215513',3000.00,to_date('2016-1-07','YYYY-mm-dd'),3,21);
+	insert into orders values('20160205211113',1000.00,to_date('2016-2-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160205212213',2000.00,to_date('2016-2-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160205213313',3000.00,to_date('2016-2-07','YYYY-mm-dd'),3,21);
+	insert into orders values('20160305242413',1000.00,to_date('2016-3-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160305252513',3000.00,to_date('2016-3-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160305272613',2000.00,to_date('2016-3-07','YYYY-mm-dd'),3,21);
+	insert into orders values('20160405212213',1000.00,to_date('2016-4-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160405232413',2000.00,to_date('2016-4-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160405211253',3000.00,to_date('2016-4-07','YYYY-mm-dd'),3,21);
+	insert into orders values('20160505213313',1000.00,to_date('2016-5-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160505215213',2000.00,to_date('2016-5-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160505212513',3000.00,to_date('2016-5-07','YYYY-mm-dd'),3,21);
+  	insert into orders values('20160605213313',1000.00,to_date('2016-6-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160605214413',3000.00,to_date('2016-6-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160605215513',2000.00,to_date('2016-6-07','YYYY-mm-dd'),3,21);
+  	insert into orders values('20160705213313',1000.00,to_date('2016-7-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160705214413',4000.00,to_date('2016-7-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160705215513',2000.00,to_date('2016-7-07','YYYY-mm-dd'),3,21);
+	insert into orders values('20160805211113',1000.00,to_date('2016-8-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160805212213',3000.00,to_date('2016-8-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160805213313',2000.00,to_date('2016-8-07','YYYY-mm-dd'),3,21);
+	insert into orders values('20160905211113',2000.00,to_date('2016-9-07','YYYY-mm-dd'),1,21);
+	insert into orders values('20160905212213',3000.00,to_date('2016-9-07','YYYY-mm-dd'),2,21);
+	insert into orders values('20160905213313',4000.00,to_date('2016-9-07','YYYY-mm-dd'),3,21);
+	insert into orders values('201601005242413',1000.00,to_date('2016-10-07','YYYY-mm-dd'),1,21);
+	insert into orders values('201601005252513',5000.00,to_date('2016-10-07','YYYY-mm-dd'),2,21);
+	insert into orders values('201601005272613',8000.00,to_date('2016-10-07','YYYY-mm-dd'),3,21);
+	insert into orders values('201601005212213',1000.00,to_date('2016-11-07','YYYY-mm-dd'),1,21);
+	insert into orders values('201601005232413',3000.00,to_date('2016-11-07','YYYY-mm-dd'),2,21);
+	insert into orders values('201601005211253',2000.00,to_date('2016-11-07','YYYY-mm-dd'),3,21);
+	insert into orders values('201601005213313',2000.00,to_date('2016-12-07','YYYY-mm-dd'),1,21);
+	insert into orders values('201601005215213',7000.00,to_date('2016-12-07','YYYY-mm-dd'),2,21);
+	insert into orders values('201601005212513',8000.00,to_date('2016-12-07','YYYY-mm-dd'),3,21);
+	insert into orderdetails values(orderdetails_odid.nextval,329,1000,'201601005252513');	
+	insert into orderdetails values(orderdetails_odid.nextval,330,1001,'201601005252513');	
+	insert into orderdetails values(orderdetails_odid.nextval,331,1001,'201601005232413');	
 	
 drop table orderdetails;
 --订单详细表

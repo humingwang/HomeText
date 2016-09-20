@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用映射接口的方式， 命名空间的值必须与映射接口的全限定名一致 -->
+<mapper namespace="com.yc.highgo.mapper.PhotoMapper">
+	<select id="getAllPhoto" resultType="Photo" parameterType="int">
+			select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
+					and p.phtid=#{phtid}
+	</select>
+	
+	<select id="getAllPics" resultType="Photo">
+		select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
+	</select>
+	
+	<delete id="delPhotoById" parameterType="int">
+		delete from photos where phid=#{phid}
+	</delete>
+	
+	<!-- 广告停用 -->
+	<update id="updateAdsByID" parameterType="int">
+		update photos set phstatus=0 where phid=#{phid}
+	</update>
+	
+	<!-- 广告启用 -->
+	<update id="startAdsById" parameterType="int">
+		update photos set phstatus=1 where phid=#{phid}
+	</update>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from photos
+	</select>
+	
+	<!-- 添加广告 -->
+	<insert id="addAds">
+		insert into photos values(photos_phid.nextval,#{phname},#{pict},#{psize},to_date('2016-1-1','yyyy-mm-dd'),1,#{phtid})
+	</insert>
+	
+	<!-- 修改广告信息 -->
+	<update id="updateAds">
+		update photos set phname=#{phname},psize=#{psize},phdate=to_date(#{phdate},'yyyy-mm-dd'),pict=#{pict} where phid=#{phid}
+	</update>
+	
+	<!-- 批量删除 -->
+	<delete id="DeleteAds" parameterType="string">
+		delete from photos where phid in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<select id="editAdsById" parameterType="int" resultType="Photo">
+		select phname,psize,to_char(phdate,'yyyy-mm-dd') phdate from photos where phid=#{phid}
+	</select>
+	
+	
+</mapper>

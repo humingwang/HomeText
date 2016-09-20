@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 使用映射接口的方式， 命名空间的值必须与映射接口的全限定名一致 -->
+<mapper namespace="com.yc.highgo.mapper.PhotoTypeMapper">
+	<select id="getAllTypes" resultType="PhotoType">
+		 select p.phtid,phtname,phdes,to_char(phdate,'yyyy-mm-dd') phdate , (select count(1) from photos where phtid =p.phtid) count from photoTypes p
+	</select>
+	
+	<delete id="delType" parameterType="int">
+		delete from photoTypes where phtid=#{phtid}
+	</delete>
+	
+	<select id="findCount" resultType="int" parameterType="int">
+		select count(1) from photoTypes
+	</select>
+	
+	<insert id="addTypes">
+		insert into photoTypes values(photoTypes_phtid.nextval,#{phtname},#{phdes},to_date('2016-1-1','yyyy-mm-dd')) 
+	</insert>
+	
+	<delete id="DeleteTypes">
+		delete from photoTypes where phtid in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</delete>
+</mapper>
