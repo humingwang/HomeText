@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -8,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<link type="text/css" rel="stylesheet" href="css/reset.css" />
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/jquery.skidder.css">
 <link rel="stylesheet" href="css/onLine.css">
@@ -28,7 +28,7 @@
 		<ul>
 			<li class="wel">coco欢迎您!&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			<li><a style="color:red;" href="customer/active" id="login">【请登录】  </a> </li>
-            <li>|<a  style="color:black;" href="customer/activeres"
+            <li>|<a   href="customer/activeres"
 						id="register">【免费注册】</a> |</li>
 		</ul>
 	</div>
@@ -39,8 +39,8 @@
 	<div class="search">
 		<div class="input_text">
 		<div class="sousou">
-			<input class="sousou2" style="border: none;" placeholder="请输入您要查找的商品" type="text" />
-			<button style="border: none;" id="sear" onclick="search()"></button>
+			<input class="sousou2" style="border: none;height:100%;width:81%;" placeholder="请输入您要查找的商品" type="text" />
+			<button style="border: none;width:19%;height:100%;float:right;" id="sear" onclick="search()"></button>
 			</div>
 		</div>
 	</div>
@@ -147,63 +147,18 @@
 	<div class="body1">
 		<div class="leftbody1">
 			<ul class="styles">
-			
-				<li id="kuang">公主风
-					</button>
+			<c:forEach items="${ptyes }" var="type">
+				<li class="kuang" value="${type.ptid }" onmouseover="change(this,${type.ptid })" onmouseout="chang(this)">${type.name }
 				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
-				<li id="kuang">公主风
-					</button>
-				</li>
+				</c:forEach>
 			</ul>
 		</div>
 
 		<div class="rightbody1">
 			<ul class="styles1">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+			<c:forEach items="${pp}" var="style">
+				<li><img src="${style.pict }" onclick="getDetail(this,'${style.pid }')"></li>
+				</c:forEach> 
 			</ul>
 		</div>
 
@@ -212,18 +167,9 @@
 			<div id="xiaoliang">商品销量排行</div>
 			<div id="marquee4">
 				<ul>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-					<li><a href="#"><img src="images/pinpai.png"></a></li>
-
+				<c:forEach items="${phot2}" var="pic">
+					<li><a href="#"><img src="${pic.pict }"><div style="width:160px;height:80px;float:right;color:black;font-size:14px;">${pic.phname }</div></a></li>
+				</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -276,10 +222,12 @@
 		<div id="smallpic1">
 			<div id="marquee5">
 				<ul>
-					<li><a href="#"><img src="images/zxz.png"></a><a
-						href="#"><img src="images/zxz.png"></a></li>
-					<li><a href="#"><img src="images/zxz.png"></a><a
-						href="#"><img src="images/zxz.png"></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x1.png">&nbsp;&nbsp;金奇达系列四件套（一）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x2.png">&nbsp;&nbsp;金奇达系列四件套（二）</div></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x3.png">&nbsp;&nbsp;金奇达系列四件套（三）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x4.png">&nbsp;&nbsp;金奇达系列四件套（四）</div></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x5.png">&nbsp;&nbsp;金奇达系列四件套（五）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x6.png">&nbsp;&nbsp;金奇达系列四件套（六）</div></a></li>
 				</ul>
 			</div>
 		</div>
@@ -297,10 +245,12 @@
 		<div id="smallpic2">
 			<div id="marquee3">
 				<ul>
-					<li><a href="#"><img src="images/zxz.png"></a><a
-						href="#"><img src="images/zxz.png"></a></li>
-					<li><a href="#"><img src="images/zxz.png"></a><a
-						href="#"><img src="images/zxz.png"></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x7.png">&nbsp;&nbsp;慕尚系列四件套（一）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x8.png">&nbsp;&nbsp;慕尚系列四件套（二）</div></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x9.png">&nbsp;&nbsp;慕尚系列四件套（三）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x10.png">&nbsp;&nbsp;慕尚系列四件套（四）</div></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x11.png">&nbsp;&nbsp;慕尚系列四件套（五）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x12.png">&nbsp;&nbsp;慕尚系列四件套（六）</div></a></li>
 				</ul>
 			</div>
 		</div>
@@ -315,10 +265,12 @@
 		<div id="smallpic3">
 			<div id="marquee2">
 				<ul>
-					<li><a href="#"><img src="images/zxz.png"></a> <a
-						href="#"><img src="images/zxz.png"></a></li>
-					<li><a href="#"><img src="images/zxz.png"></a> <a
-						href="#"><img src="images/zxz.png"></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x13.png">&nbsp;&nbsp;瑞莉安系列四件套（一）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x14.png">&nbsp;&nbsp;瑞莉安系列四件套（二）</div></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x15.png">&nbsp;&nbsp;瑞莉安系列四件套（三）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x16.png">&nbsp;&nbsp;瑞莉安系列四件套（四）</div></a></li>
+					<li><a href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x17.png">&nbsp;&nbsp;瑞莉安系列四件套（五）</div></a><a
+						href="#"><div style="width:190px;height:190px;border:1px solid #ccc;background-color:#fff;"><img style="margin-top: 15px;margin-left:15px;" src="images/x18.png">&nbsp;&nbsp;瑞莉安系列四件套（六）</div></a></li>
 				</ul>
 			</div>
 		</div>
@@ -332,17 +284,9 @@
 		</div>
 		<div id="marquee1">
 			<ul>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
-				<li><img src="images/zxz.png"></li>
+			<c:forEach items="${phot }" var="p">
+				<li><img src="${p.pict }" onclick="come(this,${p.phid})">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${p.phname }</li>
+			</c:forEach>	
 			</ul>
 		</div>
 	</div>
@@ -376,6 +320,39 @@
 	</footer>
 
 	<script>
+	function come(obj,phid){
+		alert(phid);
+		$.post("product/comeInfo",{phid:phid},function(data){
+			
+		})
+	}
+	
+	
+	function change(obj,ptid){
+		$(obj).css("color","#fff");
+		$(obj).css("background-color","#F90");
+			$.post("productType/getPstyles",{ptid:ptid},function(data){
+					var str="";
+					for(var i=0;i<data.length;i++){
+					str+='<li><img src="'+data[i].pict+'" onclick="getDetail(this,'+data[i].pid+')"></li>';
+					}
+					$(".styles1").html(str);
+			},"json")
+	}
+	
+	function chang(obj){
+		$(obj).css("color","#FF3346");
+		$(obj).css("background-color","#F7F7F7");
+	}
+	
+	//商品详情
+	function getDetail(obj,pid){
+		$.post("product/getDetail",{pid:pid},function(data){
+			if(data){
+				window.location.href="page/goodsInfo.jsp";
+			}
+		});
+	}
 	function search(){
 		var pname=$(".sousou2").val();
 		alert(pname);

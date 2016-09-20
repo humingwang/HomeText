@@ -4,6 +4,7 @@ public class ProductType {
 	private int ptid;
 	private String name;
 	private int fptid;
+	
 	public int getPtid() {
 		return ptid;
 	}

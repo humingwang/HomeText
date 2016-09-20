@@ -26,6 +26,7 @@ create sequence admin_aid start with 1000 increment by 1;
 create sequence customer_cid start with 1000 increment by 1;
 create sequence productTypes_ptid start with 1 increment by 1;
 create sequence product_pid start with 1 increment by 1;
+create sequence products_pid start with 1 increment by 1;
 create sequence assess_asid start with 1000 increment by 1;
 create sequence orderdetails_odid start with 1000 increment by 1;
 create sequence photoTypes_phtid start with 1000 increment by 1;
@@ -72,8 +73,9 @@ select*from admin;
 		name varchar2(10),--类型名
 		fptid  int default 0
 	);
-	delete productType
-	
+	delete from productType where fptid=4;
+	select ptid,name,fptid from productType where fptid=4
+	select count(1) from PRODUCTTYPE where fptid=4;
   	select *from producttype;
   	
 	insert into productType values(productTypes_ptid.nextval,'床上用品',0);
@@ -108,10 +110,9 @@ select*from admin;
 	insert into productType values(productTypes_ptid.nextval,'宫廷风',4);
 	insert into productType values(productTypes_ptid.nextval,'工业风',4);
 	insert into productType values(productTypes_ptid.nextval,'小清新',4);
-	insert into productType values(productTypes_ptid.nextval,'美式风',4);
 	insert into productType values(productTypes_ptid.nextval,'猴年风',4);
 	insert into productType values(productTypes_ptid.nextval,'运动风',4);
-	select * from productType;
+	select * from productType where name like '卡通风';
 	
 --库存表
 	create table stock(
@@ -138,7 +139,7 @@ select*from admin;
 	insert into photoTypes values(photoTypes_phtid.nextval,'轮播广告小3','首页右侧广告轮播图3',to_date('2016-4-17','yyyy-mm-dd'));
 	insert into photoTypes values(photoTypes_phtid.nextval,'横排广告','首页底部横排广告轮播图',to_date('2016-5-8','yyyy-mm-dd'));
 	delete from photoTypes where phtid=1040;
-	select phtid,phtname,phdes,to_char(phdate,'yyyy-mm-dd') phdate from photoTypes 
+	select phtid,phtname,phdes,to_char(phdate,'yyyy-mm-dd') phdate from photoTypes where phtid=1004;
 	select count(*) from photos where phtid=1040;
 	select count(1) from photoTypes
 	
@@ -152,46 +153,101 @@ select*from admin;
 		phstatus int ,--状态
 		phtid int
 	);
-	select *from photos;
-	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'棉被','images/pic2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'床单四件套','images/pic3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1068);
-	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic5.jpg','1024*1024',to_date('2016-4-13','yyyy-mm-dd'),1,1068);
+	alter table photos add 
+	select phid,phname,pict from photos where phtid=1002;
+	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1000);
+	insert into photos values(photos_phid.nextval,'棉被','images/pic2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1000);
+	insert into photos values(photos_phid.nextval,'床单四件套','images/pic3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1000);
+	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1000);
+	insert into photos values(photos_phid.nextval,'家居用品','images/pic4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1000);
+	insert into photos values(photos_phid.nextval,'床上用品四件套','images/pic5.jpg','1024*1024',to_date('2016-4-13','yyyy-mm-dd'),1,1000);
 	
-	insert into photos values(photos_phid.nextval,'欧式窗帘','images/cl1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'简约现代式窗帘','images/cl2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'绝色美式窗帘','images/cl3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'高档加厚式窗帘','images/cl4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1069);
-	insert into photos values(photos_phid.nextval,'田园式窗帘','images/cl5.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1069);
+	insert into photos values(photos_phid.nextval,'欧式窗帘','images/cl1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'简约现代式窗帘','images/cl2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'绝色美式窗帘','images/cl3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'高档加厚式窗帘','images/cl4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'田园式窗帘','images/cl5.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1004);
 	
-	insert into photos values(photos_phid.nextval,'珊瑚绒毯','images/ddt1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'拉舍尔毛毯','images/ddt2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'羊毛羊绒','images/ddt3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'竹纤维毯','images/ddt4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1070);
-	insert into photos values(photos_phid.nextval,'蚕丝毯','images/ddt4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1070);
+	insert into photos values(photos_phid.nextval,'珊瑚绒毯','images/ddt1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'拉舍尔毛毯','images/ddt2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'羊毛羊绒','images/ddt3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'竹纤维毯','images/ddt4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'蚕丝毯','images/ddt4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1002);
 	
-	insert into photos values(photos_phid.nextval,'卡通靠垫','images/dkd1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'办公座椅靠垫','images/dkd2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'韩式靠垫','images/dkd3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'多功能纯棉靠垫','images/dkd4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1071);
-	insert into photos values(photos_phid.nextval,'可爱抱枕','images/dkd4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1071);
+	insert into photos values(photos_phid.nextval,'卡通靠垫','images/dkd1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1003);
+	insert into photos values(photos_phid.nextval,'办公座椅靠垫','images/dkd2.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1003);
+	insert into photos values(photos_phid.nextval,'韩式靠垫','images/dkd3.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1003);
+	insert into photos values(photos_phid.nextval,'多功能纯棉靠垫','images/dkd4.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1003);
+	insert into photos values(photos_phid.nextval,'可爱抱枕','images/dkd4.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1003);
 	
-	insert into photos values(photos_phid.nextval,'简约式四件套','images/cp1.jpg','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1072);
-	insert into photos values(photos_phid.nextval,'欧美风四件套','images/cp12.jpg','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1072);
-	insert into photos values(photos_phid.nextval,'田园四件套','images/cp13.jpg','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1072);
-	insert into photos values(photos_phid.nextval,'韩式风四件套','images/cp14.jpg','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1072);
-	insert into photos values(photos_phid.nextval,'婚庆四件套','images/cp15.jpg','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1072);
+	insert into photos values(photos_phid.nextval,'春夏季床上用品四件套','images/z1.png','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'欧美风全棉四件纯棉','images/z2.png','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'纯棉四件套 全棉4件套','images/z3.png','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'南极人珊瑚绒四件套','images/z4.png','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'条纹全棉四件套纯棉','images/z5.png','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1004);
+	
+	insert into photos values(photos_phid.nextval,'学生宿舍1.2米床单人','images/z6.png','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'雅娴条纹全棉四件套','images/z7.png','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'寝室床单被套米宿舍','images/z8.png','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'床上用品纯棉四件套 ','images/z9.png','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1004);
+	insert into photos values(photos_phid.nextval,'顺丰 南极人珊瑚绒','images/z5.png','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1004);
+	
+	
+	insert into photos values(photos_phid.nextval,'春夏季床上用品四件套','images/s1.png','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'欧美风全棉四件纯棉','images/s2.png','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'纯棉四件套 全棉4件套','images/s3.png','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'南极人珊瑚绒四件套','images/s4.png','1024*1024',to_date('2016-7-29','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'条纹全棉四件套纯棉','images/s5.png','1024*1024',to_date('2016-5-14','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'学生宿舍1.2米床单人','images/s6.png','1024*1024',to_date('2016-5-23','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'雅娴条纹全棉四件套','images/s7.png','1024*1024',to_date('2016-5-07','yyyy-mm-dd'),1,1002);
+	insert into photos values(photos_phid.nextval,'寝室床单被套米宿舍','images/s8.png','1024*1024',to_date('2016-4-26','yyyy-mm-dd'),1,1002);
 	
 	select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
 	select phid,phname,pict,psize,to_char(p.phdate,'yyyy-mm-dd') phdate,phstatus,phtname from photos p,photoTypes t where p.phtid=t.phtid
 			and p.phtid=1068
 	delete from photos where phtid=1040;
-	select phname,psize,to_char(phdate,'yyyy-mm-dd') phdate from photos where phid=1145
+	select phid,phname,psize,to_char(phdate,'yyyy-mm-dd') phdate from photos 
 	select count(*) from photos;
 	update photos set phname='nihao',psize=111,phdate=to_date('2016-7-29','yyyy-mm-dd') where phid=1140
 	delete from photos where phid in(1140,1141);
+	delete photos;
+	--商品表(二二二二二)
+	create table products(
+		pid int primary key,--商品编号
+		pname varchar2(300) ,--商品名
+		pdesc varchar2(1000),--商品描述
+		pnorms varchar2(100),--规格
+		pprice number(6,2),--价格
+		pdate date,--上架时间
+		pview int,--浏览次数
+		phid int ,--图片编号
+		ptid int,--类型编号
+		sid int --库存
+	);
+	insert into products values(products_pid.nextval,'简约风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,1058,4,1000);
+	insert into product values(product_pid.nextval,'简约风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),4,1059,4,1001);
+	insert into product values(product_pid.nextval,'简约风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,1060,4,1000);
+	insert into product values(product_pid.nextval,'简约风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),4,1061,4,1001);
+	insert into product values(product_pid.nextval,'简约风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,1056,4,1000);
+	insert into product values(product_pid.nextval,'简约风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	insert into product values(product_pid.nextval,'卡通风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'卡通风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt2.png',4,1001);
+	insert into product values(product_pid.nextval,'卡通风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt3.png',4,1000);
+	insert into product values(product_pid.nextval,'卡通风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt4.png',4,1001);
+	insert into product values(product_pid.nextval,'卡通风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt5.png',4,1000);
+	insert into product values(product_pid.nextval,'卡通风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt6.png',4,1001);
 	
 --商品表
 	create table product(
@@ -206,7 +262,225 @@ select*from admin;
 		ptid int,--类型编号
 		sid int --库存
 	);
-	select pname,pict,pprice from product where pname like '四%'
+	select pname,pdesc,pnorms,pprice,pdate,pict from product p,photos h where 
+	select pname,pict,pprice from product where pname like '%四%';
+	
+	select pid,pict from product p,productType t where p.pname=t.name and t.ptid=66;
+	delete from product where ptid=4;
+	select pname,pdesc,pnorms,pprice,pdate,pict from product where pid=281;
+	
+	insert into product values(product_pid.nextval,'简约风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,'images/jy1.png',4,1000);
+	insert into product values(product_pid.nextval,'简约风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),4,'images/jy2.png',4,1001);
+	insert into product values(product_pid.nextval,'简约风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'简约风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),4,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'简约风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),4,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'简约风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+
+	
+	insert into product values(product_pid.nextval,'卡通风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'卡通风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt2.png',4,1001);
+	insert into product values(product_pid.nextval,'卡通风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt3.png',4,1000);
+	insert into product values(product_pid.nextval,'卡通风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt4.png',4,1001);
+	insert into product values(product_pid.nextval,'卡通风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt5.png',4,1000);
+	insert into product values(product_pid.nextval,'卡通风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'民族风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy1.png',4,1000);
+	insert into product values(product_pid.nextval,'民族风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy2.png',4,1001);
+	insert into product values(product_pid.nextval,'民族风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'民族风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'民族风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'民族风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'英伦风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'英伦风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy2.png',4,1001);
+	insert into product values(product_pid.nextval,'英伦风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'英伦风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'英伦风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt5.png',4,1000);
+	insert into product values(product_pid.nextval,'英伦风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt6.png',4,1001);
+	
+	insert into product values(product_pid.nextval,'田园风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'田园风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt2.png',4,1001);
+	insert into product values(product_pid.nextval,'田园风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'田园风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'田园风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'田园风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'韩式风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'韩式风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt2.png',4,1001);
+	insert into product values(product_pid.nextval,'韩式风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'韩式风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'韩式风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt5.png',4,1000);
+	insert into product values(product_pid.nextval,'韩式风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'美式风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq1.png',4,1000);
+	insert into product values(product_pid.nextval,'美式风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq2.png',4,1001);
+	insert into product values(product_pid.nextval,'美式风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt3.png',4,1000);
+	insert into product values(product_pid.nextval,'美式风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt4.png',4,1001);
+	insert into product values(product_pid.nextval,'美式风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt5.png',4,1000);
+	insert into product values(product_pid.nextval,'美式风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'婚庆风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq1.png',4,1000);
+	insert into product values(product_pid.nextval,'婚庆风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq2.png',4,1001);
+	insert into product values(product_pid.nextval,'婚庆风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq3.png',4,1000);
+	insert into product values(product_pid.nextval,'婚庆风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq4.png',4,1001);
+	insert into product values(product_pid.nextval,'婚庆风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq4.png',4,1000);
+	insert into product values(product_pid.nextval,'婚庆风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq4.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'宫廷风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'宫廷风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy2.png',4,1001);
+	insert into product values(product_pid.nextval,'宫廷风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'宫廷风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq4.png',4,1001);
+	insert into product values(product_pid.nextval,'宫廷风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq1.png',4,1000);
+	insert into product values(product_pid.nextval,'宫廷风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq2.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'工业风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy1.png',4,1000);
+	insert into product values(product_pid.nextval,'工业风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy2.png',4,1001);
+	insert into product values(product_pid.nextval,'工业风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'工业风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'工业风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt5.png',4,1000);
+	insert into product values(product_pid.nextval,'工业风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'小清新','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'小清新','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt2.png',4,1001);
+	insert into product values(product_pid.nextval,'小清新','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt3.png',4,1000);
+	insert into product values(product_pid.nextval,'小清新','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'小清新','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'小清新','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'猴年风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy1.png',4,1000);
+	insert into product values(product_pid.nextval,'猴年风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy2.png',4,1001);
+	insert into product values(product_pid.nextval,'猴年风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt3.png',4,1000);
+	insert into product values(product_pid.nextval,'猴年风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt4.png',4,1001);
+	insert into product values(product_pid.nextval,'猴年风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'猴年风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	
+	
+	
+	insert into product values(product_pid.nextval,'运动风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'运动风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt2.png',4,1001);
+	insert into product values(product_pid.nextval,'运动风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt3.png',4,1000);
+	insert into product values(product_pid.nextval,'运动风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt4.png',4,1001);
+	insert into product values(product_pid.nextval,'运动风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'运动风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	
+	
+	insert into product values(product_pid.nextval,'公主风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/kt1.png',4,1000);
+	insert into product values(product_pid.nextval,'公主风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq2.png',4,1001);
+	insert into product values(product_pid.nextval,'公主风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq3.png',4,1000);
+	insert into product values(product_pid.nextval,'公主风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/hq4.png',4,1001);
+	insert into product values(product_pid.nextval,'公主风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'公主风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	
+	
+	
+	insert into product values(product_pid.nextval,'宜家风','春夏季1.5/1.8m床上用品四件套学生宿舍1.2米床单人被子套三件套4 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy1.png',4,1000);
+	insert into product values(product_pid.nextval,'宜家风','大学生床上用品四件套1.8m被单1.2寝室床单被套米1.5宿舍三件套4',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy2.png',4,1001);
+	insert into product values(product_pid.nextval,'宜家风','水晶绒四件套加厚保暖秋冬法兰绒纯色绣花被套1.8m床1.5米珊瑚绒  ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy3.png',4,1000);
+	insert into product values(product_pid.nextval,'宜家风','床上用品纯棉四件套 全棉4件套1.5/1.8/2.0m床简约单双人床单被套 ',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy4.png',4,1001);
+	insert into product values(product_pid.nextval,'宜家风','顺丰 南极人珊瑚绒四件套法莱绒1.8m床单被套法兰绒1.5米床上用品 ',
+	'2.2m',213,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy5.png',4,1000);
+	insert into product values(product_pid.nextval,'宜家风','雅娴条纹全棉四件套纯色纯棉1.5/1.8m床单被套床上三件套2.0双人',
+	'1.8m',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/jy6.png',4,1001);
+	
+	
+	
 	insert into product values(product_pid.nextval,'窗帘','韩式田园全遮光定制窗帘布欧式客厅拼接成品绿色蕾丝飘窗卧室清新 ',
 	'每米布料不加工单价',89,to_date('2016-8-12','yyyy-mm-dd'),2,'images/cl1.jpg',1,2);
 	insert into product values(product_pid.nextval,'窗帘','纯色美式乡村窗帘飘窗棉麻简约现代客厅卧室成品地中海蓝色qfxl ',

@@ -46,7 +46,7 @@
 				<li class="li_1"></li>
 				<!--logo放置-->
 				<li><a href="">首页</a></li>
-				<li class="li_3"><a href="index/onLine">在线商城<i></i></a>
+				<li class="li_3"><a href="productType/getPtypes">在线商城<i></i></a>
 					<ul class="on_ul">
 						<li class="one">床上用品
 							<ul class="two">

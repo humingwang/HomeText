@@ -2,6 +2,7 @@ package com.yc.highgo.mapper;
 
 import java.util.List;
 
+import com.yc.highgo.entity.Product;
 import com.yc.highgo.entity.ProductType;
 
 public interface ProductTypeMapper {
@@ -10,4 +11,6 @@ public interface ProductTypeMapper {
 	ProductType findAllById(int ptid);
 	boolean delPros(String name);
 	boolean updatePros(ProductType productType);
+	List<ProductType> getPtypes();
+	List<Product> getPstylesById(int ptid);
 }

@@ -5,6 +5,9 @@
 	margin:0px;
 	padding:0px;
 }
+a{
+	text-decoration:none;
+}
 .logo{
 	width:100%;
 	height:30px;
@@ -13,14 +16,13 @@
 .wel{
 	margin-left:80px;
 }
-.logo li{
+.logo ul li{
 	float:left;
 	list-style:none;
 	font-size:12px;
 	line-height:30px;
 	text-align:center;
 	margin-right:20px;
-	color:.666;
 }
 			
 .haigou{
@@ -36,6 +38,9 @@
 	margin-top:20px;
 	margin-right:150px;
 	float:right;
+}
+#sear{
+		background-image:url(../images/111.png);
 }
 .types{
 	width:100%;
@@ -54,7 +59,9 @@
 ul li{
 	list-style:none;
 	}		
-
+.logo  a:hover{
+		color:#ff4400;
+		} 
 .pic1{
 	margin-top:10px;
 	}
@@ -93,9 +100,9 @@ ul li{
 	list-style:none;
 	width:60px;
 	height:60px;
+	color:#f33;
 	font-size:18px;
 	text-align:center;
-	color:#F33;
 	line-height:60px;
 	vertical-align:middle; 
 	font-weight:bold;
@@ -111,10 +118,8 @@ ul li{
 	padding-left:13px;
 	padding-top:20px;
 	}
-.styles li:hover{
-	background:#F90;
-	color:#fff;
-	}
+	
+
 .shou{
 	margin-left:180px;}
 .types ul li{
@@ -140,7 +145,6 @@ ul li{
 	float:left;
 	margin-top:20px;
 	margin-left:15px;
-	border:1px solid red;
 }
 .rightbody1 ul li{
 	list-style:none;
@@ -149,7 +153,6 @@ ul li{
 	float:left;
 	margin-top:10px;
 	margin-left:10px;
-	border:1px solid red;
 }
 .rigrigbody1{
 	width:290px;
@@ -181,7 +184,12 @@ ul li{
 	width:1250px;
 	background-color:#F7F7F7;
 	float:left;
+	margin-left:40px;
 	}
+.guan ul{
+	margin-left:40px;
+	}
+	
 .guan2{
 	float:left;
 	}
@@ -278,7 +286,7 @@ ul li{
 	width:260px;
 	height:255px;
 	float:left;
-
+	margin-left:40px;
 }
 .aa:hover{
 	background-image:url(../images/big.png)}
@@ -366,7 +374,7 @@ ul li{
 
 .body6{
 	width:1250px;
-	height:280px;
+	height:320px;
 	float:left;
 	margin-left:40px;
 	margin-top:30px;
@@ -377,7 +385,8 @@ ul li{
 	width:200px;
 	height:300px;
 	margin-top:30px;
-	margin-left:43px;
+	margin-left:23px;
+	margin-right:20px;
 	list-style:none;
 	float:left;
 	}
@@ -392,7 +401,7 @@ ul li{
 	margin-top:35px;
 		position:absolute;
 		width:1248px;
-		height:245px;
+		height:300px;
 		overflow:hidden;
 		float:left;
 }
@@ -404,7 +413,7 @@ ul li{
 	height:370px; 
 	overflow:hidden;
 	background:#EFEFEF;}
-#marquee4 ul li{float:left; width:180px; padding:10px; line-height:20px;}
+#marquee4 ul li{float:left; padding:10px; line-height:20px;}
 
 
 #marquee3{

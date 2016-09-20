@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yc.highgo.entity.Product;
 import com.yc.highgo.entity.ProductType;
 import com.yc.highgo.mapper.ProductTypeMapper;
 import com.yc.highgo.service.ProductTypeService;
@@ -32,8 +33,15 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	}
 	@Override
 	public boolean updatePros(ProductType productType) {
-		// TODO Auto-generated method stub
 		return productTypeMapper.updatePros(productType);
+	}
+	@Override
+	public List<ProductType> getPtypes() {
+		return productTypeMapper.getPtypes();
+	}
+	@Override
+	public List<Product> getPstylesById(int ptid) {
+		return productTypeMapper.getPstylesById(ptid);
 	}
 
 }

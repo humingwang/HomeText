@@ -22,4 +22,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updatePros"  parameterType="ProductType">
 		update productType set name=#{name},fptid=#{fptid} where ptid=#{ptid}
 	</update>
+	
+	<select id="getPtypes" resultType="ProductType">
+		select ptid,name,fptid from productType where fptid=4
+	</select>
+	
+	<select id="getPstylesById" parameterType="int" resultType="Product">
+		select pid,pict from product p,productType t where p.pname=t.name and t.ptid=#{ptid}
+	</select>
 </mapper>

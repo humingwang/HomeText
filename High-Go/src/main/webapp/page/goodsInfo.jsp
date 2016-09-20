@@ -135,9 +135,9 @@
 		</div>
 		<!--conet -->
 		<div class="tb-property">
-			<div class="tr-nobdr">【嗨购超市】博洋家纺 被子春秋被 双人全棉被芯单人空调被加厚大豆纤维被包邮</div>
+			<div class="tr-nobdr">${lists.pdesc }</div>
 			<div class="txt">
-				<span class="nowprice">￥<a href="">599.00</a></span>
+				<span class="nowprice">￥<a href="">${lists.pprice }</a></span>
 				<div class="cumulative">
 					<span class="number ty1">累计售出<br /> <em
 						id="add_sell_num_363">370</em></span> <span class="number tyu">累计评价<br />
@@ -202,7 +202,7 @@
 			<div class="seller-pop-box">
 				<span class="tr">商家名称：嗨购极有家优品家纺</span> <span class="tr">商家等级：初级店铺</span>
 				<span class="tr">客家电话：15012365897</span> <span class="tr hoh">
-					<a title="河南郑州市航海路57号河南郑州市航海路57号" href="">所在地区：河南郑州市航海路57号河南郑州市航海路57号</a>
+					<a title="河南郑州市航海路57号河南郑州市航海路57号" href="">所在地区：湖南省衡阳市湖南工学院嗨购 </a>
 				</span>
 			</div>
 			<div class="seller-phone">

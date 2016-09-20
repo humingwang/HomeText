@@ -1,6 +1,7 @@
 package com.yc.highgo.handler;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.google.gson.Gson;
 import com.yc.highgo.entity.Customer;
+import com.yc.highgo.entity.Photo;
+import com.yc.highgo.entity.Product;
 import com.yc.highgo.entity.ProductType;
+import com.yc.highgo.service.PhotoService;
 import com.yc.highgo.service.ProductTypeService;
 
 @Controller
@@ -28,12 +33,17 @@ public class ProductTypeHandler {
 	@Autowired
 	private ProductTypeService productTypeService;
 
-	
+	@Autowired
+	private PhotoService photoService;
 	
 	@ModelAttribute
 	public void getModel(ModelMap map){
 		map.put("list", new ProductType());
+		map.put("ptyes", new ArrayList<Product>());
+		map.put("phot", new ArrayList<Photo>());
+	
 	}
+	
 	@RequestMapping(value="/findAll",method=RequestMethod.POST)
 	@ResponseBody
 	public List<ProductType> findAll(){
@@ -89,4 +99,33 @@ public class ProductTypeHandler {
 		return bool;
 	
 	}
+	
+	//获取所有的风格
+	@RequestMapping("/getPtypes")
+	public String getPtypes(ModelMap map){
+		System.out.println("getPtypes coming");
+		List<ProductType> ptyes=productTypeService.getPtypes();
+		List<Product> pp=productTypeService.getPstylesById(55);
+		List<Photo> phot=photoService.getAllPhoto(1004);
+		List<Photo> phot2=photoService.getAllPhoto(1002);
+		map.put("phot", phot);
+		map.put("phot2", phot2);
+		map.put("ptyes", ptyes);
+		map.put("pp", pp);
+		return "onLine";
+	}
+	
+	//通过风格的id获取一下的图片
+	@RequestMapping("/getPstyles")
+	public void getPstylesById(int ptid,ModelMap map,PrintWriter out){
+		System.out.println("getPstyles coming"+ptid);
+		Gson gson=new Gson();
+		List<Product> ptyes=productTypeService.getPstylesById(ptid);
+		System.out.println(ptyes);
+		out.print(gson.toJson(ptyes));
+		out.flush();
+		out.close();
+	}
+	
+	
 }

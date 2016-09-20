@@ -27,4 +27,14 @@ public class ProductTypeServiceImplTest {
 		int result=pro.insertPros(pros);
 		assertEquals(1, result);
 	}
+	
+	@Test
+	public void testGetPtypes() {
+		System.out.println(pro.getPtypes());
+	}
+	
+	@Test
+	public void testGetPstylesById() {
+		System.out.println(pro.getPstylesById(66));
+	}
 }

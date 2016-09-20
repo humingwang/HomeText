@@ -7,11 +7,12 @@ public class Product {
 	private String pname;
 	private String pdesc;
 	private String pnorms;
-	private double pprice;
-	private String ppic;
+	private String pprice;
+	private String pict;
 	private int pview;
 	private Date pdate;
 	private ProductType productType;
+	
 	public int getPid() {
 		return pid;
 	}
@@ -36,17 +37,17 @@ public class Product {
 	public void setPnorms(String pnorms) {
 		this.pnorms = pnorms;
 	}
-	public double getPprice() {
+	public String getPprice() {
 		return pprice;
 	}
-	public void setPprice(double pprice) {
+	public void setPprice(String pprice) {
 		this.pprice = pprice;
 	}
-	public String getPpic() {
-		return ppic;
+	public String getPict() {
+		return pict;
 	}
-	public void setPpic(String ppic) {
-		this.ppic = ppic;
+	public void setPict(String pict) {
+		this.pict = pict;
 	}
 	public int getPview() {
 		return pview;
@@ -66,14 +67,14 @@ public class Product {
 	public void setProductType(ProductType productType) {
 		this.productType = productType;
 	}
-	public Product(int pid, String pname, String pdesc, String pnorms, double pprice, String ppic, int pview,
+	public Product(int pid, String pname, String pdesc, String pnorms, String pprice, String pict, int pview,
 			Date pdate, ProductType productType) {
 		this.pid = pid;
 		this.pname = pname;
 		this.pdesc = pdesc;
 		this.pnorms = pnorms;
 		this.pprice = pprice;
-		this.ppic = ppic;
+		this.pict = pict;
 		this.pview = pview;
 		this.pdate = pdate;
 		this.productType = productType;
@@ -84,7 +85,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "\nProduct [pid=" + pid + ", pname=" + pname + ", pdesc=" + pdesc + ", pnorms=" + pnorms + ", pprice="
-				+ pprice + ", ppic=" + ppic + ", pview=" + pview + ", pdate=" + pdate + ", productType=" + productType
+				+ pprice + ", pict=" + pict + ", pview=" + pview + ", pdate=" + pdate + ", productType=" + productType
 				+ "]";
 	}
 	
